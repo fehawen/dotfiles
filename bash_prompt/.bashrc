@@ -158,16 +158,16 @@ exec_time_section() {
 
 	if [[ $timer_show -ge $timer_limit ]]; then
 		if [[ $timer_show -le 60 ]]; then
-			suffix="s"
+			suffix="sec"
 			duration="${timer_show}"
 		elif [[ $timer_show -gt 60 ]]; then
-			suffix="m"
+			suffix="min"
 			duration=$(($timer_show / 60))
 		elif [[ $timer_show -ge 3600 ]]; then
-			suffix="h"
+			suffix="hrs"
 			duration=$(($timer_show / 3600))
 		fi
-		printf "${white}took ${green}${duration}${suffix}"
+		printf "${white}took ${green}${duration} ${suffix}"
 	fi
 }
 
