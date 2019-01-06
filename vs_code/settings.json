@@ -1,0 +1,22 @@
+{
+	"editor.renderWhitespace": "all",
+	"editor.insertSpaces": false,
+	"workbench.iconTheme": "eq-material-theme-icons-palenight",
+	"breadcrumbs.enabled": true,
+	"editor.fontLigatures": true,
+	"editor.fontFamily": "Fira Code",
+	"editor.fontWeight": "500",
+	"editor.fontSize": 14,
+	"editor.minimap.enabled": false,
+	"editor.tabSize": 2,
+	"editor.wordWrap": "on",
+	"explorer.decorations.badges": false,
+	"editor.renderIndentGuides": false,
+	"workbench.statusBar.feedback.visible": false,
+	"workbench.activityBar.visible": true,
+	"workbench.statusBar.visible": true,
+	"workbench.startupEditor": "newUntitledFile",
+	"window.zoomLevel": 0,
+	"terminal.integrated.fontSize": 14,
+	"workbench.colorTheme": "Material Theme Palenight"
+}
