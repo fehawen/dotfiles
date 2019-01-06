@@ -154,10 +154,20 @@ git_section() {
 }
 
 exec_time_section() {
-	local timer_limit=2
+	local suffix duration timer_limit=2
 
 	if [[ $timer_show -ge $timer_limit ]]; then
-		printf "${white}took ${green}${timer_show}s"
+		if [[ $timer_show -le 60 ]]; then
+			suffix="s"
+			duration="${timer_show}"
+		elif [[ $timer_show -gt 60 ]]; then
+			suffix="m"
+			duration=$(($timer_show / 60))
+		elif [[ $timer_show -ge 3600 ]]; then
+			suffix="h"
+			duration=$(($timer_show / 3600))
+		fi
+		printf "${white}took ${green}${duration}${suffix}"
 	fi
 }
 
