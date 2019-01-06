@@ -5,9 +5,9 @@
 	<br>
 </h1>
 
-## Dotfiles
+## About
 
-Getting my dots on.
+Getting my little dots on.
 
 ## Install
 
