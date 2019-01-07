@@ -164,11 +164,11 @@ exec_time_section() {
 		elif [[ $timer_show -gt 60 ]]; then
 			suffix="min"
 			color=${yellow}
-			duration=$(($timer_show / 60))
+			duration=$(printf %.1f "$((10 * $timer_show / 60))e-1")
 		elif [[ $timer_show -ge 3600 ]]; then
 			suffix="hrs"
 			color=${blue}
-			duration=$(($timer_show / 3600))
+			duration=$(printf %.1f "$((10 * $timer_show / 3600))e-1")
 		fi
 		printf "${white}took ${color}${duration} ${suffix}"
 	fi
