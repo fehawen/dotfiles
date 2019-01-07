@@ -160,7 +160,7 @@ exec_time_section() {
 		if [[ $timer_show -le 60 ]]; then
 			suffix="sec"
 			color=${green}
-			duration="${timer_show}"
+			duration=${timer_show}
 		elif [[ $timer_show -gt 60 ]]; then
 			suffix="min"
 			color=${yellow}
