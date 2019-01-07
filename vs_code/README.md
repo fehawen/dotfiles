@@ -1,5 +1,18 @@
 # VS Code Settings
 
+## Install
+
+**1.** Run the `setup.sh` script inside the `vs_code/` folder.
+```bash
+./setup.sh
+```
+
+**2.** Install [Fira Code](https://github.com/tonsky/FiraCode), or change to whichever [Powerline](https://github.com/powerline/fonts) font you wanna use.
+
+**3.** Install the [Material Theme](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme) for VS Code.
+
+**4.** Done.
+
 ## Extensions
 
 Note to self.
