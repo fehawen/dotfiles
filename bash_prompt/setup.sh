@@ -2,6 +2,7 @@
 
 red="$(tput setaf 1)"
 green="$(tput setaf 2)"
+cyan="$(tput setaf 6)"
 reset="$(tput sgr0)"
 
 initialize() {
@@ -49,8 +50,8 @@ setup_bash_prompt() {
 	fi
 
 	echo "${green}Bash prompt installation complete.${reset}"
-	echo "Enter source ~/.bashrc to reload prompt"
-	echo "Remember to install a PowerLine Font"
+	echo "Enter ${cyan}source ~/.bashrc${reset} to reload prompt"
+	echo "Remember to install a ${cyan}Powerline Font${reset}"
 }
 
 initialize
