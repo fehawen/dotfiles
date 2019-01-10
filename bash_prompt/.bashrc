@@ -166,6 +166,9 @@ exec_time_section() {
 		elif [[ $timer_show -ge 3600 ]]; then
 			suffix="hrs"
 			duration=$(printf %.1f "$((10 * $timer_show / 3600))e-1")
+		elif [[ $timer_show -ge 86400 ]]; then
+			suffix="days"
+			duration=$(printf %.1f "$((10 * $timer_show / 86400))e-1")
 		fi
 		printf "${white}took ${green}${duration} ${suffix}"
 	fi
