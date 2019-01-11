@@ -55,7 +55,7 @@ git_untracked="?"
 git_stashed="$"
 git_ahead="↑"
 git_behind="↓"
-git_prefix="[ "
+git_prefix="["
 git_suffix="]"
 
 newline='
@@ -105,43 +105,43 @@ git_section() {
 	local branch_ahead branch_behind
 
 	if $(echo "$index" | command grep '^[MARCDU ]D ' &> /dev/null); then
-		status="${git_deleted} ${status}"
+		status="${git_deleted}${status}"
 	elif $(echo "$index" | command grep '^D[ UM] ' &> /dev/null); then
-		status="${git_deleted} ${status}"
+		status="${git_deleted}${status}"
 	fi
 
 	if $(echo "$index" | command grep '^A[ MDAU] ' &> /dev/null); then
-		status="${git_added} ${status}"
+		status="${git_added}${status}"
 	elif $(echo "$index" | command grep '^M[ MD] ' &> /dev/null); then
-		status="${git_added} ${status}"
+		status="${git_added}${status}"
 	elif $(echo "$index" | command grep '^UA' &> /dev/null); then
-		status="${git_added} ${status}"
+		status="${git_added}${status}"
 	fi
 
 	if $(echo "$index" | command grep '^R[ MD] ' &> /dev/null); then
-		status="${git_renamed} ${status}"
+		status="${git_renamed}${status}"
 	fi
 
 	if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
-		status="${git_stashed} ${status}"
+		status="${git_stashed}${status}"
 	fi
 
 	if $(echo "$index" | command grep -E '^\?\? ' &> /dev/null); then
-		status="${git_untracked} ${status}"
+		status="${git_untracked}${status}"
 	fi
 
 	if $(echo "$index" | command grep '^[ MARC]M ' &> /dev/null); then
-		status="${git_modified} ${status}"
+		status="${git_modified}${status}"
 	fi
 
 	local behind=$(git rev-list --left-only --count @'{u}'...HEAD 2>/dev/null)
 	if [[ $behind -gt 0 ]]; then
-		status="${git_behind} ${status}"
+		status="${git_behind}${status}"
 	fi
 
 	local ahead=$(git rev-list --left-only --count HEAD...@'{u}' 2>/dev/null)
 	if [[ $ahead -gt 0 ]]; then
-		status="${git_ahead} ${status}"
+		status="${git_ahead}${status}"
 	fi
 
 	local git_status="${white}on ${magenta}${icon_gitbranch} ${branch} "
@@ -183,7 +183,7 @@ exit_section() {
 		exit_status="${red}"
 	fi
 
-	printf "${exit_status}${icon_prompt}${reset} "
+	printf "${reset}${exit_status}${icon_prompt} "
 }
 
 set_prompt() {
