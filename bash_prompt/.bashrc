@@ -1,7 +1,9 @@
 #!/bin/bash
 
 alias clr='clear'
-alias la='ls -lah'
+alias l='ls -1 -G'
+alias la='ls -1A -F -G'
+alias las='ls -lAh'
 alias g+='git add'
 alias g-='git rm'
 alias gcm='git commit -m'
@@ -46,6 +48,7 @@ reset="\001$(tput sgr0)\002"
 
 icon_gitbranch="\xEE\x82\xA0"
 icon_prompt="\xE2\x86\x92"
+icon_extensions="✦"
 
 git_modified="!"
 git_added="+"
@@ -55,8 +58,9 @@ git_untracked="?"
 git_stashed="$"
 git_ahead="↑"
 git_behind="↓"
-git_prefix="["
-git_suffix="]"
+
+bracket_prefix="("
+bracket_suffix=")"
 
 newline='
 '
@@ -96,6 +100,20 @@ dir_section() {
 	echo -e "${cyan}$dir "
 }
 
+file_ext_section() {
+	[[ $(PWD) == $HOME ]] && return
+
+	local output=""
+
+	local preferred_ext='mjs|js|jsx|ts|tsx|sh|zsh|yaml|md|css|sass|less|html|xhtml|php|asp|pl|py|rb|zip|tar|gz'
+
+	local found_ext=$(for f in *.*; do echo "${f##*.}, "; done | sort -u | grep -E '^(.*)\'${preferred_ext}'$' | sort -h | tr -d '\n' | sed 's/\(.*\).\{2\}/\1/')
+
+	[[ $found_ext == "" ]] && return
+
+	printf "${white}at ${blue}${bracket_prefix}${found_ext}${bracket_suffix} "
+}
+
 git_section() {
 	is_git_repository || return
 
@@ -104,21 +122,21 @@ git_section() {
 	local branch=$(git symbolic-ref --short HEAD 2> /dev/null)
 	local branch_ahead branch_behind
 
-	if $(echo "$index" | command grep '^[MARCDU ]D ' &> /dev/null); then
+	if $(echo "$index" | command grep -E '^[MARCDU ]D ' &> /dev/null); then
 		status="${git_deleted}${status}"
-	elif $(echo "$index" | command grep '^D[ UM] ' &> /dev/null); then
+	elif $(echo "$index" | command grep -E '^D[ UM] ' &> /dev/null); then
 		status="${git_deleted}${status}"
 	fi
 
-	if $(echo "$index" | command grep '^A[ MDAU] ' &> /dev/null); then
+	if $(echo "$index" | command grep -E '^A[ MDAU] ' &> /dev/null); then
 		status="${git_added}${status}"
-	elif $(echo "$index" | command grep '^M[ MD] ' &> /dev/null); then
+	elif $(echo "$index" | command grep -E '^M[ MD] ' &> /dev/null); then
 		status="${git_added}${status}"
-	elif $(echo "$index" | command grep '^UA' &> /dev/null); then
+	elif $(echo "$index" | command grep -E '^UA' &> /dev/null); then
 		status="${git_added}${status}"
 	fi
 
-	if $(echo "$index" | command grep '^R[ MD] ' &> /dev/null); then
+	if $(echo "$index" | command grep -E '^R[ MD] ' &> /dev/null); then
 		status="${git_renamed}${status}"
 	fi
 
@@ -130,7 +148,7 @@ git_section() {
 		status="${git_untracked}${status}"
 	fi
 
-	if $(echo "$index" | command grep '^[ MARC]M ' &> /dev/null); then
+	if $(echo "$index" | command grep -E '^[ MARC]M ' &> /dev/null); then
 		status="${git_modified}${status}"
 	fi
 
@@ -147,7 +165,7 @@ git_section() {
 	local git_status="${white}on ${magenta}${icon_gitbranch} ${branch} "
 
 	if [[ $status != "" ]]; then
-		git_status="${git_status}${red}${git_prefix}${status}${git_suffix} "
+		git_status="${git_status}${red}${bracket_prefix}${status}${bracket_suffix} "
 	fi
 
 	printf "${git_status}"
@@ -188,7 +206,7 @@ exit_section() {
 
 set_prompt() {
 	RETVAL=$?
-	printf "${newline}${bold}$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_section)${reset}"
+	printf "${newline}${bold}$(user_section)$(dir_section)$(file_ext_section)$(git_section)$(exec_time_section)${newline}$(exit_section)${reset}"
 }
 
 PROMPT_COMMAND=timer_stop
