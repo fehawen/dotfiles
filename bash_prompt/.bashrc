@@ -2,8 +2,8 @@
 
 alias clr='clear'
 alias ll='ls -1 -G'
-alias la='ls -1A -F -G'
-alias las='ls -lAh'
+alias la='ls -1A -G'
+alias las='ls -lAh -G'
 alias g+='git add'
 alias g-='git rm'
 alias gcm='git commit -m'
@@ -48,7 +48,6 @@ reset="\001$(tput sgr0)\002"
 
 icon_gitbranch="\xEE\x82\xA0"
 icon_prompt="\xE2\x86\x92"
-icon_extensions="✦"
 
 git_modified="!"
 git_added="+"
@@ -65,6 +64,15 @@ bracket_suffix=")"
 newline='
 '
 
+# Work In Progress
+SHOW_USER=true
+SHOW_DIRECTORY=true
+SHOW_FILE_EXTENSIONS=false
+SHOW_GIT_INFO=true
+SHOW_NODE_VERSION=true
+SHOW_EXEC_TIME=true
+# End
+
 timer_start() {
 	timer=${timer:-$SECONDS}
 }
@@ -75,6 +83,10 @@ timer_stop() {
 }
 
 trap timer_start DEBUG
+
+command_exists() {
+	command -v $1 > /dev/null 2>&1
+}
 
 is_git_repository() {
 	command git rev-parse --is-inside-work-tree &> /dev/null
@@ -101,13 +113,15 @@ dir_section() {
 }
 
 file_ext_section() {
+	$SHOW_FILE_EXTENSIONS || return
+	
 	[[ $(PWD) == $HOME ]] && return
 
 	local output=""
 
 	local preferred_ext='mjs|js|jsx|ts|tsx|sh|zsh|yaml|md|css|sass|less|html|xhtml|php|asp|pl|py|rb|zip|tar|gz'
 
-	local found_ext=$(for f in *.*; do echo "${f##*.}, "; done | sort -u | grep -E '^(.*)\'${preferred_ext}'$' | sort -h | tr -d '\n' | sed 's/\(.*\).\{2\}/\1/')
+	local found_ext=$(for f in *.*; do echo ".${f##*.} "; done | sort -u | grep -E '^(.*)\'${preferred_ext}'$' | sort -h | tr -d '\n' | sed 's/\(.*\).\{1\}/\1/')
 
 	[[ $found_ext == "" ]] && return
 
@@ -171,6 +185,14 @@ git_section() {
 	printf "${git_status}"
 }
 
+node_section() {
+	[[ -f package.json || -d node_modules ]] || return
+
+	if command_exists node; then
+		printf "${white}via ${green}node-js "
+	fi
+}
+
 exec_time_section() {
 	local suffix duration timer_limit=2
 
@@ -206,7 +228,7 @@ exit_section() {
 
 set_prompt() {
 	RETVAL=$?
-	printf "${newline}${bold}$(user_section)$(dir_section)$(file_ext_section)$(git_section)$(exec_time_section)${newline}$(exit_section)${reset}"
+	printf "${newline}${bold}$(user_section)$(dir_section)$(file_ext_section)$(git_section)$(node_section)$(exec_time_section)${newline}$(exit_section)${reset}"
 }
 
 PROMPT_COMMAND=timer_stop
