@@ -1,7 +1,7 @@
 #!/bin/bash
 
 alias clr='clear'
-alias l='ls -1 -G'
+alias ll='ls -1 -G'
 alias la='ls -1A -F -G'
 alias las='ls -lAh'
 alias g+='git add'
