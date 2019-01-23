@@ -1,9 +1,9 @@
 #!/bin/bash
 
 alias clr='clear'
-alias ll='ls -1 -G'
-alias la='ls -1A -G'
-alias las='ls -lAh -G'
+alias ll='ls -1 -F -G'
+alias la='ls -1A -F -G'
+alias las='ls -lAh -F -G'
 alias g+='git add'
 alias g-='git rm'
 alias gcm='git commit -m'
@@ -48,6 +48,8 @@ reset="\001$(tput sgr0)\002"
 
 icon_gitbranch="\xEE\x82\xA0"
 icon_prompt="\xE2\x86\x92"
+icon_files="◆"
+icon_node="●"
 
 git_modified="!"
 git_added="+"
@@ -58,20 +60,11 @@ git_stashed="$"
 git_ahead="↑"
 git_behind="↓"
 
-bracket_prefix="("
-bracket_suffix=")"
+bracket_prefix="["
+bracket_suffix="]"
 
 newline='
 '
-
-# Work In Progress
-SHOW_USER=true
-SHOW_DIRECTORY=true
-SHOW_FILE_EXTENSIONS=false
-SHOW_GIT_INFO=true
-SHOW_NODE_VERSION=true
-SHOW_EXEC_TIME=true
-# End
 
 timer_start() {
 	timer=${timer:-$SECONDS}
@@ -99,33 +92,39 @@ user_section() {
 }
 
 dir_section() {
-	local dir get_dir=${PWD##*/}
+	local dir 
+	local get_dir=${PWD##*/}
 
-	if [[ $(echo $PWD) == $HOME ]]; then 
-		dir="~"
-	elif [[ $(echo $PWD) == "$HOME/$get_dir" ]]; then
-		dir="~/$get_dir"
+	if is_git_repository; then
+		local git_root=$(git rev-parse --show-toplevel)
+		local git_toplevel=${git_root##*/}
+		local git_path=$(git rev-parse --show-prefix)
+		temp="../$git_toplevel/$git_path"
+		dir=$(echo ${temp} | sed 's/\(.*\).\{1\}/\1/')
 	else
-		dir=".../$get_dir"
+		if [[ $(PWD) == $HOME ]]; then
+			dir="~"
+		elif [[ $(PWD) == "$HOME/$get_dir" ]]; then
+			dir="~/$get_dir"
+		else
+			dir="../$get_dir"
+		fi
 	fi
 
 	echo -e "${cyan}$dir "
 }
 
-file_ext_section() {
-	$SHOW_FILE_EXTENSIONS || return
-	
+dir_content_section() {
 	[[ $(PWD) == $HOME ]] && return
 
-	local output=""
+	local subdirs=$(ls -lA | grep -c ^d)
+	local files=$(ls -lA | grep -c ^-)
 
-	local preferred_ext='mjs|js|jsx|ts|tsx|sh|zsh|yaml|md|css|sass|less|html|xhtml|php|asp|pl|py|rb|zip|tar|gz'
-
-	local found_ext=$(for f in *.*; do echo ".${f##*.} "; done | sort -u | grep -E '^(.*)\'${preferred_ext}'$' | sort -h | tr -d '\n' | sed 's/\(.*\).\{1\}/\1/')
-
-	[[ $found_ext == "" ]] && return
-
-	printf "${white}at ${blue}${bracket_prefix}${found_ext}${bracket_suffix} "
+	if [[ $subdirs == "" && $files == "" ]]; then
+		printf "${yellow}${icon_files} empty "
+	else
+		printf "${yellow}${icon_files} ${subdirs}.${files} "
+	fi
 }
 
 git_section() {
@@ -137,59 +136,65 @@ git_section() {
 	local branch_ahead branch_behind
 
 	if $(echo "$index" | command grep -E '^[MARCDU ]D ' &> /dev/null); then
-		status="${git_deleted}${status}"
+		status="${git_deleted} ${status}"
 	elif $(echo "$index" | command grep -E '^D[ UM] ' &> /dev/null); then
-		status="${git_deleted}${status}"
+		status="${git_deleted} ${status}"
 	fi
 
 	if $(echo "$index" | command grep -E '^A[ MDAU] ' &> /dev/null); then
-		status="${git_added}${status}"
+		status="${git_added} ${status}"
 	elif $(echo "$index" | command grep -E '^M[ MD] ' &> /dev/null); then
-		status="${git_added}${status}"
+		status="${git_added} ${status}"
 	elif $(echo "$index" | command grep -E '^UA' &> /dev/null); then
-		status="${git_added}${status}"
+		status="${git_added} ${status}"
 	fi
 
 	if $(echo "$index" | command grep -E '^R[ MD] ' &> /dev/null); then
-		status="${git_renamed}${status}"
+		status="${git_renamed} ${status}"
 	fi
 
-	if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
-		status="${git_stashed}${status}"
+	if $(command git rev-parse --verify refs/stash > /dev/null 2>&1); then
+		status="${git_stashed} ${status}"
 	fi
 
 	if $(echo "$index" | command grep -E '^\?\? ' &> /dev/null); then
-		status="${git_untracked}${status}"
+		status="${git_untracked} ${status}"
 	fi
 
 	if $(echo "$index" | command grep -E '^[ MARC]M ' &> /dev/null); then
-		status="${git_modified}${status}"
+		status="${git_modified} ${status}"
 	fi
 
-	local behind=$(git rev-list --left-only --count @'{u}'...HEAD 2>/dev/null)
+	local behind=$(git rev-list --left-only --count @'{u}'...HEAD 2> /dev/null)
 	if [[ $behind -gt 0 ]]; then
-		status="${git_behind}${status}"
+		status="${git_behind} ${status}"
 	fi
 
-	local ahead=$(git rev-list --left-only --count HEAD...@'{u}' 2>/dev/null)
+	local ahead=$(git rev-list --left-only --count HEAD...@'{u}' 2> /dev/null)
 	if [[ $ahead -gt 0 ]]; then
-		status="${git_ahead}${status}"
+		status="${git_ahead} ${status}"
 	fi
 
 	local git_status="${white}on ${magenta}${icon_gitbranch} ${branch} "
 
 	if [[ $status != "" ]]; then
-		git_status="${git_status}${red}${bracket_prefix}${status}${bracket_suffix} "
+		git_status="${git_status}${red}${bracket_prefix} ${status}${bracket_suffix} "
 	fi
 
 	printf "${git_status}"
 }
 
 node_section() {
-	[[ -f package.json || -d node_modules ]] || return
+	is_git_repository || return
+
+	local git_root=$(git rev-parse --show-toplevel)
+
+	[[ -f ${git_root}/package.json || -d ${git_root}/node_modules ]] || return
+
+	local node_version=$(node -v 2> /dev/null)
 
 	if command_exists node; then
-		printf "${white}via ${green}node-js "
+		printf "${white}via ${green}${icon_node} ${node_version} "
 	fi
 }
 
@@ -228,7 +233,7 @@ exit_section() {
 
 set_prompt() {
 	RETVAL=$?
-	printf "${newline}${bold}$(user_section)$(dir_section)$(file_ext_section)$(git_section)$(node_section)$(exec_time_section)${newline}$(exit_section)${reset}"
+	printf "${newline}${bold}$(user_section)$(dir_section)$(dir_content_section)$(file_ext_section)$(git_section)$(node_section)$(exec_time_section)${newline}$(exit_section)${reset}"
 }
 
 PROMPT_COMMAND=timer_stop
