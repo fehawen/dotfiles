@@ -19,5 +19,6 @@
 	"window.zoomLevel": 0,
 	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.fontWeight": "400",
+	"terminal.integrated.cursorStyle": "underline",
 	"workbench.colorTheme": "Material Theme Palenight"
 }
