@@ -50,8 +50,8 @@ underline_start="$(tput smul)"
 underline_end="$(tput rmul)"
 reset="\001$(tput sgr0)\002"
 
-icon_gitbranch="\xEE\x82\xA0"
-icon_prompt="\xE2\x86\x92"
+icon_gitbranch=""
+icon_prompt="→"
 icon_files="◆"
 icon_node="●"
 
