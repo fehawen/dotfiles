@@ -31,7 +31,9 @@ alias mongorun='mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data'
 alias gconf=git_config
 
 git_config() {
+
 	command git config user.name $1 && git config user.email $2
+
 }
 
 black="\001$(tput setaf 0)\002"
@@ -69,73 +71,105 @@ newline='
 '
 
 timer_start() {
+
 	timer=${timer:-$SECONDS}
+
 }
 
 timer_stop() {
+
 	timer_show=$(($SECONDS - $timer))
+
 	unset timer
+
 }
 
 trap timer_start DEBUG
 
 command_exists() {
+
 	command -v $1 > /dev/null 2>&1
+
 }
 
 is_git_repository() {
+
 	command git rev-parse --is-inside-work-tree &> /dev/null
+
 }
 
 user_section() {
+
 	if [[ $UID -eq 0 ]]; then
 		printf "${red}$USER ${white}in "
 	fi
+
 }
 
 dir_section() {
-	local dir 
-	local get_dir=${PWD##*/}
 
 	if is_git_repository; then
-		local git_root=$(git rev-parse --show-toplevel)
-		local git_toplevel=${git_root##*/}
-		local git_path=$(git rev-parse --show-prefix)
-		local branch=$(git symbolic-ref --short HEAD 2> /dev/null)
-
-		if [[ $(PWD) == $git_root ]]; then
-			dir="../$get_dir"
-		else
-			temp="../${underline_start}$git_toplevel${underline_end}/$git_path"
-			dir=$(echo ${temp} | sed 's/\(.*\).\{1\}/\1/')
-		fi
+		dir_is_git
 	else
-		if [[ $(PWD) == $HOME ]]; then
+		dir_not_git
+	fi
+
+}
+
+dir_is_git() {
+
+	local dir
+	local git_root=$(git rev-parse --show-toplevel)
+	local git_toplevel=${git_root##*/}
+	local git_path=$(git rev-parse --show-prefix | sed 's/\(.*\).\{1\}/\1/')
+
+	if [[ $(PWD) == $git_root ]]; then
+		dir="../${underline_start}$git_toplevel${underline_end}"
+	else
+		dir="../${underline_start}$git_toplevel${underline_end}/$git_path"
+	fi
+
+	printf "${cyan}$dir "
+
+}
+
+dir_not_git() {
+
+	local dir
+	local get_dir=${PWD##*/}
+
+	if [[ $(PWD) == $HOME ]]; then
 			dir="~"
 		elif [[ $(PWD) == "$HOME/$get_dir" ]]; then
 			dir="~/$get_dir"
 		else
 			dir="../$get_dir"
-		fi
 	fi
 
 	printf "${cyan}$dir "
+
 }
 
 dir_content_section() {
+
 	[[ $(PWD) == $HOME ]] && return
 
 	local subdirs=$(ls -lA | grep -c ^d)
 	local files=$(ls -lA | grep -c ^-)
+	local content
 
 	if [[ $subdirs == "" && $files == "" ]]; then
-		printf "${white}at ${yellow}${icon_files} empty "
+		content="${yellow}${icon_files} empty "
 	else
-		printf "${white}at ${yellow}${icon_files} ${subdirs}.${files} "
+		content="${yellow}${icon_files} ${subdirs}.${files} "
 	fi
+
+	printf "${white}with ${content}"
+
 }
 
 git_section() {
+
 	is_git_repository || return
 
 	local status=""
@@ -174,11 +208,13 @@ git_section() {
 	fi
 
 	local behind=$(git rev-list --left-only --count @'{u}'...HEAD 2> /dev/null)
+
 	if [[ $behind -gt 0 ]]; then
 		status="${git_behind} ${status}"
 	fi
 
 	local ahead=$(git rev-list --left-only --count HEAD...@'{u}' 2> /dev/null)
+
 	if [[ $ahead -gt 0 ]]; then
 		status="${git_ahead} ${status}"
 	fi
@@ -190,9 +226,11 @@ git_section() {
 	fi
 
 	printf "${git_status}"
+
 }
 
 node_section() {
+
 	is_git_repository || return
 
 	local git_root=$(git rev-parse --show-toplevel)
@@ -204,9 +242,11 @@ node_section() {
 	if command_exists node; then
 		printf "${white}via ${green}${icon_node} ${node_version} "
 	fi
+
 }
 
 exec_time_section() {
+
 	local suffix duration timer_limit=2
 
 	if [[ $timer_show -ge $timer_limit ]]; then
@@ -225,9 +265,11 @@ exec_time_section() {
 		fi
 		printf "${white}took ${green}${duration} ${suffix}"
 	fi
+
 }
 
 exit_section() {
+
 	local exit_status
 
 	if [[ $RETVAL -eq 0 ]]; then 
@@ -237,11 +279,15 @@ exit_section() {
 	fi
 
 	printf "${reset}${exit_status}${icon_prompt} "
+
 }
 
 set_prompt() {
+
 	RETVAL=$?
+
 	printf "${newline}${bold}$(user_section)$(dir_section)$(dir_content_section)$(git_section)$(node_section)$(exec_time_section)${newline}$(exit_section)${reset}"
+
 }
 
 PROMPT_COMMAND=timer_stop
