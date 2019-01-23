@@ -121,9 +121,9 @@ dir_content_section() {
 	local files=$(ls -lA | grep -c ^-)
 
 	if [[ $subdirs == "" && $files == "" ]]; then
-		printf "${yellow}${icon_files} empty "
+		printf "${white}at ${yellow}${icon_files} empty "
 	else
-		printf "${yellow}${icon_files} ${subdirs}.${files} "
+		printf "${white}at ${yellow}${icon_files} ${subdirs}.${files} "
 	fi
 }
 
@@ -189,7 +189,7 @@ node_section() {
 
 	local git_root=$(git rev-parse --show-toplevel)
 
-	[[ -f ${git_root}/package.json || -d ${git_root}/node_modules ]] || return
+	[[ -f ${git_root}/package.json || -d ${git_root}/node_modules || -f package.json || -d node_modules ]] || return
 
 	local node_version=$(node -v 2> /dev/null)
 
