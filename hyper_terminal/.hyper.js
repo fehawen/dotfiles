@@ -9,7 +9,7 @@ module.exports = {
 		updateChannel: 'stable',
 
 		// default font size in pixels for all tabs
-		fontSize: 14,
+		fontSize: 16,
 
 		// font family with optional fallbacks
 		fontFamily: 'Fira Code',
@@ -27,10 +27,10 @@ module.exports = {
 		letterSpacing: 0,
 
 		// terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-		cursorColor: '#FF85FF',
+		cursorColor: '#FFCB6B',
 
 		// terminal text color under BLOCK cursor
-		cursorAccentColor: '#FFFFFF',
+		cursorAccentColor: '#292D3E',
 
 		// `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
 		cursorShape: 'UNDERLINE',
@@ -46,7 +46,7 @@ module.exports = {
 		backgroundColor: '#292D3E',
 
 		// terminal selection color
-		selectionColor: 'rgba(255, 133, 255, 0.35)',
+		selectionColor: 'rgba(255, 255, 255, 0.2)',
 
 		// border color (window, tabs)
 		borderColor: '#1F222E',
@@ -73,21 +73,21 @@ module.exports = {
 		// including the 6 x 6 color cubes and the grayscale map, just provide
 		// an array here instead of a color map object
 		colors: {
-			black: '#929292',
-			red: '#FF7E79',
-			green: '#73FA79',
-			yellow: '#FFFC79',
-			blue: '#76D6FF',
-			magenta: '#FF85FF',
-			cyan: '#73FDFF',
-			white: '#C7C7C7',
-			lightBlack: '#686868',
-			lightRed: '#FF7E79',
-			lightGreen: '#73FA79',
-			lightYellow: '#FFFC79',
-			lightBlue: '#76D6FF',
-			lightMagenta: '#FF85FF',
-			lightCyan: '#73FDFF',
+			black: '#676E95',
+      red: '#FF5370',
+      green: '#C3E88D',
+      yellow: '#FFCB6B',
+      blue: '#82AAFF',
+      magenta: '#C792EA',
+      cyan: '#89DDFF',
+      white: '#FFFFFF',
+      lightBlack: '#676E95',
+      lightRed: '#FF5370',
+      lightGreen: '#C3E88D',
+      lightYellow: '#FFCB6B',
+      lightBlue: '#82AAFF',
+      lightMagenta: '#C792EA',
+      lightCyan: '#89DDFF',
 			lightWhite: '#FFFFFF',
 		},
 
