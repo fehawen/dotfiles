@@ -44,6 +44,8 @@ cyan="\001$(tput setaf 6)\002"
 white="\001$(tput setaf 7)\002"
 grey="\001$(tput setaf 8)\002"
 bold="\001$(tput bold)\002"
+underline_start="$(tput smul)"
+underline_end="$(tput rmul)"
 reset="\001$(tput sgr0)\002"
 
 icon_gitbranch="\xEE\x82\xA0"
@@ -99,8 +101,14 @@ dir_section() {
 		local git_root=$(git rev-parse --show-toplevel)
 		local git_toplevel=${git_root##*/}
 		local git_path=$(git rev-parse --show-prefix)
-		temp="../$git_toplevel/$git_path"
-		dir=$(echo ${temp} | sed 's/\(.*\).\{1\}/\1/')
+		local branch=$(git symbolic-ref --short HEAD 2> /dev/null)
+
+		if [[ $(PWD) == $git_root ]]; then
+			dir="../$get_dir"
+		else
+			temp="../${underline_start}$git_toplevel${underline_end}/$git_path"
+			dir=$(echo ${temp} | sed 's/\(.*\).\{1\}/\1/')
+		fi
 	else
 		if [[ $(PWD) == $HOME ]]; then
 			dir="~"
@@ -111,7 +119,7 @@ dir_section() {
 		fi
 	fi
 
-	echo -e "${cyan}$dir "
+	printf "${cyan}$dir "
 }
 
 dir_content_section() {
