@@ -233,7 +233,7 @@ exit_section() {
 
 set_prompt() {
 	RETVAL=$?
-	printf "${newline}${bold}$(user_section)$(dir_section)$(dir_content_section)$(file_ext_section)$(git_section)$(node_section)$(exec_time_section)${newline}$(exit_section)${reset}"
+	printf "${newline}${bold}$(user_section)$(dir_section)$(dir_content_section)$(git_section)$(node_section)$(exec_time_section)${newline}$(exit_section)${reset}"
 }
 
 PROMPT_COMMAND=timer_stop
