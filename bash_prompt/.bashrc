@@ -119,14 +119,13 @@ dir_section() {
 dir_is_git() {
 
 	local dir
+	local get_dir=${PWD##*/}
 	local git_root=$(git rev-parse --show-toplevel)
-	local git_toplevel=${git_root##*/}
-	local git_path=$(git rev-parse --show-prefix | sed 's/\(.*\).\{1\}/\1/')
 
 	if [[ $(PWD) == $git_root ]]; then
-		dir="../${underline_start}$git_toplevel${underline_end}"
+		dir="../$get_dir"
 	else
-		dir="../${underline_start}$git_toplevel${underline_end}/$git_path"
+		dir="../${underline_start}$get_dir${underline_end}"
 	fi
 
 	printf "${cyan}$dir "
