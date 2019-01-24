@@ -163,7 +163,7 @@ dir_content_section() {
 		content="${yellow}${icon_files} ${subdirs}.${files} "
 	fi
 
-	printf "${white}with ${content}"
+	printf "${white}at ${content}"
 
 }
 
