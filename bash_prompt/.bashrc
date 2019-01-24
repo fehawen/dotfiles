@@ -46,8 +46,8 @@ cyan="\001$(tput setaf 6)\002"
 white="\001$(tput setaf 7)\002"
 grey="\001$(tput setaf 8)\002"
 bold="\001$(tput bold)\002"
-underline_start="$(tput smul)"
-underline_end="$(tput rmul)"
+underline_begin="\001$(tput smul)\002"
+underline_end="\001$(tput rmul)\002"
 reset="\001$(tput sgr0)\002"
 
 icon_gitbranch=""
@@ -108,41 +108,24 @@ user_section() {
 
 dir_section() {
 
-	if is_git_repository; then
-		dir_is_git
-	else
-		dir_not_git
-	fi
-
-}
-
-dir_is_git() {
-
-	local dir
-	local get_dir=${PWD##*/}
-	local git_root=$(git rev-parse --show-toplevel)
-
-	if [[ $(PWD) == $git_root ]]; then
-		dir="../$get_dir"
-	else
-		dir="../${underline_start}$get_dir${underline_end}"
-	fi
-
-	printf "${cyan}$dir "
-
-}
-
-dir_not_git() {
-
 	local dir
 	local get_dir=${PWD##*/}
 
 	if [[ $(PWD) == $HOME ]]; then
 			dir="~"
-		elif [[ $(PWD) == "$HOME/$get_dir" ]]; then
+	elif [[ $(PWD) == "$HOME/$get_dir" ]]; then
 			dir="~/$get_dir"
+	else
+		if is_git_repository; then
+			local git_root=$(git rev-parse --show-toplevel)
+			if [[ $(PWD) == $git_root ]]; then
+				dir="../$get_dir"
+			else
+				dir="../${underline_begin}$get_dir${underline_end}"
+			fi
 		else
 			dir="../$get_dir"
+		fi
 	fi
 
 	printf "${cyan}$dir "
@@ -177,51 +160,51 @@ git_section() {
 	local branch_ahead branch_behind
 
 	if $(echo "$index" | command grep -E '^[MARCDU ]D ' &> /dev/null); then
-		status="${git_deleted} ${status}"
+		status="${git_deleted}${status}"
 	elif $(echo "$index" | command grep -E '^D[ UM] ' &> /dev/null); then
-		status="${git_deleted} ${status}"
+		status="${git_deleted}${status}"
 	fi
 
 	if $(echo "$index" | command grep -E '^A[ MDAU] ' &> /dev/null); then
-		status="${git_added} ${status}"
+		status="${git_added}${status}"
 	elif $(echo "$index" | command grep -E '^M[ MD] ' &> /dev/null); then
-		status="${git_added} ${status}"
+		status="${git_added}${status}"
 	elif $(echo "$index" | command grep -E '^UA' &> /dev/null); then
-		status="${git_added} ${status}"
+		status="${git_added}${status}"
 	fi
 
 	if $(echo "$index" | command grep -E '^R[ MD] ' &> /dev/null); then
-		status="${git_renamed} ${status}"
+		status="${git_renamed}${status}"
 	fi
 
 	if $(command git rev-parse --verify refs/stash > /dev/null 2>&1); then
-		status="${git_stashed} ${status}"
+		status="${git_stashed}${status}"
 	fi
 
 	if $(echo "$index" | command grep -E '^\?\? ' &> /dev/null); then
-		status="${git_untracked} ${status}"
+		status="${git_untracked}${status}"
 	fi
 
 	if $(echo "$index" | command grep -E '^[ MARC]M ' &> /dev/null); then
-		status="${git_modified} ${status}"
+		status="${git_modified}${status}"
 	fi
 
 	local behind=$(git rev-list --left-only --count @'{u}'...HEAD 2> /dev/null)
 
 	if [[ $behind -gt 0 ]]; then
-		status="${git_behind} ${status}"
+		status="${git_behind}${status}"
 	fi
 
 	local ahead=$(git rev-list --left-only --count HEAD...@'{u}' 2> /dev/null)
 
 	if [[ $ahead -gt 0 ]]; then
-		status="${git_ahead} ${status}"
+		status="${git_ahead}${status}"
 	fi
 
 	local git_status="${white}on ${magenta}${icon_gitbranch} ${branch} "
 
 	if [[ $status != "" ]]; then
-		git_status="${git_status}${red}${bracket_prefix} ${status}${bracket_suffix} "
+		git_status="${git_status}${red}${bracket_prefix}${status}${bracket_suffix} "
 	fi
 
 	printf "${git_status}"
