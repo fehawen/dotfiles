@@ -70,6 +70,14 @@ bracket_suffix="]"
 newline='
 '
 
+# Set to `true` to include in prompt
+# Directory doesn't have an option to exclude, unless you add one yourself if desired
+SHOW_USER=true
+SHOW_DIR_CONTENT=false
+SHOW_GIT=true
+SHOW_NODE=true
+SHOW_EXEC_TIME=true
+
 timer_start() {
 
 	timer=${timer:-$SECONDS}
@@ -99,6 +107,8 @@ is_git_repository() {
 }
 
 user_section() {
+
+	$SHOW_USER || return
 
 	if [[ $UID -eq 0 ]]; then
 		printf "${red}$USER ${white}in "
@@ -134,6 +144,8 @@ dir_section() {
 
 dir_content_section() {
 
+	$SHOW_DIR_CONTENT || return
+
 	[[ $(PWD) == $HOME ]] && return
 
 	local subdirs=$(ls -lA | grep -c ^d)
@@ -151,6 +163,8 @@ dir_content_section() {
 }
 
 git_section() {
+
+	$SHOW_GIT || return
 
 	is_git_repository || return
 
@@ -213,6 +227,8 @@ git_section() {
 
 node_section() {
 
+	$SHOW_NODE || return
+
 	is_git_repository || return
 
 	local git_root=$(git rev-parse --show-toplevel)
@@ -228,6 +244,8 @@ node_section() {
 }
 
 exec_time_section() {
+
+	$SHOW_EXEC_TIME || return
 
 	local suffix duration timer_limit=2
 
@@ -260,7 +278,7 @@ exit_section() {
 		exit_status="${red}"
 	fi
 
-	printf "${reset}${exit_status}${icon_prompt} "
+	printf "${exit_status}${icon_prompt} "
 
 }
 
