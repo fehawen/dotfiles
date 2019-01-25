@@ -140,13 +140,13 @@ dir_content_section() {
 	local files=$(ls -lA | grep -c ^-)
 	local content
 
-	if [[ $subdirs == "" && $files == "" ]]; then
-		content="${yellow}${icon_files} empty "
+	if [[ $subdirs == 0 && $files == 0 ]]; then
+		content="empty"
 	else
-		content="${yellow}${icon_files} ${subdirs}.${files} "
+		content="${subdirs}.${files}"
 	fi
 
-	printf "${white}at ${content}"
+	printf "${white}at ${yellow}${icon_files} ${content} "
 
 }
 
