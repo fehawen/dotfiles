@@ -67,15 +67,18 @@ git_behind="↓"
 bracket_prefix="["
 bracket_suffix="]"
 
+parenthesis_prefix="("
+parenthesis_suffix=")"
+
 newline='
 '
 
 # Set to `true` to include in prompt
 # Directory doesn't have an option to exclude, unless you add one yourself if desired
 SHOW_USER=true
-SHOW_DIR_CONTENT=false
+SHOW_DIR_CONTENT=true
 SHOW_GIT=true
-SHOW_NODE=true
+SHOW_NODE=false
 SHOW_EXEC_TIME=true
 
 timer_start() {
@@ -155,10 +158,10 @@ dir_content_section() {
 	if [[ $subdirs == 0 && $files == 0 ]]; then
 		content="empty"
 	else
-		content="${subdirs}.${files}"
+		content="${subdirs}/${files}"
 	fi
 
-	printf "${white}at ${yellow}${icon_files} ${content} "
+	printf "${yellow}${parenthesis_prefix}${content}${parenthesis_suffix} "
 
 }
 
