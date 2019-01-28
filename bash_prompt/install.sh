@@ -2,6 +2,7 @@
 
 red="$(tput setaf 1)"
 green="$(tput setaf 2)"
+yellow="$(tput setaf 3)"
 cyan="$(tput setaf 6)"
 reset="$(tput sgr0)"
 newline='
@@ -12,7 +13,11 @@ log() {
 }
 
 clone() {
-	read -r -p "If you wish to clone this repo into a specific location, please specify the path.${newline}Else press 'Enter' to clone into: '$(PWD)/dotfiles'${newline}${cyan}PATH:${reset} " clonepath
+	echo -e "${cyan}If you wish to clone this repo into a specific location, please specify the path below."
+	echo -e "Else press 'Enter' to clone into: '$(PWD)/dotfiles'"
+
+	read -r -p "${cyan}PATH:${reset} " clonepath
+
 	if [ "$clonepath" != "" ]; then
 		log "Cloning fehawen/dotfiles to '${clonepath}/dotfiles'"
 		git clone https://github.com/fehawen/dotfiles.git $clonepath
