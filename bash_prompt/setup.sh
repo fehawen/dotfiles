@@ -5,53 +5,75 @@ green="$(tput setaf 2)"
 cyan="$(tput setaf 6)"
 reset="$(tput sgr0)"
 
-initialize() {
-	read -r -p "${green}Install bash prompt? ${reset}[y/N] " answer
-	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo "${red}Installation declined${reset}"
-		exit
+log() {
+	echo -e "${green}INFO: $1${reset}"
+}
+
+error() {
+	echo -e "${red}ERROR: $1${reset}"
+}
+
+clone() {
+	echo -e "${cyan}If you wish to clone this repo into a specific location, please specify the path below."
+	echo -e "Else press 'Enter' to clone into: '$(PWD)/dotfiles'"
+
+	read -r -p "${cyan}PATH:${reset} " clonepath
+
+	if [[ $clonepath == "" ]]; then
+		log "Cloning fehawen/dotfiles to '$(PWD)/dotfiles'"
+		git clone https://github.com/fehawen/dotfiles.git
 	else
-		setup_bash_prompt
+		log "Cloning fehawen/dotfiles to '${clonepath}/dotfiles'"
+		git clone https://github.com/fehawen/dotfiles.git ${clonepath}/dotfiles
 	fi
 }
 
-setup_bash_prompt() {
-	echo "${green}Installing Bash prompt...${reset}"
+initialize() {
+	read -r -p "${cyan}Install bash prompt? ${reset}[y/N] " answer
+	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+		error "Installation declined..."
+		exit
+	else
+		setup
+	fi
+}
 
-	if [ -f $HOME/.bashrc ]; then
-		rm $HOME/.bashrc
+setup() {
+	log "Installing BASH prompt..."
+
+	timestamp=$(date +"%Y%m%d@%H:%M:%S")
+
+	if [ -d "$HOME/.bashrc" ]; then
+		log "Making backup of '\$HOME/.bashrc' to '\$HOME/.bashrc.backup.$timestamp'"
+		mv $HOME/{.bashrc, .bashrc.backup.$timestamp}
 	fi
 
-	echo "Symlinking .bashrc..."
-	ln -sf "$(pwd)/.bashrc" $HOME
+	log "Symlinking .bashrc..."
+	ln -sf "$(PWD)/.bashrc" $HOME
 
-	if [ -f $HOME/.bash_profile ]; then
-		rm ~/.bash_profile
+	if [ -d "$HOME/.bash_profile" ]; then
+		log "Making backup of '\$HOME/.bash_profile' to '\$HOME/.bash_profile.backup.$timestamp'"
+		mv $HOME/{.bash_profile, .bash_profile.backup.$timestamp}
 	fi
 
-	echo "Sourcing .bashrc in .bash_profile..."
-	printf '#!/bin/bash' >> $HOME/.bash_profile
-	printf '%s\nsource $HOME/.bashrc' >> $HOME/.bash_profile
+	log "Symlinking .bash_profile..."
+	ln -sf "$(PWD)/.bash_profile" $HOME
 
-	if [ -f $HOME/.hushlogin ]; then
-		rm $HOME/.hushlogin
-	fi
-
-	echo "Symlinking .hushlogin for muted terminal login message..."
-	ln -sf "$(pwd)/.hushlogin" $HOME
+	log "Symlinking .hushlogin for muted terminal login message..."
+	ln -sf "$(PWD)/.hushlogin" $HOME
 
 	echo "Checking which shell..."
 	if $(echo "$SHELL" | command grep -i '/bin/bash' &> /dev/null); then
-		echo "Shell is already set to $SHELL"
+		log "Shell is already set to $SHELL"
 	else
-		echo "Shell is set to $SHELL"
-		echo "Changing shell to /bin/bash"
+		log "Shell is set to $SHELL"
+		log "Changing shell to /bin/bash"
 		chsh -s /bin/bash
 	fi
 
-	echo "${green}Bash prompt installation complete.${reset}"
-	echo "Enter ${cyan}source ~/.bashrc${reset} to reload prompt"
-	echo "Remember to install a ${cyan}Powerline Font${reset}"
+	log "Bash prompt installation complete"
+	echo -e "Enter ${cyan}source ~/.bashrc${reset} to reload prompt"
+	echo -e "Remember to install a ${cyan}Powerline Font${reset}"
 }
 
 initialize
