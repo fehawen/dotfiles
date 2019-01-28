@@ -15,14 +15,14 @@ clone() {
 
 	read -r -p "${cyan}PATH:${reset} " answer
 
-	if [[ $answer == "" ]]; then
-		log "Cloning fehawen/dotfiles to '$(PWD)/dotfiles'"
-		git clone https://github.com/fehawen/dotfiles.git
-		next "$(PWD)/dotfiles/setup.sh"
-	else
+	if [ "$answer" != "" ]; then
 		log "Cloning fehawen/dotfiles to '${clonepath}/dotfiles'"
 		git clone https://github.com/fehawen/dotfiles.git ${clonepath}/dotfiles
 		next "${clonepath}/dotfiles/setup.sh"
+	else
+		log "Cloning fehawen/dotfiles to '$(PWD)/dotfiles'"
+		git clone https://github.com/fehawen/dotfiles.git
+		next "$(PWD)/dotfiles/setup.sh"
 	fi
 
 	next
