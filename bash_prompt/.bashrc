@@ -28,6 +28,12 @@ alias files='cd ~/files/'
 alias repos='cd ~/repos/'
 alias projects='cd ~/projects'
 alias mongorun='mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data'
+alias start-chunkwm='brew services start koekeishiya/formulae/chunkwm'
+alias restart-chunkwm='brew services restart koekeishiya/formulae/chunkwm'
+alias stop-chunkwm='brew services stop koekeishiya/formulae/chunkwm'
+alias start-skhd='brew services start koekeishiya/formulae/skhd'
+alias restart-skhd='brew services restart koekeishiya/formulae/skhd'
+alias stop-skhd='brew services stop koekeishiya/formulae/skhd'
 alias gconf=git_config
 
 git_config() {
