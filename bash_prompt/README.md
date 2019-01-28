@@ -2,9 +2,9 @@
 
 ## Install
 
-**1.** Install using `curl`, or alternatively just run the `dotfiles/bash_prompt/setup.sh` script.
+**1.** Install with `install.sh` to clone and setup using `curl`, or alternatively just clone the repo and run the `dotfiles/bash_prompt/setup.sh` script.
 ```bash
-curl https://raw.githubusercontent.com/fehawen/dotfiles/master/bash_prompt/setup.sh | bash
+curl https://raw.githubusercontent.com/fehawen/dotfiles/master/bash_prompt/install.sh | bash
 ```
 
 **Note:** The setup script will clone this repo, so make sure to run the `curl` command from whichever directory you want this repo to be located in.
