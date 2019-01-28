@@ -45,7 +45,7 @@ setup() {
 	log "Symlinking .skhdrc..."
 	ln -sf "$(PWD)/.skhdrc" $HOME
 
-	log "Setup complete."
+	echo -e "Setup complete."
 }
 
 initialize
