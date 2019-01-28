@@ -14,7 +14,7 @@ error() {
 }
 
 initialize() {
-	read -r -p "${cyan}Install bash prompt? ${reset}[y/N] " answer
+	read -r -p "${cyan}Install BASH prompt? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
 		error "Installation declined..."
 		exit
@@ -24,22 +24,22 @@ initialize() {
 }
 
 setup() {
-	log "Installing BASH prompt..."
+	echo -e "Installing BASH prompt..."
 
-	timestamp=$(date +"%Y%m%d@%H:%M:%S")
+	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
-	if [ -d "$HOME/.bashrc" ]; then
-		log "Making backup of '\$HOME/.bashrc' to '\$HOME/.bashrc.backup.$timestamp'"
-		mv $HOME/{.bashrc, .bashrc.backup.$timestamp}
+	if [ -f "$HOME/.bashrc" ]; then
+		log "Making backup of '$HOME/.bashrc' to '$HOME/.bashrc.backup.$timestamp'"
+		mv $HOME/.bashrc $HOME/.bashrc.backup.$timestamp
+	fi
+
+	if [ -f "$HOME/.bash_profile" ]; then
+		log "Making backup of '$HOME/.bash_profile' to '$HOME/.bash_profile.backup.$timestamp'"
+		mv $HOME/.bash_profile $HOME/.bash_profile.backup.$timestamp
 	fi
 
 	log "Symlinking .bashrc..."
 	ln -sf "$(PWD)/.bashrc" $HOME
-
-	if [ -d "$HOME/.bash_profile" ]; then
-		log "Making backup of '\$HOME/.bash_profile' to '\$HOME/.bash_profile.backup.$timestamp'"
-		mv $HOME/{.bash_profile, .bash_profile.backup.$timestamp}
-	fi
 
 	log "Symlinking .bash_profile..."
 	ln -sf "$(PWD)/.bash_profile" $HOME
@@ -56,7 +56,7 @@ setup() {
 		chsh -s /bin/bash
 	fi
 
-	log "Bash prompt installation complete"
+	log "Installation complete"
 	echo -e "Enter ${cyan}source ~/.bashrc${reset} to reload prompt"
 	echo -e "Remember to install a ${cyan}Powerline Font${reset}"
 }
