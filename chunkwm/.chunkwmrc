@@ -43,7 +43,7 @@ chunkc core::hotload 0
 
 chunkc set custom_bar_enabled            0
 chunkc set custom_bar_all_monitors       0
-chunkc set custom_bar_offset_top         22
+chunkc set custom_bar_offset_top         0
 chunkc set custom_bar_offset_bottom      0
 chunkc set custom_bar_offset_left        0
 chunkc set custom_bar_offset_right       0
