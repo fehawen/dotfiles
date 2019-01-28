@@ -13,18 +13,22 @@ log() {
 }
 
 clone() {
-	echo -e "${yellow}If you wish to clone this repo into a specific location, please specify the path below."
-	echo -e "Else press 'Enter' to clone into: '$(PWD)/dotfiles'"
+	echo -e "${newline}${cyan}If you wish to clone this repo into a specific location, please specify the path below."
+	echo -e "Else press 'Enter' to clone into: '$(PWD)/dotfiles'${newline}"
 
-	read -r -p "${cyan}PATH:${reset} " clonepath
+	read -r -p "${yellow}PATH:${reset} " clonepath
 
 	if [ "$clonepath" != "" ]; then
-		log "Cloning fehawen/dotfiles to '${clonepath}/dotfiles'"
+		log "Cloning fehawen/dotfiles to '${clonepath}'"
 		git clone https://github.com/fehawen/dotfiles.git $clonepath
-		next "${clonepath}/dotfiles/bash_prompt/setup.sh"
+		log "Cloning complete."
+		log "Proceeding..."
+		next "${clonepath}/bash_prompt/setup.sh"
 	else
-		log "Cloning fehawen/dotfiles to '$(PWD)/dotfiles'"
+		log "${newline}Cloning fehawen/dotfiles to '$(PWD)/dotfiles'"
 		git clone https://github.com/fehawen/dotfiles.git
+		log "Cloning complete."
+		log "Proceeding..."
 		next "$(PWD)/dotfiles/bash_prompt/setup.sh"
 	fi
 

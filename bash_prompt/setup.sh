@@ -14,9 +14,10 @@ error() {
 }
 
 initialize() {
-	read -r -p "${cyan}Install BASH prompt? ${reset}[y/N] " answer
+	read -r -p "${cyan}Setup bash prompt? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		error "Installation declined..."
+		error "Setup declined..."
+		error "Now exiting."
 		exit
 	else
 		setup
@@ -24,7 +25,7 @@ initialize() {
 }
 
 setup() {
-	echo -e "Installing BASH prompt..."
+	echo -e "Setting up bash prompt..."
 
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
@@ -56,7 +57,7 @@ setup() {
 		chsh -s /bin/bash
 	fi
 
-	log "Installation complete"
+	log "Setup complete."
 	echo -e "Enter ${cyan}source ~/.bashrc${reset} to reload prompt"
 	echo -e "Remember to install a ${cyan}Powerline Font${reset}"
 }
