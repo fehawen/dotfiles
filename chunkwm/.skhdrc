@@ -191,17 +191,12 @@ shift + alt - 6 : chunkc tiling::window --send-to-desktop 6
 # ctrl + cmd - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
 # ctrl + cmd - 3  : chunkc tiling::window --send-to-monitor 3; chunkc tiling::monitor -f 3
 
-# increase region size
-shift + alt - a : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
-shift + alt - s : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
-shift + alt - w : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
-shift + alt - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
-
-# decrease region size
-shift + cmd - a : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge west
-shift + cmd - s : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge south
-shift + cmd - w : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge north
-shift + cmd - d : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
+# move region separators in the specified direction instead of making the regions explicitly larger/smaller
+# https://github.com/koekeishiya/chunkwm/wiki/Useful-tips-and-workarounds#resize-regions-similar-to-the-behavior-known-from-the-i3-window-manager
+shift + alt - a : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east
+shift + alt - s : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge south; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge north
+shift + alt - w : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge south
+shift + alt - d : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west
 
 # set insertion point for focused container
 # ctrl + alt - f : chunkc tiling::window --use-insertion-point cancel
