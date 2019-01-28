@@ -13,7 +13,7 @@ log() {
 }
 
 clone() {
-	echo -e "${cyan}If you wish to clone this repo into a specific location, please specify the path below."
+	echo -e "${yellow}If you wish to clone this repo into a specific location, please specify the path below."
 	echo -e "Else press 'Enter' to clone into: '$(PWD)/dotfiles'"
 
 	read -r -p "${cyan}PATH:${reset} " clonepath
