@@ -54,10 +54,12 @@ set shiftwidth=2
 set autoindent
 
 " add line numbers
-set number
+set relativenumber number
 
 " get bash-like tab completions
 set wildmode=longest,list
+
+set lazyredraw
 
 " set an 80 column border for good coding style
 " set cc=80
