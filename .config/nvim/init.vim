@@ -59,7 +59,11 @@ set relativenumber number
 " get bash-like tab completions
 set wildmode=longest,list
 
+" prevent cursor to jump around too much on scroll
 set lazyredraw
+
+" change line number color
+highlight LineNr term=bold cterm=NONE ctermfg=Grey ctermbg=NONE
 
 " set an 80 column border for good coding style
 " set cc=80
