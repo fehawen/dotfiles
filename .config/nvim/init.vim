@@ -8,19 +8,20 @@ endif
 " Specify a directory for plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Ale  -  asynchronous lint engine
+Plug 'mattn/emmet-vim'
+
 Plug 'w0rp/ale'
 
-" Vim javascript - syntax highlighting
 Plug 'pangloss/vim-javascript'
 
-" Vim typescript - syntax highlighting
 Plug 'leafgarland/typescript-vim'
 
-" Nerdtree (on-demand loading)
+Plug 'HerringtonDarkholme/yats.vim'
+
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-" Lightline
 Plug 'itchyny/lightline.vim'
 
 " Initialize plugin system
@@ -70,3 +71,6 @@ highlight LineNr term=bold cterm=NONE ctermfg=Grey ctermbg=NONE
 
 " color scheme
 " colorscheme vimbrant
+
+" Plugin configs
+let g:deoplete#enable_at_startup = 1
