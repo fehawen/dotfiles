@@ -16,7 +16,7 @@ Plug 'pangloss/vim-javascript'
 
 Plug 'leafgarland/typescript-vim'
 
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'Shougo/deoplete.nvim'
 
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
@@ -64,7 +64,7 @@ set wildmode=longest,list
 set lazyredraw
 
 " change line number color
-highlight LineNr term=bold cterm=NONE ctermfg=Grey ctermbg=NONE
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 
 " set an 80 column border for good coding style
 " set cc=80
