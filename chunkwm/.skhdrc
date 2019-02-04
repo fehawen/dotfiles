@@ -83,8 +83,11 @@
 #     "finder"      : false
 # ]
 
-# open iTerm2
-cmd - return : open /Applications/iTerm.app
+# open kitty terminal
+# cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+# open new alacritty terminal window
+# cmd - return : open -n /Applications/Alacritty.app
 
 # open qutebrowser
 # cmd + shift - return : ~/Scripts/qtb.sh
