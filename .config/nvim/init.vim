@@ -5,20 +5,20 @@
 syntax enable
 colorscheme desert
 
-" Disable compatibility to old-time vi
+" disable compatibility to old-time vi
 set nocompatible
 
-" Enable filetype recognition
+" filetype recognition
 filetype on
 
-" Enable filetype plugins
+" enable filetype plugins and indent
 filetype plugin on
 filetype indent on
 
-" Show matching brackets.
+" show matching brackets.
 set showmatch
 
-" Do case insensitive matching
+" do case insensitive matching
 set ignorecase
 
 " highlight search results
