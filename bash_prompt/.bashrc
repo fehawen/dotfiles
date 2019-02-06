@@ -88,48 +88,34 @@ SHOW_NODE=false
 SHOW_EXEC_TIME=true
 
 timer_start() {
-
 	timer=${timer:-$SECONDS}
-
 }
 
 timer_stop() {
-
 	timer_show=$(($SECONDS - $timer))
-
 	unset timer
-
 }
 
 trap timer_start DEBUG
 
 command_exists() {
-
 	command -v $1 > /dev/null 2>&1
-
 }
 
 is_git_repository() {
-
 	command git rev-parse --is-inside-work-tree &> /dev/null
-
 }
 
 user_section() {
-
 	$SHOW_USER || return
-
 	if [[ $UID -eq 0 ]]; then
 		printf "${red}$USER ${white}in "
 	fi
-
 }
 
 dir_section() {
-
 	local dir
 	local get_dir=${PWD##*/}
-
 	if [[ $(PWD) == $HOME ]]; then
 			dir="~"
 	elif [[ $(PWD) == "$HOME/$get_dir" ]]; then
@@ -146,29 +132,22 @@ dir_section() {
 			dir="../$get_dir"
 		fi
 	fi
-
 	printf "${cyan}$dir "
-
 }
 
 dir_content_section() {
-
 	$SHOW_DIR_CONTENT || return
-
 	[[ $(PWD) == $HOME ]] && return
-
-	local subdirs=$(ls -lA | grep -c ^d)
-	local files=$(ls -lA | grep -c ^-)
-	local content
-
-	if [[ $subdirs == 0 && $files == 0 ]]; then
+	local subdirs=$(find . -maxdepth 1 -type d -ls | grep -c ^)
+	local files=$(find . -maxdepth 1 -type f -ls | grep -c ^)
+	local symlinks=$(find . -maxdepth 1 -type l -ls | grep -c ^)
+	subdirs=$(($subdirs - 1))
+	if [[ $subdirs == 0 && $files == 0 && $symlinks == 0 ]]; then
 		content="empty"
 	else
-		content="${subdirs}/${files}"
+		content="${subdirs}/${files}/${symlinks}"
 	fi
-
 	printf "${yellow}${parenthesis_prefix}${content}${parenthesis_suffix} "
-
 }
 
 git_section() {
