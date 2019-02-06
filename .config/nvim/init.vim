@@ -1,34 +1,19 @@
-" Automatic installation
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
-endif
+" if (has("termguicolors"))
+"  set termguicolors
+" endif
 
-" Specify a directory for plugins
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'mattn/emmet-vim'
-
-Plug 'w0rp/ale'
-
-Plug 'pangloss/vim-javascript'
-
-Plug 'leafgarland/typescript-vim'
-
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-
-Plug 'Shougo/deoplete.nvim'
-
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-Plug 'itchyny/lightline.vim'
-
-" Initialize plugin system
-call plug#end()
+syntax enable
+colorscheme desert
 
 " Disable compatibility to old-time vi
 set nocompatible
+
+" Enable filetype recognition
+filetype on
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
 
 " Show matching brackets.
 set showmatch
@@ -69,8 +54,36 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 " set an 80 column border for good coding style
 " set cc=80
 
-" color scheme
-" colorscheme vimbrant
+" Automatic vim-plug installation
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+endif
+
+" Specify a directory for plugins
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'mattn/emmet-vim'
+
+Plug 'w0rp/ale'
+
+Plug 'pangloss/vim-javascript'
+
+Plug 'leafgarland/typescript-vim'
+
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
+Plug 'Shougo/deoplete.nvim'
+
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'itchyny/lightline.vim'
+
+" Initialize plugin system
+call plug#end()
 
 " Plugin configs
 let g:deoplete#enable_at_startup = 1
