@@ -8,13 +8,6 @@ colorscheme desert
 " disable compatibility to old-time vi
 set nocompatible
 
-" filetype recognition
-filetype on
-
-" enable filetype plugins and indent
-filetype plugin on
-filetype indent on
-
 " show matching brackets.
 set showmatch
 
