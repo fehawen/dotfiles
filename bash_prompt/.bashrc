@@ -37,10 +37,30 @@ alias stop-skhd='brew services stop koekeishiya/formulae/skhd'
 alias gconf=git_config
 
 git_config() {
-
 	command git config user.name $1 && git config user.email $2
-
 }
+
+# Color modes reminder
+# normal     = 0
+# bright     = 1
+# dimmed     = 2
+# italic     = 3
+# underlined = 4
+# blinking   = 5
+# reversed   = 7
+# hidden     = 8
+
+# In Bash, the character can be obtained with the following syntaxes:
+# \e
+# \033
+# \x1B
+
+# echo -e "\e[1mbold\e[0m"
+# echo -e "\e[3mitalic\e[0m"
+# echo -e "\e[4munderline\e[0m"
+# echo -e "\e[9mstrikethrough\e[0m"
+# echo -e "\e[31mHello World\e[0m"
+# echo -e "\x1B[31mHello World\e[0m"
 
 black="\001$(tput setaf 0)\002"
 red="\001$(tput setaf 1)\002"
@@ -56,8 +76,32 @@ underline_begin="\001$(tput smul)\002"
 underline_end="\001$(tput rmul)\002"
 reset="\001$(tput sgr0)\002"
 
+# change to using this instead of tput when time allows to do so.
+# BLACK="\033[0;30m"
+# RED="\033[0;31m"
+# GREEN="\033[0;32m"
+# YELLOW="\033[0;33m"
+# BLUE="\033[0;34m"
+# MAGENTA="\033[0;35m"
+# CYAN="\033[0;36m"
+# WHITE="\033[0;37m"
+# GREY="\033[0;90m"
+
+# BLACK_BRIGHT="\033[1;30m"
+# RED_BRIGHT="\033[1;31m"
+# GREEN_BRIGHT="\033[1;32m"
+# YELLOW_BRIGHT="\033[1;33m"
+# BLUE_BRIGHT="\033[1;34m"
+# MAGENTA_BRIGHT="\033[1;35m"
+# CYAN_BRIGHT="\033[1;36m"
+# WHITE_BRIGHT="\033[1;37m"
+# GREY_BRIGHT="\033[1;90m"
+
+# DEFAULTCOLOR="\[\033[39m\]"
+# NOCOLOR="\[\033[0m\]"
+
 icon_gitbranch=""
-icon_prompt="→"
+icon_arrow="→"
 icon_files="◆"
 icon_node="●"
 
@@ -75,6 +119,9 @@ bracket_suffix="]"
 
 parenthesis_prefix="("
 parenthesis_suffix=")"
+
+curly_prefix="{"
+curly_suffix="}"
 
 newline='
 '
@@ -108,56 +155,70 @@ is_git_repository() {
 
 user_section() {
 	$SHOW_USER || return
+
 	if [[ $UID -eq 0 ]]; then
 		printf "${red}$USER ${white}in "
 	fi
 }
 
 dir_section() {
-	local dir
+	local dir temp prefix
 	local get_dir=${PWD##*/}
-	if [[ $(PWD) == $HOME ]]; then
-			dir="~"
-	elif [[ $(PWD) == "$HOME/$get_dir" ]]; then
-			dir="~/$get_dir"
+
+	if [[ $(PWD) == "$HOME/$get_dir" ]]; then
+		prefix="~/"
 	else
-		if is_git_repository; then
-			local git_root=$(git rev-parse --show-toplevel)
-			if [[ $(PWD) == $git_root ]]; then
-				dir="../$get_dir"
-			else
-				dir="../${underline_begin}$get_dir${underline_end}"
-			fi
+		prefix=".../"
+	fi
+
+	if is_git_repository; then
+		local git_root=$(git rev-parse --show-toplevel)
+		local git_path=$(git rev-parse --show-prefix)
+		local git_toplevel=${git_root##*/}
+		if [[ $(PWD) == $git_root ]]; then
+			dir="${prefix}${git_toplevel}"
 		else
-			dir="../$get_dir"
+			temp="${prefix}${git_toplevel}/${git_path}"
+			dir=$(echo ${temp} | sed 's/\(.*\).\{1\}/\1/')
+		fi
+	else
+		if [[ $(PWD) == $HOME ]]; then
+			dir="~"
+		else
+			dir="${prefix}${get_dir}"
 		fi
 	fi
-	printf "${cyan}$dir "
+
+	printf "${cyan}${dir} "
 }
 
 dir_content_section() {
 	$SHOW_DIR_CONTENT || return
+
 	[[ $(PWD) == $HOME ]] && return
+
 	local subdirs=$(find . -maxdepth 1 -type d -ls | grep -c ^)
 	local files=$(find . -maxdepth 1 -type f -ls | grep -c ^)
 	local symlinks=$(find . -maxdepth 1 -type l -ls | grep -c ^)
+
 	subdirs=$(($subdirs - 1))
+
 	if [[ $subdirs == 0 && $files == 0 && $symlinks == 0 ]]; then
 		content="empty"
 	else
-		content="${subdirs}/${files}/${symlinks}"
+		content="${subdirs}.${files}.${symlinks}"
 	fi
-	printf "${yellow}${parenthesis_prefix}${content}${parenthesis_suffix} "
+
+	printf "${white}at ${blue}${content} "
 }
 
 git_section() {
-
 	$SHOW_GIT || return
 
 	is_git_repository || return
 
 	local status=""
-	local index=$(command git status --porcelain -b 2> /dev/null)
+	local index=$(git status --porcelain -b 2> /dev/null)
 	local branch=$(git symbolic-ref --short HEAD 2> /dev/null)
 	local branch_ahead branch_behind
 
@@ -203,18 +264,15 @@ git_section() {
 		status="${git_ahead}${status}"
 	fi
 
-	local git_status="${white}on ${magenta}${icon_gitbranch} ${branch} "
-
+	local git_status="${white}on ${magenta}${branch} "
 	if [[ $status != "" ]]; then
 		git_status="${git_status}${red}${bracket_prefix}${status}${bracket_suffix} "
 	fi
 
 	printf "${git_status}"
-
 }
 
 node_section() {
-
 	$SHOW_NODE || return
 
 	is_git_repository || return
@@ -228,11 +286,9 @@ node_section() {
 	if command_exists node; then
 		printf "${white}via ${green}${icon_node} ${node_version} "
 	fi
-
 }
 
 exec_time_section() {
-
 	$SHOW_EXEC_TIME || return
 
 	local suffix duration timer_limit=2
@@ -253,11 +309,9 @@ exec_time_section() {
 		fi
 		printf "${white}took ${green}${duration} ${suffix}"
 	fi
-
 }
 
 exit_section() {
-
 	local exit_status
 
 	if [[ $RETVAL -eq 0 ]]; then 
@@ -267,15 +321,12 @@ exit_section() {
 	fi
 
 	printf "${exit_status}${icon_prompt} "
-
 }
 
 set_prompt() {
-
 	RETVAL=$?
 
 	printf "${newline}${bold}$(user_section)$(dir_section)$(dir_content_section)$(git_section)$(node_section)$(exec_time_section)${newline}$(exit_section)${reset}"
-
 }
 
 PROMPT_COMMAND=timer_stop

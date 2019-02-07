@@ -49,11 +49,11 @@ chunkc set custom_bar_offset_left        0
 chunkc set custom_bar_offset_right       0
 
 chunkc set global_desktop_mode           bsp
-chunkc set global_desktop_offset_top     20
-chunkc set global_desktop_offset_bottom  20
-chunkc set global_desktop_offset_left    20
-chunkc set global_desktop_offset_right   20
-chunkc set global_desktop_offset_gap     20
+chunkc set global_desktop_offset_top     15
+chunkc set global_desktop_offset_bottom  15
+chunkc set global_desktop_offset_left    15
+chunkc set global_desktop_offset_right   15
+chunkc set global_desktop_offset_gap     15
 
 #
 # NOTE: syntax for desktop-specific settings
@@ -86,7 +86,7 @@ chunkc set mouse_move_window             \"fn 1\"
 chunkc set mouse_resize_window           \"fn 2\"
 chunkc set mouse_motion_interval         35
 
-chunkc set preselect_border_color        0xffE1D6A7
+chunkc set preselect_border_color        0xff3B3E3B
 chunkc set preselect_border_width        8
 chunkc set preselect_border_radius       0
 chunkc set preselect_border_outline      0
@@ -110,7 +110,7 @@ chunkc set window_use_cgs_move           0
 #       1 = true, outline border
 #
 
-chunkc set focused_border_color          0xffE1D6A7
+chunkc set focused_border_color          0xff3B3E3B
 chunkc set focused_border_width          8
 chunkc set focused_border_radius         0
 chunkc set focused_border_outline        0
