@@ -100,9 +100,10 @@ reset="\001$(tput sgr0)\002"
 # DEFAULTCOLOR="\[\033[39m\]"
 # NOCOLOR="\[\033[0m\]"
 
-icon_gitbranch=""
+# requires font with ligature support
+# icon_gitbranch=""
+
 icon_arrow="→"
-icon_files="◆"
 icon_node="●"
 
 git_modified="!"
@@ -111,17 +112,12 @@ git_deleted="-"
 git_renamed="*"
 git_untracked="?"
 git_stashed="$"
-git_ahead="↑"
-git_behind="↓"
+git_ahead="▲"
+git_behind="▼"
+git_uneven="±"
 
 bracket_prefix="["
 bracket_suffix="]"
-
-parenthesis_prefix="("
-parenthesis_suffix=")"
-
-curly_prefix="{"
-curly_suffix="}"
 
 newline='
 '
@@ -253,18 +249,14 @@ git_section() {
 	fi
 
 	local behind=$(git rev-list --left-only --count @'{u}'...HEAD 2> /dev/null)
-
-	if [[ $behind -gt 0 ]]; then
-		status="${git_behind}${status}"
-	fi
-
 	local ahead=$(git rev-list --left-only --count HEAD...@'{u}' 2> /dev/null)
 
-	if [[ $ahead -gt 0 ]]; then
-		status="${git_ahead}${status}"
+	if [[ $behind -gt 0 || $ahead -gt 0 ]]; then
+		status="${git_uneven}${status}"
 	fi
 
 	local git_status="${white}on ${magenta}${branch} "
+
 	if [[ $status != "" ]]; then
 		git_status="${git_status}${red}${bracket_prefix}${status}${bracket_suffix} "
 	fi
