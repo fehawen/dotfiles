@@ -158,32 +158,30 @@ user_section() {
 dir_section() {
 	local dir temp prefix
 	local get_dir=${PWD##*/}
+	local git_root=$(git rev-parse --show-toplevel 2> /dev/null)
+	local git_toplevel=${git_root##*/}
 
-	if [[ $(PWD) == "$HOME/$get_dir" ]]; then
+	if [[ $(PWD) == "$HOME/$get_dir" || $git_root == "$HOME/$git_toplevel" ]]; then
 		prefix="~/"
 	else
 		prefix=".../"
 	fi
 
 	if is_git_repository; then
-		local git_root=$(git rev-parse --show-toplevel)
-		local git_path=$(git rev-parse --show-prefix)
-		local git_toplevel=${git_root##*/}
 		if [[ $(PWD) == $git_root ]]; then
-			dir="${prefix}${git_toplevel}"
+			dir="${git_toplevel}"
 		else
-			temp="${prefix}${git_toplevel}/${git_path}"
-			dir=$(echo ${temp} | sed 's/\(.*\).\{1\}/\1/')
+			dir="${git_toplevel} ${icon_arrow} ${get_dir}"
 		fi
 	else
-		if [[ $(PWD) == $HOME ]]; then
-			dir="~"
-		else
-			dir="${prefix}${get_dir}"
-		fi
+		dir="${get_dir}"
 	fi
 
-	printf "${cyan}${dir} "
+	if [[ $(PWD) == $HOME ]]; then
+		printf "${cyan}~ "
+	else
+		printf "${cyan}${prefix}${dir} "
+	fi
 }
 
 dir_content_section() {
