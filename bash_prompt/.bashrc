@@ -308,7 +308,7 @@ exit_section() {
 		exit_status="${red}"
 	fi
 
-	printf "${exit_status}${icon_prompt} "
+	printf "${exit_status}${icon_arrow} "
 }
 
 set_prompt() {
