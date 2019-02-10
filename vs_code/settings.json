@@ -6,7 +6,7 @@
 	"editor.fontLigatures": true,
 	"editor.fontFamily": "Operator Mono",
 	"editor.fontWeight": "400",
-	"editor.fontSize": 15,
+	"editor.fontSize": 14,
 	"editor.minimap.enabled": false,
 	"editor.tabSize": 2,
 	"editor.wordWrap": "on",
