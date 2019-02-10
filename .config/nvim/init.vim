@@ -2,9 +2,6 @@
 "  set termguicolors
 " endif
 
-syntax enable
-colorscheme desert
-
 " disable compatibility to old-time vi
 set nocompatible
 
