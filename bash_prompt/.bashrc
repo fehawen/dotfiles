@@ -91,7 +91,7 @@ newline='
 # Section colors, symbols and prefixes - change to your liking!
 user_is_root_color=$red
 
-dir_color=$cyan
+dir_color=$bright_cyan
 dir_prefix="in"
 dir_is_git_repo_subfolder_symbol=$arrow
 
@@ -280,7 +280,7 @@ exec_time_section() {
 exit_section() {
 	local exit_status
 
-	if [[ $RETVAL -eq 0 ]]; then 
+	if [[ $RETVAL -eq 0 ]]; then
 		exit_status="${exit_color_ok}"
 	else
 		exit_status="${exit_color_bad}"
