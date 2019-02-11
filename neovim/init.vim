@@ -131,6 +131,8 @@ colorscheme vim-material
 
 let g:airline_theme='material'
 
+let g:airline#extensions#ale#enabled = 1
+
 let NERDTreeShowHidden=1
 
 " Map nerdtreetoggle to ctrl-n
