@@ -45,9 +45,6 @@ set autoread
 " Always show current position
 set ruler
 
-set cmdheight=2
-set noshowmode
-
 " Disable compatibility to old-time vi
 set nocompatible
 
