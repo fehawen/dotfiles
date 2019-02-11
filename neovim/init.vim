@@ -14,7 +14,7 @@ Plug 'mattn/emmet-vim'
 
 Plug 'w0rp/ale'
 
-Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 Plug 'leafgarland/typescript-vim'
 
@@ -23,8 +23,6 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
 
 Plug 'jiangmiao/auto-pairs'
-
-" "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'vim-airline/vim-airline'
 
@@ -38,6 +36,8 @@ call plug#end()
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
+
+syntax on
 
 " Set to auto read when a file is changed from the outside
 set autoread
