@@ -14,6 +14,8 @@ Plug 'mattn/emmet-vim'
 
 Plug 'w0rp/ale'
 
+Plug 'pangloss/vim-javascript'
+
 Plug 'leafgarland/typescript-vim'
 
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
@@ -90,6 +92,8 @@ set wildmode=longest,list
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
+set encoding=utf8
+
 " Sets unix as standard filetype
 set ffs=unix,dos,mac
 
@@ -114,6 +118,9 @@ autocmd VimResized * wincmd =
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
+
+" Tab to complete
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Plugin configs
 let g:deoplete#enable_at_startup = 1
