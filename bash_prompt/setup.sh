@@ -59,7 +59,6 @@ setup() {
 
 	log "Setup complete."
 	echo -e "Enter ${cyan}source ~/.bashrc${reset} to reload prompt"
-	echo -e "Remember to install a ${cyan}Powerline Font${reset}"
 }
 
 initialize
