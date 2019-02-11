@@ -13,6 +13,28 @@
 
 Just getting my good ol' rice n' spice on.
 
-## Setup
+## Install
 
-See `README.md` in each subfolder for details.
+Although each subfolder contains a `setup.sh` that you can run, the `makefile` provides an easier alternative.
+
+```bash
+# Setup bash prompt
+make bash-setup
+
+# Setup chunkwm and skhd configs
+make chunkwm-setup
+
+# Setup hyper terminal config
+make hyper-setup
+
+# Setup neovim config
+make neovim-setup
+
+# Setup vs-code config
+make vscode-setup
+
+# Setup all the above
+make all
+```
+
+For further details, see `README.md` in subfolders, where present.
