@@ -9,19 +9,20 @@ newline='
 '
 
 log() {
-	printf "${green}INFO: $1${reset}"
+	printf "${newline}${green}INFO: $1${reset}"
 }
 
 error() {
-	printf "${red}ERROR: $1${reset}"
+	printf "${newline}${red}ERROR: $1${reset}"
 }
 
 initialize() {
 	printf "${newline}"
-	read -r -p "${cyan}Setup bash prompt? ${reset}[y/N] " answer
+	read -r -p "${cyan}Setup Bash prompt? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		error "Setup declined..."
+		error "Bash prompt setup declined..."
 		error "Now exiting."
+		printf "${newline}${newline}"
 		exit
 	else
 		setup
@@ -29,7 +30,7 @@ initialize() {
 }
 
 setup() {
-	log "Setting up bash prompt..."
+	log "Setting up Bash prompt..."
 
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
@@ -61,8 +62,9 @@ setup() {
 		chsh -s /bin/bash
 	fi
 
-	log "Setup complete."
-	printf "Enter ${cyan}source ~/.bashrc${reset} to reload prompt.${newline}"
+	log "Bash prompt setup complete."
+	printf "${newline}Enter ${cyan}source ~/.bashrc${reset} to reload prompt."
+	printf "${newline}${newline}"
 }
 
 initialize

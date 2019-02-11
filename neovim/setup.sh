@@ -9,19 +9,20 @@ newline='
 '
 
 log() {
-	printf "${green}INFO: $1${reset}"
+	printf "${newline}${green}INFO: $1${reset}"
 }
 
 error() {
-	printf "${red}ERROR: $1${reset}"
+	printf "${newline}${red}ERROR: $1${reset}"
 }
 
 initialize() {
 	printf "${newline}"
-	read -r -p "${cyan}Setup neovim config? ${reset}[y/N] " answer
+	read -r -p "${cyan}Setup NeoVim config? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		error "Setup declined..."
+		error "NeoVim setup declined..."
 		error "Now exiting."
+		printf "${newline}${newline}"
 		exit
 	else
 		setup
@@ -29,7 +30,7 @@ initialize() {
 }
 
 setup() {
-	log "Setting up neovim config..."
+	log "Setting up NeoVim config..."
 
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
@@ -41,8 +42,8 @@ setup() {
 	log "Symlinking init.vim..."
 	ln -sf "$(PWD)/init.vim" $HOME/.config/nvim/
 
-	log "Setup complete."
-	printf "${newline}"
+	log "NeoVim setup complete."
+	printf "${newline}${newline}"
 }
 
 initialize

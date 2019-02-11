@@ -9,19 +9,20 @@ newline='
 '
 
 log() {
-	printf "${green}INFO: $1${reset}"
+	printf "${newline}${green}INFO: $1${reset}"
 }
 
 error() {
-	printf "${red}ERROR: $1${reset}"
+	printf "${newline}${red}ERROR: $1${reset}"
 }
 
 initialize() {
 	printf "${newline}"
-	read -r -p "${cyan}Setup vs-code config? ${reset}[y/N] " answer
+	read -r -p "${cyan}Setup VS Code config? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		error "Setup declined..."
+		error "VS Code setup declined..."
 		error "Now exiting."
+		printf "${newline}${newline}"
 		exit
 	else
 		setup
@@ -29,7 +30,7 @@ initialize() {
 }
 
 setup() {
-	log "Setting up vs-code config..."
+	log "Setting up VS Code config..."
 
 	if [ -f $HOME/Library/Application\ Support/Code/User/settings.json ]; then
 		rm $HOME/Library/Application\ Support/Code/User/settings.json
@@ -38,8 +39,8 @@ setup() {
 	log "Symlinking settings.json..."
 	ln -sf "$(pwd)/settings.json" $HOME/Library/Application\ Support/Code/User/settings.json
 
-	log "Setup complete."
-	printf "${newline}"
+	log "VS Code setup complete."
+	printf "${newline}${newline}"
 }
 
 initialize

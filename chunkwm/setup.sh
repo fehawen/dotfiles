@@ -9,19 +9,20 @@ newline='
 '
 
 log() {
-	printf "${green}INFO: $1${reset}"
+	printf "${newline}${green}INFO: $1${reset}"
 }
 
 error() {
-	printf "${red}ERROR: $1${reset}"
+	printf "${newline}${red}ERROR: $1${reset}"
 }
 
 initialize() {
 	printf "${newline}"
-	read -r -p "${cyan}Setup chunkwm and skhd config? ${reset}[y/N] " answer
+	read -r -p "${cyan}Setup ChunkWM/SKHD config? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		error "Setup declined..."
+		error "ChunkWM/SKHD setup declined..."
 		error "Now exiting."
+		printf "${newline}${newline}"
 		exit
 	else
 		setup
@@ -29,7 +30,7 @@ initialize() {
 }
 
 setup() {
-	log "Setting up chunkwm and skhd config..."
+	log "Setting up ChunkWM/SKHD config..."
 
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
@@ -49,8 +50,8 @@ setup() {
 	log "Symlinking .skhdrc..."
 	ln -sf "$(PWD)/.skhdrc" $HOME
 
-	log "Setup complete."
-	printf "${newline}"
+	log "ChunkWM/SKHD setup complete."
+	printf "${newline}${newline}"
 }
 
 initialize
