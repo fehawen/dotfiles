@@ -2,29 +2,44 @@
 
 red="$(tput setaf 1)"
 green="$(tput setaf 2)"
+cyan="$(tput setaf 6)"
 reset="$(tput sgr0)"
 
+newline='
+'
+
+log() {
+	printf "${green}INFO: $1${reset}"
+}
+
+error() {
+	printf "${red}ERROR: $1${reset}"
+}
+
 initialize() {
-	read -r -p "${green}Install VS Code settings? ${reset}[y/N] " answer
+	printf "${newline}"
+	read -r -p "${cyan}Setup vs-code config? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo "${red}Installation declined${reset}"
+		error "Setup declined..."
+		error "Now exiting."
 		exit
 	else
-		setup_vscode
+		setup
 	fi
 }
 
-setup_vscode() {
-	echo "${green}Installing VS Code settings...${reset}"
+setup() {
+	log "Setting up vs-code config..."
 
 	if [ -f $HOME/Library/Application\ Support/Code/User/settings.json ]; then
 		rm $HOME/Library/Application\ Support/Code/User/settings.json
 	fi
 
-	echo "Symlinking settings.json..."
+	log "Symlinking settings.json..."
 	ln -sf "$(pwd)/settings.json" $HOME/Library/Application\ Support/Code/User/settings.json
 
-	echo "${green}VS Code settings installation complete.${reset}"
+	log "Setup complete."
+	printf "${newline}"
 }
 
 initialize

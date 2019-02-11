@@ -5,15 +5,19 @@ green="$(tput setaf 2)"
 cyan="$(tput setaf 6)"
 reset="$(tput sgr0)"
 
+newline='
+'
+
 log() {
-	echo -e "${green}INFO: $1${reset}"
+	printf "${green}INFO: $1${reset}"
 }
 
 error() {
-	echo -e "${red}ERROR: $1${reset}"
+	printf "${red}ERROR: $1${reset}"
 }
 
 initialize() {
+	printf "${newline}"
 	read -r -p "${cyan}Setup chunkwm and skhd config? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
 		error "Setup declined..."
@@ -25,7 +29,7 @@ initialize() {
 }
 
 setup() {
-	echo -e "Setting up chunkwm and skhd config..."
+	log "Setting up chunkwm and skhd config..."
 
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
@@ -45,7 +49,8 @@ setup() {
 	log "Symlinking .skhdrc..."
 	ln -sf "$(PWD)/.skhdrc" $HOME
 
-	echo -e "Setup complete."
+	log "Setup complete."
+	printf "${newline}"
 }
 
 initialize

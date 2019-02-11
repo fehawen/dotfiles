@@ -5,15 +5,19 @@ green="$(tput setaf 2)"
 cyan="$(tput setaf 6)"
 reset="$(tput sgr0)"
 
+newline='
+'
+
 log() {
-	echo -e "${green}INFO: $1${reset}"
+	printf "${green}INFO: $1${reset}"
 }
 
 error() {
-	echo -e "${red}ERROR: $1${reset}"
+	printf "${red}ERROR: $1${reset}"
 }
 
 initialize() {
+	printf "${newline}"
 	read -r -p "${cyan}Setup bash prompt? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
 		error "Setup declined..."
@@ -25,7 +29,7 @@ initialize() {
 }
 
 setup() {
-	echo -e "Setting up bash prompt..."
+	log "Setting up bash prompt..."
 
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
@@ -48,17 +52,17 @@ setup() {
 	log "Symlinking .hushlogin for muted terminal login message..."
 	ln -sf "$(PWD)/.hushlogin" $HOME
 
-	echo "Checking which shell..."
+	log "Checking which shell..."
 	if $(echo "$SHELL" | command grep -i '/bin/bash' &> /dev/null); then
 		log "Shell is already set to $SHELL"
 	else
-		log "Shell is set to $SHELL"
+		error "Shell is set to $SHELL"
 		log "Changing shell to /bin/bash"
 		chsh -s /bin/bash
 	fi
 
 	log "Setup complete."
-	echo -e "Enter ${cyan}source ~/.bashrc${reset} to reload prompt"
+	printf "Enter ${cyan}source ~/.bashrc${reset} to reload prompt.${newline}"
 }
 
 initialize

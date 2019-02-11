@@ -2,29 +2,44 @@
 
 red="$(tput setaf 1)"
 green="$(tput setaf 2)"
+cyan="$(tput setaf 6)"
 reset="$(tput sgr0)"
 
+newline='
+'
+
+log() {
+	printf "${green}INFO: $1${reset}"
+}
+
+error() {
+	printf "${red}ERROR: $1${reset}"
+}
+
 initialize() {
-	read -r -p "${green}Install Hyper terminal settings? ${reset}[y/N] " answer
+	printf "${newline}"
+	read -r -p "${cyan}Setup hyper config? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo "${red}Installation declined${reset}"
+		error "Setup declined..."
+		error "Now exiting."
 		exit
 	else
-		setup_hyper
+		setup
 	fi
 }
 
-setup_hyper() {
-	echo "${green}Installing Hyper terminal settings...${reset}"
+setup() {
+	log "${green}Setting up hyper config...${reset}"
 
 	if [ -f $HOME/.hyper.js ]; then
 		rm $HOME/.hyper.js
 	fi
 
-	echo "Symlinking .hyper.js..."
+	log "Symlinking .hyper.js..."
 	ln -sf "$(pwd)/.hyper.js" $HOME/.hyper.js
 
-	echo "${green}Hyper terminal settings installation complete.${reset}"
+	log "Setup complete."
+	printf "${newline}"
 }
 
 initialize
