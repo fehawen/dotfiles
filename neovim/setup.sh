@@ -34,7 +34,7 @@ setup() {
 
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
-	if [ -f "$HOME/.config/nvim/init.vim" ]; then
+	if [ -f "$HOME/.config/nvim/init.vim" ] && [ ! -L "$HOME/.config/nvim/init.vim" ]; then
 		log "Making backup of '$HOME/.config/nvim/init.vim' to '$HOME/.config/nvim/init.vim.backup.$timestamp'"
 		mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim.backup.$timestamp
 	fi

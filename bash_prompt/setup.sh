@@ -34,12 +34,12 @@ setup() {
 
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
-	if [ -f "$HOME/.bashrc" ]; then
+	if [ -f "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
 		log "Making backup of '$HOME/.bashrc' to '$HOME/.bashrc.backup.$timestamp'"
 		mv $HOME/.bashrc $HOME/.bashrc.backup.$timestamp
 	fi
 
-	if [ -f "$HOME/.bash_profile" ]; then
+	if [ -f "$HOME/.bash_profile" ] && [ ! -L "$HOME/.bash_profile" ]; then
 		log "Making backup of '$HOME/.bash_profile' to '$HOME/.bash_profile.backup.$timestamp'"
 		mv $HOME/.bash_profile $HOME/.bash_profile.backup.$timestamp
 	fi

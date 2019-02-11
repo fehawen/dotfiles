@@ -34,12 +34,12 @@ setup() {
 
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
-	if [ -f "$HOME/.chunkwmrc" ]; then
+	if [ -f "$HOME/.chunkwmrc" ] && [ ! -L "$HOME/.chunkwmrc" ]; then
 		log "Making backup of '$HOME/.chunkwmrc' to '$HOME/.chunkwmrc.backup.$timestamp'"
 		mv $HOME/.chunkwmrc $HOME/.chunkwmrc.backup.$timestamp
 	fi
 
-	if [ -f "$HOME/.skhdrc" ]; then
+	if [ -f "$HOME/.skhdrc" ] && [ ! -L "$HOME/.skhdrc" ]; then
 		log "Making backup of '$HOME/.skhdrc' to '$HOME/.skhdrc.backup.$timestamp'"
 		mv $HOME/.skhdrc $HOME/.skhdrc.backup.$timestamp
 	fi
