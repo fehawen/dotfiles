@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#######################
+###### VARIABLES ######
+#######################
+
+# Aliases
 alias clr='clear'
 alias ll='ls -1 -F -G'
 alias la='ls -1A -F -G'
@@ -36,32 +41,41 @@ alias start-skhd='brew services start koekeishiya/formulae/skhd'
 alias restart-skhd='brew services restart koekeishiya/formulae/skhd'
 alias stop-skhd='brew services stop koekeishiya/formulae/skhd'
 alias gconf=git_config
-
 git_config() {
 	command git config user.name $1 && git config user.email $2
 }
 
+# Colors
 black="\001$(tput setaf 0)\002"
+bright_black="\001$(tput setaf 8)\002"
+
 red="\001$(tput setaf 1)\002"
+bright_red="\001$(tput setaf 9)\002"
+
 green="\001$(tput setaf 2)\002"
+bright_green="\001$(tput setaf 10)\002"
+
 yellow="\001$(tput setaf 3)\002"
+bright_yellow="\001$(tput setaf 11)\002"
+
 blue="\001$(tput setaf 4)\002"
+bright_blue="\001$(tput setaf 12)\002"
+
 magenta="\001$(tput setaf 5)\002"
+bright_magenta="\001$(tput setaf 13)\002"
+
 cyan="\001$(tput setaf 6)\002"
+bright_cyan="\001$(tput setaf 14)\002"
+
 white="\001$(tput setaf 7)\002"
-grey="\001$(tput setaf 8)\002"
+bright_white="\001$(tput setaf 15)\002"
+
 bold="\001$(tput bold)\002"
 italic="\e[3m"
 reset="\001$(tput sgr0)\002"
-# underline_on="\001$(tput smul)\002"
-# underline_off="\001$(tput rmul)\002"
 
-# requires powerline font
-# icon_gitbranch=""
-
-icon_arrow="→"
-icon_node="●"
-
+# Symbols
+arrow="→"
 git_modified="!"
 git_added="+"
 git_deleted="-"
@@ -70,12 +84,43 @@ git_untracked="?"
 git_stashed="$"
 git_uneven="¿"
 
-# bracket_prefix="["
-# bracket_suffix="]"
-
+# Conventional solution for new line
 newline='
 '
 
+# Section colors, symbols and prefixes - change to your liking!
+user_is_root_color=$red
+
+dir_color=$cyan
+dir_prefix="in"
+dir_is_git_repo_subfolder_symbol=$arrow
+
+dir_content_color=$bright_blue
+dir_content_prefix_color=$white
+dir_content_prefix="at"
+dir_content_separator="."
+
+git_branch_color=$bright_magenta
+git_branch_prefix_color=$white
+git_branch_prefix="on"
+
+git_status_color=$red
+git_status_prefix_color=$white
+git_status_prefix="is"
+
+exec_time_color=$green
+exec_time_prefix_color=$white
+exec_time_prefix="took"
+
+exit_color_ok=$green
+exit_color_bad=$red
+exit_symbol=$arrow
+
+######################
+###### SECTIONS ######
+######################
+
+# Timer for calculating execution time
 timer_start() {
 	timer=${timer:-$SECONDS}
 }
@@ -87,17 +132,20 @@ timer_stop() {
 
 trap timer_start DEBUG
 
+# Check if command exists, without printing error if it doesn't
 command_exists() {
 	command -v $1 > /dev/null 2>&1
 }
 
+# Check if we're in a git repository, without printing error if we aren't
 is_git_repository() {
 	command git rev-parse --is-inside-work-tree &> /dev/null
 }
 
+# Prints out user only if we're root, else print nothing
 user_section() {
 	if [[ $UID -eq 0 ]]; then
-		printf "${red}$USER ${white}in "
+		printf "${user_is_root_color}$USER ${white}${dir_prefix} "
 	fi
 }
 
@@ -117,21 +165,22 @@ dir_section() {
 		if [[ $(PWD) == $git_root ]]; then
 			dir="${git_toplevel}"
 		else
-			dir="${git_toplevel} ${icon_arrow} ${get_dir}"
+			dir="${git_toplevel} ${dir_is_git_repo_subfolder_symbol} ${get_dir}"
 		fi
 	else
 		dir="${get_dir}"
 	fi
 
 	if [[ $(PWD) == $HOME ]]; then
-		res="~ "
+		res="~"
 	else
 		res="${prefix}${dir}"
 	fi
 
-	printf "${cyan}${res} "
+	printf "${dir_color}${res} "
 }
 
+# Show how many sub-folders, files and symlinked files/folders we have in current directory
 dir_content_section() {
 	[[ $(PWD) == $HOME ]] && return
 
@@ -144,12 +193,13 @@ dir_content_section() {
 	if [[ $subdirs == 0 && $files == 0 && $symlinks == 0 ]]; then
 		content="empty"
 	else
-		content="${subdirs}.${files}.${symlinks}"
+		content="${subdirs}${dir_content_separator}${files}${dir_content_separator}${symlinks}"
 	fi
 
-	printf "${white}at ${blue}${content} "
+	printf "${dir_content_prefix_color}${dir_content_prefix} ${dir_content_color}${content} "
 }
 
+# Show current Git branch, and if branch isn't clean show status
 git_section() {
 	is_git_repository || return
 
@@ -195,15 +245,16 @@ git_section() {
 		status="${git_uneven}${status}"
 	fi
 
-	local git_status="${white}on ${magenta}${branch} "
+	local git_status="${git_branch_prefix_color}${git_branch_prefix} ${git_branch_color}${branch} "
 
 	if [[ $status != "" ]]; then
-		git_status="${git_status}${white}is ${red}${status}"
+		git_status="${git_status}${git_status_prefix_color}${git_status_prefix} ${git_status_color}${status} "
 	fi
 
 	printf "${git_status}"
 }
 
+# Get execution time of previous command and display in seconds, minutes, hours or days
 exec_time_section() {
 	local suffix duration timer_limit=2
 
@@ -221,29 +272,38 @@ exec_time_section() {
 			suffix="days"
 			duration=$(printf %.1f "$((10 * $timer_show / 86400))e-1")
 		fi
-		printf "${white}took ${green}${duration} ${suffix}"
+		printf "${exec_time_prefix_color}${exec_time_prefix} ${exec_time_color}${duration} ${suffix}"
 	fi
 }
 
+# Show retval of previous command, where `0` is OK and any other number is BAD
 exit_section() {
 	local exit_status
 
 	if [[ $RETVAL -eq 0 ]]; then 
-		exit_status="${green}"
+		exit_status="${exit_color_ok}"
 	else
-		exit_status="${red}"
+		exit_status="${exit_color_bad}"
 	fi
 
-	printf "${exit_status}${icon_arrow} "
+	printf "${exit_status}${exit_symbol} "
 }
 
-set_prompt() {
+############################
+###### POINT OF ENTRY ######
+############################
+
+# Compose prompt
+compose_prompt() {
 	RETVAL=$?
-	printf "${newline}${bold}${italic}$(user_section)$(dir_section)$(dir_content_section)$(git_section)$(node_section)$(exec_time_section)${newline}$(exit_section)${reset}"
+	printf "${newline}${bold}${italic}$(user_section)$(dir_section)$(dir_content_section)$(git_section)$(exec_time_section)${newline}$(exit_section)${reset}"
 }
 
+# Stop timer for execution time calculation
 PROMPT_COMMAND=timer_stop
 
-PS1="\$(set_prompt)"
+# Export prompt composition to PS1
+PS1="\$(compose_prompt)"
 
+# Include desired paths in PATH and export, leaving default PATH still intact
 PATH="~/.npm-global/bin:$PATH"
