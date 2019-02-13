@@ -48,7 +48,7 @@ git_config() {
 }
 
 search_function() {
-	command grep -roi $1 .
+	command grep -wroi $1 .
 }
 
 # Colors
