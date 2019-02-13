@@ -41,8 +41,14 @@ alias start-skhd='brew services start koekeishiya/formulae/skhd'
 alias restart-skhd='brew services restart koekeishiya/formulae/skhd'
 alias stop-skhd='brew services stop koekeishiya/formulae/skhd'
 alias gconf=git_config
+alias lookfor=search_function
+
 git_config() {
 	command git config user.name $1 && git config user.email $2
+}
+
+search_function() {
+	command grep -roi $1 .
 }
 
 # Colors
