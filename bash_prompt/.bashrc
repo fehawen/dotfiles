@@ -48,7 +48,7 @@ git_config() {
 }
 
 find_exact_match() {
-	command grep -wri "$1" .
+	command grep --exclude-dir=node_modules -wri "$1" . | while read -r line; do echo; echo $line; done
 }
 
 # Colors
