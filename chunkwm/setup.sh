@@ -34,21 +34,21 @@ setup() {
 
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
-	if [ -f "$HOME/.config/chunkwm/.chunkwmrc" ] && [ ! -L "$HOME/.config/chunkwm/.chunkwmrc" ]; then
-		log "Making backup of '$HOME/.config/chunkwm/.chunkwmrc' to '$HOME/.config/chunkwm/.chunkwmrc.backup.$timestamp'"
+	if [ -f "$HOME/.chunkwmrc" ] && [ ! -L "$HOME/.chunkwmrc" ]; then
+		log "Making backup of '$HOME/.chunkwmrc' to '$HOME/.chunkwmrc.backup.$timestamp'"
 		mv $HOME/.chunkwmrc $HOME/.chunkwmrc.backup.$timestamp
 	fi
 
-	if [ -f "$HOME/.config/chunkwm/.skhdrc" ] && [ ! -L "$HOME/.config/chunkwm/.skhdrc" ]; then
-		log "Making backup of '$HOME/.config/chunkwm/.skhdrc' to '$HOME/.config/chunkwm/.skhdrc.backup.$timestamp'"
+	log "Symlinking .chunkwmrc..."
+	ln -sf "$(PWD)/.chunkwmrc" $HOME/.chunkwmrc
+
+	if [ -f "$HOME/.skhdrc" ] && [ ! -L "$HOME/.skhdrc" ]; then
+		log "Making backup of '$HOME/.skhdrc' to '$HOME/.skhdrc.backup.$timestamp'"
 		mv $HOME/.skhdrc $HOME/.skhdrc.backup.$timestamp
 	fi
 
-	log "Symlinking .chunkwmrc..."
-	ln -sf "$(PWD)/.chunkwmrc" $HOME/.config/chunkwm/.chunkwmrc
-
 	log "Symlinking .skhdrc..."
-	ln -sf "$(PWD)/.skhdrc" $HOME/.config/chunkwm/.skhdrc
+	ln -sf "$(PWD)/.skhdrc" $HOME/.skhdrc
 
 	log "ChunkWM/SKHD setup complete."
 	printf "${newline}${newline}"
