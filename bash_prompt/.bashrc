@@ -148,13 +148,16 @@ is_git_repository() {
 	command git rev-parse --is-inside-work-tree &> /dev/null
 }
 
-# Prints out user only if we're root, else print nothing
+# Prints out user only if we're root, else prints nothing
 user_section() {
 	if [[ $UID -eq 0 ]]; then
 		printf "${user_is_root_color}$USER ${white}${dir_prefix} "
 	fi
 }
 
+# Prints out current working directory with varying prefix,
+# depending if we're in $HOME/dir or $HOME/.../dir, or
+# if we're in a git repo, or in a git repo subdirectory
 dir_section() {
 	local dir temp prefix res
 	local get_dir=${PWD##*/}
