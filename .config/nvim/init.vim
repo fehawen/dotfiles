@@ -24,11 +24,11 @@ Plug 'Shougo/deoplete.nvim'
 
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 
 Plug 'ekalinin/Dockerfile.vim'
 
-Plug 'hzchirs/vim-material'
+Plug 'connorholyday/vim-snazzy'
 
 " Initialize plugin system
 call plug#end()
@@ -38,6 +38,8 @@ filetype plugin on
 filetype indent on
 
 syntax on
+
+set noshowmode
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -121,14 +123,14 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Plugin configs
 let g:deoplete#enable_at_startup = 1
+let g:SnazzyTransparent = 1
 
-let g:material_style='palenight'
 set background=dark
-colorscheme vim-material
+colorscheme snazzy
 
-let g:airline_theme='material'
-
-let g:airline#extensions#ale#enabled = 1
+let g:lightline = {
+\ 'colorscheme': 'snazzy',
+\ }
 
 let NERDTreeShowHidden=1
 
