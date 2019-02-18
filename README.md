@@ -6,7 +6,7 @@
 </h1>
 
 <h4 align="center">
-<a href="https://github.com/koekeishiya/chunkwm" target="_blank">ChunkWM</a>, <a href="https://github.com/koekeishiya/skhd" target="_blank">SKHD</a>, <a href="https://github.com/neovim/neovim" target="_blank">NeoVim</a> and <a href="https://www.iterm2.com/" target="_blank">iTerm2</a> with <a href="https://github.com/fehawen/dotfiles/tree/master/bash_prompt" target="_blank">fehawen</a> bash prompt.
+<a href="https://github.com/koekeishiya/chunkwm" target="_blank">ChunkWM</a>, <a href="https://github.com/koekeishiya/skhd" target="_blank">SKHD</a>, <a href="https://github.com/neovim/neovim" target="_blank">NeoVim</a> and <a href="https://sw.kovidgoyal.net/kitty/" target="_blank">Kitty</a> with <a href="https://github.com/fehawen/dotfiles/tree/master/bash_prompt" target="_blank">fehawen</a> bash prompt.
 </h4>
 
 ## About
