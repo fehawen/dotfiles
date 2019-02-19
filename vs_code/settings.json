@@ -1,7 +1,7 @@
 {
 	"editor.renderWhitespace": "all",
 	"editor.insertSpaces": false,
-	"workbench.iconTheme": "eq-material-theme-icons-palenight",
+	"workbench.iconTheme": "material-icon-theme",
 	"breadcrumbs.enabled": true,
 	"editor.fontLigatures": true,
 	"editor.fontFamily": "Operator Mono",
