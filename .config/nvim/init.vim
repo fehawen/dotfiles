@@ -24,11 +24,11 @@ Plug 'Shougo/deoplete.nvim'
 
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 
 Plug 'ekalinin/Dockerfile.vim'
 
-Plug 'connorholyday/vim-snazzy'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Initialize plugin system
 call plug#end()
@@ -38,6 +38,8 @@ filetype plugin on
 filetype indent on
 
 syntax on
+
+set termguicolors
 
 set noshowmode
 
@@ -123,14 +125,11 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Plugin configs
 let g:deoplete#enable_at_startup = 1
-let g:SnazzyTransparent = 1
 
-set background=dark
-colorscheme snazzy
+" set background=dark
+colorscheme dracula
 
-let g:lightline = {
-\ 'colorscheme': 'snazzy',
-\ }
+let g:airline_theme='dracula'
 
 let NERDTreeShowHidden=1
 
