@@ -16,30 +16,30 @@ Plug 'w0rp/ale'
 
 Plug 'mxw/vim-jsx'
 
-Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
 
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'othree/yajs.vim'
+
+Plug 'HerringtonDarkholme/yats.vim'
+
+" Plug 'leafgarland/typescript-vim'
+
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 Plug 'Shougo/deoplete.nvim'
 
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'vim-airline/vim-airline'
-
 Plug 'ekalinin/Dockerfile.vim'
-
-Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Initialize plugin system
 call plug#end()
 
+set termguicolors
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
-
-syntax on
-
-set termguicolors
 
 set noshowmode
 
@@ -93,6 +93,9 @@ set wildmode=longest,list
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
+" change line number color
+highlight LineNr term=bold cterm=NONE ctermfg=Magenta ctermbg=NONE
+
 set encoding=utf8
 
 " Sets unix as standard filetype
@@ -126,10 +129,8 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Plugin configs
 let g:deoplete#enable_at_startup = 1
 
-" set background=dark
-colorscheme dracula
-
-let g:airline_theme='dracula'
+set background=dark
+colorscheme industrial
 
 let NERDTreeShowHidden=1
 
