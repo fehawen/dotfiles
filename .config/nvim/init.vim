@@ -41,7 +41,7 @@ set termguicolors
 filetype plugin on
 filetype indent on
 
-set noshowmode
+" set noshowmode
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -92,9 +92,6 @@ set wildmode=longest,list
 
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
-
-" change line number color
-highlight LineNr term=bold cterm=NONE ctermfg=Magenta ctermbg=NONE
 
 set encoding=utf8
 
