@@ -14,17 +14,13 @@ Plug 'mattn/emmet-vim'
 
 Plug 'w0rp/ale'
 
-" Plug 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx'
 
-" Plug 'pangloss/vim-javascript'
-
-" Plug 'othree/yajs.vim'
-
-" Plug 'HerringtonDarkholme/yats.vim'
+Plug 'pangloss/vim-javascript'
 
 Plug 'leafgarland/typescript-vim'
 
-" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 Plug 'Shougo/deoplete.nvim'
 
