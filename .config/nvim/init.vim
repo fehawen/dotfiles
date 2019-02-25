@@ -9,23 +9,14 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
-
 Plug 'mattn/emmet-vim'
-
 Plug 'w0rp/ale'
-
 Plug 'mxw/vim-jsx'
-
 Plug 'pangloss/vim-javascript'
-
 Plug 'leafgarland/typescript-vim'
-
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-
 Plug 'Shougo/deoplete.nvim'
-
 Plug 'jiangmiao/auto-pairs'
-
 Plug 'ekalinin/Dockerfile.vim'
 
 " Initialize plugin system
@@ -131,6 +122,7 @@ let g:ale_sign_warning = '•'
 highlight clear SignColumn
 
 let NERDTreeShowHidden=1
+let g:NERDTreeShowLineNumbers = 0
 
 " Map nerdtreetoggle to ctrl-n
 map <C-n> :NERDTreeToggle<CR>
