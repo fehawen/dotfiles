@@ -223,12 +223,6 @@ call s:hi("typescriptOpSymbols",          s:gui.orange,           "", "", "", ""
 call s:hi("typescriptEndColons",          s:gui.orange,           "", "", "", "")
 call s:hi("typescriptLogicSymbols",       s:gui.orange,           "", "", "", "")
 
-
-
-
-
-
-
 " Javascript colors
 " yajs
 " call s:hi("javascriptArrayMethod",      s:gui.blue,       "", "", "", "")
