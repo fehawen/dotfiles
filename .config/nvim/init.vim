@@ -14,15 +14,15 @@ Plug 'mattn/emmet-vim'
 
 Plug 'w0rp/ale'
 
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
 
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
 
-Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'HerringtonDarkholme/yats.vim'
 
-" Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
@@ -128,6 +128,11 @@ let g:deoplete#enable_at_startup = 1
 
 set background=dark
 colorscheme industrial
+
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
+
+highlight clear SignColumn
 
 let NERDTreeShowHidden=1
 
