@@ -78,7 +78,11 @@ if has("nvim")
   let g:terminal_color_15 = s:gui(s:gui.foreground)
 endif
 
-" Editor Colors
+" STATUS LINE COLORS
+hi StatusLine guibg='#F4511E' guifg='#0E1014'
+
+
+" EDITOR COLORS
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "", "", "")
 call s:hi("Cursor",       s:gui.yellow,     "",               "", "", "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.line,       "", "", "")
@@ -129,7 +133,7 @@ call s:hi("InSearch",     s:gui.black,      s:gui.foreground, "", "", "")
 call s:hi("Todo",         s:gui.red,        s:gui.foreground, "", "", "italic")
 call s:hi("Special",      s:gui.cyan,       "",               "", "", "italic") " @observable etc...
 
-" Ale
+" ALE COLORS
 call s:hi("AleText",      s:gui.orange,     s:gui.none, "", "", "")
 call s:hi("AleWarning",   s:gui.orange,     s:gui.none, "", "", "")
 call s:hi("AleLine",      "",               s:gui.none, "", "", "")
