@@ -79,8 +79,8 @@ if has("nvim")
 endif
 
 " STATUS LINE COLORS
-hi StatusLine guibg='#F4511E' guifg='#0E1014'
-hi StatusLineNC guibg='#37474F' guifg='#0E1014'
+hi StatusLine guibg='#0E1014' guifg='#F4511E'
+hi StatusLineNC guibg='#F4511E' guifg='#0E1014'
 
 " "EDITOR COLORS
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "", "", "")
