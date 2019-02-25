@@ -80,7 +80,7 @@ endif
 
 " STATUS LINE COLORS
 hi StatusLine guibg='#0E1014' guifg='#F4511E'
-hi StatusLineNC guibg='#F4511E' guifg='#0E1014'
+hi StatusLineNC guibg='#0E1014' guifg='#263238'
 
 " "EDITOR COLORS
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "", "", "")
