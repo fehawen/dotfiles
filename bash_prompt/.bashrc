@@ -159,7 +159,7 @@ user_section() {
 # depending if we're in $HOME/dir or $HOME/.../dir, or
 # if we're in a git repo, or in a git repo subdirectory
 dir_section() {
-	local dir temp prefix res
+	local prefix res
 	local get_dir=${PWD##*/}
 	local git_root=$(git rev-parse --show-toplevel 2> /dev/null)
 	local git_toplevel=${git_root##*/}
@@ -170,20 +170,10 @@ dir_section() {
 		prefix=".../"
 	fi
 
-	if is_git_repository; then
-		if [[ $(PWD) == $git_root ]]; then
-			dir="${git_toplevel}"
-		else
-			dir="${git_toplevel} ${dir_is_git_repo_subfolder_symbol} ${get_dir}"
-		fi
-	else
-		dir="${get_dir}"
-	fi
-
 	if [[ $(PWD) == $HOME ]]; then
 		res="~"
 	else
-		res="${prefix}${dir}"
+		res="${prefix}${get_dir}"
 	fi
 
 	printf "${dir_color}${res} "
