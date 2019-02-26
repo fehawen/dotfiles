@@ -79,7 +79,7 @@ if has("nvim")
 endif
 
 " STATUS LINE COLORS
-hi StatusLine guibg='#0E1014' guifg='#F4511E'
+hi StatusLine guibg='#CFD8DC' guifg='#263238'
 hi StatusLineNC guibg='#0E1014' guifg='#263238'
 
 " "EDITOR COLORS
