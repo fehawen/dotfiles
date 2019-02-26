@@ -16,13 +16,13 @@ let s:gui.selection  = { 'dark': '#B0BEC5', 'light': '#B0BEC5' }
 let s:gui.line       = { 'dark': '#FF6E2C', 'light': '#FF6E2C' }
 let s:gui.comment    = { 'dark': '#263238', 'light': '#263238' }
 
-let s:gui.black        = { 'dark': '#263238', 'light': '#263238' }
-let s:gui.red          = { 'dark': '#37474F', 'light': '#37474F' }
-let s:gui.yellow       = { 'dark': '#455A64', 'light': '#455A64' }
-let s:gui.green        = { 'dark': '#546E7A', 'light': '#546E7A' }
-let s:gui.cyan         = { 'dark': '#607D8B', 'light': '#607D8B' }
-let s:gui.blue         = { 'dark': '#546E7A', 'light': '#546E7A' }
-let s:gui.orange       = { 'dark': '#F4511E', 'light': '#F4511E' }
+let s:gui.black      = { 'dark': '#263238', 'light': '#263238' }
+let s:gui.red        = { 'dark': '#37474F', 'light': '#37474F' }
+let s:gui.yellow     = { 'dark': '#455A64', 'light': '#455A64' }
+let s:gui.green      = { 'dark': '#546E7A', 'light': '#546E7A' }
+let s:gui.cyan       = { 'dark': '#607D8B', 'light': '#607D8B' }
+let s:gui.blue       = { 'dark': '#546E7A', 'light': '#546E7A' }
+let s:gui.orange     = { 'dark': '#F4511E', 'light': '#F4511E' }
 
 if !exists('g:industrial_style')
   let g:industrial_style='default'
