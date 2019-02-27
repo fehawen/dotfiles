@@ -40,6 +40,8 @@ alias stop-chunkwm='brew services stop koekeishiya/formulae/chunkwm'
 alias start-skhd='brew services start koekeishiya/formulae/skhd'
 alias restart-skhd='brew services restart koekeishiya/formulae/skhd'
 alias stop-skhd='brew services stop koekeishiya/formulae/skhd'
+alias todor='cat ~/repos/todo/README.md'
+alias todoe='nvim ~/repos/todo/README.md'
 alias gconf=git_config
 alias lookfor=find_exact_match
 
