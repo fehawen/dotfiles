@@ -50,7 +50,7 @@ git_config() {
 }
 
 find_exact_match() {
-	command grep --exclude-dir=node_modules -wroi "$1" . | while read -r line; do echo; echo $line; done
+	command grep --exclude-dir=node_modules -wroi "$1" . | sort -u | while read -r line; do echo; echo $line; done
 }
 
 # Colors
