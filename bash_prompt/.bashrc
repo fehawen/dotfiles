@@ -43,14 +43,15 @@ alias stop-skhd='brew services stop koekeishiya/formulae/skhd'
 alias todor='cat ~/repos/todo/README.md'
 alias todoe='nvim ~/repos/todo/README.md'
 alias gconf=git_config
-alias lookfor=find_exact_match
+alias hunt=find_exact_match
 
 git_config() {
 	command git config user.name $1 && git config user.email $2
 }
 
+# Search function, called on with alias 'hunt' -- e.g. hunt 'const' to find all occurences of 'const' in dir w/ subdirs
 find_exact_match() {
-	command grep --exclude-dir=node_modules -wroi "$1" . | sort -u | while read -r line; do echo; echo $line; done
+	command grep --exclude-dir=node_modules -wroi "$1" . | sort -u | grep -iv ^$1 | sed '/^$/d' | grep -i --color=always "$1"
 }
 
 # Colors
