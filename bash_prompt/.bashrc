@@ -44,6 +44,7 @@ alias todor='cat ~/repos/todo/README.md'
 alias todoe='nvim ~/repos/todo/README.md'
 alias gconf=git_config
 alias hunt=find_exact_match
+alias jump=push_dir
 
 git_config() {
 	command git config user.name $1 && git config user.email $2
@@ -52,6 +53,10 @@ git_config() {
 # Search function, called on with alias 'hunt' -- e.g. hunt 'const' to find all occurences of 'const' in dir w/ subdirs
 find_exact_match() {
 	command grep --exclude-dir=node_modules -wroni "$1" . | sort -u | grep -iv ^$1 | sed '/^$/d' | grep -i --color=always "$1"
+}
+
+push_dir() {
+	# TODO
 }
 
 # Colors
@@ -308,4 +313,4 @@ PROMPT_COMMAND=timer_stop
 PS1="\$(compose_prompt)"
 
 # Include desired paths in PATH and export, leaving default PATH still intact
-PATH="~/.npm-global/bin:$PATH"
+PATH="~/.npm-global/bin:~/paths/mongodb-osx-x86_64-4.0.3/bin:$PATH"

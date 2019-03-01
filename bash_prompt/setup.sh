@@ -44,6 +44,10 @@ setup() {
 		mv $HOME/.bash_profile $HOME/.bash_profile.backup.$timestamp
 	fi
 
+	# TODO - Make backup of PATH and store somewhere...
+	log "Resetting PATH to avoid duplication."
+	PATH=$(getconf PATH)
+
 	log "Symlinking .bashrc..."
 	ln -sf "$(PWD)/.bashrc" $HOME
 
