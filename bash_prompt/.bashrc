@@ -1,4 +1,9 @@
 #!/bin/bash
+#######################
+#### CUSTOMIZATION ####
+#######################
+
+bind 'set completion-ignore-case on'
 
 #######################
 ###### VARIABLES ######
