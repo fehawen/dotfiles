@@ -1,13 +1,6 @@
-# all: bash-setup chunkwm-setup hyper-setup neovim-setup vscode-setup
+tilde: setup-tilde
 
-# bash-setup:
-# 	cd bash_prompt && ./setup.sh
+.SILENT:
 
-# chunkwm-setup:
-# 	cd chunkwm && ./setup.sh
-
-# neovim-setup:
-# 	cd neovim && ./setup.sh
-
-# vscode-setup:
-# 	cd vs_code && ./setup.sh
+setup-tilde:
+	cd tilde && ./setup.sh
