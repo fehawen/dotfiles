@@ -50,13 +50,13 @@ alias stop-chunkwm='brew services stop koekeishiya/formulae/chunkwm'
 alias start-skhd='brew services start koekeishiya/formulae/skhd'
 alias restart-skhd='brew services restart koekeishiya/formulae/skhd'
 alias stop-skhd='brew services stop koekeishiya/formulae/skhd'
-alias todoread='cat ~/repos/todo/README.md'
-alias todoedit='nvim ~/repos/todo/README.md'
+alias todoread='cat ~/Github/todo/README.md'
+alias todoedit='nvim ~/Github/todo/README.md'
 alias todopush=push_todos
 alias gconf=git_config
 alias hunt=find_exact_match
 
-push_todos() { 
+push_todos() {
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
 	pushd $HOME/repos/todo && \
