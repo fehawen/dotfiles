@@ -1,7 +1,7 @@
 " Automatic vim-plug installation
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 
@@ -18,6 +18,8 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ekalinin/Dockerfile.vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'itchyny/lightline.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -115,6 +117,9 @@ let g:deoplete#enable_at_startup = 1
 
 set background=dark
 colorscheme industrial
+" colorscheme dracula
+
+" let g:lightline = { 'colorscheme': 'dracula' }
 
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'

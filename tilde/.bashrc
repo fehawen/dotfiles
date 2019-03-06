@@ -38,9 +38,10 @@ alias gstasha='git stash apply'
 alias gstashl='git stash list'
 alias gstashd='git stash drop'
 alias code='open -a "Visual Studio Code"'
-alias files='cd ~/files/'
-alias repos='cd ~/repos/'
-alias projects='cd ~/projects'
+alias gh='cd ~/Github/'
+alias repos='cd ~/Github/'
+alias dot='cd ~/Dotfiles/'
+alias projects='cd ~/projects/'
 alias bashrc='source ~/.bashrc'
 alias mongorun='mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data'
 alias start-chunkwm='brew services start koekeishiya/formulae/chunkwm'
@@ -49,10 +50,21 @@ alias stop-chunkwm='brew services stop koekeishiya/formulae/chunkwm'
 alias start-skhd='brew services start koekeishiya/formulae/skhd'
 alias restart-skhd='brew services restart koekeishiya/formulae/skhd'
 alias stop-skhd='brew services stop koekeishiya/formulae/skhd'
-alias todor='cat ~/repos/todo/README.md'
-alias todoe='nvim ~/repos/todo/README.md'
+alias todoread='cat ~/repos/todo/README.md'
+alias todoedit='nvim ~/repos/todo/README.md'
+alias todopush=push_todos
 alias gconf=git_config
 alias hunt=find_exact_match
+
+push_todos() { 
+	timestamp=$(date +"%Y%m%d-%H:%M:%S")
+
+	pushd $HOME/repos/todo && \
+	git add . && \
+	git commit -m 'Bump ${timestamp}.' && \
+	git push && \
+	popd
+}
 
 git_config() {
 	command git config user.name $1 && git config user.email $2

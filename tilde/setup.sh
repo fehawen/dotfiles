@@ -27,8 +27,16 @@ symlink() {
 	ln -sfv "$(PWD)/$1" "$HOME/$1" || error "Failed to symlink $1"
 }
 
+declare -a includes=(
+	.bashrc
+	.bash_profile
+	.hushlogin
+	.chunkwmrc
+	.skhdrc
+)
+
 initialize() {
-	read -r -p "${bold}Install ChunkWM/SKHD config? ${reset}[y/N] " answer
+	read -r -p "${bold}Install tilde config files? ${reset}[y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
 		error "Installation declined..."
 		info "Now exiting."
@@ -39,10 +47,24 @@ initialize() {
 }
 
 setup() {
-	info "Setting up ChunkWM/SKHD config..."
+	success "Setting up tilde..."
 
-	symlink ".chunkwmrc"
-	symlink ".skhdrc"
+	info "Resetting PATH to avoid duplication."
+	PATH=$(getconf PATH)
+
+	info "Checking which shell..."
+	if $(echo "$SHELL" | command grep -i '/bin/bash' &> /dev/null); then
+		info "Shell is already set to $SHELL"
+	else
+		alert "Shell is set to $SHELL"
+		info "Changing shell to /bin/bash"
+		chsh -s /bin/bash
+	fi
+
+	for i in "${includes[@]}"
+	do
+		symlink "$i"
+	done
 
 	success "Done."
 }
