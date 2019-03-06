@@ -14,7 +14,7 @@ includes=(
 	"nvim"
 )
 
-log() {
+success() {
 	printf "${newline}${green}INFO: $1${reset}"
 }
 
