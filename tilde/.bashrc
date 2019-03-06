@@ -53,16 +53,23 @@ alias stop-skhd='brew services stop koekeishiya/formulae/skhd'
 alias todoread='cat ~/Github/todo/README.md'
 alias todoedit='nvim ~/Github/todo/README.md'
 alias todopush=push_todos
+alias todopull=pull_todos
 alias gconf=git_config
 alias hunt=find_exact_match
 
 push_todos() {
 	timestamp=$(date +"%Y%m%d-%H:%M:%S")
 
-	pushd $HOME/repos/todo && \
+	pushd $HOME/Github/todo/ && \
 	git add . && \
 	git commit -m 'Bump ${timestamp}.' && \
 	git push && \
+	popd
+}
+
+pull_todos() {
+	pushd $HOME/Github/todo/ && \
+	git pull && \
 	popd
 }
 
