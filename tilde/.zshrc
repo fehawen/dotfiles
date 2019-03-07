@@ -23,6 +23,8 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 SPACESHIP_CHAR_SYMBOL="→ "
+SPACESHIP_GIT_STATUS_AHEAD="↑"
+SPACESHIP_GIT_STATUS_BEHIND="↓"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
