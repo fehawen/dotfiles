@@ -336,4 +336,4 @@ PROMPT_COMMAND=timer_stop
 PS1="\$(compose_prompt)"
 
 # Include desired paths in PATH and export, leaving default PATH still intact
-PATH="~/.npm-global/bin:~/paths/mongodb-osx-x86_64-4.0.3/bin:$PATH"
+# PATH="~/.npm-global/bin:$PATH"

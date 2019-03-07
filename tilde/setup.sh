@@ -28,6 +28,7 @@ symlink() {
 }
 
 declare -a includes=(
+	.zshrc
 	.bashrc
 	.bash_profile
 	.hushlogin
@@ -49,17 +50,17 @@ initialize() {
 setup() {
 	success "Setting up tilde..."
 
-	info "Resetting PATH to avoid duplication."
-	PATH=$(getconf PATH)
+	# info "Resetting PATH to avoid duplication."
+	# PATH=$(getconf PATH)
 
-	info "Checking which shell..."
-	if $(echo "$SHELL" | command grep -i '/bin/bash' &> /dev/null); then
-		info "Shell is already set to $SHELL"
-	else
-		alert "Shell is set to $SHELL"
-		info "Changing shell to /bin/bash"
-		chsh -s /bin/bash
-	fi
+	# info "Checking which shell..."
+	# if $(echo "$SHELL" | command grep -i '/bin/bash' &> /dev/null); then
+	# 	info "Shell is already set to $SHELL"
+	# else
+	# 	alert "Shell is set to $SHELL"
+	# 	info "Changing shell to /bin/bash"
+	# 	chsh -s /bin/bash
+	# fi
 
 	for i in "${includes[@]}"
 	do

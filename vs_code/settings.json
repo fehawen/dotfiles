@@ -4,9 +4,9 @@
 	"workbench.iconTheme": "material-icon-theme",
 	"breadcrumbs.enabled": true,
 	"editor.fontLigatures": true,
-	"editor.fontFamily": "Operator Mono",
+	"editor.fontFamily": "Fira Code",
 	"editor.fontWeight": "400",
-	"editor.fontSize": 14,
+	"editor.fontSize": 13,
 	"editor.minimap.enabled": false,
 	"editor.tabSize": 2,
 	"editor.wordWrap": "on",
@@ -20,6 +20,6 @@
 	"terminal.integrated.fontSize": 15,
 	"terminal.integrated.fontWeight": "400",
 	"terminal.integrated.cursorStyle": "underline",
-	"workbench.colorTheme": "Material Theme Palenight",
+	"workbench.colorTheme": "Atom One Dark",
 	"window.title": ""
 }
