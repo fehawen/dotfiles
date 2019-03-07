@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# open Kitty
-cmd - return : open -a /Applications/Kitty.app
+# open iTerm
+cmd - return : open -a /Applications/iTerm.app
+# cmd - return : open -a /Applications/Kitty.app
 
 # close focused window
 alt - w : chunkc tiling::window --close
