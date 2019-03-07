@@ -126,8 +126,6 @@ endif
 
 syntax on
 colorscheme onedark
-" set background=dark
-" colorscheme industrial
 
 let g:lightline = { 'colorscheme': 'onedark' }
 
