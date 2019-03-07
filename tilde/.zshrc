@@ -164,11 +164,9 @@ alias gconf=git_config
 alias hunt=find_exact_match
 
 push_todos() {
-	timestamp=$(date +"%Y%m%d-%H:%M:%S")
-
 	pushd $HOME/Github/todo/ && \
 	git add . && \
-	git commit -m 'Bump ${timestamp}.' && \
+	git commit -m 'Bump.' && \
 	git push && \
 	popd
 }
