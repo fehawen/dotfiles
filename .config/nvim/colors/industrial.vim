@@ -13,7 +13,7 @@ let s:gui.background = { 'dark': '#263238', 'light': '#263238' }
 let s:gui.foreground = { 'dark': '#CFD8DC', 'light': '#CFD8DC' }
 let s:gui.none       = { 'dark': 'NONE',    'light': 'NONE',   }
 let s:gui.selection  = { 'dark': '#F4511E', 'light': '#F4511E' }
-let s:gui.line       = { 'dark': '#0E1014', 'light': '#0E1014' }
+let s:gui.line       = { 'dark': '#37474F', 'light': '#37474F' }
 let s:gui.comment    = { 'dark': '#0E1014', 'light': '#0E1014' }
 
 let s:gui.black      = { 'dark': '#0E1014', 'light': '#0E1014' }
@@ -79,14 +79,14 @@ if has("nvim")
 endif
 
 " STATUS LINE COLORS
-hi StatusLine guibg='#CFD8DC' guifg='#263238'
-hi StatusLineNC guibg='#0E1014' guifg='#263238'
+hi StatusLine guibg='#F4511E' guifg='#263238'
+hi StatusLineNC guibg='#CFD8DC' guifg='#263238'
 
 " "EDITOR COLORS
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "", "", "")
 call s:hi("Cursor",       s:gui.yellow,     "",               "", "", "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.line,       "", "", "")
-call s:hi("LineNr",       s:gui.red,        "",               "", "", "")
+call s:hi("LineNr",       s:gui.line,       "",               "", "", "")
 call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "", "", "")
 call s:hi("CursorLineNr", s:gui.orange,     s:gui.none,       "", "", "")
 call s:hi("Directory",    s:gui.blue,       "",               "", "", "")
@@ -97,7 +97,7 @@ call s:hi("PMenuSel",     s:gui.cyan,       s:gui.none,       "", "", "")
 call s:hi("ErrorMsg",     s:gui.orange,     s:gui.none,       "", "", "")
 call s:hi("Error",        s:gui.orange,     s:gui.none,       "", "", "")
 call s:hi("WarningMsg",   s:gui.orange,     "",               "", "", "")
-call s:hi("VertSplit",    s:gui.black,      s:gui.none,       "", "", "")
+call s:hi("VertSplit",    s:gui.line,       s:gui.none,       "", "", "")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "", "", "")
 
 call s:hi("DiffAdded",    s:gui.green,      "", "", "", "")
@@ -255,7 +255,7 @@ call s:hi("jsClassKeyword",    s:gui.red,        "", "", "", "italic")
 call s:hi("jsConditional",     s:gui.cyan,       "", "", "", "bold")
 call s:hi("jsFuncArgs",        s:gui.green,      "", "", "", "")
 call s:hi("jsFuncBraces",      s:gui.orange,     "", "", "", "")
-call s:hi("jsFuncCall",        s:gui.cyan,     "", "", "", "bold")
+call s:hi("jsFuncCall",        s:gui.cyan,       "", "", "", "bold")
 call s:hi("jsFuncParens",      s:gui.orange,     "", "", "", "")
 call s:hi("jsFunction",        s:gui.blue,       "", "", "", "italic")
 call s:hi("jsFunctionKey",     s:gui.orange,     "", "", "", "bold")
