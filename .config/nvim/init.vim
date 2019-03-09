@@ -18,8 +18,6 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'joshdick/onedark.vim'
-Plug 'itchyny/lightline.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -30,7 +28,7 @@ set termguicolors
 filetype plugin on
 filetype indent on
 
-" set noshowmode
+set noshowmode
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -115,24 +113,13 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Plugin configs
 let g:deoplete#enable_at_startup = 1
 
-" Remove onedark background to allow transparent terminal window
-if (has("autocmd") && !has("gui_running"))
-  augroup colorset
-    autocmd!
-    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white })
-  augroup END
-endif
-
-syntax on
-colorscheme onedark
-
-let g:lightline = { 'colorscheme': 'onedark' }
+set background=dark
+colorscheme industrial
 
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
 
-highlight clear SignColumn
+" highlight clear SignColumn
 
 let NERDTreeShowHidden=1
 let g:NERDTreeShowLineNumbers = 0
