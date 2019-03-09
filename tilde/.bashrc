@@ -290,7 +290,7 @@ git_section() {
 # Prints time in hh:mm
 date_section() {
 	[[ $(PWD) == $HOME ]] && return
-	printf "${date_prefix_color}${date_prefix} ${date_color}" && date +"%H:%M"
+	printf "${date_prefix_color}${date_prefix} ${date_color}" && date +"%H:%M "
 }
 
 # Get execution time of previous command and display in seconds, minutes, hours or days
