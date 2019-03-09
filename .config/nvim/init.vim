@@ -119,13 +119,11 @@ colorscheme industrial
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
 
-" highlight clear SignColumn
+" Remove vertical sign (error) column bg
+highlight clear SignColumn
 
 let NERDTreeShowHidden=1
 let g:NERDTreeShowLineNumbers = 0
-
-" Auto-open NERDTree
-au VimEnter *  NERDTree
 
 " Map nerdtreetoggle to ctrl-n
 map <C-n> :NERDTreeToggle<CR>
