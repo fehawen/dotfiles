@@ -58,11 +58,9 @@ alias gconf=git_config
 alias hunt=find_exact_match
 
 push_todos() {
-	timestamp=$(date +"%Y%m%d-%H:%M:%S")
-
 	pushd $HOME/Github/todo/ && \
 	git add . && \
-	git commit -m 'Bump ${timestamp}.' && \
+	git commit -m 'Bump.' && \
 	git push && \
 	popd
 }
@@ -142,8 +140,12 @@ git_branch_prefix_color=$white
 git_branch_prefix="on"
 
 git_status_color=$red
-git_status_prefix_color=$white
-git_status_prefix="is"
+git_status_prefix="["
+git_status_suffix="]"
+
+date_prefix="at"
+date_prefix_color=$white
+date_color=$bright_blue
 
 exec_time_color=$green
 exec_time_prefix_color=$white
@@ -278,10 +280,17 @@ git_section() {
 	local git_status="${git_branch_prefix_color}${git_branch_prefix} ${git_branch_color}${branch} "
 
 	if [[ $status != "" ]]; then
-		git_status="${git_status}${git_status_prefix_color}${git_status_prefix} ${git_status_color}${status} "
+		git_status="${git_status}${git_status_color}${git_status_prefix}${status}${git_status_suffix} "
 	fi
 
 	printf "${git_status}"
+}
+
+
+# Prints time in hh:mm
+date_section() {
+	[[ $(PWD) == $HOME ]] && return
+	printf "${date_prefix_color}${date_prefix} ${date_color}" && date +"%H:%M"
 }
 
 # Get execution time of previous command and display in seconds, minutes, hours or days
@@ -326,7 +335,7 @@ exit_section() {
 # Compose prompt
 compose_prompt() {
 	RETVAL=$?
-	printf "${newline}${bold}${italic}$(user_section)$(dir_section)$(dir_content_section)$(git_section)$(exec_time_section)${newline}$(exit_section)${reset}"
+	printf "${newline}${bold}${italic}$(user_section)$(dir_section)$(git_section)$(date_section)$(exec_time_section)${newline}$(exit_section)${reset}"
 }
 
 # Stop timer for execution time calculation
