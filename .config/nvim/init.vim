@@ -124,5 +124,8 @@ let g:ale_sign_warning = '•'
 let NERDTreeShowHidden=1
 let g:NERDTreeShowLineNumbers = 0
 
+" Auto-open NERDTree
+au VimEnter *  NERDTree
+
 " Map nerdtreetoggle to ctrl-n
 map <C-n> :NERDTreeToggle<CR>
