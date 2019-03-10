@@ -127,3 +127,7 @@ let g:NERDTreeShowLineNumbers = 0
 
 " Map nerdtreetoggle to ctrl-n
 map <C-n> :NERDTreeToggle<CR>
+
+" Open NERDTree if no file specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
