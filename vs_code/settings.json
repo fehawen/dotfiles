@@ -6,7 +6,7 @@
 	"editor.fontLigatures": true,
 	"editor.fontFamily": "Operator Mono, Fira Code",
 	"editor.fontWeight": "400",
-	"editor.fontSize": 13,
+	"editor.fontSize": 16,
 	"editor.minimap.enabled": false,
 	"editor.tabSize": 2,
 	"editor.wordWrap": "on",
