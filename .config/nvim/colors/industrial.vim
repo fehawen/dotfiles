@@ -12,7 +12,7 @@ let s:cterm = {}
 let s:gui.background = { 'dark': '#263238', 'light': '#263238' }
 let s:gui.foreground = { 'dark': '#CFD8DC', 'light': '#CFD8DC' }
 let s:gui.none       = { 'dark': 'NONE',    'light': 'NONE',   }
-let s:gui.selection  = { 'dark': '#F4511E', 'light': '#F4511E' }
+let s:gui.selection  = { 'dark': '#546E7A', 'light': '#546E7A' }
 let s:gui.line       = { 'dark': '#37474F', 'light': '#37474F' }
 let s:gui.comment    = { 'dark': '#0E1014', 'light': '#0E1014' }
 
@@ -79,8 +79,8 @@ if has("nvim")
 endif
 
 " STATUS LINE COLORS
-hi StatusLine guibg='#F4511E' guifg='#37474F'
-hi StatusLineNC guibg='#CFD8DC' guifg='#37474F'
+hi StatusLine guibg='#CFD8DC' guifg='#37474F'
+hi StatusLineNC guibg='#263238' guifg='#37474F'
 
 " "EDITOR COLORS
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "", "", "")
@@ -106,16 +106,16 @@ call s:hi("DiffRemoved",  s:gui.red,        "", "", "", "")
 call s:hi("DiffAdd",      "",               s:gui.cyan,       "", "", "")
 call s:hi("DiffChange",   "",               s:gui.cyan,       "", "", "")
 call s:hi("DiffDelete",   s:gui.red,        s:gui.black,      "", "", "")
-call s:hi("DiffText",     "",               s:gui.selection,  "", "", "")
+call s:hi("DiffText",     s:gui.background, s:gui.selection,  "", "", "")
 
 call s:hi("NonText",      s:gui.comment,    "",               "", "", "")
 call s:hi("helpExample",  s:gui.blue,       "",               "", "", "")
-call s:hi("MatchParen",   "",               s:gui.selection,  "", "", "")
+call s:hi("MatchParen",   s:gui.background, s:gui.selection,  "", "", "")
 call s:hi("Title",        s:gui.cyan,       "",               "", "", "")
 call s:hi("Comment",      s:gui.comment,    "",               "", "", "italic")
 call s:hi("String",       s:gui.green,      "",               "", "", "")
 call s:hi("Normal",       s:gui.foreground, s:gui.none,       "", "", "")
-call s:hi("Visual",       "",               s:gui.selection,  "", "", "")
+call s:hi("Visual",       s:gui.background, s:gui.selection,  "", "", "")
 call s:hi("Constant",     s:gui.blue,       "",               "", "", "bold")
 call s:hi("Type",         s:gui.blue,       "",               "", "", "bold")
 call s:hi("Define",       s:gui.cyan,       "",               "", "", "")
