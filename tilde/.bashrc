@@ -143,7 +143,7 @@ git_status_color=$red
 git_status_prefix="["
 git_status_suffix="]"
 
-date_prefix="at"
+date_prefix="time"
 date_prefix_color=$white
 date_color=$bright_blue
 
@@ -237,7 +237,7 @@ git_section() {
 
 	local status=""
 	local index=$(git status --porcelain -b 2> /dev/null)
-	local branch=$(git symbolic-ref --short HEAD 2> /dev/null)
+	local branch=$(git symbolic-ref --quiet --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)
 	local branch_ahead branch_behind
 
 	if $(echo "$index" | command grep -E '^[MARCDU ]D ' &> /dev/null); then
