@@ -25,7 +25,7 @@ alias gp='git push'
 alias gs='git status'
 alias gss='git status -s'
 alias giff='git diff'
-alias glog='git log'
+alias glog='git log --pretty=format:"%n%Cred%ar %n%Creset%h %Cblue%an <%ae> %n%Cgreen%s" --name-only'
 alias gfetch='git fetch'
 alias gpull='git pull'
 alias gbranch='git branch --list'
@@ -54,7 +54,6 @@ alias todoread='cat ~/Github/todo/README.md'
 alias todoedit='nvim ~/Github/todo/README.md'
 alias todopush=push_todos
 alias todopull=pull_todos
-alias gconf=git_config
 alias hunt=find_exact_match
 
 push_todos() {
@@ -69,10 +68,6 @@ pull_todos() {
 	pushd $HOME/Github/todo/ && \
 	git pull && \
 	popd
-}
-
-git_config() {
-	command git config user.name $1 && git config user.email $2
 }
 
 # Search function, called on with alias 'hunt' -- e.g. hunt 'const' to find all occurences of 'const' in dir w/ subdirs
