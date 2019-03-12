@@ -11,9 +11,8 @@ bind 'set completion-ignore-case on'
 
 # Aliases
 alias clr='clear'
-alias ll='ls -1 -F -G'
-alias la='ls -1A -F -G'
-alias las='ls -lAh -F -G'
+alias la='ls -1AFG'
+alias ls='ls -lAFGh'
 alias g+='git add'
 alias g-='git rm'
 alias gcm='git commit -m'
