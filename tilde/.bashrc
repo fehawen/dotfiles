@@ -1,7 +1,8 @@
 #!/bin/bash
-#######################
-#### CUSTOMIZATION ####
-#######################
+
+######################
+### CUSTOMIZATION ####
+######################
 
 bind 'set completion-ignore-case on'
 
@@ -56,15 +57,15 @@ alias todopull=pull_todos
 alias hunt=find_exact_match
 
 push_todos() {
-	pushd $HOME/Github/todo/ && \
+	pushd "$HOME/Github/todo/" && \
 	git add . && \
-	git commit -m 'Bump.' && \
+	git commit -m "Bump." && \
 	git push && \
 	popd
 }
 
 pull_todos() {
-	pushd $HOME/Github/todo/ && \
+	pushd "$HOME/Github/todo/" && \
 	git pull && \
 	popd
 }
@@ -114,35 +115,35 @@ git_stashed="$"
 git_uneven="¿"
 
 # Conventional solution for new line
-newline='
-'
+newline="
+"
 
 # Section colors, symbols and prefixes - change to your liking!
-user_is_root_color=$red
+user_is_root_color="$red"
 
-dir_color=$bright_cyan
-dir_prefix="in"
-dir_is_git_repo_subfolder_symbol=$arrow
+dir_color="$bright_cyan"
+dir_prefix="at"
+dir_is_git_repo_subfolder_symbol="$arrow"
 
-dir_content_color=$bright_blue
-dir_content_prefix_color=$white
+dir_content_color="$bright_blue"
+dir_content_prefix_color="$white"
 dir_content_prefix="at"
 dir_content_separator="."
 
-git_branch_color=$bright_magenta
-git_branch_prefix_color=$white
+git_branch_color="$bright_magenta"
+git_branch_prefix_color="$white"
 git_branch_prefix="on"
 
-git_status_color=$red
+git_status_color="$red"
 git_status_prefix="["
 git_status_suffix="]"
 
-date_prefix="time"
-date_prefix_color=$white
-date_color=$bright_blue
+date_suffix="in"
+date_suffix_color="$white"
+date_color="$bright_blue"
 
-exec_time_color=$green
-exec_time_prefix_color=$white
+exec_time_color="$green"
+exec_time_prefix_color="$white"
 exec_time_prefix="took"
 
 exit_color_ok=$green
@@ -182,19 +183,26 @@ user_section() {
 	fi
 }
 
+# Prints time in hh:mm
+date_section() {
+	[[ $(PWD) == $HOME ]] && return
+	printf "${date_color}`date +"%H:%M"` ${date_suffix_color}${date_suffix} "
+}
+
 # Prints out current working directory with varying prefix,
 # depending if we're in $HOME/dir or $HOME/.../dir, or
 # if we're in a git repo, or in a git repo subdirectory
 dir_section() {
+	local get_dir="${PWD##*/}"
 	local prefix res
-	local get_dir=${PWD##*/}
-	local git_root=$(git rev-parse --show-toplevel 2> /dev/null)
-	local git_toplevel=${git_root##*/}
 
-	if [[ $(PWD) == "$HOME/$get_dir" || $git_root == "$HOME/$git_toplevel" ]]; then
+	prefix=""
+	res=""
+
+	if [[ "$(PWD)" == "$HOME/$get_dir" ]]; then
 		prefix="~/"
 	else
-		prefix=".../"
+		prefix=""
 	fi
 
 	if [[ $(PWD) == $HOME ]]; then
@@ -206,32 +214,13 @@ dir_section() {
 	printf "${dir_color}${res} "
 }
 
-# Show how many sub-folders, files and symlinked files/folders we have in current directory
-dir_content_section() {
-	[[ $(PWD) == $HOME ]] && return
-
-	local subdirs=$(find . -maxdepth 1 -type d -ls | grep -c ^)
-	local files=$(find . -maxdepth 1 -type f -ls | grep -c ^)
-	local symlinks=$(find . -maxdepth 1 -type l -ls | grep -c ^)
-
-	subdirs=$(($subdirs - 1))
-
-	if [[ $subdirs == 0 && $files == 0 && $symlinks == 0 ]]; then
-		content="empty"
-	else
-		content="${subdirs}${dir_content_separator}${files}${dir_content_separator}${symlinks}"
-	fi
-
-	printf "${dir_content_prefix_color}${dir_content_prefix} ${dir_content_color}${content} "
-}
-
 # Show current Git branch, and if branch isn't clean show status
 git_section() {
 	is_git_repository || return
 
 	local status=""
-	local index=$(git status --porcelain -b 2> /dev/null)
-	local branch=$(git symbolic-ref --quiet --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)
+	local index="$(git status --porcelain -b 2> /dev/null)"
+	local branch="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)"
 	local branch_ahead branch_behind
 
 	if $(echo "$index" | command grep -E '^[MARCDU ]D ' &> /dev/null); then
@@ -280,13 +269,6 @@ git_section() {
 	printf "${git_status}"
 }
 
-
-# Prints time in hh:mm
-date_section() {
-	[[ $(PWD) == $HOME ]] && return
-	printf "${date_prefix_color}${date_prefix} ${date_color}" && date +"%H:%M "
-}
-
 # Get execution time of previous command and display in seconds, minutes, hours or days
 exec_time_section() {
 	local suffix duration timer_limit=2
@@ -329,7 +311,7 @@ exit_section() {
 # Compose prompt
 compose_prompt() {
 	RETVAL=$?
-	printf "${newline}${bold}${italic}$(user_section)$(dir_section)$(git_section)$(date_section)$(exec_time_section)${newline}$(exit_section)${reset}"
+	printf "${bold}$(date_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_section)${reset}"
 }
 
 # Stop timer for execution time calculation
@@ -339,4 +321,4 @@ PROMPT_COMMAND=timer_stop
 PS1="\$(compose_prompt)"
 
 # Include desired paths in PATH and export, leaving default PATH still intact
-# PATH="~/.npm-global/bin:$PATH"
+PATH="~/.npm-global/bin:$PATH"
