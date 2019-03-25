@@ -311,7 +311,7 @@ exit_section() {
 # Compose prompt
 compose_prompt() {
 	RETVAL=$?
-	printf "${bold}$(date_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_section)${reset}"
+	printf "${bold}${italic}$(date_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_section)${reset}"
 }
 
 # Stop timer for execution time calculation
