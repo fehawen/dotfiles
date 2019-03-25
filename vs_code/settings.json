@@ -18,8 +18,6 @@
 	"workbench.statusBar.visible": true,
 	"workbench.startupEditor": "newUntitledFile",
 	"window.zoomLevel": 0,
-	"terminal.integrated.fontSize": 12,
-	"terminal.integrated.fontWeight": "400",
 	"terminal.integrated.cursorStyle": "underline",
 	"workbench.colorTheme": "Material Theme",
 	"window.title": "",
