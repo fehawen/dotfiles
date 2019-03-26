@@ -10,11 +10,11 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.background = { 'dark': '#263238', 'light': '#263238' }
-let s:gui.foreground = { 'dark': '#CFD8DC', 'light': '#CFD8DC' }
+let s:gui.foreground = { 'dark': '#B0BEC5', 'light': '#B0BEC5' }
 let s:gui.none       = { 'dark': 'NONE',    'light': 'NONE',   }
 let s:gui.selection  = { 'dark': '#546E7A', 'light': '#546E7A' }
 let s:gui.line       = { 'dark': '#37474F', 'light': '#37474F' }
-let s:gui.comment    = { 'dark': '#0E1014', 'light': '#0E1014' }
+let s:gui.comment    = { 'dark': '#37474F', 'light': '#37474F' }
 
 let s:gui.black      = { 'dark': '#0E1014', 'light': '#0E1014' }
 let s:gui.red        = { 'dark': '#455A64', 'light': '#455A64' }
@@ -78,15 +78,12 @@ if has("nvim")
   let g:terminal_color_15 = s:gui(s:gui.foreground)
 endif
 
-" STATUS LINE COLORS
-hi StatusLine guibg='#CFD8DC' guifg='#37474F'
-hi StatusLineNC guibg='#263238' guifg='#37474F'
-
-" "EDITOR COLORS
+" EDITOR COLORS
+call s:hi("EndOfBuffer",  s:gui.background, s:gui.background, "", "", "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "", "", "")
 call s:hi("Cursor",       s:gui.yellow,     "",               "", "", "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.line,       "", "", "")
-call s:hi("LineNr",       s:gui.line,       "",               "", "", "")
+call s:hi("LineNr",       s:gui.background, "",               "", "", "")
 call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "", "", "")
 call s:hi("CursorLineNr", s:gui.accent,     s:gui.none,       "", "", "")
 call s:hi("Directory",    s:gui.blue,       "",               "", "", "")
@@ -97,7 +94,9 @@ call s:hi("PMenuSel",     s:gui.cyan,       s:gui.none,       "", "", "")
 call s:hi("ErrorMsg",     s:gui.accent,     s:gui.none,       "", "", "")
 call s:hi("Error",        s:gui.accent,     s:gui.none,       "", "", "")
 call s:hi("WarningMsg",   s:gui.accent,     "",               "", "", "")
-call s:hi("VertSplit",    s:gui.line,       s:gui.none,       "", "", "")
+call s:hi("VertSplit",    s:gui.background, s:gui.line,       "", "", "")
+call s:hi("StatusLine",   s:gui.background, s:gui.line,       "", "", "")
+call s:hi("StatusLineNC", s:gui.background, s:gui.line,       "", "", "")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "", "", "")
 
 call s:hi("DiffAdded",    s:gui.green,      "", "", "", "")
