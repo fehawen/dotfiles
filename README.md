@@ -1,6 +1,6 @@
 <h1 align="center">
 	<a href="https://github.com/fehawen/dotfiles">
-		<img alt="fehawen-macos-rice-dotfiles" src="https://user-images.githubusercontent.com/36552788/54080085-c9fa9800-42e8-11e9-84c7-25b404940c5e.png" width="960">
+		<img alt="fehawen-macos-rice-dotfiles" src="https://user-images.githubusercontent.com/36552788/54964488-fced8e80-4f6c-11e9-85f3-012aef03a2d8.png" width="960">
 	</a>
 	<br>
 </h1>
@@ -11,4 +11,4 @@
 
 ## About
 
-Just getting my dots on, the good ol' rice and spice.
+Just getting my dots on, the good ol' rice and dice.
