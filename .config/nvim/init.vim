@@ -28,8 +28,6 @@ set termguicolors
 filetype plugin on
 filetype indent on
 
-set noshowmode
-
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -127,6 +125,10 @@ let g:NERDTreeShowLineNumbers = 0
 
 " Map nerdtreetoggle to ctrl-n
 map <C-n> :NERDTreeToggle<CR>
+
+" Map '§' to act as 'Esc' since the MacBook touchbar is the eighth deadly sin
+map § <Esc>
+map! § <C-c>
 
 " Open NERDTree if no file specified
 autocmd StdinReadPre * let s:std_in=1
