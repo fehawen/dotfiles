@@ -156,11 +156,11 @@ exit_symbol=$arrow
 
 # Timer for calculating execution time
 timer_start() {
-	timer=${timer:-$SECONDS}
+	timer="${timer:-$SECONDS}"
 }
 
 timer_stop() {
-	timer_show=$(($SECONDS - $timer))
+	timer_show="$(($SECONDS - $timer))"
 	unset timer
 }
 
@@ -178,14 +178,14 @@ is_git_repository() {
 
 # Prints out user only if we're root, else prints nothing
 user_section() {
-	if [[ $UID -eq 0 ]]; then
+	if [[ "$UID" -eq 0 ]]; then
 		printf "${user_is_root_color}$USER ${white}${dir_prefix} "
 	fi
 }
 
 # Prints time in hh:mm
 date_section() {
-	[[ $(PWD) == $HOME ]] && return
+	[[ "$(PWD)" == "$HOME" ]] && return
 	printf "${date_color}`date +"%H:%M"` ${date_suffix_color}${date_suffix} "
 }
 
@@ -205,7 +205,7 @@ dir_section() {
 		prefix=""
 	fi
 
-	if [[ $(PWD) == $HOME ]]; then
+	if [[ "$(PWD)" == "$HOME" ]]; then
 		res="~"
 	else
 		res="${prefix}${get_dir}"
@@ -253,16 +253,16 @@ git_section() {
 		status="${git_modified}${status}"
 	fi
 
-	local behind=$(git rev-list --left-only --count @'{u}'...HEAD 2> /dev/null)
-	local ahead=$(git rev-list --left-only --count HEAD...@'{u}' 2> /dev/null)
+	local behind="$(git rev-list --left-only --count @'{u}'...HEAD 2> /dev/null)"
+	local ahead="$(git rev-list --left-only --count HEAD...@'{u}' 2> /dev/null)"
 
-	if [[ $behind -gt 0 || $ahead -gt 0 ]]; then
+	if [[ "$behind" -gt 0 || "$ahead" -gt 0 ]]; then
 		status="${git_uneven}${status}"
 	fi
 
 	local git_status="${git_branch_prefix_color}${git_branch_prefix} ${git_branch_color}${branch} "
 
-	if [[ $status != "" ]]; then
+	if [[ "$status" != "" ]]; then
 		git_status="${git_status}${git_status_color}${git_status_prefix}${status}${git_status_suffix} "
 	fi
 
@@ -273,19 +273,19 @@ git_section() {
 exec_time_section() {
 	local suffix duration timer_limit=2
 
-	if [[ $timer_show -ge $timer_limit ]]; then
-		if [[ $timer_show -le 60 ]]; then
+	if [[ "$timer_show" -ge "$timer_limit" ]]; then
+		if [[ "$timer_show" -le 60 ]]; then
 			suffix="sec"
-			duration=${timer_show}
-		elif [[ $timer_show -gt 60 && $timer_show -lt 3600 ]]; then
+			duration="${timer_show}"
+		elif [[ "$timer_show" -gt 60 && "$timer_show" -lt 3600 ]]; then
 			suffix="min"
-			duration=$(printf %.1f "$((10 * $timer_show / 60))e-1")
-		elif [[ $timer_show -ge 3600 ]]; then
+			duration="$(printf %.1f '$((10 * $timer_show / 60))e-1')"
+		elif [[ "$timer_show" -ge 3600 ]]; then
 			suffix="hrs"
-			duration=$(printf %.1f "$((10 * $timer_show / 3600))e-1")
-		elif [[ $timer_show -ge 86400 ]]; then
+			duration="$(printf %.1f '$((10 * $timer_show / 3600))e-1')"
+		elif [[ "$timer_show" -ge 86400 ]]; then
 			suffix="days"
-			duration=$(printf %.1f "$((10 * $timer_show / 86400))e-1")
+			duration="$(printf %.1f '$((10 * $timer_show / 86400))e-1')"
 		fi
 		printf "${exec_time_prefix_color}${exec_time_prefix} ${exec_time_color}${duration} ${suffix}"
 	fi
@@ -295,7 +295,7 @@ exec_time_section() {
 exit_section() {
 	local exit_status
 
-	if [[ $RETVAL -eq 0 ]]; then
+	if [[ "$RETVAL" -eq 0 ]]; then
 		exit_status="${exit_color_ok}"
 	else
 		exit_status="${exit_color_bad}"
