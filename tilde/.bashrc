@@ -4,54 +4,54 @@
 ### CUSTOMIZATION ####
 ######################
 
-bind 'set completion-ignore-case on'
+bind "set completion-ignore-case on"
 
 #######################
 ###### VARIABLES ######
 #######################
 
 # Aliases
-alias clr='clear'
-alias la='ls -1AFG'
-alias ls='ls -lAFGh'
-alias g+='git add'
-alias g-='git rm'
-alias gcm='git commit -m'
-alias gpuom='git push -u origin master'
-alias gpom='git push origin master'
-alias gpuo='git push -u origin'
-alias gpo='git push origin'
-alias gp='git push'
-alias gs='git status'
-alias gss='git status -s'
-alias giff='git diff'
-alias glog='git log --pretty=format:"%n%Cred%ar %n%Creset%h %Cblue%an <%ae> %n%Cgreen%s" --name-only'
-alias gfetch='git fetch'
-alias gpull='git pull'
-alias gbranch='git branch --list'
-alias gbranchr='git branch -r'
-alias gbranchv='git branch -v'
-alias gcheck='git checkout'
-alias gcheckb='git checkout -b'
-alias gstash='git stash'
-alias gstasha='git stash apply'
-alias gstashl='git stash list'
-alias gstashd='git stash drop'
-alias code='open -a "Visual Studio Code"'
-alias gh='cd ~/Github/'
-alias repos='cd ~/Github/'
-alias dot='cd ~/Dotfiles/'
-alias projects='cd ~/projects/'
-alias bashrc='source ~/.bashrc'
-alias mongorun='mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data'
-alias start-chunkwm='brew services start koekeishiya/formulae/chunkwm'
-alias restart-chunkwm='brew services restart koekeishiya/formulae/chunkwm'
-alias stop-chunkwm='brew services stop koekeishiya/formulae/chunkwm'
-alias start-skhd='brew services start koekeishiya/formulae/skhd'
-alias restart-skhd='brew services restart koekeishiya/formulae/skhd'
-alias stop-skhd='brew services stop koekeishiya/formulae/skhd'
-alias todoread='cat ~/Github/todo/README.md'
-alias todoedit='nvim ~/Github/todo/README.md'
+alias clr="clear"
+alias la="ls -1AFG"
+alias ls="ls -lAFGh"
+alias g+="git add"
+alias g-="git rm"
+alias gcm="git commit -m"
+alias gpuom="git push -u origin master"
+alias gpom="git push origin master"
+alias gpuo="git push -u origin"
+alias gpo="git push origin"
+alias gp="git push"
+alias gs="git status"
+alias gss="git status -s"
+alias giff="git diff"
+alias glog="git log --pretty=format:'%n%Cred%ar %n%Creset%h %Cblue%an <%ae> %n%Cgreen%s' --name-only"
+alias gfetch="git fetch"
+alias gpull="git pull"
+alias gbranch="git branch --list"
+alias gbranchr="git branch -r"
+alias gbranchv="git branch -v"
+alias gcheck="git checkout"
+alias gcheckb="git checkout -b"
+alias gstash="git stash"
+alias gstasha="git stash apply"
+alias gstashl="git stash list"
+alias gstashd="git stash drop"
+alias code="open -a 'Visual Studio Code'"
+alias gh="cd ~/Github/"
+alias repos="cd ~/Github/"
+alias dot="cd ~/Dotfiles/"
+alias projects="cd ~/projects/"
+alias bashrc="source ~/.bashrc"
+alias mongorun="mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data"
+alias start-chunkwm="brew services start koekeishiya/formulae/chunkwm"
+alias restart-chunkwm="brew services restart koekeishiya/formulae/chunkwm"
+alias stop-chunkwm="brew services stop koekeishiya/formulae/chunkwm"
+alias start-skhd="brew services start koekeishiya/formulae/skhd"
+alias restart-skhd="brew services restart koekeishiya/formulae/skhd"
+alias stop-skhd="brew services stop koekeishiya/formulae/skhd"
+alias todoread="cat ~/Github/todo/README.md"
+alias todoedit="nvim ~/Github/todo/README.md"
 alias todopush=push_todos
 alias todopull=pull_todos
 alias hunt=find_exact_match
@@ -70,9 +70,9 @@ pull_todos() {
 	popd
 }
 
-# Search function, called on with alias 'hunt' -- e.g. hunt 'const' to find all occurences of 'const' in dir w/ subdirs
+# Search function, called on with alias "hunt" -- e.g. hunt "const" to find all occurences of "const" in dir w/ subdirs
 find_exact_match() {
-	command grep --exclude-dir=node_modules -wroni "$1" . | sort -u | grep -iv "^$1" | sed '/^$/d' | grep -i --color=always "$1"
+	command grep --exclude-dir=node_modules -wroni "$1" . | sort -u | grep -iv "^$1" | sed "/^$/d" | grep -i --color=always "$1"
 }
 
 # Colors
@@ -156,27 +156,27 @@ exit_symbol=$arrow
 
 # Timer for calculating execution time
 timer_start() {
-	timer="${timer:-$SECONDS}"
+	timer=${timer:-$SECONDS}
 }
 
 timer_stop() {
-	timer_show="$(($SECONDS - $timer))"
+	timer_show=$(($SECONDS - $timer))
 	unset timer
 }
 
 trap timer_start DEBUG
 
-# Check if command exists, without printing error if it doesn't
+# Check if command exists, without printing error if it doesn"t
 command_exists() {
 	command -v $1 > /dev/null 2>&1
 }
 
-# Check if we're in a git repository, without printing error if we aren't
+# Check if we"re in a git repository, without printing error if we aren"t
 is_git_repository() {
 	command git rev-parse --is-inside-work-tree &> /dev/null
 }
 
-# Prints out user only if we're root, else prints nothing
+# Prints out user only if we"re root, else prints nothing
 user_section() {
 	if [[ "$UID" -eq 0 ]]; then
 		printf "${user_is_root_color}$USER ${white}${dir_prefix} "
@@ -190,8 +190,8 @@ date_section() {
 }
 
 # Prints out current working directory with varying prefix,
-# depending if we're in $HOME/dir or $HOME/.../dir, or
-# if we're in a git repo, or in a git repo subdirectory
+# depending if we"re in $HOME/dir or $HOME/.../dir, or
+# if we"re in a git repo, or in a git repo subdirectory
 dir_section() {
 	local get_dir="${PWD##*/}"
 	local prefix res
@@ -214,7 +214,7 @@ dir_section() {
 	printf "${dir_color}${res} "
 }
 
-# Show current Git branch, and if branch isn't clean show status
+# Show current Git branch, and if branch isn"t clean show status
 git_section() {
 	is_git_repository || return
 
@@ -223,21 +223,21 @@ git_section() {
 	local branch="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)"
 	local branch_ahead branch_behind
 
-	if $(echo "$index" | command grep -E '^[MARCDU ]D ' &> /dev/null); then
+	if $(echo "$index" | command grep -E "^[MARCDU ]D " &> /dev/null); then
 		status="${git_deleted}${status}"
-	elif $(echo "$index" | command grep -E '^D[ UM] ' &> /dev/null); then
+	elif $(echo "$index" | command grep -E "^D[ UM] " &> /dev/null); then
 		status="${git_deleted}${status}"
 	fi
 
-	if $(echo "$index" | command grep -E '^A[ MDAU] ' &> /dev/null); then
+	if $(echo "$index" | command grep -E "^A[ MDAU] " &> /dev/null); then
 		status="${git_added}${status}"
-	elif $(echo "$index" | command grep -E '^M[ MD] ' &> /dev/null); then
+	elif $(echo "$index" | command grep -E "^M[ MD] " &> /dev/null); then
 		status="${git_added}${status}"
-	elif $(echo "$index" | command grep -E '^UA' &> /dev/null); then
+	elif $(echo "$index" | command grep -E "^UA" &> /dev/null); then
 		status="${git_added}${status}"
 	fi
 
-	if $(echo "$index" | command grep -E '^R[ MD] ' &> /dev/null); then
+	if $(echo "$index" | command grep -E "^R[ MD] " &> /dev/null); then
 		status="${git_renamed}${status}"
 	fi
 
@@ -245,16 +245,16 @@ git_section() {
 		status="${git_stashed}${status}"
 	fi
 
-	if $(echo "$index" | command grep -E '^\?\? ' &> /dev/null); then
+	if $(echo "$index" | command grep -E "^\?\? " &> /dev/null); then
 		status="${git_untracked}${status}"
 	fi
 
-	if $(echo "$index" | command grep -E '^[ MARC]M ' &> /dev/null); then
+	if $(echo "$index" | command grep -E "^[ MARC]M " &> /dev/null); then
 		status="${git_modified}${status}"
 	fi
 
-	local behind="$(git rev-list --left-only --count @'{u}'...HEAD 2> /dev/null)"
-	local ahead="$(git rev-list --left-only --count HEAD...@'{u}' 2> /dev/null)"
+	local behind="$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)"
+	local ahead="$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)"
 
 	if [[ "$behind" -gt 0 || "$ahead" -gt 0 ]]; then
 		status="${git_uneven}${status}"
@@ -272,24 +272,24 @@ git_section() {
 # Get execution time of previous command and display in seconds, minutes, hours or days
 exec_time_section() {
 	local suffix duration timer_limit=2
-
 	if [[ "$timer_show" -ge "$timer_limit" ]]; then
 		if [[ "$timer_show" -le 60 ]]; then
 			suffix="sec"
 			duration="${timer_show}"
 		elif [[ "$timer_show" -gt 60 && "$timer_show" -lt 3600 ]]; then
 			suffix="min"
-			duration="$(printf %.1f '$((10 * $timer_show / 60))e-1')"
+			duration="$(printf %.1f "$((10 * $timer_show / 60))e-1")"
 		elif [[ "$timer_show" -ge 3600 ]]; then
 			suffix="hrs"
-			duration="$(printf %.1f '$((10 * $timer_show / 3600))e-1')"
+			duration="$(printf %.1f "$((10 * $timer_show / 3600))e-1")"
 		elif [[ "$timer_show" -ge 86400 ]]; then
 			suffix="days"
-			duration="$(printf %.1f '$((10 * $timer_show / 86400))e-1')"
+			duration="$(printf %.1f "$((10 * $timer_show / 86400))e-1")"
 		fi
 		printf "${exec_time_prefix_color}${exec_time_prefix} ${exec_time_color}${duration} ${suffix}"
 	fi
 }
+
 
 # Show retval of previous command, where `0` is OK and any other number is BAD
 exit_section() {
