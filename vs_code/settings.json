@@ -6,7 +6,8 @@
 	"editor.fontLigatures": true,
 	"editor.fontFamily": "Operator Mono, Source Code Pro",
 	"editor.fontWeight": "400",
-	"editor.fontSize": 13,
+	"files.trimFinalNewlines": true,
+	"editor.fontSize": 14,
 	"editor.minimap.enabled": false,
 	"editor.tabSize": 2,
 	"editor.wordWrap": "on",
@@ -18,7 +19,7 @@
 	"workbench.startupEditor": "newUntitledFile",
 	"window.zoomLevel": 0,
 	"terminal.integrated.cursorStyle": "underline",
-	"workbench.colorTheme": "Material Theme",
+	"workbench.colorTheme": "Material Theme Palenight",
 	"window.title": "",
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
@@ -130,5 +131,6 @@
 				}
 			}
 		]
-	}
+	},
+	"typescript.updateImportsOnFileMove.enabled": "always"
 }
