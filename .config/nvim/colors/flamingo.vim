@@ -5,6 +5,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
+let s:style = get(g:, 'flamingo_style', 'default')
 let g:colors_name = "flamingo"
 
 "}}}
