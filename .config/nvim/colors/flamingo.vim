@@ -229,28 +229,28 @@ exe "hi! GitGutterChangeDelete"       .s:fg_blue       .s:bg_none         .s:fmt
 
 "}}}
 
-" Language-Specific HighLighting:"{{{
+" Language Specific HighLighting:"{{{
 " ---------------------------------------------------------------------------
 " CSS"
 exe "hi! cssAttrComma"            .s:fg_cyan        .s:bg_none        .s:fmt_none
-exe "hi! cssAttributeSelector"    .s:fg_green       .s:bg_none        .s:fmt_none
+exe "hi! cssAttributeSelector"    .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! cssBraces"               .s:fg_cyan        .s:bg_none        .s:fmt_none
 exe "hi! cssClassName"            .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! cssClassNameDot"         .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! cssDefinition"           .s:fg_blue        .s:bg_none        .s:fmt_none
-exe "hi! cssFontAttr"             .s:fg_magenta     .s:bg_none        .s:fmt_none
-exe "hi! cssFontDescriptor"       .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! cssDefinition"           .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! cssFontAttr"             .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! cssFontDescriptor"       .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! cssFunctionName"         .s:fg_blue        .s:bg_none        .s:fmt_none
-exe "hi! cssIdentifier"           .s:fg_blue        .s:bg_none        .s:fmt_none
-exe "hi! cssImportant"            .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! cssIdentifier"           .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! cssImportant"            .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! cssInclude"              .s:fg_fg          .s:bg_none        .s:fmt_none
 exe "hi! cssIncludeKeyword"       .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! cssMediaType"            .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! cssProp"                 .s:fg_fg          .s:bg_none        .s:fmt_none
 exe "hi! cssPseudoClassId"        .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! cssSelectorOp"           .s:fg_blue        .s:bg_none        .s:fmt_none
-exe "hi! cssSelectorOp2"          .s:fg_blue        .s:bg_none        .s:fmt_none
-exe "hi! cssTagName"              .s:fg_blue        .s:bg_none        .s:fmt_none
+exe "hi! cssSelectorOp"           .s:fg_yellow      .s:bg_none        .s:fmt_none
+exe "hi! cssSelectorOp2"          .s:fg_yellow      .s:bg_none        .s:fmt_none
+exe "hi! cssTagName"              .s:fg_yellow      .s:bg_none        .s:fmt_none
 
 
 "}}}
