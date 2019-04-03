@@ -158,7 +158,7 @@ colorscheme flamingo
 
 " Set list characters
 set list
-set lcs=tab:→→,trail:•
+set lcs=tab:➔\ ,trail:•
 
 " Remove vertical sign (error) column bg
 " NOTE: Place after colorscheme to prevent override

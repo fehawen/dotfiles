@@ -99,7 +99,7 @@ exe "hi! SignColumn"    .s:fg_none        .s:bg_bg          .s:fmt_none
 exe "hi! MatchParen"    .s:fg_bg          .s:bg_cyan        .s:fmt_undr
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! NonText"       .s:fg_bg          .s:bg_none        .s:fmt_none
+exe "hi! NonText"       .s:fg_comment     .s:bg_none        .s:fmt_none
 exe "hi! Pmenu"         .s:fg_fg          .s:bg_guide       .s:fmt_none
 exe "hi! PmenuSel"      .s:fg_fg          .s:bg_guide       .s:fmt_revr
 "   PmenuSbar"
