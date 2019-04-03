@@ -1,5 +1,6 @@
 {
 	"editor.renderWhitespace": "boundary",
+	"editor.renderIndentGuides": false,
 	"editor.insertSpaces": false,
 	"workbench.iconTheme": "material-icon-theme",
 	"breadcrumbs.enabled": true,
@@ -12,14 +13,13 @@
 	"editor.tabSize": 2,
 	"editor.wordWrap": "on",
 	"explorer.decorations.badges": false,
-	"editor.renderIndentGuides": false,
 	"workbench.statusBar.feedback.visible": false,
 	"workbench.activityBar.visible": true,
 	"workbench.statusBar.visible": true,
 	"workbench.startupEditor": "newUntitledFile",
 	"window.zoomLevel": 0,
 	"terminal.integrated.cursorStyle": "underline",
-	"workbench.colorTheme": "Material Theme Palenight",
+	"workbench.colorTheme": "Material Theme",
 	"window.title": "",
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [

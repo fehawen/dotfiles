@@ -93,7 +93,7 @@ exe "hi! ErrorMsg"      .s:fg_red         .s:bg_bg          .s:fmt_none
 exe "hi! VertSplit"     .s:fg_bg          .s:bg_guide       .s:fmt_none
 exe "hi! Folded"        .s:fg_fg          .s:bg_fg          .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_fg          .s:fmt_none
-exe "hi! SignColumn"    .s:fg_none        .s:bg_fg          .s:fmt_none
+exe "hi! SignColumn"    .s:fg_none        .s:bg_bg          .s:fmt_none
 "   Incsearch"
 
 exe "hi! MatchParen"    .s:fg_bg          .s:bg_cyan        .s:fmt_undr

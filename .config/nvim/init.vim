@@ -1,3 +1,7 @@
+"#####################"
+"###### PLUGINS ######"
+"#####################"
+
 " Automatic vim-plug installation
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -9,50 +13,49 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
-Plug 'mattn/emmet-vim'
+"	Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
-Plug 'jiangmiao/auto-pairs'
-" Plug 'ekalinin/Dockerfile.vim'
 
 " Initialize plugin system
 call plug#end()
 
-set termguicolors
+"#############################"
+"###### GENERAL CONFIGS ######"
+"#############################"
 
-" Enable filetype plugins
+" Enter the current millenium
+set nocompatible
+
+" Enable syntax and plugins (for netrw)
+syntax enable
 filetype plugin on
 filetype indent on
 
-" Set to auto read when a file is changed from the outside
+" Self explanatory
+set encoding=utf8
+
+" When a file has been changed outside of Vim, automatically read it again
 set autoread
 
 " Always show current position
 set ruler
 
-" Disable compatibility to old-time vi
-set nocompatible
-
-" Show matching brackets.
+" When a bracket is inserted, briefly jump to the matching one
 set showmatch
+
+" Tenths of a second to show the matching paren
 set mat=2
 
+" Switching this option off most likely breaks plugins!
 set magic
-
-" Do case insensitive matching
-set ignorecase
-
-" When searching try to be smart about cases
-set smartcase
 
 " Highlight search results
 set hlsearch
-
-set incsearch
 
 " Number of columns occupied by a tab character
 set tabstop=2
@@ -72,13 +75,11 @@ set autoindent
 " Add line numbers
 set relativenumber number
 
-" Get bash-like tab completions
-set wildmode=longest,list
-
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
-set encoding=utf8
+" Update time in ms
+set updatetime=500
 
 " Sets unix as standard filetype
 set ffs=unix,dos,mac
@@ -86,18 +87,53 @@ set ffs=unix,dos,mac
 " Wrap lines
 set wrap
 
-set nocursorcolumn
-set nocursorline
-set updatetime=300
-
+" Maximum items in completion suggest popup menu
 set pumheight=10
 
-set nobackup
-set nowb
+" Don't use a swapfile for the buffer
 set noswapfile
 
 " Increase max memory to show syntax highlighting for large files
 set maxmempattern=20000
+
+"###########################"
+"###### FINDING FILES ######"
+"###########################"
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" NOW WE CAN:
+" - Hit tab to :find by partial match
+" - Use * to make it fuzzy
+
+" THINGS TO CONSIDER:
+" - :b lets you autocomplete any open buffer
+
+"#########################"
+"###### TAG JUMPING ######"
+"#########################"
+
+" Create the `tags` file (may need to install ctags first)
+command! MakeTags !ctags .
+
+set tags=./tags,tags
+
+" NOW WE CAN:
+" - Use ^] to jump to tag under cursor
+" - Use g^] for ambiguous tags
+" - Use ^t to jump back up the tag stack
+
+" THINGS TO CONSIDER:
+" - This doesn't help if you want a visual list of tags
+
+"############################"
+"###### AUTOCMDS, ETC ###	###"
+"############################"
 
 " Auto resize panes
 autocmd VimResized * wincmd =
@@ -105,22 +141,45 @@ autocmd VimResized * wincmd =
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" Tab to complete
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Open NERDTree if no file specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" Plugin configs
-let g:deoplete#enable_at_startup = 1
+"#####################################"
+"###### THEME & PLUGIN SETTINGS ######"
+"#####################################"
 
+" Set colors to gui
+set termguicolors
+
+" Set theme
 colorscheme flamingo
 
+
+" Set list characters
+set list
+set lcs=tab:→→,trail:•
+
+" Remove vertical sign (error) column bg
+" NOTE: Place after colorscheme to prevent override
+highlight clear SignColumn
+
+" Enable deoplete on startup (async completion framework)
+let g:deoplete#enable_at_startup = 1
+
+" Custom signs for ALE
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
 
-" Remove vertical sign (error) column bg
-highlight clear SignColumn
-
 let NERDTreeShowHidden=1
 let g:NERDTreeShowLineNumbers = 0
+
+"#########################"
+"###### KEYBINDINGS ######"
+"#########################"
+
+" Tab to complete
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Map nerdtreetoggle to ctrl-n
 map <C-n> :NERDTreeToggle<CR>
@@ -128,7 +187,3 @@ map <C-n> :NERDTreeToggle<CR>
 " Map '§' to act as 'Esc' since the MacBook touchbar is the eighth deadly sin
 map § <Esc>
 map! § <C-c>
-
-" Open NERDTree if no file specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif

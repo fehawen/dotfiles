@@ -28,10 +28,11 @@ symlink() {
 }
 
 declare -a includes=(
+	.chunkwmrc
+	.ctags
 	.bashrc
 	.bash_profile
 	.hushlogin
-	.chunkwmrc
 	.skhdrc
 )
 
