@@ -110,8 +110,8 @@ exe "hi! SpellCap"      .s:fg_blue        .s:bg_none        .s:fmt_undr
 exe "hi! SpellLocal"    .s:fg_magenta     .s:bg_none        .s:fmt_undr
 exe "hi! SpellBad"      .s:fg_red         .s:bg_none        .s:fmt_undr
 exe "hi! SpellRare"     .s:fg_cyan        .s:bg_none        .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_fg          .s:bg_bg          .s:fmt_none
-exe "hi! StatusLineNC"  .s:fg_blue        .s:bg_bg          .s:fmt_none
+exe "hi! StatusLine"    .s:fg_green       .s:bg_bg          .s:fmt_none
+exe "hi! StatusLineNC"  .s:fg_red         .s:bg_bg          .s:fmt_none
 exe "hi! WildMenu"      .s:fg_bg          .s:bg_red         .s:fmt_none
 exe "hi! TabLine"       .s:fg_fg          .s:bg_fg          .s:fmt_revr
 "   TabLineFill"
@@ -120,6 +120,9 @@ exe "hi! Title"         .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! Visual"        .s:fg_none        .s:bg_comment     .s:fmt_none
 "   VisualNos"
 exe "hi! WarningMsg"    .s:fg_yellow      .s:bg_bg          .s:fmt_none
+
+" NERDTree
+exe "hi! NERDTreeCWD"   .s:fg_red         .s:bg_none        .s:fmt_none
 
 " ALE"
 exe "hi! AleText"       .s:fg_magenta     .s:bg_bg          .s:fmt_none

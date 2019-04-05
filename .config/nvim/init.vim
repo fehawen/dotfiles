@@ -178,7 +178,9 @@ let g:deoplete#enable_at_startup = 1
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
 
-let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
 
 "#########################"
