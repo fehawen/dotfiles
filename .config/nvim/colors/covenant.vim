@@ -23,8 +23,8 @@ let s:palette.red         = {'default': "#455A64"}
 let s:palette.green       = {'default': "#78909C"}
 let s:palette.yellow      = {'default': "#607D8B"}
 let s:palette.blue        = {'default': "#546E7A"}
-let s:palette.magenta     = {'default': "#FF80FF"}
-let s:palette.cyan        = {'default': "#90A4AE"}
+let s:palette.magenta     = {'default': "#F4511E"}
+let s:palette.cyan        = {'default': "#039BE5"}
 
 "}}}
 
