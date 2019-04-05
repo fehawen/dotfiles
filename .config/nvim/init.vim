@@ -90,6 +90,10 @@ set wrap
 " Maximum items in completion suggest popup menu
 set pumheight=10
 
+" Don't make a any backups before overwriting a file
+set nobackup
+set nowritebackup
+
 " Don't use a swapfile for the buffer
 set noswapfile
 
@@ -106,6 +110,9 @@ set path+=**
 
 " Display all matching files when we tab complete
 set wildmenu
+
+" Exclude node_modules when using e.g. :find
+set wildignore+=**/node_modules/**
 
 " NOW WE CAN:
 " - Hit tab to :find by partial match
@@ -153,7 +160,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
-colorscheme flamingo
+colorscheme nighthawk
 
 
 " Set list characters
