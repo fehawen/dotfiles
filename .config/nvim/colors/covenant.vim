@@ -23,7 +23,7 @@ let s:palette.red         = {'default': "#455A64"}
 let s:palette.green       = {'default': "#78909C"}
 let s:palette.yellow      = {'default': "#607D8B"}
 let s:palette.blue        = {'default': "#546E7A"}
-let s:palette.magenta     = {'default': "#F4511E"}
+let s:palette.magenta     = {'default': "#FF80FF"}
 let s:palette.cyan        = {'default': "#90A4AE"}
 
 "}}}
@@ -88,14 +88,14 @@ exe "hi! Directory"     .s:fg_fg          .s:bg_none        .s:fmt_none
 exe "hi! DiffAdd"       .s:fg_green       .s:bg_fg          .s:fmt_none
 exe "hi! DiffChange"    .s:fg_blue        .s:bg_fg          .s:fmt_none
 exe "hi! DiffText"      .s:fg_fg          .s:bg_fg          .s:fmt_none
-exe "hi! ErrorMsg"      .s:fg_magenta     .s:bg_bg          .s:fmt_none
+exe "hi! ErrorMsg"      .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! VertSplit"     .s:fg_bg          .s:bg_bg          .s:fmt_none
 exe "hi! Folded"        .s:fg_fg          .s:bg_fg          .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_fg          .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_bg          .s:fmt_none
 "   Incsearch"
 
-exe "hi! MatchParen"    .s:fg_bg          .s:bg_cyan        .s:fmt_undr
+exe "hi! MatchParen"    .s:fg_bg          .s:bg_cyan        .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_comment     .s:bg_none        .s:fmt_none
@@ -106,10 +106,10 @@ exe "hi! PmenuSel"      .s:fg_fg          .s:bg_guide       .s:fmt_revr
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! Search"        .s:fg_bg          .s:bg_cyan        .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_magenta     .s:bg_none        .s:fmt_none
-exe "hi! SpellCap"      .s:fg_blue        .s:bg_none        .s:fmt_undr
-exe "hi! SpellLocal"    .s:fg_magenta     .s:bg_none        .s:fmt_undr
-exe "hi! SpellBad"      .s:fg_red         .s:bg_none        .s:fmt_undr
-exe "hi! SpellRare"     .s:fg_cyan        .s:bg_none        .s:fmt_undr
+exe "hi! SpellCap"      .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! SpellLocal"    .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! SpellBad"      .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! SpellRare"     .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! StatusLine"    .s:fg_green       .s:bg_bg          .s:fmt_none
 exe "hi! StatusLineNC"  .s:fg_red         .s:bg_bg          .s:fmt_none
 exe "hi! WildMenu"      .s:fg_bg          .s:bg_red         .s:fmt_none
@@ -125,9 +125,9 @@ exe "hi! WarningMsg"    .s:fg_yellow      .s:bg_bg          .s:fmt_none
 exe "hi! NERDTreeCWD"   .s:fg_red         .s:bg_none        .s:fmt_none
 
 " ALE"
-exe "hi! AleText"       .s:fg_magenta     .s:bg_bg          .s:fmt_none
-exe "hi! AleWarning"    .s:fg_magenta     .s:bg_bg          .s:fmt_none
-exe "hi! AleLine"       .s:fg_magenta     .s:bg_bg          .s:fmt_none
+exe "hi! AleText"       .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! AleWarning"    .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! AleLine"       .s:fg_comment     .s:bg_bg          .s:fmt_none
 
 hi link ALEErrorSign    AleText
 hi link ALEWarningSign  AleText
