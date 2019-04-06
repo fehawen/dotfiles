@@ -31,13 +31,16 @@ call plug#end()
 " Enter the current millenium
 set nocompatible
 
-" Enable syntax and plugins (for netrw)
+" Enable syntax and plugins (foindustrial
 syntax enable
 filetype plugin on
 filetype indent on
 
-" Self explanatory
+" Set encoding
 set encoding=utf8
+
+" Set colors
+set termguicolors
 
 " When a file has been changed outside of Vim, automatically read it again
 set autoread
@@ -157,11 +160,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "#####################################"
 
 " Set colors to gui
-set termguicolors
+" set termguicolors
 
 " Set theme
 colorscheme covenant
-
 
 " Set list characters
 set list
@@ -186,6 +188,12 @@ let g:NERDTreeShowLineNumbers = 0
 "#########################"
 "###### KEYBINDINGS ######"
 "#########################"
+
+" Show highligh group in status line (comment out to disable)
+function! SyntaxItem()
+  return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
+set statusline=%{SyntaxItem()}
 
 " Tab to complete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

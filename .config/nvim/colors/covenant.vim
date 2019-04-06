@@ -58,17 +58,17 @@ let s:b      = ",bold"
 let s:u      = ",underline"
 let s:i      = ",italic"
 
-exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"        ."'"
-exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_bldi = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_undr = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_undb = ' gui=NONE".s:u.s:b.  " cterm=NONE".s:u.s:b.  " term=NONE".s:u.s:b."'"
-exe "let s:fmt_undi = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_curl = ' gui=NONE".s:c.      " cterm=NONE".s:c.      " term=NONE".s:c    ."'"
-exe "let s:fmt_ital = ' gui=NONE".s:i.      " cterm=NONE".s:i.      " term=NONE".s:i    ."'"
-exe "let s:fmt_stnd = ' gui=NONE".s:s.      " cterm=NONE".s:s.      " term=NONE".s:s    ."'"
-exe "let s:fmt_revr = ' gui=NONE".s:r.      " cterm=NONE".s:r.      " term=NONE".s:r    ."'"
-exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
+exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"         ."'"
+exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b     ."'"
+exe "let s:fmt_bldi = ' gui=NONE".s:b.s:i   " cterm=NONE".s:b.s:i   " term=NONE".s:b.s:i ."'"
+exe "let s:fmt_undr = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u     ."'"
+exe "let s:fmt_undb = ' gui=NONE".s:u.s:b.  " cterm=NONE".s:u.s:b.  " term=NONE".s:u.s:b ."'"
+exe "let s:fmt_undi = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u     ."'"
+exe "let s:fmt_curl = ' gui=NONE".s:c.      " cterm=NONE".s:c.      " term=NONE".s:c     ."'"
+exe "let s:fmt_ital = ' gui=NONE".s:i.      " cterm=NONE".s:i.      " term=NONE".s:i     ."'"
+exe "let s:fmt_stnd = ' gui=NONE".s:s.      " cterm=NONE".s:s.      " term=NONE".s:s     ."'"
+exe "let s:fmt_revr = ' gui=NONE".s:r.      " cterm=NONE".s:r.      " term=NONE".s:r     ."'"
+exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE".s:r.s:b ."'"
 
 "}}}
 
@@ -104,7 +104,7 @@ exe "hi! PmenuSel"      .s:fg_fg          .s:bg_guide       .s:fmt_revr
 "   PmenuSbar"
 "   PmenuThumb"
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! Search"        .s:fg_bg          .s:bg_cyan        .s:fmt_none
+exe "hi! Search"        .s:fg_bg          .s:bg_magenta     .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! SpellCap"      .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! SpellLocal"    .s:fg_red         .s:bg_none        .s:fmt_none
@@ -121,9 +121,6 @@ exe "hi! Visual"        .s:fg_none        .s:bg_comment     .s:fmt_none
 "   VisualNos"
 exe "hi! WarningMsg"    .s:fg_yellow      .s:bg_bg          .s:fmt_none
 
-" NERDTree
-exe "hi! NERDTreeCWD"   .s:fg_red         .s:bg_none        .s:fmt_none
-
 " ALE"
 exe "hi! AleText"       .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! AleWarning"    .s:fg_magenta     .s:bg_none        .s:fmt_none
@@ -138,7 +135,7 @@ hi link ALEInfoLine     AleLine
 " Generic Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------
 exe "hi! Comment"             .s:fg_comment     .s:bg_none        .s:fmt_none
-exe "hi! Constant"            .s:fg_green       .s:bg_none        .s:fmt_none
+exe "hi! Constant"            .s:fg_cyan        .s:bg_none        .s:fmt_none
 exe "hi! String"              .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! Number"              .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! Float"	              .s:fg_red         .s:bg_none        .s:fmt_none
@@ -161,8 +158,8 @@ exe "hi! Exception"           .s:fg_cyan        .s:bg_none        .s:fmt_none
 " any other keyword"
 exe "hi! Keyword"             .s:fg_cyan        .s:bg_none        .s:fmt_none
 " int, long, char, etc"
-exe "hi! Type"                .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! Typedef"             .s:fg_green       .s:bg_none        .s:fmt_none
+exe "hi! Type"                .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! Typedef"             .s:fg_magenta     .s:bg_none        .s:fmt_none
 " struct, union, enum, etc"
 exe "hi! Structure"           .s:fg_red         .s:bg_none        .s:fmt_none
 " static, register, volatile, etc"
@@ -215,28 +212,28 @@ exe "hi! NERDTreeClosable"            .s:fg_magenta     .s:bg_none        .s:fmt
 " exe "hi! NERDTreeBookmarksHeader"   .s:fg_pink        .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarksLeader"   .s:fg_bg          .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarkName"      .s:fg_magenta     .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeCWD"               .s:fg_pink        .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeCWD"                 .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! NERDTreeUp"                  .s:fg_fg          .s:bg_none        .s:fmt_none
 exe "hi! NERDTreeDir"                 .s:fg_fg          .s:bg_none        .s:fmt_none
 exe "hi! NERDTreeFile"                .s:fg_fg          .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDirSlash"            .s:fg_guide       .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeDirSlash"            .s:fg_cyan        .s:bg_none        .s:fmt_none
 
 
 " GitGutter
 " ---------
-exe "hi! GitGutterAdd"                .s:fg_green      .s:bg_none         .s:fmt_none
-exe "hi! GitGutterChange"             .s:fg_blue       .s:bg_none         .s:fmt_none
-exe "hi! GitGutterDelete"             .s:fg_red        .s:bg_none         .s:fmt_none
-exe "hi! GitGutterChangeDelete"       .s:fg_blue       .s:bg_none         .s:fmt_none
+exe "hi! GitGutterAdd"                .s:fg_cyan       .s:bg_none         .s:fmt_none
+exe "hi! GitGutterChange"             .s:fg_cyan       .s:bg_none         .s:fmt_none
+exe "hi! GitGutterDelete"             .s:fg_magenta    .s:bg_none         .s:fmt_none
+exe "hi! GitGutterChangeDelete"       .s:fg_magenta    .s:bg_none         .s:fmt_none
 
 "}}}
 
 " Language Specific HighLighting:"{{{
 " ---------------------------------------------------------------------------
 " CSS"
-exe "hi! cssAttrComma"            .s:fg_cyan        .s:bg_none        .s:fmt_none
+exe "hi! cssAttrComma"            .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! cssAttributeSelector"    .s:fg_red         .s:bg_none        .s:fmt_none
-exe "hi! cssBraces"               .s:fg_cyan        .s:bg_none        .s:fmt_none
+exe "hi! cssBraces"               .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! cssClassName"            .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! cssClassNameDot"         .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! cssDefinition"           .s:fg_red         .s:bg_none        .s:fmt_none
@@ -254,6 +251,19 @@ exe "hi! cssSelectorOp"           .s:fg_yellow      .s:bg_none        .s:fmt_non
 exe "hi! cssSelectorOp2"          .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! cssTagName"              .s:fg_yellow      .s:bg_none        .s:fmt_none
 
+" TYPESCRIPT"
+exe "hi! typescriptType"           .s:fg_red         .s:bg_none        .s:fmt_ital
+exe "hi! typescriptBraces"         .s:fg_cyan        .s:bg_none        .s:fmt_none
+exe "hi! typescriptParens"         .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! typescriptOpSymbols"      .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! typescriptReserved"       .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! typescriptDecorators"     .s:fg_cyan        .s:bg_none        .s:fmt_none
+exe "hi! typescriptEndColons"      .s:fg_fg          .s:bg_none        .s:fmt_none
+exe "hi! typescriptStorageClass"   .s:fg_blue        .s:bg_none        .s:fmt_none
+exe "hi! typescriptStringD"        .s:fg_yellow      .s:bg_none        .s:fmt_none
+exe "hi! typescriptHtmlEvents"     .s:fg_fg          .s:bg_none        .s:fmt_none
+exe "hi! typescriptBoolean"        .s:fg_magenta     .s:bg_none        .s:fmt_ital
+exe "hi! typescriptConditional"    .s:fg_yellow      .s:bg_none        .s:fmt_ital
 
 "}}}
 
