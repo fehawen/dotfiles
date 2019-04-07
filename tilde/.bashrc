@@ -322,4 +322,4 @@ PROMPT_COMMAND=timer_stop
 PS1="\$(compose_prompt)"
 
 # Include desired paths in PATH and export, leaving default PATH still intact
-PATH="~/.npm-global/bin:$PATH"
+PATH="${PATH}:${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/"
