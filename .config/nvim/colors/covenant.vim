@@ -15,16 +15,16 @@ let g:colors_name = "covenant"
 
 let s:palette = {}
 
-let s:palette.fg          = {'default': "#B0BEC5"}
-let s:palette.bg          = {'default': "#000F19"}
-let s:palette.guide       = {'default': "#37474F"}
-let s:palette.comment     = {'default': "#37474F"}
-let s:palette.red         = {'default': "#455A64"}
-let s:palette.green       = {'default': "#78909C"}
-let s:palette.yellow      = {'default': "#607D8B"}
-let s:palette.blue        = {'default': "#546E7A"}
-let s:palette.magenta     = {'default': "#F4511E"}
-let s:palette.cyan        = {'default': "#039BE5"}
+let s:palette.fg          = {'default': "#B0CCD6"}
+let s:palette.bg          = {'default': "#0B151D"}
+let s:palette.guide       = {'default': "#2F4355"}
+let s:palette.comment     = {'default': "#2F4355"}
+let s:palette.red         = {'default': "#924F3A"}
+let s:palette.green       = {'default': "#23768C"}
+let s:palette.yellow      = {'default': "#B86348"}
+let s:palette.blue        = {'default': "#2994B0"}
+let s:palette.magenta     = {'default': "#E87C5B"}
+let s:palette.cyan        = {'default': "#73B4CA"}
 
 "}}}
 
@@ -253,17 +253,21 @@ exe "hi! cssTagName"              .s:fg_yellow      .s:bg_none        .s:fmt_non
 
 " TYPESCRIPT"
 exe "hi! typescriptType"           .s:fg_red         .s:bg_none        .s:fmt_ital
-exe "hi! typescriptBraces"         .s:fg_cyan        .s:bg_none        .s:fmt_none
+exe "hi! typescriptBraces"         .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! typescriptParens"         .s:fg_magenta     .s:bg_none        .s:fmt_none
-exe "hi! typescriptOpSymbols"      .s:fg_magenta     .s:bg_none        .s:fmt_none
-exe "hi! typescriptReserved"       .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! typescriptOpSymbols"      .s:fg_cyan        .s:bg_none        .s:fmt_none
+exe "hi! typescriptReserved"       .s:fg_blue        .s:bg_none        .s:fmt_none
 exe "hi! typescriptDecorators"     .s:fg_cyan        .s:bg_none        .s:fmt_none
-exe "hi! typescriptEndColons"      .s:fg_fg          .s:bg_none        .s:fmt_none
-exe "hi! typescriptStorageClass"   .s:fg_blue        .s:bg_none        .s:fmt_none
-exe "hi! typescriptStringD"        .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! typescriptHtmlEvents"     .s:fg_fg          .s:bg_none        .s:fmt_none
+exe "hi! typescriptEndColons"      .s:fg_blue        .s:bg_none        .s:fmt_none
+exe "hi! typescriptStorageClass"   .s:fg_yellow      .s:bg_none        .s:fmt_none
+exe "hi! typescriptStringD"        .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! typescriptHtmlEvents"     .s:fg_cyan        .s:bg_none        .s:fmt_none
 exe "hi! typescriptBoolean"        .s:fg_magenta     .s:bg_none        .s:fmt_ital
 exe "hi! typescriptConditional"    .s:fg_yellow      .s:bg_none        .s:fmt_ital
+
+" VIM"
+exe "hi! vimLineComment"           .s:fg_comment     .s:bg_none        .s:fmt_none
+exe "hi! vimCommentTitle"          .s:fg_comment     .s:bg_none        .s:fmt_bold
 
 "}}}
 
