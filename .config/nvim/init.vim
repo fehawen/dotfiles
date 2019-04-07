@@ -160,7 +160,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "#####################################"
 
 " Set colors to gui
-" set termguicolors
+set termguicolors
 
 " Set theme
 colorscheme covenant
