@@ -163,7 +163,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
-colorscheme covenant
+colorscheme padawan
 
 " Set list characters
 set list
@@ -190,10 +190,10 @@ let g:NERDTreeShowLineNumbers = 0
 "#########################"
 
 " Show highligh group in status line (comment out to disable)
-function! SyntaxItem()
-  return synIDattr(synID(line("."),col("."),1),"name")
-endfunction
-set statusline=%{SyntaxItem()}
+" function! SyntaxItem()
+" return synIDattr(synID(line("."),col("."),1),"name")
+" endfunction
+" set statusline=%{SyntaxItem()}
 
 " Tab to complete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
