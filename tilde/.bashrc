@@ -4,13 +4,13 @@
 ### CUSTOMIZATION ####
 ######################
 
+# Do case-insensitive completion for e.g. `cd` commands
 bind "set completion-ignore-case on"
 
-#######################
-###### VARIABLES ######
-#######################
+###############
+### ALIASES ###
+###############
 
-# Aliases
 alias clr="clear"
 alias la="ls -1AFG"
 alias ls="ls -lAFGh"
@@ -59,6 +59,10 @@ alias todopull=pull_todos
 alias hunt=find_string
 alias mark=find_filename
 
+#############
+### UTILS ###
+#############
+
 push_todos() {
 	pushd "$HOME/Github/todo/" && \
 	git add . && \
@@ -73,45 +77,54 @@ pull_todos() {
 	popd
 }
 
-# Search function, called on with alias "hunt" -- e.g. hunt "const" to find all occurences of "const" in dir w/ subdirs
+# Find all files in dirs/subdirs containing search query
 find_string() {
 	command grep --exclude-dir=node_modules -wroni "$1" . | sort -u | grep -iv "^$1" | sed "/^$/d" | grep -i --color=always "$1"
 }
 
+# Find all filenames in dirs/subdirs matching query
 find_filename() {
 	command find . -not -path "*node_modules*" -name "$1" | sort -u | grep -i --color=always "$1"
 }
 
-# Colors
-black="\001$(tput setaf 0)\002"
-bright_black="\001$(tput setaf 8)\002"
+##############
+### COLORS ###
+##############
 
-red="\001$(tput setaf 1)\002"
-bright_red="\001$(tput setaf 9)\002"
+if [ -x /usr/bin/tput ] && tput setaf 1 &> /dev/null; then
+	tput sgr0 # Reset colors
 
-green="\001$(tput setaf 2)\002"
-bright_green="\001$(tput setaf 10)\002"
+	bold="\001$(tput bold)\002"
+	italic="\001$(tput sitm)\002"
+	reset="\001$(tput sgr0)\002"
 
-yellow="\001$(tput setaf 3)\002"
-bright_yellow="\001$(tput setaf 11)\002"
+	black="\001$(tput setaf 0)\002"
+	red="\001$(tput setaf 1)\002"
+	green="\001$(tput setaf 2)\002"
+	yellow="\001$(tput setaf 3)\002"
+	blue="\001$(tput setaf 4)\002"
+	magenta="\001$(tput setaf 5)\002"
+	cyan="\001$(tput setaf 6)\002"
+	white="\001$(tput setaf 7)\002"
+else
+	bold="\e[1m"
+	italic="\e[3m"
+	reset="\e[0m"
 
-blue="\001$(tput setaf 4)\002"
-bright_blue="\001$(tput setaf 12)\002"
+	black="\e[1;30m"
+	red="\e[1;31m"
+	green="\e[1;32m"
+	yellow="\e[1;33m"
+	blue="\e[1;34m"
+	magenta="\e[1;35m"
+	cyan="\e[1;36m"
+	white="\e[1;97m"
+fi
 
-magenta="\001$(tput setaf 5)\002"
-bright_magenta="\001$(tput setaf 13)\002"
+###############
+### SYMBOLS ###
+###############
 
-cyan="\001$(tput setaf 6)\002"
-bright_cyan="\001$(tput setaf 14)\002"
-
-white="\001$(tput setaf 7)\002"
-bright_white="\001$(tput setaf 15)\002"
-
-bold="\001$(tput bold)\002"
-italic="\e[3m"
-reset="\001$(tput sgr0)\002"
-
-# Symbols
 arrow="→"
 git_modified="!"
 git_added="+"
@@ -121,23 +134,25 @@ git_untracked="?"
 git_stashed="$"
 git_uneven="¿"
 
+#####################
+### SECTION  ###
+#####################
+
 # Conventional solution for new line
 newline="
 "
 
-# Section colors, symbols and prefixes - change to your liking!
-user_is_root_color="$red"
+# Section colors, symbols and prefixes
+root_color="$red"
+root_suffix="at"
 
-dir_color="$bright_cyan"
-dir_prefix="at"
-dir_is_git_repo_subfolder_symbol="$arrow"
+date_suffix="in"
+date_suffix_color="$white"
+date_color="$blue"
 
-dir_content_color="$bright_blue"
-dir_content_prefix_color="$white"
-dir_content_prefix="at"
-dir_content_separator="."
+dir_color="$cyan"
 
-git_branch_color="$bright_magenta"
+git_branch_color="$magenta"
 git_branch_prefix_color="$white"
 git_branch_prefix="on"
 
@@ -145,33 +160,17 @@ git_status_color="$red"
 git_status_prefix="["
 git_status_suffix="]"
 
-date_suffix="in"
-date_suffix_color="$white"
-date_color="$bright_blue"
-
-exec_time_color="$green"
+exec_time_color="$yellow"
 exec_time_prefix_color="$white"
 exec_time_prefix="took"
 
-exit_color_ok=$green
-exit_color_bad=$red
-exit_symbol=$arrow
+exit_color_ok="$green"
+exit_color_bad="$red"
+exit_symbol="$arrow"
 
-######################
-###### SECTIONS ######
-######################
-
-# Timer for calculating execution time
-timer_start() {
-	timer=${timer:-$SECONDS}
-}
-
-timer_stop() {
-	timer_show=$(($SECONDS - $timer))
-	unset timer
-}
-
-trap timer_start DEBUG
+#######################
+### PROMPT SECTIONS ###
+#######################
 
 # Check if command exists, without printing error if it doesn"t
 command_exists() {
@@ -183,15 +182,26 @@ is_git_repository() {
 	command git rev-parse --is-inside-work-tree &> /dev/null
 }
 
+timer_start() {
+	start_time=${start_time:-$SECONDS}
+}
+
+timer_stop() {
+	timer=$(($SECONDS - $start_time))
+	unset start_time
+}
+
+trap timer_start DEBUG
+
 # Prints out user only if we"re root, else prints nothing
 user_section() {
 	if [[ "$UID" -eq 0 ]]; then
-		printf "${user_is_root_color}$USER ${white}${dir_prefix} "
+		printf "${root_color}$USER ${white}${root_suffix} "
 	fi
 }
 
 # Prints time in hh:mm
-date_section() {
+clock_section() {
 	[[ "$(PWD)" == "$HOME" ]] && return
 	printf "${date_color}`date +"%H:%M"` ${date_suffix_color}${date_suffix} "
 }
@@ -276,30 +286,29 @@ git_section() {
 	printf "${git_status}"
 }
 
-# Get execution time of previous command and display in seconds, minutes, hours or days
+# Command execution time
+# Formatted output as 1d 3h 7m 6s
 exec_time_section() {
-	local suffix duration timer_limit=2
-	if [[ "$timer_show" -ge "$timer_limit" ]]; then
-		if [[ "$timer_show" -le 60 ]]; then
-			suffix="sec"
-			duration="${timer_show}"
-		elif [[ "$timer_show" -gt 60 && "$timer_show" -lt 3600 ]]; then
-			suffix="min"
-			duration="$(printf %.1f "$((10 * $timer_show / 60))e-1")"
-		elif [[ "$timer_show" -ge 3600 ]]; then
-			suffix="hrs"
-			duration="$(printf %.1f "$((10 * $timer_show / 3600))e-1")"
-		elif [[ "$timer_show" -ge 86400 ]]; then
-			suffix="days"
-			duration="$(printf %.1f "$((10 * $timer_show / 86400))e-1")"
-		fi
-		printf "${exec_time_prefix_color}${exec_time_prefix} ${exec_time_color}${duration} ${suffix}"
-	fi
+	(( $timer < 3 )) && return
+
+	local output
+
+	local days=$(( $timer / 60 / 60 / 24 ))
+	local hours=$(( $timer / 60 / 60 % 24 ))
+	local minutes=$(( $timer / 60 % 60 ))
+	local seconds=$(( $timer % 60 ))
+
+	(( $days > 0 )) && output="${days}d "
+	(( $hours > 0 )) && output="${output}${hours}h "
+	(( $minutes > 0 )) && output="${output}${minutes}m "
+
+	output="${output}${seconds}s "
+
+	printf "${exec_time_prefix_color}${exec_time_prefix} ${exec_time_color}${output}"
 }
 
-
-# Show retval of previous command, where `0` is OK and any other number is BAD
-exit_section() {
+# Show exit status of previous command
+exit_code_section() {
 	local exit_status
 
 	if [[ "$RETVAL" -eq 0 ]]; then
@@ -311,21 +320,24 @@ exit_section() {
 	printf "${exit_status}${exit_symbol} "
 }
 
-############################
-###### POINT OF ENTRY ######
-############################
+######################
+### POINT OF ENTRY ###
+######################
 
 # Compose prompt
-compose_prompt() {
+prompt() {
 	RETVAL=$?
-	printf "${bold}${italic}$(date_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_section)${reset}"
+	printf "${bold}${italic}$(user_section)$(clock_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
-# Stop timer for execution time calculation
+# Stop timer for execution time
 PROMPT_COMMAND=timer_stop
 
-# Export prompt composition to PS1
-export PS1="\$(compose_prompt)"
+export PS1="\$(prompt)"
+
+###################
+### ENV EXPORTS ###
+###################
 
 # Include desired paths in PATH and export, leaving default PATH still intact
 export PATH="${PATH}:${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/"
