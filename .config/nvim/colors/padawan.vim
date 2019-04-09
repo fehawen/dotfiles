@@ -95,7 +95,7 @@ exe "hi! FoldColumn"    .s:fg_none        .s:bg_fg          .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_bg          .s:fmt_none
 "   Incsearch"
 
-exe "hi! MatchParen"    .s:fg_bg          .s:bg_yellow      .s:fmt_none
+exe "hi! MatchParen"    .s:fg_bg          .s:bg_magenta     .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_comment     .s:bg_none        .s:fmt_none
