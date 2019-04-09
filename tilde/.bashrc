@@ -55,7 +55,8 @@ alias todoread="cat ~/Github/todo/README.md"
 alias todoedit="nvim ~/Github/todo/README.md"
 alias todopush=push_todos
 alias todopull=pull_todos
-alias hunt=find_exact_match
+alias hunt=find_string
+alias mark=find_filename
 
 push_todos() {
 	pushd "$HOME/Github/todo/" && \
@@ -72,8 +73,12 @@ pull_todos() {
 }
 
 # Search function, called on with alias "hunt" -- e.g. hunt "const" to find all occurences of "const" in dir w/ subdirs
-find_exact_match() {
+find_string() {
 	command grep --exclude-dir=node_modules -wroni "$1" . | sort -u | grep -iv "^$1" | sed "/^$/d" | grep -i --color=always "$1"
+}
+
+find_filename() {
+	command find . -not -path "*node_modules*" -name "$1" | sort -u | grep -i --color=always "$1"
 }
 
 # Colors
