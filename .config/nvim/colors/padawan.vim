@@ -79,17 +79,17 @@ exe "hi! Normal"        .s:fg_fg          .s:bg_none        .s:fmt_none
 exe "hi! EndOfBuffer"   .s:fg_bg          .s:bg_none        .s:fmt_none
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_guide       .s:fmt_none
 " Conceal, Cursor, CursorIM
-exe "hi! CursorColumn"  .s:fg_fg          .s:bg_bg          .s:fmt_none
-exe "hi! CursorLine"    .s:fg_blue        .s:bg_bg          .s:fmt_none
-exe "hi! CursorLineNr"  .s:fg_magenta     .s:bg_bg          .s:fmt_none
+exe "hi! CursorColumn"  .s:fg_fg          .s:bg_guide       .s:fmt_none
+exe "hi! CursorLine"    .s:fg_blue        .s:bg_guide       .s:fmt_bold
+exe "hi! CursorLineNr"  .s:fg_blue        .s:bg_guide       .s:fmt_bold
 exe "hi! LineNr"        .s:fg_comment     .s:bg_none        .s:fmt_none
 
 exe "hi! Directory"     .s:fg_fg          .s:bg_none        .s:fmt_none
 exe "hi! DiffAdd"       .s:fg_green       .s:bg_fg          .s:fmt_none
 exe "hi! DiffChange"    .s:fg_blue        .s:bg_fg          .s:fmt_none
 exe "hi! DiffText"      .s:fg_fg          .s:bg_fg          .s:fmt_none
-exe "hi! ErrorMsg"      .s:fg_magenta     .s:bg_none        .s:fmt_none
-exe "hi! VertSplit"     .s:fg_bg          .s:bg_bg          .s:fmt_none
+exe "hi! ErrorMsg"      .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! VertSplit"     .s:fg_bg          .s:bg_guide       .s:fmt_none
 exe "hi! Folded"        .s:fg_fg          .s:bg_fg          .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_fg          .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_bg          .s:fmt_none
@@ -111,20 +111,20 @@ exe "hi! SpellLocal"    .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! SpellBad"      .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! SpellRare"     .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! StatusLine"    .s:fg_green       .s:bg_guide       .s:fmt_none
-exe "hi! StatusLineNC"  .s:fg_red         .s:bg_guide       .s:fmt_none
+exe "hi! StatusLineNC"  .s:fg_blue        .s:bg_guide       .s:fmt_none
 exe "hi! WildMenu"      .s:fg_bg          .s:bg_red         .s:fmt_none
 exe "hi! TabLine"       .s:fg_fg          .s:bg_fg          .s:fmt_revr
 "   TabLineFill"
 "   TabLineSel"
 exe "hi! Title"         .s:fg_magenta     .s:bg_none        .s:fmt_none
-exe "hi! Visual"        .s:fg_none        .s:bg_comment     .s:fmt_none
+exe "hi! Visual"        .s:fg_bg          .s:bg_blue        .s:fmt_none
 "   VisualNos"
-exe "hi! WarningMsg"    .s:fg_yellow      .s:bg_bg          .s:fmt_none
+exe "hi! WarningMsg"    .s:fg_yellow      .s:bg_none        .s:fmt_none
 
 " ALE"
-exe "hi! AleText"       .s:fg_magenta     .s:bg_none        .s:fmt_none
-exe "hi! AleWarning"    .s:fg_magenta     .s:bg_none        .s:fmt_none
-exe "hi! AleLine"       .s:fg_comment     .s:bg_bg          .s:fmt_none
+exe "hi! AleText"       .s:fg_red         .s:bg_none        .s:fmt_bold
+exe "hi! AleWarning"    .s:fg_red         .s:bg_none        .s:fmt_bold
+exe "hi! AleLine"       .s:fg_red         .s:bg_none        .s:fmt_bold
 
 hi link ALEErrorSign    AleText
 hi link ALEWarningSign  AleText
@@ -216,7 +216,7 @@ exe "hi! NERDTreeCWD"                 .s:fg_red         .s:bg_none        .s:fmt
 exe "hi! NERDTreeUp"                  .s:fg_fg          .s:bg_none        .s:fmt_none
 exe "hi! NERDTreeDir"                 .s:fg_fg          .s:bg_none        .s:fmt_none
 exe "hi! NERDTreeFile"                .s:fg_fg          .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDirSlash"            .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeDirSlash"            .s:fg_green       .s:bg_none        .s:fmt_none
 
 
 " GitGutter
@@ -261,7 +261,7 @@ exe "hi! typescriptDecorators"     .s:fg_cyan        .s:bg_none        .s:fmt_no
 exe "hi! typescriptEndColons"      .s:fg_cyan        .s:bg_none        .s:fmt_none
 exe "hi! typescriptStorageClass"   .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! typescriptStringD"        .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! typescriptHtmlEvents"     .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! typescriptHtmlEvents"     .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! typescriptBoolean"        .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! typescriptConditional"    .s:fg_green       .s:bg_none        .s:fmt_none
 
