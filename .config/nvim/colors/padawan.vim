@@ -255,15 +255,15 @@ exe "hi! cssTagName"              .s:fg_yellow      .s:bg_none        .s:fmt_non
 exe "hi! typescriptType"           .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! typescriptBraces"         .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! typescriptParens"         .s:fg_red         .s:bg_none        .s:fmt_none
-exe "hi! typescriptOpSymbols"      .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! typescriptOpSymbols"      .s:fg_blue        .s:bg_none        .s:fmt_none
 exe "hi! typescriptReserved"       .s:fg_blue        .s:bg_none        .s:fmt_none
 exe "hi! typescriptDecorators"     .s:fg_cyan        .s:bg_none        .s:fmt_none
 exe "hi! typescriptEndColons"      .s:fg_cyan        .s:bg_none        .s:fmt_none
-exe "hi! typescriptStorageClass"   .s:fg_yellow      .s:bg_none        .s:fmt_none
+exe "hi! typescriptStorageClass"   .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! typescriptStringD"        .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! typescriptHtmlEvents"     .s:fg_red         .s:bg_none        .s:fmt_none
-exe "hi! typescriptBoolean"        .s:fg_magenta     .s:bg_none        .s:fmt_none
-exe "hi! typescriptConditional"    .s:fg_green       .s:bg_none        .s:fmt_none
+exe "hi! typescriptHtmlEvents"     .s:fg_blue        .s:bg_none        .s:fmt_none
+exe "hi! typescriptBoolean"        .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! typescriptConditional"    .s:fg_yellow      .s:bg_none        .s:fmt_none
 
 " VIM"
 exe "hi! vimLineComment"           .s:fg_comment     .s:bg_none        .s:fmt_none
