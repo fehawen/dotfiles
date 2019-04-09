@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # open Kitty
-cmd - return : open -a /Applications/Kitty.app
+cmd - return : open -a /Applications/kitty.app
 
 # close focused window
 alt - w : chunkc tiling::window --close
@@ -111,7 +111,7 @@ alt - q : chunkc tiling::window --toggle fade
 
 # float / unfloat window and center on screen
 alt - t : chunkc tiling::window --toggle float;\
-          chunkc tiling::window --grid-layout 4:4:1:1:2:2
+          chunkc tiling::window --grid-layout 6:6:1:1:4:4
 
 # toggle sticky
 alt - s : chunkc tiling::window --toggle sticky
