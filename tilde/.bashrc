@@ -325,7 +325,10 @@ compose_prompt() {
 PROMPT_COMMAND=timer_stop
 
 # Export prompt composition to PS1
-PS1="\$(compose_prompt)"
+export PS1="\$(compose_prompt)"
 
 # Include desired paths in PATH and export, leaving default PATH still intact
-PATH="${PATH}:${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/"
+export PATH="${PATH}:${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/"
+
+# Set default editor
+export EDITOR="/usr/local/bin/nvim"
