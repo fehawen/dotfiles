@@ -80,8 +80,8 @@ exe "hi! EndOfBuffer"   .s:fg_bg          .s:bg_none        .s:fmt_none
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_guide       .s:fmt_none
 " Conceal, Cursor, CursorIM
 exe "hi! CursorColumn"  .s:fg_fg          .s:bg_guide       .s:fmt_none
-exe "hi! CursorLine"    .s:fg_blue        .s:bg_guide       .s:fmt_bold
-exe "hi! CursorLineNr"  .s:fg_blue        .s:bg_guide       .s:fmt_bold
+exe "hi! CursorLine"    .s:fg_none        .s:bg_guide       .s:fmt_none
+exe "hi! CursorLineNr"  .s:fg_blue        .s:bg_guide       .s:fmt_none
 exe "hi! LineNr"        .s:fg_comment     .s:bg_none        .s:fmt_none
 
 exe "hi! Directory"     .s:fg_fg          .s:bg_none        .s:fmt_none
@@ -104,14 +104,14 @@ exe "hi! PmenuSel"      .s:fg_fg          .s:bg_guide       .s:fmt_revr
 "   PmenuSbar"
 "   PmenuThumb"
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! Search"        .s:fg_bg          .s:bg_magenta     .s:fmt_none
+exe "hi! Search"        .s:fg_bg          .s:bg_blue        .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! SpellCap"      .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! SpellLocal"    .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! SpellBad"      .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! SpellRare"     .s:fg_red         .s:bg_none        .s:fmt_none
-exe "hi! StatusLine"    .s:fg_green       .s:bg_guide       .s:fmt_none
-exe "hi! StatusLineNC"  .s:fg_blue        .s:bg_guide       .s:fmt_none
+exe "hi! StatusLine"    .s:fg_blue        .s:bg_guide       .s:fmt_none
+exe "hi! StatusLineNC"  .s:fg_comment     .s:bg_guide       .s:fmt_none
 exe "hi! WildMenu"      .s:fg_bg          .s:bg_red         .s:fmt_none
 exe "hi! TabLine"       .s:fg_fg          .s:bg_fg          .s:fmt_revr
 "   TabLineFill"
@@ -134,7 +134,7 @@ hi link ALEInfoLine     AleLine
 
 " Generic Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------
-exe "hi! Comment"             .s:fg_comment     .s:bg_none        .s:fmt_none
+exe "hi! Comment"             .s:fg_comment     .s:bg_none        .s:fmt_ital
 exe "hi! Constant"            .s:fg_cyan        .s:bg_none        .s:fmt_none
 exe "hi! String"              .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! Number"              .s:fg_red         .s:bg_none        .s:fmt_none
@@ -208,23 +208,23 @@ endif
 " NerdTree
 " ---------
 exe "hi! NERDTreeOpenable"            .s:fg_blue        .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeClosable"            .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeClosable"            .s:fg_red         .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarksHeader"   .s:fg_pink        .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarksLeader"   .s:fg_bg          .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarkName"      .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! NERDTreeCWD"                 .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! NERDTreeUp"                  .s:fg_fg          .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDir"                 .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeFile"                .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDirSlash"            .s:fg_yellow      .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeDir"                 .s:fg_blue        .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeFile"                .s:fg_fg          .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeDirSlash"            .s:fg_blue        .s:bg_none        .s:fmt_none
 
 
 " GitGutter
 " ---------
-exe "hi! GitGutterAdd"                .s:fg_cyan       .s:bg_none         .s:fmt_none
-exe "hi! GitGutterChange"             .s:fg_cyan       .s:bg_none         .s:fmt_none
-exe "hi! GitGutterDelete"             .s:fg_magenta    .s:bg_none         .s:fmt_none
-exe "hi! GitGutterChangeDelete"       .s:fg_magenta    .s:bg_none         .s:fmt_none
+exe "hi! GitGutterAdd"                .s:fg_cyan        .s:bg_none        .s:fmt_none
+exe "hi! GitGutterChange"             .s:fg_cyan        .s:bg_none        .s:fmt_none
+exe "hi! GitGutterDelete"             .s:fg_magenta     .s:bg_none        .s:fmt_none
+exe "hi! GitGutterChangeDelete"       .s:fg_magenta     .s:bg_none        .s:fmt_none
 
 "}}}
 
@@ -266,8 +266,8 @@ exe "hi! typescriptBoolean"        .s:fg_red         .s:bg_none        .s:fmt_no
 exe "hi! typescriptConditional"    .s:fg_yellow      .s:bg_none        .s:fmt_none
 
 " VIM"
-exe "hi! vimLineComment"           .s:fg_comment     .s:bg_none        .s:fmt_none
-exe "hi! vimCommentTitle"          .s:fg_comment     .s:bg_none        .s:fmt_bold
+exe "hi! vimLineComment"           .s:fg_comment     .s:bg_none        .s:fmt_ital
+exe "hi! vimCommentTitle"          .s:fg_comment     .s:bg_none        .s:fmt_bldi
 
 "}}}
 
