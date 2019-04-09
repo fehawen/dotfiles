@@ -95,7 +95,7 @@ exe "hi! FoldColumn"    .s:fg_none        .s:bg_fg          .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_bg          .s:fmt_none
 "   Incsearch"
 
-exe "hi! MatchParen"    .s:fg_bg          .s:bg_cyan        .s:fmt_none
+exe "hi! MatchParen"    .s:fg_bg          .s:bg_yellow      .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_comment     .s:bg_none        .s:fmt_none
@@ -207,16 +207,16 @@ endif
 
 " NerdTree
 " ---------
-exe "hi! NERDTreeOpenable"            .s:fg_fg          .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeClosable"            .s:fg_blue        .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeOpenable"            .s:fg_blue        .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeClosable"            .s:fg_magenta     .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarksHeader"   .s:fg_pink        .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarksLeader"   .s:fg_bg          .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarkName"      .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! NERDTreeCWD"                 .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! NERDTreeUp"                  .s:fg_fg          .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDir"                 .s:fg_fg          .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeFile"                .s:fg_fg          .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDirSlash"            .s:fg_green       .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeDir"                 .s:fg_green       .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeFile"                .s:fg_yellow      .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeDirSlash"            .s:fg_yellow      .s:bg_none        .s:fmt_none
 
 
 " GitGutter
