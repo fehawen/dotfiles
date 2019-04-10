@@ -126,15 +126,13 @@ fi
 ###############
 
 arrow="→"
-git_branch=" "
 git_modified="!"
 git_added="+"
 git_deleted="-"
 git_renamed="*"
 git_untracked="?"
 git_stashed="$"
-git_ahead="↑"
-git_behind="↓"
+git_uneven="¿"
 
 #####################
 ### SECTION  ###
@@ -275,15 +273,11 @@ git_section() {
 	local behind="$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)"
 	local ahead="$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)"
 
-	if [[ "$behind" -gt 0 ]]; then
-		status="${git_behind}${status}"
+	if [[ "$behind" -gt 0 || "$ahead" -gt 0 ]]; then
+		status="${git_uneven}${status}"
 	fi
 
-	if [[ "$ahead" -gt 0 ]]; then
-		status="${git_ahead}${status}"
-	fi
-
-	local git_status="${git_branch_prefix_color}${git_branch_prefix}${git_branch_color}${git_branch} ${branch} "
+	local git_status="${git_branch_prefix_color}${git_branch_prefix} ${git_branch_color}${branch} "
 
 	if [[ "$status" != "" ]]; then
 		git_status="${git_status}${git_status_color}${git_status_prefix}${status}${git_status_suffix} "
