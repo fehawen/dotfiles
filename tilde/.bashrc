@@ -125,7 +125,7 @@ fi
 ### SYMBOLS ###
 ###############
 
-arrow="→"
+arrow="❯"
 git_modified="!"
 git_added="+"
 git_deleted="-"
@@ -327,7 +327,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	printf "${bold}$(user_section)$(clock_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
+	printf "\r${bold}$(user_section)$(clock_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution time
