@@ -167,7 +167,7 @@ colorscheme padawan
 
 " Set list characters
 set list
-set lcs=tab:➔\ ,trail:•
+set lcs=tab:❯\ ,trail:•
 
 " Remove vertical sign (error) column bg
 " NOTE: Place after colorscheme to prevent override
@@ -204,3 +204,13 @@ map <C-n> :NERDTreeToggle<CR>
 " Map '§' to act as 'Esc' since the MacBook touchbar is the eighth deadly sin
 map § <Esc>
 map! § <C-c>
+
+" Disable arrow keys, coz I needs to learn
+map <Up> <Nop>
+map! <Up> <Nop>
+map <Down> <Nop>
+map! <Down> <Nop>
+map <Left> <Nop>
+map! <Left> <Nop>
+map <Right> <Nop>
+map! <Right> <Nop>
