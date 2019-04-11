@@ -98,7 +98,7 @@ exe "hi! SignColumn"    .s:fg_none        .s:bg_bg          .s:fmt_none
 exe "hi! MatchParen"    .s:fg_bg          .s:bg_comment     .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! NonText"       .s:fg_comment     .s:bg_none        .s:fmt_none
+exe "hi! NonText"       .s:fg_guide       .s:bg_none        .s:fmt_none
 exe "hi! Pmenu"         .s:fg_blue        .s:bg_guide       .s:fmt_none
 exe "hi! PmenuSel"      .s:fg_blue        .s:bg_guide       .s:fmt_revr
 "   PmenuSbar"
@@ -134,7 +134,7 @@ hi link ALEInfoLine     AleLine
 
 " Generic Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------
-exe "hi! Comment"             .s:fg_comment     .s:bg_none        .s:fmt_ital
+exe "hi! Comment"             .s:fg_comment     .s:bg_none        .s:fmt_none
 exe "hi! Constant"            .s:fg_cyan        .s:bg_none        .s:fmt_none
 exe "hi! String"              .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! Number"              .s:fg_red         .s:bg_none        .s:fmt_none
@@ -266,8 +266,8 @@ exe "hi! typescriptBoolean"        .s:fg_red         .s:bg_none        .s:fmt_no
 exe "hi! typescriptConditional"    .s:fg_yellow      .s:bg_none        .s:fmt_none
 
 " VIM"
-exe "hi! vimLineComment"           .s:fg_comment     .s:bg_none        .s:fmt_ital
-exe "hi! vimCommentTitle"          .s:fg_comment     .s:bg_none        .s:fmt_bldi
+exe "hi! vimLineComment"           .s:fg_comment     .s:bg_none        .s:fmt_none
+exe "hi! vimCommentTitle"          .s:fg_comment     .s:bg_none        .s:fmt_none
 
 "}}}
 
