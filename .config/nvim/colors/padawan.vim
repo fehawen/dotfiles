@@ -95,16 +95,16 @@ exe "hi! FoldColumn"    .s:fg_none        .s:bg_fg          .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_bg          .s:fmt_none
 "   Incsearch"
 
-exe "hi! MatchParen"    .s:fg_bg          .s:bg_magenta     .s:fmt_none
-exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
+exe "hi! MatchParen"    .s:fg_bg          .s:bg_comment     .s:fmt_none
+exe "hi! ModeMsg"       .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_comment     .s:bg_none        .s:fmt_none
-exe "hi! Pmenu"         .s:fg_fg          .s:bg_guide       .s:fmt_none
-exe "hi! PmenuSel"      .s:fg_fg          .s:bg_guide       .s:fmt_revr
+exe "hi! Pmenu"         .s:fg_blue        .s:bg_guide       .s:fmt_none
+exe "hi! PmenuSel"      .s:fg_blue        .s:bg_guide       .s:fmt_revr
 "   PmenuSbar"
 "   PmenuThumb"
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! Search"        .s:fg_bg          .s:bg_blue        .s:fmt_none
+exe "hi! Search"        .s:fg_bg          .s:bg_comment     .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_magenta     .s:bg_none        .s:fmt_none
 exe "hi! SpellCap"      .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! SpellLocal"    .s:fg_red         .s:bg_none        .s:fmt_none
@@ -122,9 +122,9 @@ exe "hi! Visual"        .s:fg_bg          .s:bg_blue        .s:fmt_none
 exe "hi! WarningMsg"    .s:fg_yellow      .s:bg_none        .s:fmt_none
 
 " ALE"
-exe "hi! AleText"       .s:fg_red         .s:bg_none        .s:fmt_bold
-exe "hi! AleWarning"    .s:fg_red         .s:bg_none        .s:fmt_bold
-exe "hi! AleLine"       .s:fg_red         .s:bg_none        .s:fmt_bold
+exe "hi! AleText"       .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! AleWarning"    .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! AleLine"       .s:fg_red         .s:bg_none        .s:fmt_none
 
 hi link ALEErrorSign    AleText
 hi link ALEWarningSign  AleText
