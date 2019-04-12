@@ -1,29 +1,10 @@
 #!/bin/bash
 
-red="$(tput setaf 1)"
-green="$(tput setaf 2)"
-yellow="$(tput setaf 3)"
-cyan="$(tput setaf 6)"
-bold="$(tput bold)"
-reset="$(tput sgr0)"
-
-info() {
-	echo "${cyan}$1${reset}"
-}
-
-alert() {
-	echo "${yellow}$1${reset}"
-}
-
-success() {
-	echo "${green}$1${reset}"
-}
-
-error() {
-	echo "${red}$1${reset}"
-}
+# TODO:
+# Check if chunkwm and skdh exists, else install them with brew.
 
 symlink() {
+	echo -e "\nSymlinking '$HOME/$1'"
 	ln -sfv "$(PWD)/$1" "$HOME/$1" || error "Failed to symlink $1"
 }
 
@@ -37,10 +18,10 @@ declare -a includes=(
 )
 
 initialize() {
-	read -r -p "${bold}Install tilde config files? ${reset}[y/N] " answer
+	read -r -p "Include tilde config files? [y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		error "Installation declined..."
-		info "Now exiting."
+		echo "Installation declined..."
+		echo -e "Now exiting.\n"
 		exit
 	else
 		setup
@@ -48,26 +29,26 @@ initialize() {
 }
 
 setup() {
-	success "Setting up tilde..."
+	echo -e "\nSetting up tilde files..."
 
-	info "Resetting PATH to avoid duplication."
+	echo "Resetting PATH to avoid duplication."
 	PATH=$(getconf PATH)
 
-	info "Checking which shell..."
+	echo "Checking which shell..."
 	if $(echo "$SHELL" | command grep -i '/bin/bash' &> /dev/null); then
-		info "Shell is already set to $SHELL"
+		echo "Shell is already set to $SHELL"
 	else
-		alert "Shell is set to $SHELL"
-		info "Changing shell to /bin/bash"
+		echo "Shell is set to $SHELL"
+		echo "Changing shell to /bin/bash"
 	 	chsh -s /bin/bash
 	 fi
 
-	for i in "${includes[@]}"
+	for inc in "${includes[@]}"
 	do
-		symlink "$i"
+		symlink "$inc"
 	done
 
-	success "Done."
+	echo -e "Done.\n"
 }
 
 initialize

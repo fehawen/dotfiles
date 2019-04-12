@@ -1,56 +1,38 @@
 #!/bin/bash
 
-red="$(tput setaf 1)"
-green="$(tput setaf 2)"
-cyan="$(tput setaf 6)"
-bold=$(tput bold)
-reset="$(tput sgr0)"
-
-newline="\n"
-
-includes=(
-	"alacritty"
-	"chunkwm"
-	"nvim"
-)
-
-success() {
-	printf "${newline}${green}INFO: $1${reset}"
-}
-
-msg() {
-	printf "${newline}$1"
-}
-
-error() {
-	printf "${newline}${red}ERROR: $1${reset}"
-}
-
 pre_setup() {
+	includes=(
+		"kitty"
+		"neofetch"
+		"nvim"
+		"nvim/colors"
+	)
+
+	echo -e "\nChecking if homebrew exists..."
+	if [[ ! $(which brew) ]]; then
+		echo "Could not find existing homebrew installation."
+		echo "Now installing..."
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	else
+		echo "Found existing homebrew installation."
+		echo "Proceeding..."
+	fi
+
 	for inc in ${includes[@]}
 	do
-		printf ${newline}
-		read -r -p "${cyan}${bold}Include $inc? ${reset}[y/N] " answer
-		if [ "$answer" != y ] && [ "$answer" != Y ]; then
-			error "Excluding $inc..."
-			msg "Proceeding..."
-			printf "${newline}"
+		echo -e "\nChecking if '$HOME/.config/$inc' exists..."
+		if [ ! -d  "$HOME/.config/$inc" ]; then
+			echo "Couldn't find directory '$HOME/.config/$inc'."
+			echo "Creating directory '$HOME/.config/$inc'"
+			mkdir -p $HOME/.config/$inc
+			echo "Proceeding..."
 		else
-			msg "Checking if '$HOME/.config/$inc' exists..."
-			if [ ! -d  "$HOME/.config/$inc" ]; then
-				msg "Couldn't find directory '$HOME/.config/$inc'."
-				log "Creating directory '$HOME/.config/$inc'"
-				mkdir -p $HOME/.config/$inc
-				msg "Proceeding..."
-				printf "${newline}"
-			else
-				log "Directory '$HOME/.config/$inc' already exists."
-				msg "Proceeding..."
-				printf "${newline}"
-			fi
+			echo "Directory '$HOME/.config/$inc' already exists."
+			echo "Proceeding..."
 		fi
 	done
-	log "Done.${newline}"
+
+	echo -e "Done.\n"
 }
 
 pre_setup
