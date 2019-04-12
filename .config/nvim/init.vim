@@ -163,7 +163,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
-colorscheme padawan
+let fehawencolor="covenant"
+colorscheme fehawen
 
 " Set list characters
 set list

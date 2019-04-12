@@ -1,12 +1,17 @@
-" Initialisation:"{{{
+" NOTES: "{{{
+" Template/setup borrowed with kindness from:
+" https://github.com/ayu-theme/ayu-vim/blob/master/colors/ayu.vim
+" }}}
+
+" Initialization:"{{{
 " ----------------------------------------------------------------------------
 hi clear
 if exists("syntax_on")
   syntax reset
 endif
 
-let s:style = get(g:, 'padawan_style', 'default')
-let g:colors_name = "padawan"
+let s:style = get(g:, 'fehawencolor', 'padawan')
+let g:colors_name = "fehawen"
 
 "}}}
 
@@ -15,16 +20,16 @@ let g:colors_name = "padawan"
 
 let s:palette = {}
 
-let s:palette.fg          = {'default': "#A2A1A2"}
-let s:palette.bg          = {'default': "#0B151D"}
-let s:palette.guide       = {'default': "#17242E"}
-let s:palette.comment     = {'default': "#243847"}
-let s:palette.red         = {'default': "#96423F"}
-let s:palette.green       = {'default': "#878D7D"}
-let s:palette.yellow      = {'default': "#B09075"}
-let s:palette.blue        = {'default': "#596E79"}
-let s:palette.magenta     = {'default': "#AA718A"}
-let s:palette.cyan        = {'default': "#7E9EB1"}
+let s:palette.fg          = {'padawan': "#A2A1A2", 'covenant': "#B0CCD6", 'flamingo': "#F4EFE7"}
+let s:palette.bg          = {'padawan': "#0B151D", 'covenant': "#0B151D", 'flamingo': "#274C59"}
+let s:palette.guide       = {'padawan': "#17242E", 'covenant': "#2F4355", 'flamingo': "#315967"}
+let s:palette.comment     = {'padawan': "#243847", 'covenant': "#2F4355", 'flamingo': "#4C7C8F"}
+let s:palette.red         = {'padawan': "#96423F", 'covenant': "#924F3A", 'flamingo': "#F094AD"}
+let s:palette.green       = {'padawan': "#878D7D", 'covenant': "#23768C", 'flamingo': "#6DB58D"}
+let s:palette.yellow      = {'padawan': "#B09075", 'covenant': "#B86348", 'flamingo': "#FFFEAC"}
+let s:palette.blue        = {'padawan': "#596E79", 'covenant': "#2994B0", 'flamingo': "#5392CC"}
+let s:palette.magenta     = {'padawan': "#AA718A", 'covenant': "#E87C5B", 'flamingo': "#F1A6FA"}
+let s:palette.cyan        = {'padawan': "#7E9EB1", 'covenant': "#73B4CA", 'flamingo': "#A5E8FC"}
 
 "}}}
 
