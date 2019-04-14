@@ -340,7 +340,8 @@ export PS1="\$(prompt)"
 ###################
 
 # Include desired paths in PATH and export, leaving default PATH still intact
-export PATH="${PATH}:${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/"
+# PATH default is: /usr/bin:/bin:/usr/sbin:/sbin
+# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/"
 
 # Set default editor
 export EDITOR="/usr/local/bin/nvim"
