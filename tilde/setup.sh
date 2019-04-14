@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# TODO:
-# Check if chunkwm and skdh exists, else install them with brew.
-
 symlink() {
 	echo -e "\nSymlinking '$HOME/$1'"
 	ln -sfv "$(PWD)/$1" "$HOME/$1" || error "Failed to symlink $1"
@@ -42,6 +39,28 @@ setup() {
 		echo "Changing shell to /bin/bash"
 	 	chsh -s /bin/bash
 	 fi
+
+	echo -e "\nChecking if chunkwm exists..."
+
+	if [[ ! $(which chunkwm) ]]; then
+		echo "Couldn't find existing chunkwm installation."
+		echo "Now installing..."
+		brew install chunkwm
+	else
+		echo "Existing chunkwm installation found."
+		echo "Proceeding..."
+	fi
+
+	echo -e "\nChecking if skhd exists..."
+
+	if [[ ! $(which skhd) ]]; then
+		echo "Couldn't find existing skhd installation."
+		echo "Now installing..."
+		brew install skhd
+	else
+		echo "Existing skhd installation found."
+		echo "Proceeding..."
+	fi
 
 	for inc in "${includes[@]}"
 	do

@@ -16,7 +16,7 @@ setup_kitty() {
 		echo -e "\nSetting up kitty..."
 		echo "Checking if kitty exists..."
 
-		if [[ ! $(ls /Applications/ | grep -i kitty) ]]; then
+		if [[ ! $(which kitty) ]]; then
 			echo -e "\nCouldn't find existing kitty installation."
 			echo "Now installing..."
 			curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
@@ -44,12 +44,12 @@ setup_neofetch() {
 		echo -e "\nSetting up neofetch..."
 		echo "Checking if neofetch exists..."
 
-		if [[ ! $(brew ls --versions neofetch) ]]; then
+		if [[ ! $(which neofetch) ]]; then
 			echo -e "\nCouldn't find existing neofetch installation."
 			echo "Now installing..."
 			brew install neofetch
 		else
-			echo -e "\nExisting neofetch installation found."
+			echo -e "\nExisting neofetch installation found:"
 			echo "Proceeding..."
 		fi
 
@@ -69,7 +69,7 @@ setup_neovim() {
 		echo -e "\nSetting up neovim..."
 		echo "Checking if neovim exists..."
 
-		if [[ ! $(brew ls --versions neovim) ]]; then
+		if [[ ! $(which nvim) ]]; then
 			echo -e "\nCouldn't find existing neovim installation."
 			echo "Now installing..."
 			brew install neovim
