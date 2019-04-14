@@ -9,7 +9,7 @@ pre_setup() {
 	)
 
 	echo -e "\nChecking if homebrew exists..."
-	if [[ ! $(which brew) ]]; then
+	if [[ ! $(which brew) ]] && [[ ! $(brew --version &> /dev/null) ]]; then
 		echo "Could not find existing homebrew installation."
 		echo "Now installing..."
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

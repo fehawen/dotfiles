@@ -30,7 +30,7 @@ setup() {
 
 	echo -e "\nChecking if chunkwm exists..."
 
-	if [[ ! $(which chunkwm) ]]; then
+	if [[ ! $(which chunkwm) ]] && [[ ! $(brew ls --versions chunkwm) ]]; then
 		echo "Couldn't find existing chunkwm installation."
 		echo "Now installing..."
 		brew install chunkwm
@@ -41,7 +41,7 @@ setup() {
 
 	echo -e "\nChecking if skhd exists..."
 
-	if [[ ! $(which skhd) ]]; then
+	if [[ ! $(which skhd) ]] && [[ ! $(brew ls --versions skhd) ]]; then
 		echo "Couldn't find existing skhd installation."
 		echo "Now installing..."
 		brew install skhd
