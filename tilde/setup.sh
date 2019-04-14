@@ -28,18 +28,6 @@ initialize() {
 setup() {
 	echo -e "\nSetting up tilde files..."
 
-	echo "Resetting PATH to avoid duplication."
-	PATH=$(getconf PATH)
-
-	echo "Checking which shell..."
-	if $(echo "$SHELL" | command grep -i '/bin/bash' &> /dev/null); then
-		echo "Shell is already set to $SHELL"
-	else
-		echo "Shell is set to $SHELL"
-		echo "Changing shell to /bin/bash"
-	 	chsh -s /bin/bash
-	 fi
-
 	echo -e "\nChecking if chunkwm exists..."
 
 	if [[ ! $(which chunkwm) ]]; then
@@ -60,6 +48,16 @@ setup() {
 	else
 		echo "Existing skhd installation found."
 		echo "Proceeding..."
+	fi
+
+	echo -e "\nChecking which shell..."
+
+	if $(echo "$SHELL" | command grep -i '/bin/bash' &> /dev/null); then
+		echo "Shell is already set to $SHELL"
+	else
+		echo "Shell is set to $SHELL"
+		echo "Changing shell to /bin/bash"
+		chsh -s /bin/bash
 	fi
 
 	for inc in "${includes[@]}"
