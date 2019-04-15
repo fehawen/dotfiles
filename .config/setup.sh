@@ -6,6 +6,7 @@ setup_kitty() {
 		"flamingo.conf"
 		"kitty.conf"
 		"padawan.conf"
+		"wakanda.conf"
 	)
 
 	read -r -p "Include kitty? [y/N] " answer
