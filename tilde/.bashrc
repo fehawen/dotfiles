@@ -44,7 +44,6 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias repos="cd ~/Github/"
 alias dot="cd ~/Dotfiles/"
 alias pro="cd ~/projects/"
-alias bashrc="source ~/.bashrc"
 alias mongorun="mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data"
 alias start-chunkwm="brew services start koekeishiya/formulae/chunkwm"
 alias restart-chunkwm="brew services restart koekeishiya/formulae/chunkwm"
@@ -84,7 +83,7 @@ find_string() {
 
 # Find all filenames in dirs/subdirs matching query
 find_filename() {
-	command find . -not -path "*node_modules*" -name "$1" | sort -u | grep -i --color=always "$1"
+	command find . -not -path "*node_modules*" -iname "$1" | sort -u | grep -i --color=always "$1"
 }
 
 ##############
@@ -340,8 +339,7 @@ export PS1="\$(prompt)"
 ###################
 
 # Include desired paths in PATH and export, leaving default PATH still intact
-# PATH default is: /usr/bin:/bin:/usr/sbin:/sbin
-# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/"
+export PATH="${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/:${PATH}"
 
 # Set default editor
 export EDITOR="/usr/local/bin/nvim"
