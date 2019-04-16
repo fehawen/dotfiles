@@ -20,16 +20,16 @@ let g:colors_name = "fehawen"
 
 let s:palette = {}
 
-let s:palette.fg          = {'padawan': "#A2A1A2", 'covenant': "#B0CCD6", 'flamingo': "#F4EFE7"}
-let s:palette.bg          = {'padawan': "#0B151D", 'covenant': "#0B151D", 'flamingo': "#274C59"}
-let s:palette.guide       = {'padawan': "#17242E", 'covenant': "#2F4355", 'flamingo': "#315967"}
-let s:palette.comment     = {'padawan': "#243847", 'covenant': "#2F4355", 'flamingo': "#4C7C8F"}
-let s:palette.red         = {'padawan': "#96423F", 'covenant': "#924F3A", 'flamingo': "#F094AD"}
-let s:palette.green       = {'padawan': "#878D7D", 'covenant': "#23768C", 'flamingo': "#6DB58D"}
-let s:palette.yellow      = {'padawan': "#B09075", 'covenant': "#B86348", 'flamingo': "#FFFEAC"}
-let s:palette.blue        = {'padawan': "#596E79", 'covenant': "#2994B0", 'flamingo': "#5392CC"}
-let s:palette.magenta     = {'padawan': "#AA718A", 'covenant': "#E87C5B", 'flamingo': "#F1A6FA"}
-let s:palette.cyan        = {'padawan': "#7E9EB1", 'covenant': "#73B4CA", 'flamingo': "#A5E8FC"}
+let s:palette.fg          = {'padawan': "#A2A1A2", 'covenant': "#B0CCD6", 'flamingo': "#F4EFE7", 'wakanda': "#7D9DA5"}
+let s:palette.bg          = {'padawan': "#0B151D", 'covenant': "#0B151D", 'flamingo': "#274C59", 'wakanda': "#0B1E26"}
+let s:palette.guide       = {'padawan': "#17242E", 'covenant': "#2F4355", 'flamingo': "#315967", 'wakanda': "#0E2833"}
+let s:palette.comment     = {'padawan': "#243847", 'covenant': "#2F4355", 'flamingo': "#4C7C8F", 'wakanda': "#113140"}
+let s:palette.red         = {'padawan': "#96423F", 'covenant': "#924F3A", 'flamingo': "#F094AD", 'wakanda': "#8E424E"}
+let s:palette.green       = {'padawan': "#878D7D", 'covenant': "#23768C", 'flamingo': "#6DB58D", 'wakanda': "#3A7270"}
+let s:palette.yellow      = {'padawan': "#B09075", 'covenant': "#B86348", 'flamingo': "#FFFEAC", 'wakanda': "#356376"}
+let s:palette.blue        = {'padawan': "#596E79", 'covenant': "#2994B0", 'flamingo': "#5392CC", 'wakanda': "#18748C"}
+let s:palette.magenta     = {'padawan': "#AA718A", 'covenant': "#E87C5B", 'flamingo': "#F1A6FA", 'wakanda': "#167282"}
+let s:palette.cyan        = {'padawan': "#7E9EB1", 'covenant': "#73B4CA", 'flamingo': "#A5E8FC", 'wakanda': "#72B4CA"}
 
 "}}}
 
