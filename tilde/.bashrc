@@ -57,6 +57,7 @@ alias todopush=push_todos
 alias todopull=pull_todos
 alias hunt=find_string
 alias mark=find_filename
+alias show=cat_file
 
 #############
 ### UTILS ###
@@ -78,12 +79,18 @@ pull_todos() {
 
 # Find all files in dirs/subdirs containing search query
 find_string() {
-	command grep --exclude-dir=node_modules -wroni "$1" . | sort -u | grep -iv "^$1" | sed "/^$/d" | grep -i --color=always "$1"
+	command grep --exclude-dir=node_modules --exclude-dir=.fusebox -wroni "$1" . | sort -u | grep -iv "^$1" | sed "/^$/d" | grep -i --color=always "$1"
 }
 
 # Find all filenames in dirs/subdirs matching query
 find_filename() {
 	command find . -not -path "*node_modules*" -iname "$1" | sort -u | grep -i --color=always "$1"
+}
+
+cat_file() {
+	printf "\n"
+	cat -n "$1"
+	printf "\n"
 }
 
 ##############
