@@ -163,8 +163,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
-let fehawencolor="padawan"
-colorscheme fehawen
+" let fehawencolor="padawan"
+" colorscheme fehawen
+colorscheme industrial
 
 " Set list characters
 set list
@@ -202,9 +203,12 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Map nerdtreetoggle to ctrl-n
 map <C-n> :NERDTreeToggle<CR>
 
-" Map '§' to act as 'Esc' since the MacBook touchbar is the eighth deadly sin
+" Map '§' to act as 'Esc' since the MacBook touchbar is... well, crap
 map § <Esc>
 map! § <C-c>
+
+" Map 'Tab' in normal mode to clear search highlight
+map <Tab> :noh<CR>
 
 " Disable arrow keys, coz I needs to learn
 map <Up> <Nop>
