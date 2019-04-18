@@ -61,10 +61,18 @@ if has("nvim")
 endif
 
 " STATUS LINE COLORS
-hi StatusLine guibg='#CFD8DC' guifg='#37474F'
-hi StatusLineNC guibg='#263238' guifg='#37474F'
+" hi StatusLine guibg='#CFD8DC' guifg='#37474F'
+" hi StatusLineNC guibg='#263238' guifg='#37474F'
 
 " "EDITOR COLORS
+call s:hi("User1",        s:gui.foreground, s:gui.line,       "")
+call s:hi("User2",        s:gui.background, s:gui.background, "")
+call s:hi("User3",        s:gui.line,       s:gui.background, "")
+call s:hi("User4",        s:gui.background, s:gui.line,       "")
+
+call s:hi("StatusLine",   s:gui.line,       s:gui.foreground, "")
+call s:hi("StatusLineNC", s:gui.line,       s:gui.background, "")
+
 call s:hi("EndOfBuffer",  s:gui.background, s:gui.none,       "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
 call s:hi("Cursor",       s:gui.accent,     "",               "")
@@ -117,8 +125,8 @@ call s:hi("Todo",         s:gui.red,        s:gui.foreground, "")
 call s:hi("Special",      s:gui.accent,     "",               "") " @observable etc...
 
 " ALE COLORS
-call s:hi("AleText",      s:gui.accent,     s:gui.none, "")
-call s:hi("AleWarning",   s:gui.accent,     s:gui.none, "")
+call s:hi("AleText",      s:gui.accent,     s:gui.line, "")
+call s:hi("AleWarning",   s:gui.accent,     s:gui.line, "")
 call s:hi("AleLine",      "",               s:gui.none, "")
 
 hi link ALEErrorSign    AleText

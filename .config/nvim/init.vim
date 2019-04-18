@@ -42,6 +42,9 @@ set encoding=utf8
 " Set colors
 set termguicolors
 
+" Hide mode (shown in status line)
+set noshowmode
+
 " When a file has been changed outside of Vim, automatically read it again
 set autoread
 
