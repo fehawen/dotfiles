@@ -1,7 +1,7 @@
 highlight clear
 
 if exists("syntax_on")
-  syntax reset
+	syntax reset
 endif
 
 let g:colors_name = "industrial"
@@ -25,15 +25,16 @@ let s:gui.blue       = { 'default': '#546E7A' }
 let s:gui.accent     = { 'default': '#F4511E' }
 
 function! s:hi(group, guifg, guibg, attr)
-  if s:gui(a:guifg) != ""
-    exec "hi " . a:group . " guifg=" . s:gui(a:guifg)
-  endif
-  if s:gui(a:guibg) != ""
-    exec "hi " . a:group . " guibg=" . s:gui(a:guibg)
-  endif
-  if a:attr != ""
-    exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
-  endif
+	if s:gui(a:guifg) != ""
+		exec "hi " . a:group . " guifg=" . s:gui(a:guifg)
+	endif
+	if s:gui(a:guibg) != ""
+		exec "hi " . a:group . " guibg=" . s:gui(a:guibg)
+	endif
+
+	if a:attr != ""
+		exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
+	endif
 endfunction
 
 function! s:gui(color)
@@ -42,27 +43,23 @@ endfunction
 
 " Neovim Terminal colors
 if has("nvim")
-  let g:terminal_color_0  = s:gui(s:gui.background)
-  let g:terminal_color_1  = s:gui(s:gui.red)
-  let g:terminal_color_2  = s:gui(s:gui.green)
-  let g:terminal_color_3  = s:gui(s:gui.yellow)
-  let g:terminal_color_4  = s:gui(s:gui.blue)
-  let g:terminal_color_5  = s:gui(s:gui.accent)
-  let g:terminal_color_6  = s:gui(s:gui.cyan)
-  let g:terminal_color_7  = s:gui(s:gui.foreground)
-  let g:terminal_color_8  = s:gui(s:gui.selection)
-  let g:terminal_color_9  = s:gui(s:gui.red)
-  let g:terminal_color_10 = s:gui(s:gui.green)
-  let g:terminal_color_11 = s:gui(s:gui.yellow)
-  let g:terminal_color_12 = s:gui(s:gui.blue)
-  let g:terminal_color_13 = s:gui(s:gui.accent)
-  let g:terminal_color_14 = s:gui(s:gui.cyan)
-  let g:terminal_color_15 = s:gui(s:gui.foreground)
+	let g:terminal_color_0  = s:gui(s:gui.background)
+	let g:terminal_color_1  = s:gui(s:gui.red)
+	let g:terminal_color_2  = s:gui(s:gui.green)
+	let g:terminal_color_3  = s:gui(s:gui.yellow)
+	let g:terminal_color_4  = s:gui(s:gui.blue)
+	let g:terminal_color_5  = s:gui(s:gui.accent)
+	let g:terminal_color_6  = s:gui(s:gui.cyan)
+	let g:terminal_color_7  = s:gui(s:gui.foreground)
+	let g:terminal_color_8  = s:gui(s:gui.selection)
+	let g:terminal_color_9  = s:gui(s:gui.red)
+	let g:terminal_color_10 = s:gui(s:gui.green)
+	let g:terminal_color_11 = s:gui(s:gui.yellow)
+	let g:terminal_color_12 = s:gui(s:gui.blue)
+	let g:terminal_color_13 = s:gui(s:gui.accent)
+	let g:terminal_color_14 = s:gui(s:gui.cyan)
+	let g:terminal_color_15 = s:gui(s:gui.foreground)
 endif
-
-" STATUS LINE COLORS
-" hi StatusLine guibg='#CFD8DC' guifg='#37474F'
-" hi StatusLineNC guibg='#263238' guifg='#37474F'
 
 " "EDITOR COLORS
 call s:hi("User1",        s:gui.foreground, s:gui.line,       "")
