@@ -1,35 +1,19 @@
-" FILE SIZE: "{{{
-" https://hackernoon.com/the-last-statusline-for-vim-a613048959b2
+" GIT BRANCH: " {{{
+" https://shapeshed.com/vim-statuslines/
 " -------------------------------------------------------------------------
 
-function! FileSize() abort
-	let l:bytes = getfsize(expand("%p"))
-	let l:prefix = " | "
+function! GitBranch()
+	return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
 
-	if (l:bytes >= 1024)
-		let l:kbytes = l:bytes / 1025
-	endif
-
-	if (exists("kbytes") && l:kbytes >= 1000)
-		let l:mbytes = l:kbytes / 1000
-	endif
-
-	if l:bytes <= 0
-		return ""
-	endif
-
-	if (exists("mbytes"))
-		return l:prefix . l:mbytes . "MB"
-	elseif (exists("kbytes"))
-		return l:prefix . l:kbytes . "KB"
-	else
-		return l:prefix . l:bytes . "B"
-	endif
+function! StatuslineGit()
+	let l:branchname = GitBranch()
+	return strlen(l:branchname) > 0? l:branchname : ""
 endfunction
 
 " }}}
 
-" SYNTAX HIGHLIGHT GROUP: "{{{
+" SYNTAX HIGHLIGHT GROUP: " {{{
 " -------------------------------------------------------------------------
 
 function! SyntaxItem()
@@ -44,14 +28,8 @@ endfunction
 
 " }}}
 
-" NERDTREE STATUSLINE: "{{{
-" -------------------------------------------------------------------------
-
-let NERDTreeStatusline="%2*%=%3*%1*\ NERD\ "
-
-" }}}
-
-" VIM MODES: "{{{
+" VIM MODES: " {{{
+" https://gabri.me/blog/diy-vim-statusline
 " -------------------------------------------------------------------------
 
 let g:modes={
@@ -78,7 +56,15 @@ let g:modes={
 
 " }}}
 
-" VIM STATUSLINE: "{{{
+
+" NERDTREE STATUSLINE: " {{{
+" -------------------------------------------------------------------------
+
+let NERDTreeStatusline="%2*%=%3*%1*\ NERD\ "
+
+" }}}
+
+" VIM STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
 " Show statusline
@@ -87,20 +73,24 @@ set laststatus=2
 " Clear statusline
 set statusline=
 
-" Left 1 - file name, file size
-set statusline+=%1*\ %t
-set statusline+=%{FileSize()}
+" Left 1 - mode
+set statusline+=%1*\ %{toupper(g:modes[mode()])}
 set statusline+=\ %3*%2*
 
-" Left 2 - syntax group name
+" Left 2 - git branch
 set statusline+=%4*
-set statusline+=%1*\ %{toupper(g:modes[mode()])}
+set statusline+=%1*\ %{StatuslineGit()}
+set statusline+=\ %3*%2*
+
+" Left 3 - file name
+set statusline+=%4*
+set statusline+=%1*\ %t
 set statusline+=\ %3*%2*
 
 " Spacing divider
 set statusline+=%=
 
-" Right 1 - syntax name (for theme highlighting)
+" Right 1 - syntax group name
 set statusline+=%3*
 set statusline+=%1*\ %{SyntaxItem()}
 set statusline+=\ %4*%2*
