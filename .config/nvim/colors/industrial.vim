@@ -67,8 +67,10 @@ call s:hi("User2",        s:gui.background, s:gui.background, "")
 call s:hi("User3",        s:gui.line,       s:gui.background, "")
 call s:hi("User4",        s:gui.background, s:gui.line,       "")
 
-call s:hi("StatusLine",   s:gui.line,       s:gui.foreground, "")
-call s:hi("StatusLineNC", s:gui.line,       s:gui.background, "")
+call s:hi("StatusLine",       s:gui.line,   s:gui.foreground, "")
+call s:hi("StatusLineNC",     s:gui.line,   s:gui.background, "")
+call s:hi("StatusLineTerm",   s:gui.line,   s:gui.foreground, "")
+call s:hi("StatusLineTemrNC",   s:gui.line, s:gui.background, "")
 
 call s:hi("EndOfBuffer",  s:gui.background, s:gui.none,       "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
