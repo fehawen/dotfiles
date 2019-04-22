@@ -70,35 +70,49 @@ let NERDTreeStatusline="%2*%=%3*%1*\ NERD\ "
 " Show statusline
 set laststatus=2
 
+function! ActiveStatusLine()
 " Clear statusline
-set statusline=
+setlocal statusline=
 
 " Left 1 - mode
-set statusline+=%1*\ %{toupper(g:modes[mode()])}
-set statusline+=\ %3*%2*
+setlocal statusline+=%1*\ %{toupper(g:modes[mode()])}
+setlocal statusline+=\ %3*%2*
 
 " Left 2 - git branch
-set statusline+=%4*
-set statusline+=%1*\ %{StatuslineGit()}
-set statusline+=\ %3*%2*
+setlocal statusline+=%4*
+setlocal statusline+=%1*\ %{StatuslineGit()}
+setlocal statusline+=\ %3*%2*
 
 " Left 3 - file name
-set statusline+=%4*
-set statusline+=%1*\ %t
-set statusline+=\ %3*%2*
+setlocal statusline+=%4*
+setlocal statusline+=%1*\ %t
+setlocal statusline+=\ %3*%2*
 
 " Spacing divider
-set statusline+=%=
+setlocal statusline+=%=
 
 " Right 1 - syntax group name
-set statusline+=%3*
-set statusline+=%1*\ %{SyntaxItem()}
-set statusline+=\ %4*%2*
+setlocal statusline+=%3*
+setlocal statusline+=%1*\ %{SyntaxItem()}
+setlocal statusline+=\ %4*%2*
 
 " Right 2 - line number, total line
-set statusline+=%3*
-set statusline+=%1*\ %l
-set statusline+=\ /
-set statusline+=\ %L\ %*
+setlocal statusline+=%3*
+setlocal statusline+=%1*\ %l
+setlocal statusline+=\ /
+setlocal statusline+=\ %L\ %*
+return statusline
+endfunction
+
+function! InactiveStatusLine()
+setlocal statusline=
+setlocal statusline+=hello
+return statusline
+endfunction
 
 " }}}
+au WinEnter * call ActiveStatusLine()
+au WinLeave * call InactiveStatusLine()
+" au WinEnter * setlocal statusline=... OR call ActiveStatusLine()
+" au WinLeave * setlocal statusline=...
+" :setlocal statusline=... or let &l:statusline=... OR call InactiveStatusLine()
