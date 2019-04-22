@@ -13,11 +13,10 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
-"	Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
+" Plug 'mxw/vim-jsx'
+" Plug 'pangloss/vim-javascript'
+" Plug 'leafgarland/typescript-vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
 
@@ -166,8 +165,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
-" let fehawencolor="padawan"
-" colorscheme fehawen
 colorscheme industrial
 
 " Set list characters
