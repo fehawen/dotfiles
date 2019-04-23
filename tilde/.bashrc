@@ -346,7 +346,7 @@ export PS1="\$(prompt)"
 ###################
 
 # Include desired paths in PATH and export, leaving default PATH still intact
-export PATH="${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/:${PATH}"
+export PATH="${HOME}/paths/mongodb-osx-x86_64-4.0.3/bin:${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/:${PATH}"
 
 # Set default editor
 export EDITOR="/usr/local/bin/nvim"
