@@ -16,7 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
 " Plug 'mxw/vim-jsx'
 " Plug 'pangloss/vim-javascript'
-" Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
 
@@ -83,8 +83,8 @@ set relativenumber number
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
-" Update time in ms
-set updatetime=500
+" Disale cursor line for better performance
+set nocursorline
 
 " Sets unix as standard filetype
 set ffs=unix,dos,mac
