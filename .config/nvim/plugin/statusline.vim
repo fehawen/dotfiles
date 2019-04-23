@@ -20,8 +20,8 @@ function! LinterStatus() abort
 	let l:all_errors = l:counts.error + l:counts.style_error
 	let l:all_non_errors = l:counts.total - l:all_errors
 
-	return l:counts.total == 0 ? "•" : printf(
-	\ "W:%d E:%d",
+	return l:counts.total == 0 ? "" : printf(
+	\ " W:%d E:%d",
 	\ l:all_non_errors,
 	\ l:all_errors
 	\)
@@ -77,27 +77,25 @@ function! SetActiveStatusLine()
 		" Left 1 - mode
 		setlocal statusline+=%1*\ %{toupper(g:modes[mode()])}
 		setlocal statusline+=\ %3*%2*
-		" Left 2 - file name
+		" Left 2 - file name, linter warnings/errors (if any)
 		setlocal statusline+=%4*
 		setlocal statusline+=%1*\ %t
-		setlocal statusline+=\ %3*%2*
-		" Left 3 - linter status
-		setlocal statusline+=%4*
-		setlocal statusline+=%1*\ %{LinterStatus()}
+		setlocal statusline+=%{LinterStatus()}
 		setlocal statusline+=\ %3*%2*
 		" Spacing divider
 		setlocal statusline+=%=
 		" Middle - syntax group name
 		setlocal statusline+=%3*
-		setlocal statusline+=%1*\ %{SyntaxItem()}
+		setlocal statusline+=%4*\ %{SyntaxItem()}
 		setlocal statusline+=\ %3*%2*
 		" Spacing divider
 		setlocal statusline+=%=
-		" Right - line number, total line
+		" Right - line number, total lines
 		setlocal statusline+=%3*
 		setlocal statusline+=%1*\ %l
-		setlocal statusline+=\ of
-		setlocal statusline+=\ %L\ %*
+		setlocal statusline+=\ %4*
+		setlocal statusline+=\%3*
+		setlocal statusline+=%1*\ %L\ %*
 	endif
 endfunction
 
@@ -117,10 +115,8 @@ function! SetInactiveStatusLine()
 		setlocal statusline+=\ %3*%2*
 		" Spacing divider
 		setlocal statusline+=%=
-		" Right - line number, total line
+		" Right - total lines
 		setlocal statusline+=%3*
-		setlocal statusline+=%4*\ %l
-		setlocal statusline+=\ of
 		setlocal statusline+=\ %L\ %*
 	endif
 endfunction
