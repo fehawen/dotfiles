@@ -30,7 +30,7 @@ call plug#end()
 " Enter the current millenium
 set nocompatible
 
-" Enable syntax and plugins (foindustrial
+" Enable syntax and plugins
 syntax enable
 filetype plugin on
 filetype indent on
