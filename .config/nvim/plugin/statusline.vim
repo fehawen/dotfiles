@@ -15,6 +15,18 @@ endfunction
 
 " }}}
 
+function! LinterStatus() abort
+	let l:counts = ale#statusline#Count(bufnr(''))
+	let l:all_errors = l:counts.error + l:counts.style_error
+	let l:all_non_errors = l:counts.total - l:all_errors
+
+	return l:counts.total == 0 ? "•" : printf(
+	\ "W:%d E:%d",
+	\ l:all_non_errors,
+	\ l:all_errors
+	\)
+endfunction
+
 " VIM MODES: " {{{
 " https://gabri.me/blog/diy-vim-statusline
 " -------------------------------------------------------------------------
@@ -68,6 +80,10 @@ function! SetActiveStatusLine()
 		" Left 2 - file name
 		setlocal statusline+=%4*
 		setlocal statusline+=%1*\ %t
+		setlocal statusline+=\ %3*%2*
+		" Left 3 - linter status
+		setlocal statusline+=%4*
+		setlocal statusline+=%1*\ %{LinterStatus()}
 		setlocal statusline+=\ %3*%2*
 		" Spacing divider
 		setlocal statusline+=%=
