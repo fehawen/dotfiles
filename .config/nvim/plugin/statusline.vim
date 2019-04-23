@@ -15,17 +15,23 @@ endfunction
 
 " }}}
 
+" ALE LINTER STATUS: " {{{
+" https://kadekillary.work/post/statusline-vim/
+" -------------------------------------------------------------------------
+
 function! LinterStatus() abort
 	let l:counts = ale#statusline#Count(bufnr(''))
 	let l:all_errors = l:counts.error + l:counts.style_error
 	let l:all_non_errors = l:counts.total - l:all_errors
 
 	return l:counts.total == 0 ? "" : printf(
-	\ " W:%d E:%d",
+	\ " [W:%d E:%d]",
 	\ l:all_non_errors,
 	\ l:all_errors
 	\)
 endfunction
+
+" }}}
 
 " VIM MODES: " {{{
 " https://gabri.me/blog/diy-vim-statusline
@@ -81,13 +87,13 @@ function! SetActiveStatusLine()
 		setlocal statusline+=%4*
 		setlocal statusline+=%1*\ %t
 		setlocal statusline+=%{LinterStatus()}
-		setlocal statusline+=\ %3*%2*
+		setlocal statusline+=\ %3*
 		" Spacing divider
 		setlocal statusline+=%=
 		" Middle - syntax group name
 		setlocal statusline+=%3*
 		setlocal statusline+=%4*\ %{SyntaxItem()}
-		setlocal statusline+=\ %3*%2*
+		setlocal statusline+=\ %3*
 		" Spacing divider
 		setlocal statusline+=%=
 		" Right - line number, total lines
@@ -106,13 +112,13 @@ function! SetInactiveStatusLine()
 		setlocal statusline=
 		" Left - file name
 		setlocal statusline+=%4*\ %t
-		setlocal statusline+=\ %3*%2*
+		setlocal statusline+=\ %3*
 		" Spacing divider
 		setlocal statusline+=%=
 		" Middle - syntax group name
 		setlocal statusline+=%3*
 		setlocal statusline+=%4*\ •••
-		setlocal statusline+=\ %3*%2*
+		setlocal statusline+=\ %3*
 		" Spacing divider
 		setlocal statusline+=%=
 		" Right - total lines
