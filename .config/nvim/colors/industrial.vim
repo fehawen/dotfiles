@@ -136,82 +136,73 @@ hi link ALEInfoLine     AleLine
 " TYPESCRIPT COLORS
 " leafgarland/typescript-vim
 
-" ts comments
-call s:hi("typescriptComment",       s:gui.comment,       "", "")
-call s:hi("typescriptLineComment",   s:gui.comment,       "", "")
-call s:hi("typescriptRefComment",    s:gui.comment,       "", "")
-call s:hi("typescriptRefD",          s:gui.comment,       "", "")
-call s:hi("typescriptRefS",          s:gui.comment,       "", "")
-call s:hi("typescriptCommentSkip",   s:gui.comment,       "", "")
-call s:hi("typescriptComment",       s:gui.comment,       "", "")
+call s:hi("typescriptComment",                   s:gui.comment,     "", "")
+call s:hi("typescriptLineComment",               s:gui.comment,     "", "")
+call s:hi("typescriptRefComment",                s:gui.comment,     "", "")
+call s:hi("typescriptRefD",                      s:gui.comment,     "", "")
+call s:hi("typescriptRefS",                      s:gui.comment,     "", "")
+call s:hi("typescriptCommentSkip",               s:gui.comment,     "", "")
+call s:hi("typescriptComment",                   s:gui.comment,     "", "")
 
-" jsdoc comments
-call s:hi("typescriptDocComment",    s:gui.comment,       "", "")
-call s:hi("typescriptDocTags",       s:gui.comment,       "", "")
-call s:hi("typescriptDocParam",      s:gui.comment,       "", "")
-call s:hi("typescriptDocSeeTag",     s:gui.comment,       "", "")
+call s:hi("typescriptDocComment",                s:gui.comment,     "", "")
+call s:hi("typescriptDocTags",                   s:gui.comment,     "", "")
+call s:hi("typescriptDocParam",                  s:gui.comment,     "", "")
+call s:hi("typescriptDocSeeTag",                 s:gui.comment,     "", "")
 
-" general code
-call s:hi("typescriptSpecial",                   s:gui.cyan,            "", "")
-call s:hi("typescriptStringD",                   s:gui.cyan,            "", "")
-call s:hi("typescriptStringS",                   s:gui.cyan,            "", "")
-call s:hi("typescriptStringB",                   s:gui.cyan,            "", "")
-call s:hi("typescriptInterpolation",             s:gui.green,           "", "")
-call s:hi("typescriptNumber",                    s:gui.green,           "", "")
-call s:hi("typescriptRegexpString",              s:gui.cyan,            "", "")
-call s:hi("typescriptPrototype",                 s:gui.red,             "", "")
-call s:hi("typescriptBrowserObjects",            s:gui.red,             "", "")
-call s:hi("typescriptDOMObjects",                s:gui.blue,            "", "")
-call s:hi("typescriptDOMMethods",                s:gui.yellow,          "", "")
-call s:hi("typescriptDOMProperties",             s:gui.yellow,          "", "")
-call s:hi("typescriptHtmlElemProperties",        s:gui.cyan,            "", "")
-call s:hi("typescriptEventListenerKeywords",     s:gui.cyan,            "", "")
-call s:hi("typescriptEventListenerMethods",      s:gui.cyan,            "", "")
+call s:hi("typescriptSpecial",                   s:gui.cyan,        "", "")
+call s:hi("typescriptStringD",                   s:gui.cyan,        "", "")
+call s:hi("typescriptStringS",                   s:gui.cyan,        "", "")
+call s:hi("typescriptStringB",                   s:gui.cyan,        "", "")
+call s:hi("typescriptInterpolation",             s:gui.green,       "", "")
+call s:hi("typescriptNumber",                    s:gui.green,       "", "")
+call s:hi("typescriptRegexpString",              s:gui.cyan,        "", "")
+call s:hi("typescriptPrototype",                 s:gui.red,         "", "")
+call s:hi("typescriptBrowserObjects",            s:gui.red,         "", "")
+call s:hi("typescriptDOMObjects",                s:gui.blue,        "", "")
+call s:hi("typescriptDOMMethods",                s:gui.yellow,      "", "")
+call s:hi("typescriptDOMProperties",             s:gui.yellow,      "", "")
+call s:hi("typescriptHtmlElemProperties",        s:gui.cyan,        "", "")
+call s:hi("typescriptEventListenerKeywords",     s:gui.cyan,        "", "")
+call s:hi("typescriptEventListenerMethods",      s:gui.cyan,        "", "")
 
-" program keywords
-call s:hi("typescriptSource",            s:gui.red,          "", "") " import export from as
-call s:hi("typescriptIdentifier",        s:gui.blue,         "", "") " arguments this void
-call s:hi("typescriptStorageClass",      s:gui.blue,         "", "") " let var const
-call s:hi("typescriptOperator",          s:gui.blue,         "", "") " delete new instanceof typeof
-call s:hi("typescriptBoolean",           s:gui.green,        "", "") " true false
-call s:hi("typescriptNull",              s:gui.green,        "", "") " null undefined
-call s:hi("typescriptMessage",           s:gui.green,        "", "") " alert confirm prompt status
+call s:hi("typescriptSource",                    s:gui.red,         "", "") " import export from as
+call s:hi("typescriptIdentifier",                s:gui.blue,        "", "") " arguments this void
+call s:hi("typescriptStorageClass",              s:gui.blue,        "", "") " let var const
+call s:hi("typescriptOperator",                  s:gui.blue,        "", "") " delete new instanceof typeof
+call s:hi("typescriptBoolean",                   s:gui.green,       "", "") " true false
+call s:hi("typescriptNull",                      s:gui.green,       "", "") " null undefined
+call s:hi("typescriptMessage",                   s:gui.green,       "", "") " alert confirm prompt status
 
-" statement keywords
-call s:hi("typescriptConditional",       s:gui.green,       "", "") " if else switch
-call s:hi("typescriptRepeat",            s:gui.green,       "", "") " do while for in of
-call s:hi("typescriptBranch",            s:gui.green,       "", "") " break continue yield await
-call s:hi("typescriptLabel",             s:gui.green,       "", "") " case default async readonly
-call s:hi("typescriptStatement",         s:gui.green,       "", "") " return with
+call s:hi("typescriptConditional",               s:gui.green,       "", "") " if else switch
+call s:hi("typescriptRepeat",                    s:gui.green,       "", "") " do while for in of
+call s:hi("typescriptBranch",                    s:gui.green,       "", "") " break continue yield await
+call s:hi("typescriptLabel",                     s:gui.green,       "", "") " case default async readonly
+call s:hi("typescriptDecorators",                s:gui.red,         "", "") " @action @computed, etc
+call s:hi("typescriptStatement",                 s:gui.green,       "", "") " return with
 
-" dom objects, etc
-call s:hi("typescriptGlobalObjects",     s:gui.blue,             "", "") " Array Boolean Date Function Infinity Math Number NaN Object Packages RegExp String Symbol
-call s:hi("typescriptExceptions   ",     s:gui.green,            "", "") " try catch throw finally Error EvalError RangeError ReferenceError SyntaxError TypeError URIError
-call s:hi("typescriptReserved",          s:gui.red,              "", "") " constructor as interface module enum int export interface static extends super class private implements import public type from get set keyof...
-call s:hi("typescriptVars",              s:gui.green,            "", "")
-call s:hi("typescriptParameters",        s:gui.green,            "", "")
-call s:hi("typescriptType",              s:gui.green,            "", "") " void any string boolean number symbol never object
+call s:hi("typescriptGlobalObjects",             s:gui.blue,        "", "") " Array Boolean Date Function Infinity Math Number NaN Object Packages RegExp String Symbol
+call s:hi("typescriptExceptions   ",             s:gui.green,       "", "") " try catch throw finally Error EvalError RangeError ReferenceError SyntaxError TypeError URIError
+call s:hi("typescriptReserved",                  s:gui.red,         "", "") " constructor as interface module enum int export interface static extends super class private implements import public type from get set keyof...
+call s:hi("typescriptVars",                      s:gui.green,       "", "")
+call s:hi("typescriptParameters",                s:gui.green,       "", "")
+call s:hi("typescriptType",                      s:gui.green,       "", "") " void any string boolean number symbol never object
 
-" dom constants
-call s:hi("typescriptDomErrNo",          s:gui.red,              "", "")
-call s:hi("typescriptDomNodeConsts",     s:gui.red,              "", "")
+call s:hi("typescriptDomErrNo",                  s:gui.red,         "", "")
+call s:hi("typescriptDomNodeConsts",             s:gui.red,         "", "")
 
-" html events
-call s:hi("typescriptHtmlEvents",        s:gui.cyan,       "", "") " onblur onclick onfocus onkeydown onkeypress onkeyup ...
+call s:hi("typescriptHtmlEvents",                s:gui.cyan,        "", "") " onblur onclick onfocus onkeydown onkeypress onkeyup ...
 
-" ts css
-call s:hi("typescriptCssStyles",         s:gui.red,              "", "") " not sure where these ever occur... ?
+call s:hi("typescriptCssStyles",                 s:gui.red,         "", "") " not sure where these ever occur... ?
 
-" functions
-call s:hi("typescriptFuncKeyword",        s:gui.accent,          "", "")
-call s:hi("typescriptFunction",           s:gui.accent,          "", "")
+call s:hi("typescriptFuncKeyword",               s:gui.accent,      "", "")
+call s:hi("typescriptFunction",                  s:gui.accent,      "", "")
 
-" braces, brackets, operators, colons etc
-call s:hi("typescriptBraces",             s:gui.accent,           "", "")
-call s:hi("typescriptParens",             s:gui.accent,           "", "")
-call s:hi("typescriptOpSymbols",          s:gui.accent,           "", "")
-call s:hi("typescriptEndColons",          s:gui.accent,           "", "")
-call s:hi("typescriptLogicSymbols",       s:gui.accent,           "", "")
+call s:hi("typescriptBraces",                    s:gui.accent,      "", "")
+call s:hi("typescriptParens",                    s:gui.accent,      "", "")
+call s:hi("typescriptOpSymbols",                 s:gui.accent,      "", "")
+call s:hi("typescriptEndColons",                 s:gui.accent,      "", "")
+call s:hi("typescriptLogicSymbols",              s:gui.accent,      "", "")
+call s:hi("typescriptDotNotation",               s:gui.accent,      "", "")
 
 " Javascript colors
 " yajs
