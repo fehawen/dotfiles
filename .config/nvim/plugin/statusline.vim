@@ -94,7 +94,7 @@ function! SetActiveStatusLine()
 		setlocal statusline+=%3*
 		setlocal statusline+=%1*\ %l
 		setlocal statusline+=\ %4*
-		setlocal statusline+=\%3*
+		setlocal statusline+=%3*
 		setlocal statusline+=%1*\ %L\ %*
 	endif
 endfunction
@@ -117,7 +117,7 @@ function! SetInactiveStatusLine()
 		setlocal statusline+=%=
 		" Right - total lines
 		setlocal statusline+=%3*
-		setlocal statusline+=\ %L\ %*
+		setlocal statusline+=%4*\ %L\ %*
 	endif
 endfunction
 
