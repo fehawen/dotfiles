@@ -1,6 +1,7 @@
 " SYNTAX HIGHLIGHT GROUP: " {{{
 " https://vim.fandom.com/wiki/Showing_syntax_highlight_group_in_statusline
 " https://stackoverflow.com/questions/9464844/how-to-get-group-name-of-highlighting-under-cursor-in-vim
+" https://www.reddit.com/r/vim/comments/e19bu/whats_your_status_line/
 " -------------------------------------------------------------------------
 
 function! SyntaxItem()
@@ -92,7 +93,7 @@ function! SetActiveStatusLine()
 		setlocal statusline+=%=
 		" Middle - syntax group name
 		setlocal statusline+=%3*
-		setlocal statusline+=%4*\ %{SyntaxItem()}
+		setlocal statusline+=%1*\ %{SyntaxItem()}
 		setlocal statusline+=\ %3*
 		" Spacing divider
 		setlocal statusline+=%=
