@@ -1,4 +1,6 @@
 " SYNTAX HIGHLIGHT GROUP: " {{{
+" https://vim.fandom.com/wiki/Showing_syntax_highlight_group_in_statusline
+" https://stackoverflow.com/questions/9464844/how-to-get-group-name-of-highlighting-under-cursor-in-vim
 " -------------------------------------------------------------------------
 
 function! SyntaxItem()
@@ -7,7 +9,7 @@ function! SyntaxItem()
 	if l:syntaxname != ""
 		return l:syntaxname
 	else
-		return "none"
+		return "•••"
 	endif
 endfunction
 
@@ -69,14 +71,16 @@ function! SetActiveStatusLine()
 		setlocal statusline+=\ %3*%2*
 		" Spacing divider
 		setlocal statusline+=%=
-		" Right 1 - syntax group name
+		" Middle - syntax group name
 		setlocal statusline+=%3*
 		setlocal statusline+=%1*\ %{SyntaxItem()}
-		setlocal statusline+=\ %4*%2*
-		" Right 2 - line number, total line
+		setlocal statusline+=\ %3*%2*
+		" Spacing divider
+		setlocal statusline+=%=
+		" Right - line number, total line
 		setlocal statusline+=%3*
 		setlocal statusline+=%1*\ %l
-		setlocal statusline+=\ /
+		setlocal statusline+=\ of
 		setlocal statusline+=\ %L\ %*
 	endif
 endfunction
@@ -86,15 +90,21 @@ function! SetInactiveStatusLine()
 	if &ft !=? 'nerdtree'
 		" Clear statusline
 		setlocal statusline=
-		" Left 1 - file name
+		" Left - file name
 		setlocal statusline+=%4*\ %t
 		setlocal statusline+=\ %3*%2*
 		" Spacing divider
 		setlocal statusline+=%=
-		" Right 1 - line number, total line
+		" Middle - syntax group name
+		setlocal statusline+=%3*
+		setlocal statusline+=%4*\ •••
+		setlocal statusline+=\ %3*%2*
+		" Spacing divider
+		setlocal statusline+=%=
+		" Right - line number, total line
 		setlocal statusline+=%3*
 		setlocal statusline+=%4*\ %l
-		setlocal statusline+=\ /
+		setlocal statusline+=\ of
 		setlocal statusline+=\ %L\ %*
 	endif
 endfunction
