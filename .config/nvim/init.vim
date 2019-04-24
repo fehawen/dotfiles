@@ -27,11 +27,9 @@ call plug#end()
 "###### GENERAL CONFIGS ######"
 "#############################"
 
-" Enter the current millenium
-set nocompatible
-
 " Enable syntax and plugins
 syntax enable
+filetype on
 filetype plugin on
 filetype indent on
 
@@ -190,12 +188,6 @@ let g:NERDTreeShowLineNumbers = 0
 "#########################"
 "###### KEYBINDINGS ######"
 "#########################"
-
-" Show highligh group in status line (comment out to disable)
-" function! SyntaxItem()
-" return synIDattr(synID(line("."),col("."),1),"name")
-" endfunction
-" set statusline=%{SyntaxItem()}
 
 " Tab to complete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
