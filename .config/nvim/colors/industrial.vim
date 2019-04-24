@@ -118,9 +118,9 @@ call s:hi("Number",       s:gui.green,      "",               "")
 call s:hi("Identifier",   s:gui.blue,       "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
-call s:hi("Search",       s:gui.none,       s:gui.none,       "underline")
+call s:hi("Search",       s:gui.accent,     s:gui.none,       "underline")
 call s:hi("InSearch",     s:gui.black,      s:gui.foreground, "")
-call s:hi("Todo",         s:gui.red,        s:gui.foreground, "")
+call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.accent,     "",               "") " @observable etc...
 
 " ALE COLORS
@@ -133,16 +133,16 @@ hi link ALEWarningSign  AleText
 hi link ALEErrorLine    AleLine
 hi link ALEInfoLine     AleLine
 
-" TYPESCRIPT COLORS
+" TYPESCRIPT COLORS: " {{{
 " leafgarland/typescript-vim
 
 call s:hi("typescriptComment",                   s:gui.comment,     "", "")
+call s:hi("typescriptCommentSkip",               s:gui.comment,     "", "")
+call s:hi("typescriptCommentTodo",               s:gui.comment,     "", "")
 call s:hi("typescriptLineComment",               s:gui.comment,     "", "")
 call s:hi("typescriptRefComment",                s:gui.comment,     "", "")
 call s:hi("typescriptRefD",                      s:gui.comment,     "", "")
 call s:hi("typescriptRefS",                      s:gui.comment,     "", "")
-call s:hi("typescriptCommentSkip",               s:gui.comment,     "", "")
-call s:hi("typescriptComment",                   s:gui.comment,     "", "")
 
 call s:hi("typescriptDocComment",                s:gui.comment,     "", "")
 call s:hi("typescriptDocTags",                   s:gui.comment,     "", "")
@@ -166,7 +166,7 @@ call s:hi("typescriptEventListenerKeywords",     s:gui.cyan,        "", "")
 call s:hi("typescriptEventListenerMethods",      s:gui.cyan,        "", "")
 
 call s:hi("typescriptSource",                    s:gui.red,         "", "") " import export from as
-call s:hi("typescriptIdentifier",                s:gui.blue,        "", "") " arguments this void
+call s:hi("typescriptIdentifier",                s:gui.yellow,      "", "") " arguments this void
 call s:hi("typescriptStorageClass",              s:gui.blue,        "", "") " let var const
 call s:hi("typescriptOperator",                  s:gui.blue,        "", "") " delete new instanceof typeof
 call s:hi("typescriptBoolean",                   s:gui.green,       "", "") " true false
@@ -194,7 +194,7 @@ call s:hi("typescriptHtmlEvents",                s:gui.cyan,        "", "") " on
 
 call s:hi("typescriptCssStyles",                 s:gui.red,         "", "") " not sure where these ever occur... ?
 
-call s:hi("typescriptFuncKeyword",               s:gui.accent,      "", "")
+call s:hi("typescriptFuncKeyword",               s:gui.blue,        "", "")
 call s:hi("typescriptFunction",                  s:gui.accent,      "", "")
 
 call s:hi("typescriptBraces",                    s:gui.accent,      "", "")
@@ -203,6 +203,8 @@ call s:hi("typescriptOpSymbols",                 s:gui.accent,      "", "")
 call s:hi("typescriptEndColons",                 s:gui.accent,      "", "")
 call s:hi("typescriptLogicSymbols",              s:gui.accent,      "", "")
 call s:hi("typescriptDotNotation",               s:gui.accent,      "", "")
+
+" }}}
 
 " Javascript colors
 " yajs
