@@ -5,6 +5,7 @@ setup_kitty() {
 		"covenant.conf"
 		"flamingo.conf"
 		"kitty.conf"
+		"ocean-one.conf"
 		"padawan.conf"
 		"wakanda.conf"
 	)
