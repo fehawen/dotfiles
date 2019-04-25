@@ -14,9 +14,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
-" Plug 'mxw/vim-jsx'
-" Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
 
@@ -163,7 +164,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
-colorscheme industrial
+colorscheme oceanone
 
 " Set list characters
 set list
