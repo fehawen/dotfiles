@@ -70,7 +70,14 @@ call s:hi("User4",        s:gui.background, s:gui.line,       "bold")
 call s:hi("StatusLine",       s:gui.line,   s:gui.foreground, "")
 call s:hi("StatusLineNC",     s:gui.line,   s:gui.background, "")
 call s:hi("StatusLineTerm",   s:gui.line,   s:gui.foreground, "")
-call s:hi("StatusLineTemrNC",   s:gui.line, s:gui.background, "")
+call s:hi("StatusLineTemrNC", s:gui.line,   s:gui.background, "")
+
+call s:hi("NERDTreeOpenable",   s:gui.blue,       s:gui.none,     "")
+call s:hi("NERDTreeClosable",   s:gui.blue,       s:gui.none,     "")
+call s:hi("NERDTreeCWD",        s:gui.yellow,     s:gui.none,     "")
+call s:hi("NERDTreeDir",        s:gui.blue,       s:gui.none,     "")
+call s:hi("NERDTreeDirSlash",   s:gui.background, s:gui.none,     "")
+call s:hi("NERDTreeFile",       s:gui.foreground, s:gui.none,     "")
 
 call s:hi("EndOfBuffer",  s:gui.background, s:gui.none,       "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
@@ -102,7 +109,7 @@ call s:hi("NonText",      s:gui.line,       "",               "")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
 call s:hi("MatchParen",   s:gui.background, s:gui.selection,  "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
-call s:hi("Comment",      s:gui.comment,    "",               "")
+call s:hi("Comment",      s:gui.comment,    "",               "italic")
 call s:hi("String",       s:gui.green,      "",               "")
 call s:hi("Normal",       s:gui.foreground, s:gui.none,       "")
 call s:hi("Visual",       s:gui.background, s:gui.selection,  "")
@@ -136,15 +143,15 @@ hi link ALEInfoLine     AleLine
 " TYPESCRIPT COLORS: " {{{
 " leafgarland/typescript-vim
 
-call s:hi("typescriptComment",                   s:gui.comment,     "", "")
-call s:hi("typescriptCommentSkip",               s:gui.comment,     "", "")
-call s:hi("typescriptCommentTodo",               s:gui.comment,     "", "")
-call s:hi("typescriptLineComment",               s:gui.comment,     "", "")
-call s:hi("typescriptRefComment",                s:gui.comment,     "", "")
+call s:hi("typescriptComment",                   s:gui.comment,     "", "italic")
+call s:hi("typescriptCommentSkip",               s:gui.comment,     "", "italic")
+call s:hi("typescriptCommentTodo",               s:gui.comment,     "", "italic")
+call s:hi("typescriptLineComment",               s:gui.comment,     "", "italic")
+call s:hi("typescriptRefComment",                s:gui.comment,     "", "italic")
 call s:hi("typescriptRefD",                      s:gui.comment,     "", "")
 call s:hi("typescriptRefS",                      s:gui.comment,     "", "")
 
-call s:hi("typescriptDocComment",                s:gui.comment,     "", "")
+call s:hi("typescriptDocComment",                s:gui.comment,     "", "italic")
 call s:hi("typescriptDocTags",                   s:gui.comment,     "", "")
 call s:hi("typescriptDocParam",                  s:gui.comment,     "", "")
 call s:hi("typescriptDocSeeTag",                 s:gui.comment,     "", "")
@@ -190,7 +197,7 @@ call s:hi("typescriptType",                      s:gui.green,       "", "") " vo
 call s:hi("typescriptDomErrNo",                  s:gui.red,         "", "")
 call s:hi("typescriptDomNodeConsts",             s:gui.red,         "", "")
 
-call s:hi("typescriptHtmlEvents",                s:gui.cyan,        "", "") " onblur onclick onfocus onkeydown onkeypress onkeyup ...
+call s:hi("typescriptHtmlEvents",                s:gui.foreground,  "", "") " onblur onclick onfocus onkeydown onkeypress onkeyup ...
 
 call s:hi("typescriptCssStyles",                 s:gui.red,         "", "") " not sure where these ever occur... ?
 
@@ -270,6 +277,18 @@ call s:hi("htmlSpecialTagName", s:gui.red,    "", "")
 call s:hi("htmlArg",            s:gui.yellow, "", "")
 
 " jsx colors
+
+call s:hi("tsxTag",             s:gui.accent,    "", "")
+call s:hi("tsxTagName",         s:gui.yellow,    "", "")
+call s:hi("tsxCloseString",     s:gui.yellow,    "", "")
+call s:hi("tsxString",          s:gui.cyan,      "", "")
+call s:hi("tsxCloseTag",        s:gui.accent,    "", "")
+call s:hi("tsxAttrib",          s:gui.blue,      "", "")
+call s:hi("tsxEqual",           s:gui.accent,    "", "")
+call s:hi("tsxIfOperator",      s:gui.accent,    "", "")
+call s:hi("tsxAttributeBraces", s:gui.accent,    "", "")
+call s:hi("tsxElseOperator",    s:gui.accent,    "", "")
+
 call s:hi("xmlTag",     s:gui.cyan,   "", "")
 call s:hi("xmlEndTag",  s:gui.cyan,   "", "")
 call s:hi("xmlTagName", s:gui.accent, "", "")

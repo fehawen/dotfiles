@@ -164,7 +164,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
-colorscheme oceanone
+colorscheme camo
 
 " Set list characters
 set list
