@@ -88,15 +88,15 @@ call s:hi("Cursor",       s:gui.magenta,    "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.line,       "")
 call s:hi("LineNr",       s:gui.line,       "",               "")
 call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
-call s:hi("CursorLineNr", s:gui.magenta,    s:gui.line,       "")
+call s:hi("CursorLineNr", s:gui.magenta,    s:gui.none,       "")
 call s:hi("Directory",    s:gui.line,       "",               "")
-call s:hi("FoldColumn",   "",               s:gui.none,       "")
+call s:hi("FoldColumn",   s:gui.comment,    s:gui.none,       "")
 call s:hi("Folded",       s:gui.comment,    s:gui.line,       "")
 call s:hi("PMenu",        s:gui.foreground, s:gui.line,       "")
 call s:hi("PMenuSel",     s:gui.cyan,       s:gui.none,       "")
 call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
-call s:hi("WarningMsg",   s:gui.yellow,     "",               "")
+call s:hi("WarningMsg",   s:gui.yellow,     s:gui.none,       "")
 call s:hi("VertSplit",    s:gui.line,       s:gui.line,       "")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "")
 
@@ -122,7 +122,7 @@ call s:hi("Boolean",      s:gui.orange,     "",               "")
 call s:hi("Type",         s:gui.blue,       "",               "")
 call s:hi("Define",       s:gui.cyan,       "",               "")
 call s:hi("Statement",    s:gui.blue,       "",               "")
-call s:hi("Function",     s:gui.magenta,     "",               "")
+call s:hi("Function",     s:gui.magenta,    "",               "")
 call s:hi("Conditional",  s:gui.red,        "",               "")
 call s:hi("Float",        s:gui.green,      "",               "")
 call s:hi("Noise",        s:gui.cyan,       "",               "")
@@ -135,10 +135,11 @@ call s:hi("InSearch",     s:gui.black,      s:gui.foreground, "")
 call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
-" ALE COLORS
-call s:hi("AleText",      s:gui.red,        s:gui.line, "")
-call s:hi("AleWarning",   s:gui.red,        s:gui.line, "")
-call s:hi("AleLine",      "",               s:gui.none, "")
+" ALE/Error COLORS
+call s:hi("SpellBad",     s:gui.red,        s:gui.none, "")
+call s:hi("AleText",      s:gui.selection,  s:gui.none, "")
+call s:hi("AleWarning",   s:gui.selection,  s:gui.none, "")
+call s:hi("AleLine",      s:gui.selection,  s:gui.none, "")
 
 hi link ALEErrorSign    AleText
 hi link ALEWarningSign  AleText
