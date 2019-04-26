@@ -35,30 +35,36 @@ endfunction
 " }}}
 
 " VIM MODES: " {{{
-" https://gabri.me/blog/diy-vim-statusline
+" https://kadekillary.work/post/statusline-vim/
 " -------------------------------------------------------------------------
-
-let g:modes={
-\ 'n'      : 'Normal',
-\ 'no'     : 'Operator Pending',
-\ 'v'      : 'Visual',
-\ 'V'      : 'Visual Line',
-\ '\<C-V>' : 'Visual Block',
-\ 's'      : 'Select',
-\ 'S'      : 'S Line',
-\ '\<C-S>' : 'S Block',
-\ 'i'      : 'Insert',
-\ 'R'      : 'Replace',
-\ 'Rv'     : 'V Replace',
-\ 'c'      : 'Command',
-\ 'cv'     : 'Vim Ex',
-\ 'ce'     : 'Ex',
-\ 'r'      : 'Prompt',
-\ 'rm'     : 'More',
-\ 'r?'     : 'Confirm',
-\ '!'      : 'Shell',
-\ 't'      : 'Terminal'
+let g:currentmode={
+	\'n' : 'Normal ',
+	\'no' : 'N·Operator Pending ',
+	\'v' : 'Visual ',
+	\'V' : 'V·Line ',
+	\'^V' : 'V·Block ',
+	\'s' : 'Select ',
+	\'S': 'S·Line ',
+	\'^S' : 'S·Block ',
+	\'i' : 'Insert ',
+	\'R' : 'Replace ',
+	\'Rv' : 'V·Replace ',
+	\'c' : 'Command ',
+	\'cv' : 'Vim Ex ',
+	\'ce' : 'Ex ',
+	\'r' : 'Prompt ',
+	\'rm' : 'More ',
+	\'r?' : 'Confirm ',
+	\'!' : 'Shell ',
+	\'t' : 'Terminal '
 \}
+
+function! ModeCurrent() abort
+let l:modecurrent = mode()
+let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·Block '))
+let l:current_status_mode = l:modelist
+return l:current_status_mode
+endfunction
 
 " }}}
 
@@ -82,7 +88,7 @@ function! SetActiveStatusLine()
 		" Clear statusline
 		setlocal statusline=
 		" Left 1 - mode
-		setlocal statusline+=%1*\ %{toupper(g:modes[mode()])}
+		setlocal statusline+=%1*\ %{ModeCurrent()}
 		setlocal statusline+=\ %3*%2*
 		" Left 2 - file name, linter warnings/errors (if any)
 		setlocal statusline+=%4*
