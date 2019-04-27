@@ -178,8 +178,8 @@ highlight clear SignColumn
 let g:deoplete#enable_at_startup = 1
 
 " Custom signs for ALE
-let g:ale_sign_error = '!'
-let g:ale_sign_warning = '?'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
 
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
