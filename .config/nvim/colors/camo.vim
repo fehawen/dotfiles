@@ -137,8 +137,8 @@ call s:hi("Special",      s:gui.magenta,    "",               "") " @observable 
 
 " ALE/Error COLORS
 call s:hi("SpellBad",     s:gui.red,        s:gui.none, "")
-call s:hi("AleText",      s:gui.selection,  s:gui.none, "")
-call s:hi("AleWarning",   s:gui.selection,  s:gui.none, "")
+call s:hi("AleText",      s:gui.red,        s:gui.none, "")
+call s:hi("AleWarning",   s:gui.red,        s:gui.none, "")
 call s:hi("AleLine",      s:gui.selection,  s:gui.none, "")
 
 hi link ALEErrorSign    AleText
