@@ -4,6 +4,7 @@ setup_kitty() {
 	kitty=(
 		"camo.conf"
 		"covenant.conf"
+		"ezra.conf"
 		"flamingo.conf"
 		"kitty.conf"
 		"oceanone.conf"
@@ -95,6 +96,9 @@ setup_neovim() {
 
 		echo -e "\nSymlinking '$HOME/.config/nvim/colors/camo.vim'."
 		ln -sfv "$(PWD)/nvim/colors/camo.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/camo.vim'"
+
+		echo -e "\nSymlinking '$HOME/.config/nvim/colors/ezra.vim'."
+		ln -sfv "$(PWD)/nvim/colors/ezra.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/ezra.vim'"
 	fi
 
 	echo -e "Done.\n"

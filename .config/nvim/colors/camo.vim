@@ -4,7 +4,7 @@ if exists("syntax_on")
 	syntax reset
 endif
 
-let g:colors_name = "oceanone"
+let g:colors_name = "camo"
 
 let s:gui = {}
 let s:cterm = {}
@@ -12,7 +12,7 @@ let s:cterm = {}
 let s:gui.background = { 'default': '#263238' }
 let s:gui.foreground = { 'default': '#B0BEC5' }
 let s:gui.none       = { 'default': 'NONE',   }
-let s:gui.selection  = { 'default': '#546E7A' }
+let s:gui.linelight  = { 'default': '#546E7A' }
 let s:gui.line       = { 'default': '#37474F' }
 let s:gui.comment    = { 'default': '#0E1014' }
 
@@ -65,35 +65,40 @@ if has("nvim")
 endif
 
 " "EDITOR COLORS
-call s:hi("User1",        s:gui.blue,       s:gui.line,       "bold")
+call s:hi("User1",        s:gui.foreground, s:gui.line,       "bold")
 call s:hi("User2",        s:gui.background, s:gui.background, "bold")
 call s:hi("User3",        s:gui.line,       s:gui.background, "bold")
 call s:hi("User4",        s:gui.background, s:gui.line,       "bold")
+call s:hi("User5",        s:gui.red,        s:gui.line,       "bold")
+call s:hi("User6",        s:gui.green,      s:gui.line,       "bold")
+call s:hi("User7",        s:gui.yellow,     s:gui.line,       "bold")
+call s:hi("User8",        s:gui.blue,       s:gui.line,       "bold")
+call s:hi("User9",        s:gui.magenta,    s:gui.line,       "bold")
 
 call s:hi("StatusLine",       s:gui.line,   s:gui.foreground, "")
 call s:hi("StatusLineNC",     s:gui.line,   s:gui.background, "")
 call s:hi("StatusLineTerm",   s:gui.line,   s:gui.foreground, "")
 call s:hi("StatusLineTemrNC", s:gui.line,   s:gui.background, "")
 
-call s:hi("NERDTreeOpenable",   s:gui.selection,  s:gui.none,     "")
-call s:hi("NERDTreeClosable",   s:gui.selection,  s:gui.none,     "")
-call s:hi("NERDTreeCWD",        s:gui.selection,  s:gui.none,     "")
+call s:hi("NERDTreeOpenable",   s:gui.linelight,  s:gui.none,     "")
+call s:hi("NERDTreeClosable",   s:gui.linelight,  s:gui.none,     "")
+call s:hi("NERDTreeCWD",        s:gui.linelight,  s:gui.none,     "")
 call s:hi("NERDTreeDir",        s:gui.blue,       s:gui.none,     "")
 call s:hi("NERDTreeDirSlash",   s:gui.background, s:gui.none,     "")
 call s:hi("NERDTreeFile",       s:gui.foreground, s:gui.none,     "")
 
 call s:hi("EndOfBuffer",  s:gui.background, s:gui.none,       "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
-call s:hi("Cursor",       s:gui.magenta,    "",               "")
+call s:hi("Cursor",       s:gui.red,        "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.line,       "")
 call s:hi("LineNr",       s:gui.line,       "",               "")
 call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
-call s:hi("CursorLineNr", s:gui.magenta,    s:gui.none,       "")
+call s:hi("CursorLineNr", s:gui.red,        s:gui.none,       "")
 call s:hi("Directory",    s:gui.line,       "",               "")
 call s:hi("FoldColumn",   s:gui.comment,    s:gui.none,       "")
 call s:hi("Folded",       s:gui.comment,    s:gui.line,       "")
-call s:hi("PMenu",        s:gui.foreground, s:gui.line,       "")
-call s:hi("PMenuSel",     s:gui.cyan,       s:gui.none,       "")
+call s:hi("PMenu",        s:gui.background, s:gui.foreground, "")
+call s:hi("PMenuSel",     s:gui.red,        s:gui.foreground, "")
 call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.yellow,     s:gui.none,       "")
@@ -106,17 +111,17 @@ call s:hi("DiffRemoved",  s:gui.red,        "", "")
 call s:hi("DiffAdd",      "",               s:gui.cyan,       "")
 call s:hi("DiffChange",   "",               s:gui.cyan,       "")
 call s:hi("DiffDelete",   s:gui.red,        s:gui.black,      "")
-call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
+call s:hi("DiffText",     s:gui.background, s:gui.linelight,  "")
 
 call s:hi("NonText",      s:gui.line,       "",               "")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
-call s:hi("MatchParen",   s:gui.background, s:gui.selection,  "")
+call s:hi("MatchParen",   s:gui.background, s:gui.foreground, "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "")
 call s:hi("String",       s:gui.green,      "",               "")
 call s:hi("Events",       s:gui.red,        "",               "")
 call s:hi("Normal",       s:gui.foreground, s:gui.none,       "")
-call s:hi("Visual",       s:gui.background, s:gui.selection,  "")
+call s:hi("Visual",       s:gui.background, s:gui.foreground, "")
 call s:hi("Constant",     s:gui.blue,       "",               "")
 call s:hi("Boolean",      s:gui.orange,     "",               "")
 call s:hi("Type",         s:gui.blue,       "",               "")
@@ -130,7 +135,7 @@ call s:hi("Number",       s:gui.green,      "",               "")
 call s:hi("Identifier",   s:gui.blue,       "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
-call s:hi("Search",       s:gui.blue,       s:gui.selection,  "")
+call s:hi("Search",       s:gui.blue,       s:gui.linelight,  "")
 call s:hi("InSearch",     s:gui.black,      s:gui.foreground, "")
 call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
@@ -139,7 +144,7 @@ call s:hi("Special",      s:gui.magenta,    "",               "") " @observable 
 call s:hi("SpellBad",     s:gui.red,        s:gui.none, "")
 call s:hi("AleText",      s:gui.red,        s:gui.none, "")
 call s:hi("AleWarning",   s:gui.red,        s:gui.none, "")
-call s:hi("AleLine",      s:gui.selection,  s:gui.none, "")
+call s:hi("AleLine",      s:gui.linelight,  s:gui.none, "")
 
 hi link ALEErrorSign    AleText
 hi link ALEWarningSign  AleText
@@ -190,7 +195,7 @@ call s:hi("typescriptConditional",               s:gui.cyan,        "", "") " if
 call s:hi("typescriptRepeat",                    s:gui.green,       "", "") " do while for in of
 call s:hi("typescriptBranch",                    s:gui.cyan,        "", "") " break continue yield await
 call s:hi("typescriptLabel",                     s:gui.cyan,        "", "") " case default async readonly
-call s:hi("typescriptDecorators",                s:gui.selection,   "", "") " @action @computed, etc
+call s:hi("typescriptDecorators",                s:gui.linelight,   "", "") " @action @computed, etc
 call s:hi("typescriptStatement",                 s:gui.cyan,        "", "") " return with
 
 call s:hi("typescriptGlobalObjects",             s:gui.blue,        "", "") " Array Boolean Date Function Infinity Math Number NaN Object Packages RegExp String Symbol

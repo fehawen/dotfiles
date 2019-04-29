@@ -39,16 +39,16 @@ endfunction
 " -------------------------------------------------------------------------
 let g:currentmode={
 	\'n' : 'Normal',
-	\'no' : 'N·Operator Pending',
+	\'no' : 'Normal Op Pend',
 	\'v' : 'Visual',
-	\'V' : 'V·Line',
-	\'^V' : 'V·Block',
+	\'V' : 'Visual Line',
+	\'^V' : 'Visual Block',
 	\'s' : 'Select',
-	\'S': 'S·Line',
-	\'^S' : 'S·Block',
+	\'S': 'Select Line',
+	\'^S' : 'Select Block',
 	\'i' : 'Insert',
 	\'R' : 'Replace',
-	\'Rv' : 'V·Replace',
+	\'Rv' : 'Visual Replace',
 	\'c' : 'Command',
 	\'cv' : 'Vim Ex',
 	\'ce' : 'Ex',
@@ -60,10 +60,10 @@ let g:currentmode={
 \}
 
 function! ModeCurrent() abort
-let l:modecurrent = mode()
-let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·Block '))
-let l:current_status_mode = l:modelist
-return l:current_status_mode
+	let l:modecurrent = mode()
+	let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'Visual Block'))
+	let l:current_status_mode = l:modelist
+	return l:current_status_mode
 endfunction
 
 " }}}
@@ -93,22 +93,19 @@ function! SetActiveStatusLine()
 		" Left 2 - file name, linter warnings/errors (if any)
 		setlocal statusline+=%4*
 		setlocal statusline+=%1*\ %t
-		setlocal statusline+=%{LinterStatus()}
+		setlocal statusline+=%1*%{LinterStatus()}
 		setlocal statusline+=\ %3*
 		" Spacing divider
 		setlocal statusline+=%=
 		" Middle - syntax group name
 		setlocal statusline+=%3*
-		setlocal statusline+=%1*\ %{SyntaxItem()}
+		setlocal statusline+=%4*\ %{SyntaxItem()}
 		setlocal statusline+=\ %3*
 		" Spacing divider
 		setlocal statusline+=%=
 		" Right - line number, total lines
 		setlocal statusline+=%3*
-		setlocal statusline+=%1*\ %l
-		setlocal statusline+=\ %4*
-		setlocal statusline+=%3*
-		setlocal statusline+=%1*\ %L\ %*
+		setlocal statusline+=%1*\ %l\ %4*/\ %1*%L\ %*
 	endif
 endfunction
 
@@ -130,7 +127,7 @@ function! SetInactiveStatusLine()
 		setlocal statusline+=%=
 		" Right - total lines
 		setlocal statusline+=%3*
-		setlocal statusline+=%4*\ %L\ %*
+		setlocal statusline+=%4*\ %l\ :\ %L\ %*
 	endif
 endfunction
 
