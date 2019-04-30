@@ -14,12 +14,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Initialize plugin system
 call plug#end()
@@ -170,17 +170,20 @@ colorscheme xwing
 set list
 set lcs=tab:❯\ ,trail:•
 
-" Remove vertical sign (error) column bg
-" NOTE: Place after colorscheme to prevent override
-highlight clear SignColumn
-
 " Enable deoplete on startup (async completion framework)
 let g:deoplete#enable_at_startup = 1
 
-" Custom signs for ALE
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
+" Disable nvim-typescript diagnostics as they override ALE signs
+let g:nvim_typescript#diagnostics_enable = 0
 
+" ALE settings
+let g:ale_sign_info= '✘'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '✘'
+let g:ale_sign_style_error = '✘'
+let g:ale_sign_style_warning = '✘'
+
+" NERDTree settings
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeShowHidden = 1
