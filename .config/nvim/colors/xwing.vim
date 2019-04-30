@@ -212,7 +212,7 @@ call s:hi("typescriptFunction",                  s:gui.orange,      "", "")
 call s:hi("typescriptBraces",                    s:gui.orange,      "", "")
 call s:hi("typescriptParens",                    s:gui.red,         "", "")
 call s:hi("typescriptOpSymbols",                 s:gui.orange,      "", "")
-call s:hi("typescriptEndColons",                 s:gui.red,         "", "")
+call s:hi("typescriptEndColons",                 s:gui.orange,      "", "")
 call s:hi("typescriptLogicSymbols",              s:gui.orange,      "", "")
 call s:hi("typescriptDotNotation",               s:gui.red,         "", "")
 
