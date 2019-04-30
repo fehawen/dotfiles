@@ -164,7 +164,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
-colorscheme ezra
+colorscheme xwing
 
 " Set list characters
 set list
@@ -181,9 +181,9 @@ let g:deoplete#enable_at_startup = 1
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeShowHidden = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
 
 "#########################"

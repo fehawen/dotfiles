@@ -26,9 +26,8 @@ function! LinterStatus() abort
 	let l:all_non_errors = l:counts.total - l:all_errors
 
 	return l:counts.total == 0 ? "" : printf(
-	\ " [W:%d E:%d]",
-	\ l:all_non_errors,
-	\ l:all_errors
+	\ " %d error(s)",
+	\ l:counts.total,
 	\)
 endfunction
 
@@ -93,7 +92,7 @@ function! SetActiveStatusLine()
 		" Left 2 - file name, linter warnings/errors (if any)
 		setlocal statusline+=%4*
 		setlocal statusline+=%1*\ %t
-		setlocal statusline+=%1*%{LinterStatus()}
+		setlocal statusline+=%5*%{LinterStatus()}
 		setlocal statusline+=\ %3*
 		" Spacing divider
 		setlocal statusline+=%=

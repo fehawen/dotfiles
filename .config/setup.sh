@@ -2,14 +2,10 @@
 
 setup_kitty() {
 	kitty=(
-		"camo.conf"
-		"covenant.conf"
 		"ezra.conf"
-		"flamingo.conf"
+		"industrial.conf"
 		"kitty.conf"
-		"oceanone.conf"
-		"padawan.conf"
-		"wakanda.conf"
+		"xwing.conf"
 	)
 
 	read -r -p "Include kitty? [y/N] " answer
@@ -85,17 +81,11 @@ setup_neovim() {
 		echo -e "\nSymlinking '$HOME/.config/nvim/init.vim'."
 		ln -sfv "$(PWD)/nvim/init.vim" "$HOME/.config/nvim/" || error "Failed to symlink '$(PWD)/nvim/init.vim'"
 
-		echo -e "\nSymlinking '$HOME/.config/nvim/colors/fehawen.vim'."
-		ln -sfv "$(PWD)/nvim/colors/fehawen.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/fehawen.vim'"
+		echo -e "\nSymlinking '$HOME/.config/nvim/colors/xwing.vim'."
+		ln -sfv "$(PWD)/nvim/colors/xwing.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/xwing.vim'"
 
 		echo -e "\nSymlinking '$HOME/.config/nvim/colors/industrial.vim'."
 		ln -sfv "$(PWD)/nvim/colors/industrial.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/industrial.vim'"
-
-		echo -e "\nSymlinking '$HOME/.config/nvim/colors/oceanone.vim'."
-		ln -sfv "$(PWD)/nvim/colors/oceanone.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/oceanone.vim'"
-
-		echo -e "\nSymlinking '$HOME/.config/nvim/colors/camo.vim'."
-		ln -sfv "$(PWD)/nvim/colors/camo.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/camo.vim'"
 
 		echo -e "\nSymlinking '$HOME/.config/nvim/colors/ezra.vim'."
 		ln -sfv "$(PWD)/nvim/colors/ezra.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/ezra.vim'"
