@@ -132,7 +132,7 @@ fi
 ###############
 
 arrow="❯"
-git_branch="  "
+git_branch="\xEE\x82\xA0"
 git_modified="!"
 git_added="+"
 git_deleted="-"
@@ -284,7 +284,7 @@ git_section() {
 		status="${git_uneven}${status}"
 	fi
 
-	local git_status="${git_branch_prefix_color}${git_branch_prefix}${git_branch_color}${git_branch}${branch} "
+	local git_status="${git_branch_prefix_color}${git_branch_prefix} ${git_branch_color}${git_branch}  ${branch} "
 
 	if [[ "$status" != "" ]]; then
 		git_status="${git_status}${git_status_color}${git_status_prefix}${status}${git_status_suffix} "
