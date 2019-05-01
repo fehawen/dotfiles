@@ -135,11 +135,11 @@ call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.orange,     "",               "") " @observable etc...
 
 " ALE COLORS
-call s:hi("ALEInfoSign",         s:gui.red,       s:gui.none, "")
-call s:hi("ALEErrorSign",        s:gui.red,       s:gui.none, "")
-call s:hi("ALEWarningSign",      s:gui.red,       s:gui.none, "")
-call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.none, "")
-call s:hi("ALEStyleWarningSign", s:gui.red,       s:gui.none, "")
+call s:hi("ALEInfoSign",         s:gui.red,       s:gui.line, "")
+call s:hi("ALEErrorSign",        s:gui.red,       s:gui.line, "")
+call s:hi("ALEWarningSign",      s:gui.red,       s:gui.line, "")
+call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.line, "")
+call s:hi("ALEStyleWarningSign", s:gui.red,       s:gui.line, "")
 
 call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
 call s:hi("ALEErrorLine",        s:gui.comment,   s:gui.none, "")

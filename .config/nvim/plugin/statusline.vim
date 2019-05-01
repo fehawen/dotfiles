@@ -17,29 +17,18 @@ endfunction
 " }}}
 
 " ALE LINTER STATUS: " {{{
-" https://kadekillary.work/post/statusline-vim/
+" https://github.com/w0rp/ale#5v-how-can-i-show-errors-or-warnings-in-my-statusline
 " -------------------------------------------------------------------------
 
 function! LinterStatus() abort
 	let l:counts = ale#statusline#Count(bufnr(''))
-	let l:all_errors = l:counts.error + l:counts.style_error
-	let l:all_non_errors = l:counts.total - l:all_errors
 
 	if l:counts.total == 0
 		return ""
-	elseif l:counts.total == 1
-		return printf(" (%d error)", l:counts.total)
-	elseif l:counts.total > 1
-		return printf(" (%d errors)", l:counts.total)
+	else
+		return printf(" (%d)", l:counts.total)
 	endif
-
-	" return l:counts.total == 0 ? "" : printf(
-	" \ " (%d error)",
-	" \ l:counts.total,
-	" \)
 endfunction
-
-" }}}
 
 " VIM MODES: " {{{
 " https://kadekillary.work/post/statusline-vim/

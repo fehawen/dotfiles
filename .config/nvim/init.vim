@@ -82,7 +82,7 @@ set relativenumber number
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
-" Disale cursor line for better performance
+" Disable cursor line for better performance
 set nocursorline
 
 " Sets unix as standard filetype
@@ -103,6 +103,9 @@ set noswapfile
 
 " Increase max memory to show syntax highlighting for large files
 set maxmempattern=20000
+
+" Don't show preview [sratch] window
+set completeopt-=preview
 
 "###########################"
 "###### FINDING FILES ######"
@@ -177,11 +180,11 @@ let g:deoplete#enable_at_startup = 1
 let g:nvim_typescript#diagnostics_enable = 0
 
 " ALE settings
-let g:ale_sign_info= '✘'
+let g:ale_sign_info= '✔'
 let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '✘'
+let g:ale_sign_warning = '✔'
 let g:ale_sign_style_error = '✘'
-let g:ale_sign_style_warning = '✘'
+let g:ale_sign_style_warning = '✔'
 
 " NERDTree settings
 let g:NERDTreeMinimalUI = 1
@@ -198,6 +201,10 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Map nerdtreetoggle to ctrl-n
 map <C-n> :NERDTreeToggle<CR>
+
+" Navigate between ALE errors
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Map '§' to act as 'Esc' since the MacBook touchbar is... well, crap
 map § <Esc>
