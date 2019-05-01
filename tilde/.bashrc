@@ -132,7 +132,6 @@ fi
 ###############
 
 arrow="❯"
-git_branch="\xEE\x82\xA0"
 git_modified="!"
 git_added="+"
 git_deleted="-"
@@ -161,7 +160,8 @@ dir_color="$cyan"
 
 git_branch_color="$magenta"
 git_branch_prefix_color="$white"
-git_branch_prefix="on"
+# git_branch_prefix="on"
+git_branch_prefix="  "
 
 git_status_color="$red"
 git_status_prefix="["
@@ -210,7 +210,7 @@ user_section() {
 # Prints time in hh:mm
 clock_section() {
 	[[ "$(PWD)" == "$HOME" ]] && return
-	printf "${date_color}`date +"%H:%M"` ${date_suffix_color}${date_suffix} "
+	printf "${date_color}`date +"%H:%M"` ${date_suffix_color}${date_suffix}"
 }
 
 # Prints out current working directory with varying prefix,
@@ -235,7 +235,7 @@ dir_section() {
 		res="${prefix}${get_dir}"
 	fi
 
-	printf "${dir_color}${res} "
+	printf " ${dir_color}${res}"
 }
 
 # Show current Git branch, and if branch isn"t clean show status
@@ -284,10 +284,10 @@ git_section() {
 		status="${git_uneven}${status}"
 	fi
 
-	local git_status="${git_branch_prefix_color}${git_branch_prefix} ${git_branch_color}${git_branch}  ${branch} "
+	local git_status="${git_branch_prefix_color}${git_branch_prefix}${git_branch_color}${branch}"
 
 	if [[ "$status" != "" ]]; then
-		git_status="${git_status}${git_status_color}${git_status_prefix}${status}${git_status_suffix} "
+		git_status="${git_status} ${git_status_color}${git_status_prefix}${status}${git_status_suffix}"
 	fi
 
 	printf "${git_status}"
@@ -309,9 +309,9 @@ exec_time_section() {
 	(( $hours > 0 )) && output="${output}${hours}h "
 	(( $minutes > 0 )) && output="${output}${minutes}m "
 
-	output="${output}${seconds}s "
+	output="${output}${seconds}s"
 
-	printf "${exec_time_prefix_color}${exec_time_prefix} ${exec_time_color}${output}"
+	printf " ${exec_time_prefix_color}${exec_time_prefix} ${exec_time_color}${output}"
 }
 
 # Show exit status of previous command
