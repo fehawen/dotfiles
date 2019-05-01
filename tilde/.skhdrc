@@ -111,7 +111,7 @@ alt - q : chunkc tiling::window --toggle fade
 
 # float / unfloat window and center on screen
 alt - t : chunkc tiling::window --toggle float;\
-          chunkc tiling::window --grid-layout 6:6:1:1:4:4
+          chunkc tiling::window --grid-layout 10:10:1:1:8:8
 
 # toggle sticky
 alt - s : chunkc tiling::window --toggle sticky
