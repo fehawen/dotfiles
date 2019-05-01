@@ -210,7 +210,7 @@ user_section() {
 # Prints time in hh:mm
 clock_section() {
 	[[ "$(PWD)" == "$HOME" ]] && return
-	printf "${date_color}`date +"%H:%M"` ${date_suffix_color}${date_suffix}"
+	printf "${date_color}`date +"%H:%M"` ${date_suffix_color}${date_suffix} "
 }
 
 # Prints out current working directory with varying prefix,
@@ -235,7 +235,7 @@ dir_section() {
 		res="${prefix}${get_dir}"
 	fi
 
-	printf " ${dir_color}${res}"
+	printf "${dir_color}${res}"
 }
 
 # Show current Git branch, and if branch isn"t clean show status
