@@ -17,8 +17,8 @@ declare -a includes=(
 initialize() {
 	read -r -p "Include tilde config files? [y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo "Installation declined..."
-		echo -e "Now exiting.\n"
+		echo "Excluding tilde files..."
+		echo -e "Proceeding...\n"
 		exit
 	else
 		setup

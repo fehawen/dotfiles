@@ -6,6 +6,7 @@ pre_setup() {
 		"neofetch"
 		"nvim"
 		"nvim/colors"
+		"nvim/plugin"
 	)
 
 	echo -e "\nChecking if homebrew exists..."

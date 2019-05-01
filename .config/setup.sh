@@ -89,6 +89,9 @@ setup_neovim() {
 
 		echo -e "\nSymlinking '$HOME/.config/nvim/colors/ezra.vim'."
 		ln -sfv "$(PWD)/nvim/colors/ezra.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/ezra.vim'"
+
+		echo -e "\nSymlinking '$HOME/.config/nvim/plugin/statusline.vim'."
+		ln -sfv "$(PWD)/nvim/plugin/statusline.vim" "$HOME/.config/nvim/plugin/" || error "Failed to symlink '$(PWD)/nvim/plugin/statusline.vim'"
 	fi
 
 	echo -e "Done.\n"
