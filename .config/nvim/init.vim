@@ -156,8 +156,8 @@ autocmd VimResized * wincmd =
 autocmd BufWritePre * %s/\s\+$//e
 
 " Open NERDTree if no file specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
@@ -197,7 +197,7 @@ let g:NERDTreeShowLineNumbers = 0
 "#########################"
 
 " Tab to complete
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Map nerdtreetoggle to ctrl-n
 map <C-n> :NERDTreeToggle<CR>
