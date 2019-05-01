@@ -5,13 +5,15 @@
 " -------------------------------------------------------------------------
 
 function! SyntaxItem()
+
 	let l:syntaxname = synIDattr(synID(line("."),col("."),1),"name")
 
 	if l:syntaxname != ""
 		return l:syntaxname
 	else
-		return "•••"
+		return ""
 	endif
+
 endfunction
 
 " }}}
@@ -21,45 +23,51 @@ endfunction
 " -------------------------------------------------------------------------
 
 function! LinterStatus() abort
+
 	let l:counts = ale#statusline#Count(bufnr(''))
 
 	if l:counts.total == 0
 		return ""
 	else
-		return printf(" (%d)", l:counts.total)
+		return printf(" (%d) ", l:counts.total)
 	endif
+
 endfunction
 
 " VIM MODES: " {{{
 " https://kadekillary.work/post/statusline-vim/
 " -------------------------------------------------------------------------
 let g:currentmode={
-	\'n' : 'Normal',
+	\'n'  : 'Normal',
 	\'no' : 'Normal Op Pend',
-	\'v' : 'Visual',
-	\'V' : 'Visual Line',
+	\'v'  : 'Visual',
+	\'V'  : 'Visual Line',
 	\'^V' : 'Visual Block',
-	\'s' : 'Select',
-	\'S': 'Select Line',
+	\'s'  : 'Select',
+	\'S'  : 'Select Line',
 	\'^S' : 'Select Block',
-	\'i' : 'Insert',
-	\'R' : 'Replace',
+	\'i'  : 'Insert',
+	\'R'  : 'Replace',
 	\'Rv' : 'Visual Replace',
-	\'c' : 'Command',
+	\'c'  : 'Command',
 	\'cv' : 'Vim Ex',
 	\'ce' : 'Ex',
-	\'r' : 'Prompt',
+	\'r'  : 'Prompt',
 	\'rm' : 'More',
 	\'r?' : 'Confirm',
-	\'!' : 'Shell',
-	\'t' : 'Terminal'
+	\'!'  : 'Shell',
+	\'t'  : 'Terminal'
 \}
 
+
 function! ModeCurrent() abort
+
 	let l:modecurrent = mode()
 	let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'Visual Block'))
 	let l:current_status_mode = l:modelist
+
 	return l:current_status_mode
+
 endfunction
 
 " }}}
@@ -68,7 +76,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%2*%=%3*%1*\ NERD\ "
+let NERDTreeStatusline="%7*%=%8*%1*\ \ NERD\ \ "
 
 " }}}
 
@@ -78,58 +86,84 @@ let NERDTreeStatusline="%2*%=%3*%1*\ NERD\ "
 " Always show statusline
 set laststatus=2
 
+" Format active statusline
+function! ActiveStatusLine()
+
+	if ModeCurrent() == "NORMAL"
+		let l:statusline="%1*"
+  else
+		let l:statusline="%2*"
+	endif
+
+	let l:statusline.="\ \ %{ModeCurrent()}\ "
+
+	let l:statusline.="\ %8*"
+
+	let l:statusline.="%9*"
+	let l:statusline.="%4*\ \ %t\ "
+	let l:statusline.="%3*%{LinterStatus()}"
+	let l:statusline.="\ %8*"
+
+	let l:statusline.="%="
+
+	if SyntaxItem() != ""
+		let l:statusline.="%8*"
+		let l:statusline.="%1*\ \ %{SyntaxItem()}\ "
+		let l:statusline.="\ %9*"
+	endif
+
+	let l:statusline.="%8*"
+	let l:statusline.="%2*\ \ %l\ %1*/\ %3*%L\ \ %*"
+
+	return l:statusline
+
+endfunction
+
+" Format inactive statusline
+function! InactiveStatusLine()
+
+	let l:statusline="%1*\ \ %t\ "
+	let l:statusline.="\ %8*"
+
+	let l:statusline.="%="
+
+	let l:statusline.="%8*"
+	let l:statusline.="%1*\ \ %l\ %9*/\ %1*%L\ \ %*"
+
+	return l:statusline
+
+endfunction
+
 " Set active statusline
 function! SetActiveStatusLine()
-	if &ft !=? 'nerdtree'
-		" Clear statusline
-		setlocal statusline=
-		" Left 1 - mode
-		setlocal statusline+=%1*\ %{ModeCurrent()}
-		setlocal statusline+=\ %3*%2*
-		" Left 2 - file name, linter warnings/errors (if any)
-		setlocal statusline+=%4*
-		setlocal statusline+=%1*\ %t
-		setlocal statusline+=%5*%{LinterStatus()}
-		setlocal statusline+=\ %3*
-		" Spacing divider
-		setlocal statusline+=%=
-		" Middle - syntax group name
-		setlocal statusline+=%3*
-		setlocal statusline+=%1*\ %{SyntaxItem()}
-		setlocal statusline+=\ %3*
-		" Spacing divider
-		setlocal statusline+=%=
-		" Right - line number, total lines
-		setlocal statusline+=%3*
-		setlocal statusline+=%1*\ %l\ %4*/\ %1*%L\ %*
+
+	if &ft ==? 'nerdtree'
+	 	return
 	endif
+
+	setlocal statusline=
+	setlocal statusline+=%!ActiveStatusLine()
+
 endfunction
+
 
 " Set inactive statusline
 function! SetInactiveStatusLine()
-	if &ft !=? 'nerdtree'
-		" Clear statusline
-		setlocal statusline=
-		" Left - file name
-		setlocal statusline+=%6*\ %t
-		setlocal statusline+=\ %3*
-		" Spacing divider
-		setlocal statusline+=%=
-		" Middle - syntax group name
-		setlocal statusline+=%3*
-		setlocal statusline+=%6*\ •••
-		setlocal statusline+=\ %3*
-		" Spacing divider
-		setlocal statusline+=%=
-		" Right - total lines
-		setlocal statusline+=%3*
-		setlocal statusline+=%6*\ %l\ %4*/\ %6*%L\ %*
+
+	if &ft ==? 'nerdtree'
+		return
 	endif
+
+	setlocal statusline=
+	setlocal statusline+=%!InactiveStatusLine()
+
 endfunction
 
 " Autocmd statusline
 augroup statusline
 	autocmd!
+	autocmd WinEnter * call SetActiveStatusLine()
+	autocmd WinLeave * call SetInactiveStatusLine()
 	autocmd BufEnter * call SetActiveStatusLine()
 	autocmd BufLeave * call SetInactiveStatusLine()
 augroup end
