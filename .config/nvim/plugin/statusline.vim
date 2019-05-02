@@ -72,6 +72,15 @@ endfunction
 
 " }}}
 
+" LINE PERCENTAGE: " {{{
+" https://vi.stackexchange.com/questions/3894/get-percentage-through-file-of-displayed-window
+" -------------------------------------------------------------------------
+
+function! LinePercent()
+	return line('.') * 100 / line('$') . '%'
+endfunction
+
+" }}}
 
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
@@ -89,7 +98,7 @@ set laststatus=2
 " Format active statusline
 function! ActiveStatusLine()
 
-	if ModeCurrent() == "NORMAL"
+	if mode() == "n"
 		let l:statusline="%1*"
   else
 		let l:statusline="%2*"
@@ -113,7 +122,11 @@ function! ActiveStatusLine()
 	endif
 
 	let l:statusline.="%8*"
-	let l:statusline.="%2*\ \ %l\ %1*/\ %3*%L\ \ %*"
+	let l:statusline.="%4*\ \ %l\ %2*(%4*%c%2*)\ %1*/\ %4*%L\ "
+	let l:statusline.="\ %9*"
+
+	let l:statusline.="%8*"
+	let l:statusline.="%2*\ \ %{LinePercent()}\ \ %*"
 
 	return l:statusline
 
@@ -126,9 +139,13 @@ function! InactiveStatusLine()
 	let l:statusline.="\ %8*"
 
 	let l:statusline.="%="
+	let l:statusline.="%8*"
+
+	let l:statusline.="%1*\ \ %l\ %9*(%1*%c%9*)\ %9*/\ %1*%L\ "
+	let l:statusline.="\ %9*"
 
 	let l:statusline.="%8*"
-	let l:statusline.="%1*\ \ %l\ %9*/\ %1*%L\ \ %*"
+	let l:statusline.="%1*\ \ %{LinePercent()}\ \ %*"
 
 	return l:statusline
 
@@ -138,7 +155,7 @@ endfunction
 function! SetActiveStatusLine()
 
 	if &ft ==? 'nerdtree'
-	 	return
+		return
 	endif
 
 	setlocal statusline=
