@@ -29,7 +29,7 @@ function! LinterStatus() abort
 	if l:counts.total == 0
 		return ""
 	else
-		return printf(" (%d) ", l:counts.total)
+		return printf("%d", l:counts.total)
 	endif
 
 endfunction
@@ -77,7 +77,7 @@ endfunction
 " -------------------------------------------------------------------------
 
 function! LinePercent()
-	return line('.') * 100 / line('$') . '%'
+	return line('.') * 100 / line('$')
 endfunction
 
 " }}}
@@ -85,7 +85,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%7*%=%8*%1*\ \ NERD\ \ "
+let NERDTreeStatusline="%8*%=%8*%1*\ \ NERD\ \ "
 
 " }}}
 
@@ -104,29 +104,46 @@ function! ActiveStatusLine()
 		let l:statusline="%2*"
 	endif
 
-	let l:statusline.="\ \ %{ModeCurrent()}\ "
+	let l:statusline.="\ \ %{ModeCurrent()}\ %9*|"
 
-	let l:statusline.="\ %8*"
-
-	let l:statusline.="%9*"
-	let l:statusline.="%4*\ \ %t\ "
-	let l:statusline.="%3*%{LinterStatus()}"
-	let l:statusline.="\ %8*"
-
-	let l:statusline.="%="
-
-	if SyntaxItem() != ""
-		let l:statusline.="%8*"
-		let l:statusline.="%1*\ \ %{SyntaxItem()}\ "
-		let l:statusline.="\ %9*"
+	if LinterStatus() == ""
+		let l:statusline.="%4*\ %t\ "
+	else
+		let l:statusline.="%3*\ %t\ "
+		let l:statusline.="%4*%{LinterStatus()}\ errors\ "
 	endif
 
-	let l:statusline.="%8*"
-	let l:statusline.="%4*\ \ %l\ %2*(%4*%c%2*)\ %1*/\ %4*%L\ "
-	let l:statusline.="\ %9*"
+	let l:statusline.="\ %8*"
+	let l:statusline.="%="
+	let l:statusline.="\ %8*"
 
-	let l:statusline.="%8*"
-	let l:statusline.="%2*\ \ %{LinePercent()}\ \ %*"
+	if SyntaxItem() != ""
+		let l:statusline.="%1*\ \ %{SyntaxItem()}%9*\ |"
+	else
+		let l:statusline.="%9*\ "
+	endif
+
+	if LinePercent() < 25
+		let l:statusline.="%1*\ %l\ %9*|\ "
+		let l:statusline.="%1*%c\ %9*|\ "
+		let l:statusline.="%1*%L\ %9*|\ "
+		let l:statusline.="%1*%{LinePercent()}%%\ \ "
+	elseif LinePercent() >= 25 && LinePercent() < 50
+		let l:statusline.="%4*\ %l\ %9*|\ "
+		let l:statusline.="%4*%c\ %9*|\ "
+		let l:statusline.="%4*%L\ %9*|\ "
+		let l:statusline.="%4*%{LinePercent()}%%\ \ "
+	elseif LinePercent() >= 50 && LinePercent() <= 75
+		let l:statusline.="%2*\ %l\ %9*|\ "
+		let l:statusline.="%2*%c\ %9*|\ "
+		let l:statusline.="%2*%L\ %9*|\ "
+		let l:statusline.="%2*%{LinePercent()}%%\ \ "
+	else
+		let l:statusline.="%3*\ %l\ %9*|\ "
+		let l:statusline.="%3*%c\ %9*|\ "
+		let l:statusline.="%3*%L\ %9*|\ "
+		let l:statusline.="%3*%{LinePercent()}%%\ \ "
+	endif
 
 	return l:statusline
 
@@ -139,13 +156,13 @@ function! InactiveStatusLine()
 	let l:statusline.="\ %8*"
 
 	let l:statusline.="%="
-	let l:statusline.="%8*"
-
-	let l:statusline.="%1*\ \ %l\ %9*(%1*%c%9*)\ %9*/\ %1*%L\ "
-	let l:statusline.="\ %9*"
 
 	let l:statusline.="%8*"
-	let l:statusline.="%1*\ \ %{LinePercent()}\ \ %*"
+	let l:statusline.="%9*\ "
+	let l:statusline.="%1*\ %l\ %9*|\ "
+	let l:statusline.="%1*%c\ %9*|\ "
+	let l:statusline.="%1*%L\ %9*|\ "
+	let l:statusline.="%1*%{LinePercent()}%%\ \ "
 
 	return l:statusline
 
