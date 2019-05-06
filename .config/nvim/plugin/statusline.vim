@@ -101,7 +101,7 @@ set laststatus=2
 function! ActiveStatusLine()
 
 	if (mode() =~# '\v(n|no)')
-		let l:statusline="%1*"
+		let l:statusline="%9*"
 	elseif (mode() =~# '\v(i|v|V)' || ModeCurrent() ==# 'VISUAL BLOCK')
 		let l:statusline="%2*"
 	else

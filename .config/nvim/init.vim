@@ -167,7 +167,7 @@ autocmd BufWritePre * %s/\s\+$//e
 set termguicolors
 
 " Set theme
-colorscheme xwing
+colorscheme grimm
 
 " Set list characters
 set list
