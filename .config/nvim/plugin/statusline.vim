@@ -28,8 +28,10 @@ function! LinterStatus() abort
 
 	if l:counts.total == 0
 		return ""
+	elseif l:counts.total == 1
+		return printf("%d error", l:counts.total)
 	else
-		return printf("%d", l:counts.total)
+		return printf("%d errors", l:counts.total)
 	endif
 
 endfunction
@@ -98,52 +100,41 @@ set laststatus=2
 " Format active statusline
 function! ActiveStatusLine()
 
-	if mode() == "n"
+	if (mode() =~# '\v(n|no)')
 		let l:statusline="%1*"
-  else
+	elseif (mode() =~# '\v(i|v|V)' || ModeCurrent() ==# 'VISUAL BLOCK')
 		let l:statusline="%2*"
+	else
+		let l:statusline="%4*"
 	endif
 
 	let l:statusline.="\ \ %{ModeCurrent()}\ %9*|"
 
-	if LinterStatus() == ""
-		let l:statusline.="%4*\ %t\ "
-	else
-		let l:statusline.="%3*\ %t\ "
-		let l:statusline.="%4*%{LinterStatus()}\ errors\ "
+	let l:statusline.="%4*\ %t\ "
+
+	if LinterStatus() != ""
+		let l:statusline.="%9*|\ %3*%{LinterStatus()}\ "
 	endif
 
 	let l:statusline.="\ %8*"
+
 	let l:statusline.="%="
 	let l:statusline.="\ %8*"
 
 	if SyntaxItem() != ""
-		let l:statusline.="%1*\ \ %{SyntaxItem()}%9*\ |"
+		let l:statusline.="%9*\ \ %1*hi%2*:"
+		let l:statusline.="\ %4*%{SyntaxItem()}\ %9*|\ "
 	else
 		let l:statusline.="%9*\ "
 	endif
 
-	if LinePercent() < 25
-		let l:statusline.="%1*\ %l\ %9*|\ "
-		let l:statusline.="%1*%c\ %9*|\ "
-		let l:statusline.="%1*%L\ %9*|\ "
-		let l:statusline.="%1*%{LinePercent()}%%\ \ "
-	elseif LinePercent() >= 25 && LinePercent() < 50
-		let l:statusline.="%4*\ %l\ %9*|\ "
-		let l:statusline.="%4*%c\ %9*|\ "
-		let l:statusline.="%4*%L\ %9*|\ "
-		let l:statusline.="%4*%{LinePercent()}%%\ \ "
-	elseif LinePercent() >= 50 && LinePercent() <= 75
-		let l:statusline.="%2*\ %l\ %9*|\ "
-		let l:statusline.="%2*%c\ %9*|\ "
-		let l:statusline.="%2*%L\ %9*|\ "
-		let l:statusline.="%2*%{LinePercent()}%%\ \ "
-	else
-		let l:statusline.="%3*\ %l\ %9*|\ "
-		let l:statusline.="%3*%c\ %9*|\ "
-		let l:statusline.="%3*%L\ %9*|\ "
-		let l:statusline.="%3*%{LinePercent()}%%\ \ "
-	endif
+	let l:statusline.="%1*col%2*:"
+	let l:statusline.="\ %4*%c\ %9*|\ "
+	let l:statusline.="%1*line%2*:"
+	let l:statusline.="\ %4*%l%2*/%4*%L"
+	let l:statusline.="\ %9*|\ "
+	let l:statusline.="%1*perc%2*:"
+	let l:statusline.="\ %4*%{LinePercent()}%%\ \ "
 
 	return l:statusline
 
@@ -157,12 +148,14 @@ function! InactiveStatusLine()
 
 	let l:statusline.="%="
 
-	let l:statusline.="%8*"
-	let l:statusline.="%9*\ "
-	let l:statusline.="%1*\ %l\ %9*|\ "
-	let l:statusline.="%1*%c\ %9*|\ "
-	let l:statusline.="%1*%L\ %9*|\ "
-	let l:statusline.="%1*%{LinePercent()}%%\ \ "
+	let l:statusline.="\ %8*%9*\ \ "
+	let l:statusline.="%1*col%9*:"
+	let l:statusline.="\ %1*%c\ %9*|\ "
+	let l:statusline.="%1*line%9*:"
+	let l:statusline.="\ %1*%l%9*/%1*%L"
+	let l:statusline.="\ %9*|\ "
+	let l:statusline.="%1*perc%9*:"
+	let l:statusline.="\ %1*%{LinePercent()}%%\ \ "
 
 	return l:statusline
 
