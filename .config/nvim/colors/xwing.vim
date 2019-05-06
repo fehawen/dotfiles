@@ -13,7 +13,8 @@ let s:gui.background = { 'default': '#002B36' }
 let s:gui.foreground = { 'default': '#CFD8DC' }
 let s:gui.none       = { 'default': 'NONE',   }
 let s:gui.selection  = { 'default': '#00485B' }
-let s:gui.line       = { 'default': '#003341' }
+" let s:gui.line       = { 'default': '#003341' }
+let s:gui.line       = { 'default': '#003C4D' }
 let s:gui.comment    = { 'default': '#455A64' }
 
 let s:gui.black      = { 'default': '#455A64' }
@@ -62,13 +63,12 @@ if has("nvim")
 endif
 
 " "EDITOR COLORS
-call s:hi("User1",        s:gui.blue,       s:gui.line,       "bold")
+" call s:hi("User1",        s:gui.blue,       s:gui.line,       "bold")
+call s:hi("User1",        s:gui.yellow,     s:gui.line,       "bold")
 call s:hi("User2",        s:gui.orange,     s:gui.line,       "bold")
 call s:hi("User3",        s:gui.red,        s:gui.line,       "bold")
 call s:hi("User4",        s:gui.foreground, s:gui.line,       "bold")
-call s:hi("User5",        s:gui.blue,       s:gui.background, "bold")
-call s:hi("User6",        s:gui.line,       s:gui.blue,       "bold")
-call s:hi("User7",        s:gui.blue,       s:gui.line,       "bold")
+call s:hi("User5",        s:gui.blue,       s:gui.line,       "bold")
 call s:hi("User8",        s:gui.line,       s:gui.background, "bold")
 call s:hi("User9",        s:gui.background, s:gui.line,       "bold")
 
@@ -148,9 +148,8 @@ call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
 call s:hi("ALEErrorLine",        s:gui.comment,   s:gui.none, "")
 call s:hi("ALEWarningLine",      s:gui.comment,   s:gui.none, "")
 
-" TYPESCRIPT COLORS: " {{{
+" TYPESCRIPT COLORS
 " leafgarland/typescript-vim
-
 call s:hi("typescriptComment",                   s:gui.comment,     "", "italic")
 call s:hi("typescriptCommentSkip",               s:gui.comment,     "", "italic")
 call s:hi("typescriptCommentTodo",               s:gui.comment,     "", "italic")
@@ -218,8 +217,6 @@ call s:hi("typescriptOpSymbols",                 s:gui.orange,      "", "")
 call s:hi("typescriptEndColons",                 s:gui.orange,      "", "")
 call s:hi("typescriptLogicSymbols",              s:gui.orange,      "", "")
 call s:hi("typescriptDotNotation",               s:gui.red,         "", "")
-
-" }}}
 
 " Javascript colors
 " yajs
