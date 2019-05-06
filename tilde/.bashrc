@@ -132,6 +132,7 @@ fi
 ###############
 
 arrow="❯"
+git_branch="  "
 git_modified="!"
 git_added="+"
 git_deleted="-"
@@ -160,12 +161,11 @@ dir_color="$cyan"
 
 git_branch_color="$magenta"
 git_branch_prefix_color="$white"
-# git_branch_prefix="on"
-git_branch_prefix="  "
+git_branch_prefix="on"
 
 git_status_color="$red"
-git_status_prefix="["
-git_status_suffix="]"
+git_status_prefix="("
+git_status_suffix=")"
 
 exec_time_color="$yellow"
 exec_time_prefix_color="$white"
@@ -284,7 +284,7 @@ git_section() {
 		status="${git_uneven}${status}"
 	fi
 
-	local git_status="${git_branch_prefix_color}${git_branch_prefix}${git_branch_color}${branch}"
+	local git_status=" ${git_branch_prefix_color}${git_branch_prefix}${git_branch_color}${git_branch}${branch}"
 
 	if [[ "$status" != "" ]]; then
 		git_status="${git_status} ${git_status_color}${git_status_prefix}${status}${git_status_suffix}"
@@ -346,8 +346,23 @@ export PS1="\$(prompt)"
 ### ENV EXPORTS ###
 ###################
 
-# Include desired paths in PATH and export, leaving default PATH still intact
-export PATH="${HOME}/paths/mongodb-osx-x86_64-4.0.3/bin:${HOME}/.npm-global/bin:${HOME}/Library/Python/3.7/bin:${HOME}/.local/bin/:${PATH}"
+paths=(
+	"${HOME}/.local/bin/"
+	"${HOME}/.npm-global/bin"
+	"${HOME}/Library/Python/3.7/bin"
+	"${HOME}/paths/mongodb-osx-x86_64-4.0.3/bin"
+)
+
+# Include desired paths in PATH and export, leaving default PATH still intact and preventing duplicates
+for p in "${paths[@]}"
+do
+	case ":$PATH:" in
+		*":$p:"*) :;; # already there
+		*) PATH="$p:$PATH";;
+	esac
+done
+
+export PATH="${PATH}"
 
 # Set default editor
 export EDITOR="/usr/local/bin/nvim"
