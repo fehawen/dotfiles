@@ -132,8 +132,11 @@ fi
 ###############
 
 system_icon="  "
+lightning_icon="  "
 deleted_icon="  "
 question_icon="  "
+cog_icon="  "
+cogs_icon="  "
 tag_icon="  "
 puzzle_icon="  "
 pen_icon="  "
@@ -146,6 +149,8 @@ stopwatch_icon="  "
 sync_icon="  "
 bag_icon="  "
 patch_icon="  "
+ahead_icon="  "
+behind_icon="  "
 
 git_modified="$pen_icon"
 git_added="$plus_icon"
@@ -153,7 +158,8 @@ git_deleted="$deleted_icon"
 git_renamed="$patch_icon"
 git_untracked="$question_icon"
 git_stashed="$bag_icon"
-git_uneven="$sync_icon"
+git_ahead="$ahead_icon"
+git_behind="$git_behind"
 
 #####################
 ### SECTION  ###
@@ -168,18 +174,17 @@ root_color="$red"
 user_icon="$system_icon"
 user_color="$yellow"
 
-date_color="$blue"
+date_color="$green"
 date_icon="$clock_icon"
 
 dir_color="$cyan"
 dir_icon="$home_icon"
 
-git_sha_color="$magenta"
-git_sha_icon="$tag_icon"
+git_tag_color="$magenta"
+git_tag_icon="$tag_icon"
 git_branch_color="$magenta"
-git_branch_icon="$puzzle_icon"
+git_branch_icon="$cogs_icon"
 git_status_color="$red"
-
 
 exec_time_color="$white"
 exec_time_icon="$stopwatch_icon"
@@ -261,7 +266,7 @@ git_section() {
 	local status=""
 	local index="$(git status --porcelain -b 2> /dev/null)"
 	local branch="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)"
-	local sha="$(git rev-parse HEAD | cut -c1-8 2> /dev/null)"
+	local tag="$(git describe --abbrev=0 2> /dev/null)"
 	local branch_ahead branch_behind
 
 	if $(echo "$index" | command grep -E "^[MARCDU ]D " &> /dev/null); then
@@ -297,11 +302,21 @@ git_section() {
 	local behind="$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)"
 	local ahead="$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)"
 
-	if [[ "$behind" -gt 0 || "$ahead" -gt 0 ]]; then
-		status="${git_uneven}${status}"
+	if [[ "$behind" -gt 0 ]]; then
+		status="${git_behind}${status}"
 	fi
 
-	local git_status=" ${git_sha_color}${git_sha_icon}${sha} ${git_branch_color}${git_branch_icon}${branch}"
+	if [[ "$ahead" -gt 0 ]]; then
+		status="${git_ahead}${status}"
+	fi
+
+	local git_status=""
+
+	if [[ "$tag" != "" ]]; then
+		git_status=" ${git_tag_color}${git_tag_icon}${tag}"
+	fi
+
+	git_status="${git_status} ${git_branch_color}${git_branch_icon}${branch}"
 
 	if [[ "$status" != "" ]]; then
 		git_status="${git_status} ${git_status_color}${status}"
@@ -315,7 +330,7 @@ git_section() {
 exec_time_section() {
 	(( $timer < 3 )) && return
 
-	local output
+	local output=""
 
 	local days=$(( $timer / 60 / 60 / 24 ))
 	local hours=$(( $timer / 60 / 60 % 24 ))
@@ -354,9 +369,10 @@ prompt() {
 	printf "${bold}$(user_section)$(clock_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
-# Stop timer for execution time
+# Stop timer for execution duration calculation
 PROMPT_COMMAND=timer_stop
 
+# Set PS1
 export PS1="\$(prompt)"
 
 ###################
@@ -379,6 +395,7 @@ do
 	esac
 done
 
+# Set path
 export PATH="${PATH}"
 
 # Set default editor
