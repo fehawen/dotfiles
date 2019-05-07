@@ -131,15 +131,29 @@ fi
 ### SYMBOLS ###
 ###############
 
-arrow="❯"
-# git_branch="  "
-git_modified="!"
-git_added="+"
-git_deleted="-"
-git_renamed="*"
-git_untracked="?"
-git_stashed="$"
-git_uneven="¿"
+system_icon="  "
+deleted_icon="  "
+question_icon="  "
+tag_icon="  "
+flash_icon=" "
+pen_icon="  "
+plus_icon="  "
+home_icon="  "
+cross_icon="  "
+check_icon="  "
+clock_icon="  "
+stopwatch_icon="  "
+sync_icon="  "
+bag_icon="  "
+patch_icon="  "
+
+git_modified="$pen_icon"
+git_added="$plus_icon"
+git_deleted="$deleted_icon"
+git_renamed="$patch_icon"
+git_untracked="$question_icon"
+git_stashed="$bag_icon"
+git_uneven="$sync_icon"
 
 #####################
 ### SECTION  ###
@@ -151,29 +165,29 @@ newline="
 
 # Section colors, symbols and prefixes
 root_color="$red"
-root_suffix="at"
+user_icon="$system_icon"
+user_color="$yellow"
 
-date_suffix="in"
-date_suffix_color="$white"
 date_color="$blue"
+date_icon="$clock_icon"
 
 dir_color="$cyan"
+dir_icon="$home_icon"
 
+git_sha_color="$black"
+git_sha_icon="$tag_icon"
 git_branch_color="$magenta"
-git_branch_prefix_color="$white"
-git_branch_prefix="on"
-
+git_branch_icon="$flash_icon"
 git_status_color="$red"
-git_status_prefix="("
-git_status_suffix=")"
 
-exec_time_color="$yellow"
-exec_time_prefix_color="$white"
-exec_time_prefix="took"
 
-exit_color_ok="$green"
-exit_color_bad="$red"
-exit_symbol="$arrow"
+exec_time_color="$white"
+exec_time_icon="$stopwatch_icon"
+
+exit_ok_color="$green"
+exit_ok_icon="$check_icon"
+exit_bad_color="$red"
+exit_bad_icon="$cross_icon"
 
 #######################
 ### PROMPT SECTIONS ###
@@ -203,14 +217,16 @@ trap timer_start DEBUG
 # Prints out user only if we"re root, else prints nothing
 user_section() {
 	if [[ "$UID" -eq 0 ]]; then
-		printf "${root_color}$USER ${white}${root_suffix} "
+		printf "${root_color}${user_icon}$USER "
+	else
+		printf "${user_color}${user_icon}$USER "
 	fi
 }
 
 # Prints time in hh:mm
 clock_section() {
 	[[ "$(PWD)" == "$HOME" ]] && return
-	printf "${date_color}`date +"%H:%M"` ${date_suffix_color}${date_suffix} "
+	printf "${date_color}${date_icon}`date +"%H:%M"` "
 }
 
 # Prints out current working directory with varying prefix,
@@ -235,7 +251,7 @@ dir_section() {
 		res="${prefix}${get_dir}"
 	fi
 
-	printf "${dir_color}${res}"
+	printf "${dir_color}${dir_icon}${res}"
 }
 
 # Show current Git branch, and if branch isn"t clean show status
@@ -245,6 +261,7 @@ git_section() {
 	local status=""
 	local index="$(git status --porcelain -b 2> /dev/null)"
 	local branch="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)"
+	local sha="$(git rev-parse HEAD | cut -c1-8 2> /dev/null)"
 	local branch_ahead branch_behind
 
 	if $(echo "$index" | command grep -E "^[MARCDU ]D " &> /dev/null); then
@@ -284,10 +301,10 @@ git_section() {
 		status="${git_uneven}${status}"
 	fi
 
-	local git_status=" ${git_branch_prefix_color}${git_branch_prefix} ${git_branch_color}${branch}"
+	local git_status=" ${git_sha_color}${git_sha_icon}${sha} ${git_branch_color}${git_branch_icon}${branch}"
 
 	if [[ "$status" != "" ]]; then
-		git_status="${git_status} ${git_status_color}${git_status_prefix}${status}${git_status_suffix}"
+		git_status="${git_status} ${git_status_color}${status}"
 	fi
 
 	printf "${git_status}"
@@ -311,7 +328,7 @@ exec_time_section() {
 
 	output="${output}${seconds}s"
 
-	printf " ${exec_time_prefix_color}${exec_time_prefix} ${exec_time_color}${output}"
+	printf " ${exec_time_color}${exec_time_icon}${output}"
 }
 
 # Show exit status of previous command
@@ -319,12 +336,12 @@ exit_code_section() {
 	local exit_status
 
 	if [[ "$RETVAL" -eq 0 ]]; then
-		exit_status="${exit_color_ok}"
+		exit_status="${exit_ok_color}${exit_ok_icon}"
 	else
-		exit_status="${exit_color_bad}"
+		exit_status="${exit_bad_color}${exit_bad_icon}"
 	fi
 
-	printf "${exit_status}${exit_symbol} "
+	printf "${exit_status} "
 }
 
 ######################
