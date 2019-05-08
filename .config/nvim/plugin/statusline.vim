@@ -74,20 +74,10 @@ endfunction
 
 " }}}
 
-" LINE PERCENTAGE: " {{{
-" https://vi.stackexchange.com/questions/3894/get-percentage-through-file-of-displayed-window
-" -------------------------------------------------------------------------
-
-function! LinePercent()
-	return line('.') * 100 / line('$')
-endfunction
-
-" }}}
-
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%8*%=%8*%1*\ \ NERD\ \ "
+let NERDTreeStatusline="%8*%=%8*%6*\   \ NERD\ \ \ "
 
 " }}}
 
@@ -101,40 +91,36 @@ set laststatus=2
 function! ActiveStatusLine()
 
 	if (mode() =~# '\v(n|no)')
-		let l:statusline="%9*"
-	elseif (mode() =~# '\v(i|v|V)' || ModeCurrent() ==# 'VISUAL BLOCK')
-		let l:statusline="%2*"
+		let l:statusline="%5*\ \   "
+	elseif (mode() =~# '\v(v|V)' || ModeCurrent() ==# 'VISUAL BLOCK')
+		let l:statusline="%4*\ \   "
+	elseif (mode() =~# '\v(i)')
+		let l:statusline="%2*\ \   "
 	else
-		let l:statusline="%4*"
+		let l:statusline="%7*\ \   "
 	endif
 
-	let l:statusline.="\ \ %{ModeCurrent()}\ %9*|"
+	let l:statusline.="\ %{ModeCurrent()}\ "
 
-	let l:statusline.="%4*\ %t\ "
+	let l:statusline.="%6*\   %t\ "
 
 	if LinterStatus() != ""
-		let l:statusline.="%9*|\ %3*%{LinterStatus()}\ "
+		let l:statusline.="%3*  %{LinterStatus()}\ "
 	endif
 
 	let l:statusline.="\ %8*"
 
 	let l:statusline.="%="
-	let l:statusline.="\ %8*"
+	let l:statusline.="%8*%9*\ "
 
 	if SyntaxItem() != ""
-		let l:statusline.="%9*\ \ %1*hi%2*:"
-		let l:statusline.="\ %4*%{SyntaxItem()}\ %9*|\ "
+		let l:statusline.="\ %5*(%{SyntaxItem()})\ \ "
 	else
 		let l:statusline.="%9*\ "
 	endif
 
-	let l:statusline.="%1*col%2*:"
-	let l:statusline.="\ %4*%c\ %9*|\ "
-	let l:statusline.="%1*line%2*:"
-	let l:statusline.="\ %4*%l%2*/%4*%L"
-	let l:statusline.="\ %9*|\ "
-	let l:statusline.="%1*perc%2*:"
-	let l:statusline.="\ %4*%{LinePercent()}%%\ \ "
+	let l:statusline.="%6*%c  \ \ "
+	let l:statusline.="%7*%l%4*/%7*%L  \ \ \ "
 
 	return l:statusline
 
@@ -143,19 +129,15 @@ endfunction
 " Format inactive statusline
 function! InactiveStatusLine()
 
-	let l:statusline="%1*\ \ %t\ "
+	let l:statusline="%5*\ \   %t\ "
+
 	let l:statusline.="\ %8*"
 
 	let l:statusline.="%="
+	let l:statusline.="%8*%9*\ "
 
-	let l:statusline.="\ %8*%9*\ \ "
-	let l:statusline.="%1*col%9*:"
-	let l:statusline.="\ %1*%c\ %9*|\ "
-	let l:statusline.="%1*line%9*:"
-	let l:statusline.="\ %1*%l%9*/%1*%L"
-	let l:statusline.="\ %9*|\ "
-	let l:statusline.="%1*perc%9*:"
-	let l:statusline.="\ %1*%{LinePercent()}%%\ \ "
+	let l:statusline.="%5*\ %c  \ \ "
+	let l:statusline.="%5*%l%9*/%5*%L  \ \ \ "
 
 	return l:statusline
 

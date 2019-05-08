@@ -65,8 +65,10 @@ endif
 call s:hi("User1",        s:gui.foreground, s:gui.line,       "bold")
 call s:hi("User2",        s:gui.green,      s:gui.line,       "bold")
 call s:hi("User3",        s:gui.red,        s:gui.line,       "bold")
-call s:hi("User4",        s:gui.foreground, s:gui.line,       "bold")
+call s:hi("User4",        s:gui.cyan,       s:gui.line,       "bold")
 call s:hi("User5",        s:gui.blue,       s:gui.line,       "bold")
+call s:hi("User6",        s:gui.yellow,     s:gui.line,       "bold")
+call s:hi("User7",        s:gui.magenta,    s:gui.line,       "bold")
 call s:hi("User8",        s:gui.line,       s:gui.background, "bold")
 call s:hi("User9",        s:gui.background, s:gui.line,       "bold")
 
