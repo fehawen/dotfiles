@@ -78,10 +78,10 @@ call s:hi("StatusLineTerm",   s:gui.line,   s:gui.foreground, "")
 call s:hi("StatusLineTemrNC", s:gui.line,   s:gui.background, "")
 
 call s:hi("NERDTreeOpenable",   s:gui.selection,  s:gui.none,     "")
-call s:hi("NERDTreeClosable",   s:gui.selection,  s:gui.none,     "")
-call s:hi("NERDTreeCWD",        s:gui.red,        s:gui.none,     "")
+call s:hi("NERDTreeClosable",   s:gui.red,        s:gui.none,     "")
+call s:hi("NERDTreeCWD",        s:gui.comment,    s:gui.none,     "")
 call s:hi("NERDTreeDir",        s:gui.blue,       s:gui.none,     "")
-call s:hi("NERDTreeDirSlash",   s:gui.magenta,    s:gui.none,     "")
+call s:hi("NERDTreeDirSlash",   s:gui.background, s:gui.none,     "")
 call s:hi("NERDTreeFile",       s:gui.foreground, s:gui.none,     "")
 
 call s:hi("EndOfBuffer",  s:gui.background, s:gui.none,       "")
