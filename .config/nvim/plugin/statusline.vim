@@ -77,7 +77,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%8*%=%8*%5*\ \ NERD\ \ "
+let NERDTreeStatusline="%8*%=%8*%9*%8*%9*%8*%5*\ \ NERD\ \ %9*%8*%9*\ "
 
 " }}}
 
@@ -90,39 +90,41 @@ set laststatus=2
 " Format active statusline
 function! ActiveStatusLine()
 
+	let l:statusline="%9*\ %8*%9*"
+
 	if (mode() =~# '\v(n|no)')
-		let l:statusline="%5*\ \   "
+		let l:statusline.="%5*\   "
 	elseif (mode() =~# '\v(v|V)' || ModeCurrent() ==# 'VISUAL BLOCK')
-		let l:statusline="%7*\ \   "
+		let l:statusline.="%7*\   "
 	elseif (mode() =~# '\v(R)')
-		let l:statusline="%6*\ \   "
+		let l:statusline.="%6*\   "
 	elseif (mode() =~# '\v(i)')
-		let l:statusline="%2*\ \   "
+		let l:statusline.="%2*\   "
 	else
-		let l:statusline="%3*\ \   "
+		let l:statusline.="%3*\   "
 	endif
 
-	let l:statusline.="%{ModeCurrent()}\ "
+	let l:statusline.="%{ModeCurrent()}\ \ %8*%9*"
 
 	let l:statusline.="%4*\   %t\ "
 
 	if LinterStatus() != ""
-		let l:statusline.="%3*\   %{LinterStatus()}\ "
+		let l:statusline.="\ %8*%9*%3*\   %{LinterStatus()}\ "
 	endif
 
-	let l:statusline.="\ %8*"
+	let l:statusline.="\ %8*%9*%8*%9*%8*"
 
 	let l:statusline.="%="
-	let l:statusline.="%8*%9*\ "
+	let l:statusline.="%8*%9*%8*%9*%8*%9*\ "
 
 	if SyntaxItem() != ""
-		let l:statusline.="\ %5*%{SyntaxItem()}  \ \ "
+		let l:statusline.="\ %5*%{SyntaxItem()}  \ %9*%8*%9*\ \ "
 	else
 		let l:statusline.="%9*\ "
 	endif
 
 	let l:statusline.="%6*%c  \ \ "
-	let l:statusline.="%7*%l/%L  \ \ "
+	let l:statusline.="%7*%l/%L  \ %9*%8*%9*\ "
 
 	return l:statusline
 
@@ -131,15 +133,17 @@ endfunction
 " Format inactive statusline
 function! InactiveStatusLine()
 
-	let l:statusline="%5*\ \   %t\ "
+	let l:statusline="%9*\ %8*%9*"
 
-	let l:statusline.="\ %8*"
+	let l:statusline.="%5*\   %t\ "
+
+	let l:statusline.="\ %8*%9*%8*%9*%8*"
 
 	let l:statusline.="%="
-	let l:statusline.="%8*%9*\ \ "
+	let l:statusline.="%8*%9*%8*%9*%8*%9*\ "
 
-	let l:statusline.="%5*%c  \ \ "
-	let l:statusline.="%5*%l/%L  \ \ "
+	let l:statusline.="%9*\ %5*%c  \ \ "
+	let l:statusline.="%l/%L  \ %9*%8*%9*\ "
 
 	return l:statusline
 
