@@ -123,7 +123,7 @@ function! ActiveStatusLine()
 		let l:statusline.="%9*\ "
 	endif
 
-	let l:statusline.="%6*%c  \ \ "
+	let l:statusline.="%6*%c  \ %9*%8*%9*\ \ "
 	let l:statusline.="%7*%l/%L  \ %9*%8*%9*\ "
 
 	return l:statusline
@@ -142,8 +142,8 @@ function! InactiveStatusLine()
 	let l:statusline.="%="
 	let l:statusline.="%8*%9*%8*%9*%8*%9*\ "
 
-	let l:statusline.="%9*\ %5*%c  \ \ "
-	let l:statusline.="%l/%L  \ %9*%8*%9*\ "
+	let l:statusline.="%9*\ %5*%c  \ %9*%8*%9*\ \ "
+	let l:statusline.="%5*%l/%L  \ %9*%8*%9*\ "
 
 	return l:statusline
 
