@@ -17,12 +17,13 @@ let s:gui.line       = { 'default': '#1A3644' }
 let s:gui.comment    = { 'default': '#2B4759' }
 
 let s:gui.black      = { 'default': '#2B4759' }
-let s:gui.red        = { 'default': '#96423F' }
+let s:gui.red        = { 'default': '#9D534F' }
+" let s:gui.red        = { 'default': '#A84A48' }
 let s:gui.yellow     = { 'default': '#B09075' }
 let s:gui.green      = { 'default': '#878D7D' }
 let s:gui.cyan       = { 'default': '#97ABB9' }
 let s:gui.blue       = { 'default': '#596E79' }
-let s:gui.magenta    = { 'default': '#998194' }
+let s:gui.magenta    = { 'default': '#A37984' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -191,7 +192,7 @@ call s:hi("typescriptConditional",               s:gui.cyan,         "", "") " i
 call s:hi("typescriptRepeat",                    s:gui.green,        "", "") " do while for in of
 call s:hi("typescriptBranch",                    s:gui.green,        "", "") " break continue yield await
 call s:hi("typescriptLabel",                     s:gui.green,        "", "") " case default async readonly
-call s:hi("typescriptDecorators",                s:gui.red,          "", "") " @action @computed, etc
+call s:hi("typescriptDecorators",                s:gui.magenta,      "", "") " @action @computed, etc
 call s:hi("typescriptStatement",                 s:gui.cyan,         "", "") " return with
 
 call s:hi("typescriptGlobalObjects",             s:gui.blue,         "", "") " Array Boolean Date Function Infinity Math Number NaN Object Packages RegExp String Symbol
