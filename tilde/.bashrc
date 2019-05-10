@@ -175,14 +175,14 @@ root_color="$red"
 user_icon="$system_icon"
 user_color="$yellow"
 
-date_color="$green"
+date_color="$blue"
 date_icon="$stopwatch_icon"
 
 battery_critical_color="$red"
 battery_low_color="$yellow"
 batter_half_color="$cyan"
 battery_full_color="$green"
-battery_charging_color="$blue"
+battery_charging_color="$green"
 
 dir_color="$cyan"
 dir_home_icon="$home_icon"
@@ -230,15 +230,15 @@ trap timer_start DEBUG
 # Prints out user only if we"re root, else prints nothing
 user_section() {
 	if [[ "$UID" -eq 0 ]]; then
-		echo -e "${root_color}${user_icon}$USER"
+		echo -e " ${root_color}${user_icon}$USER"
 	else
-		echo -e "${user_color}${user_icon}$USER"
+		echo -e " ${user_color}${user_icon}$USER"
 	fi
 }
 
 # Prints time in hh:mm
 clock_section() {
-	echo -e " ${date_color}${date_icon}`date +"%H:%M"`"
+	echo -e "${date_color}${date_icon}`date +"%H:%M"`"
 }
 
 # Prints battery percentage, and if on battery or AC power
@@ -395,7 +395,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	echo -e "${bold}$(user_section)$(clock_section)$(battery_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
+	echo -e "${bold}$(clock_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
