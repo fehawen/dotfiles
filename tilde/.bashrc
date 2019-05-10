@@ -189,8 +189,6 @@ dir_color="$cyan"
 dir_home_icon="$home_icon"
 dir_folder_icon="$folder_icon"
 
-git_tag_color="$magenta"
-git_tag_icon="$paperclip_icon"
 git_branch_color="$magenta"
 git_branch_icon="$branch_icon"
 git_status_color="$red"
@@ -296,7 +294,6 @@ git_section() {
 	local status=""
 	local index="$(git status --porcelain -b 2> /dev/null)"
 	local branch="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)"
-	local tag="$(git describe --abbrev=0 2> /dev/null)"
 	local branch_ahead branch_behind
 
 	if $(echo "$index" | command grep -E "^[MARCDU ]D " &> /dev/null); then
@@ -340,13 +337,7 @@ git_section() {
 		status="${git_ahead}${status}"
 	fi
 
-	local git_status=""
-
-	if [[ "$tag" != "" ]]; then
-		git_status="${git_tag_color}${git_tag_icon}${tag} "
-	fi
-
-	git_status="${git_status}${git_branch_color}${git_branch_icon}${branch}"
+	local git_status="${git_branch_color}${git_branch_icon}${branch}"
 
 	if [[ "$status" != "" ]]; then
 		git_status="${git_status} ${git_status_color}${status}"
