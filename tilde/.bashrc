@@ -238,7 +238,6 @@ user_section() {
 
 # Prints time in hh:mm
 clock_section() {
-	[[ "$(PWD)" == "$HOME" ]] && return
 	echo -e " ${date_color}${date_icon}`date +"%H:%M"`"
 }
 
