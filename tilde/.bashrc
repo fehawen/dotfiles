@@ -57,7 +57,6 @@ alias todopush=push_todos
 alias todopull=pull_todos
 alias hunt=find_string
 alias mark=find_filename
-alias show=cat_file
 
 #############
 ### UTILS ###
@@ -85,12 +84,6 @@ find_string() {
 # Find all filenames in dirs/subdirs matching query
 find_filename() {
 	command find . -not -path "*node_modules*" -iname "$1" | sort -u | grep -i --color=always "$1"
-}
-
-cat_file() {
-	printf "\n"
-	cat -n "$1"
-	printf "\n"
 }
 
 ##############
@@ -137,26 +130,35 @@ deleted_icon="  "
 question_icon="  "
 cog_icon="  "
 cogs_icon="  "
-tag_icon="  "
+branch_icon="  "
+tag_icon="  "
 puzzle_icon="  "
 pen_icon="  "
 plus_icon="  "
 home_icon="  "
+folder_icon="  "
 cross_icon="  "
 check_icon="  "
-clock_icon="  "
+hourglass_icon=" "
 stopwatch_icon="  "
 bag_icon="  "
+floppy_icon="  "
+paperclip_icon="  "
 patch_icon="  "
-ahead_icon="  "
-behind_icon="  "
+ahead_icon="   "
+behind_icon="   "
+battery_critical_icon="  "
+battery_low_icon="  "
+batter_half_icon="  "
+battery_full_icon="  "
+battery_charging_icon="  "
 
 git_modified="$pen_icon"
 git_added="$plus_icon"
 git_deleted="$deleted_icon"
 git_renamed="$patch_icon"
 git_untracked="$question_icon"
-git_stashed="$bag_icon"
+git_stashed="$floppy_icon"
 git_ahead="$ahead_icon"
 git_behind="$git_behind"
 
@@ -174,19 +176,26 @@ user_icon="$system_icon"
 user_color="$yellow"
 
 date_color="$green"
-date_icon="$clock_icon"
+date_icon="$stopwatch_icon"
+
+battery_critical_color="$red"
+battery_low_color="$yellow"
+batter_half_color="$cyan"
+battery_full_color="$green"
+battery_charging_color="$blue"
 
 dir_color="$cyan"
-dir_icon="$home_icon"
+dir_home_icon="$home_icon"
+dir_folder_icon="$folder_icon"
 
 git_tag_color="$magenta"
-git_tag_icon="$tag_icon"
+git_tag_icon="$paperclip_icon"
 git_branch_color="$magenta"
-git_branch_icon="$cogs_icon"
+git_branch_icon="$branch_icon"
 git_status_color="$red"
 
 exec_time_color="$white"
-exec_time_icon="$stopwatch_icon"
+exec_time_icon="$hourglass_icon"
 
 exit_ok_color="$green"
 exit_ok_icon="$check_icon"
@@ -221,16 +230,38 @@ trap timer_start DEBUG
 # Prints out user only if we"re root, else prints nothing
 user_section() {
 	if [[ "$UID" -eq 0 ]]; then
-		printf "${root_color}${user_icon}$USER "
+		echo -e "${root_color}${user_icon}$USER"
 	else
-		printf "${user_color}${user_icon}$USER "
+		echo -e "${user_color}${user_icon}$USER"
 	fi
 }
 
 # Prints time in hh:mm
 clock_section() {
 	[[ "$(PWD)" == "$HOME" ]] && return
-	printf "${date_color}${date_icon}`date +"%H:%M"` "
+	echo -e " ${date_color}${date_icon}`date +"%H:%M"`"
+}
+
+# Prints battery percentage, and if on battery or AC power
+battery_section() {
+	local output=""
+	local charging=$(pmset -g ps | head -1 2> /dev/null)
+	local percentage=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1 2> /dev/null)
+	local perc_sign="%"
+
+	if [[ "$charging" =~ "AC Power" ]]; then
+		output="${battery_charging_color}${battery_charging_icon}"
+	elif [[ "$percentage" -ge 75 ]]; then
+		output="${battery_full_color}${battery_full_icon}"
+	elif [[ "$percentage" -ge 50 ]]; then
+		output="${batter_half_color}${batter_half_color}"
+	elif [[ "$percentage" -ge 25 ]];then
+		output="${battery_low_color}${battery_low_icon}"
+	else
+		output="${battery_critical_color}${battery_critical_icon}"
+	fi
+
+	echo -e " ${output}${percentage}${perc_sign}"
 }
 
 # Prints out current working directory with varying prefix,
@@ -244,18 +275,18 @@ dir_section() {
 	res=""
 
 	if [[ "$(PWD)" == "$HOME/$get_dir" ]]; then
-		prefix="~/"
+		prefix="${dir_home_icon}~/"
 	else
-		prefix=""
+		prefix="${dir_folder_icon}"
 	fi
 
 	if [[ "$(PWD)" == "$HOME" ]]; then
-		res="~"
+		res="${dir_home_icon}~"
 	else
 		res="${prefix}${get_dir}"
 	fi
 
-	printf "${dir_color}${dir_icon}${res}"
+	echo -e " ${dir_color}${res}"
 }
 
 # Show current Git branch, and if branch isn"t clean show status
@@ -312,16 +343,16 @@ git_section() {
 	local git_status=""
 
 	if [[ "$tag" != "" ]]; then
-		git_status=" ${git_tag_color}${git_tag_icon}${tag}"
+		git_status="${git_tag_color}${git_tag_icon}${tag} "
 	fi
 
-	git_status="${git_status} ${git_branch_color}${git_branch_icon}${branch}"
+	git_status="${git_status}${git_branch_color}${git_branch_icon}${branch}"
 
 	if [[ "$status" != "" ]]; then
 		git_status="${git_status} ${git_status_color}${status}"
 	fi
 
-	printf "${git_status}"
+	echo -e " ${git_status}"
 }
 
 # Command execution time
@@ -342,7 +373,7 @@ exec_time_section() {
 
 	output="${output}${seconds}s"
 
-	printf " ${exec_time_color}${exec_time_icon}${output}"
+	echo -e " ${exec_time_color}${exec_time_icon}${output}"
 }
 
 # Show exit status of previous command
@@ -355,7 +386,7 @@ exit_code_section() {
 		exit_status="${exit_bad_color}${exit_bad_icon}"
 	fi
 
-	printf "${exit_status} "
+	echo -e "${exit_status} "
 }
 
 ######################
@@ -365,7 +396,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	printf "${bold}$(user_section)$(clock_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
+	echo -e "${bold}$(user_section)$(clock_section)$(battery_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
