@@ -74,16 +74,6 @@ endfunction
 
 " }}}
 
-" LINE PERCENTAGE: " {{{
-" https://vi.stackexchange.com/questions/3894/get-percentage-through-file-of-displayed-window
-" -------------------------------------------------------------------------
-
-function! LinePercent()
-	return line('.') * 100 / line('$')
-endfunction
-
-" }}}
-
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
@@ -134,8 +124,7 @@ function! ActiveStatusLine()
 	endif
 
 	let l:statusline.="%6*%c  \ %9*%8*%9*\ \ "
-	let l:statusline.="%7*%l/%L  \ %9*%8*%9*\ \ "
-	let l:statusline.="%3*%{LinePercent()}  \ %9*%8*%9*\ "
+	let l:statusline.="%7*%l/%L  \ %9*%8*%9*\ "
 
 	return l:statusline
 
@@ -154,8 +143,7 @@ function! InactiveStatusLine()
 	let l:statusline.="%8*%9*%8*%9*%8*%9*\ "
 
 	let l:statusline.="%9*\ %5*%c  \ %9*%8*%9*\ \ "
-	let l:statusline.="%5*%l/%L  \ %9*%8*%9*\ \ "
-	let l:statusline.="%5*%{LinePercent()}  \ %9*%8*%9*\ "
+	let l:statusline.="%5*%l/%L  \ %9*%8*%9*\ "
 
 	return l:statusline
 
