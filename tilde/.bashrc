@@ -124,6 +124,7 @@ fi
 ### SYMBOLS ###
 ###############
 
+octopus_icon="  "
 system_icon="  "
 lightning_icon="  "
 deleted_icon="  "
@@ -136,7 +137,7 @@ puzzle_icon="  "
 pen_icon="  "
 plus_icon="  "
 home_icon="  "
-folder_icon="  "
+folder_icon="   "
 cross_icon="  "
 check_icon="  "
 hourglass_icon=" "
@@ -395,7 +396,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	echo -e "${bold}$(clock_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
+	echo -e "${bold}${octopus_icon}$(clock_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
