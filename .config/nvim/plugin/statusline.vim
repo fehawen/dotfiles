@@ -101,7 +101,7 @@ function! ActiveStatusLine()
 	elseif (mode() =~# '\v(i)')
 		let l:statusline.="%2*\   "
 	else
-		let l:statusline.="%3*\   "
+		let l:statusline.="%4*\   "
 	endif
 
 	let l:statusline.="%{ModeCurrent()}\ \ %8*%9*"
@@ -109,7 +109,7 @@ function! ActiveStatusLine()
 	let l:statusline.="%4*\   %t\ "
 
 	if LinterStatus() != ""
-		let l:statusline.="\ %8*%9*%3*\   %{LinterStatus()}\ "
+		let l:statusline.="\ %8*%9*%3*\   %{LinterStatus()}\ "
 	endif
 
 	let l:statusline.="\ %8*%9*%8*%9*%8*"
