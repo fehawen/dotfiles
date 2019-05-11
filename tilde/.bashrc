@@ -140,6 +140,7 @@ home_icon="  "
 folder_icon="   "
 cross_icon="  "
 check_icon="  "
+calendar_icon="  "
 hourglass_icon=" "
 stopwatch_icon="  "
 bag_icon="  "
@@ -171,13 +172,11 @@ git_behind="$git_behind"
 newline="
 "
 
-# Section colors, symbols and prefixes
-root_color="$red"
-user_icon="$system_icon"
-user_color="$yellow"
+clock_color="$blue"
+clock_icon="$stopwatch_icon"
 
 date_color="$blue"
-date_icon="$stopwatch_icon"
+date_icon="$calendar_icon"
 
 battery_critical_color="$red"
 battery_low_color="$yellow"
@@ -188,6 +187,11 @@ battery_charging_color="$green"
 dir_color="$cyan"
 dir_home_icon="$home_icon"
 dir_folder_icon="$folder_icon"
+
+# Section colors, symbols and prefixes
+root_color="$red"
+user_icon="$system_icon"
+user_color="$yellow"
 
 git_branch_color="$magenta"
 git_branch_icon="$branch_icon"
@@ -226,18 +230,15 @@ timer_stop() {
 
 trap timer_start DEBUG
 
-# Prints out user only if we"re root, else prints nothing
-user_section() {
-	if [[ "$UID" -eq 0 ]]; then
-		echo -e " ${root_color}${user_icon}$USER"
-	else
-		echo -e " ${user_color}${user_icon}$USER"
-	fi
-}
-
 # Prints time in hh:mm
 clock_section() {
-	echo -e "${date_color}${date_icon}`date +"%H:%M"`"
+	echo -e "${clock_color}${clock_icon}`date +"%H:%M"`"
+}
+
+# Prints month and date, e.g. 11 may
+date_section() {
+	date_format="$(date +%d\ %b)"
+	echo -e " ${date_color}${date_icon}${date_format}" | tr "[:upper:]" "[:lower:]"
 }
 
 # Prints battery percentage, and if on battery or AC power
@@ -260,6 +261,15 @@ battery_section() {
 	fi
 
 	echo -e " ${output}${percentage}${perc_sign}"
+}
+
+# Prints out user only if we"re root, else prints nothing
+user_section() {
+	if [[ "$UID" -eq 0 ]]; then
+		echo -e " ${root_color}${user_icon}$USER"
+	else
+		echo -e " ${user_color}${user_icon}$USER"
+	fi
 }
 
 # Prints out current working directory with varying prefix,
@@ -387,7 +397,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	echo -e "${bold}${octopus_icon}$(clock_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
+	echo -e "${bold}${octopus_icon}$(clock_section)$(date_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
