@@ -156,8 +156,15 @@ autocmd VimResized * wincmd =
 autocmd BufWritePre * %s/\s\+$//e
 
 " Open NERDTree if no file specified
- autocmd StdinReadPre * let s:std_in=1
- autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"######################################"
+"###### ODD-FILE SYNTAX SETTINGS ######"
+"######################################"
+
+" Load MJML files as HTML syntax
+autocmd BufNewFile,BufRead *.mjml set syntax=html
 
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
