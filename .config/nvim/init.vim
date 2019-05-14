@@ -4,9 +4,9 @@
 
 " Automatic vim-plug installation
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 
 " Specify a directory for plugins
@@ -213,11 +213,11 @@ map <C-n> :NERDTreeToggle<CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-" Map '§' to act as 'Esc' since the MacBook touchbar is... well, crap
+" Map § to act as Esc since the MacBook touchbar is... well, crap
 map § <Esc>
 map! § <C-c>
 
-" Map 'Tab' in normal mode to clear search highlight
+" Map Tab in normal mode to clear search highlight
 map <Tab> :noh<CR>
 
 " Disable arrow keys, coz I needs to learn
