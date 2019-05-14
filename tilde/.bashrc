@@ -172,17 +172,17 @@ git_behind="$git_behind"
 newline="
 "
 
-clock_color="$blue"
+clock_color="$white"
 clock_icon="$stopwatch_icon"
 
-date_color="$blue"
+date_color="$white"
 date_icon="$calendar_icon"
 
 battery_critical_color="$red"
 battery_low_color="$yellow"
 batter_half_color="$cyan"
 battery_full_color="$green"
-battery_charging_color="$green"
+battery_charging_color="$white"
 
 dir_color="$cyan"
 dir_home_icon="$home_icon"
@@ -266,9 +266,9 @@ battery_section() {
 # Prints out user only if we"re root, else prints nothing
 user_section() {
 	if [[ "$UID" -eq 0 ]]; then
-		echo -e " ${root_color}${user_icon}$USER"
+		echo -e "${root_color}${user_icon}$USER"
 	else
-		echo -e " ${user_color}${user_icon}$USER"
+		echo -e "${user_color}${user_icon}$USER"
 	fi
 }
 
@@ -397,7 +397,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	echo -e "${bold}${octopus_icon}$(clock_section)$(date_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
+	echo -e "${newline}${bold}${octopus_icon}$(clock_section)$(date_section)$(battery_section)${newline}$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
