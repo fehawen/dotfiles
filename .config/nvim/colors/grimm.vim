@@ -9,16 +9,15 @@ let g:colors_name = "grimm"
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.background = { 'default': '#152B35' }
+let s:gui.background = { 'default': '#1F221F' }
 let s:gui.foreground = { 'default': '#AAA8AC' }
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.selection  = { 'default': '#2B4759' }
-let s:gui.line       = { 'default': '#1A3644' }
-let s:gui.comment    = { 'default': '#2B4759' }
+let s:gui.selection  = { 'default': '#3A413C' }
+let s:gui.line       = { 'default': '#2A2D29' }
+let s:gui.comment    = { 'default': '#485049' }
 
-let s:gui.black      = { 'default': '#2B4759' }
+let s:gui.black      = { 'default': '#485049' }
 let s:gui.red        = { 'default': '#9D534F' }
-" let s:gui.red        = { 'default': '#A84A48' }
 let s:gui.yellow     = { 'default': '#B09075' }
 let s:gui.green      = { 'default': '#878D7D' }
 let s:gui.cyan       = { 'default': '#97ABB9' }
@@ -67,11 +66,10 @@ call s:hi("User1",        s:gui.foreground, s:gui.line,       "bold")
 call s:hi("User2",        s:gui.green,      s:gui.line,       "bold")
 call s:hi("User3",        s:gui.red,        s:gui.line,       "bold")
 call s:hi("User4",        s:gui.cyan,       s:gui.line,       "bold")
-call s:hi("User5",        s:gui.blue,       s:gui.line,       "bold")
+call s:hi("User5",        s:gui.black,      s:gui.line,       "bold")
 call s:hi("User6",        s:gui.yellow,     s:gui.line,       "bold")
 call s:hi("User7",        s:gui.magenta,    s:gui.line,       "bold")
-call s:hi("User8",        s:gui.line,       s:gui.background, "bold")
-call s:hi("User9",        s:gui.background, s:gui.line,       "bold")
+call s:hi("User8",        s:gui.line,       s:gui.none,       "bold")
 
 call s:hi("StatusLine",       s:gui.line,   s:gui.foreground, "")
 call s:hi("StatusLineNC",     s:gui.line,   s:gui.background, "")
@@ -85,7 +83,7 @@ call s:hi("NERDTreeDir",        s:gui.blue,       s:gui.none,     "")
 call s:hi("NERDTreeDirSlash",   s:gui.background, s:gui.none,     "")
 call s:hi("NERDTreeFile",       s:gui.foreground, s:gui.none,     "")
 
-call s:hi("EndOfBuffer",  s:gui.background, s:gui.none,       "")
+call s:hi("EndOfBuffer",  s:gui.line,       "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
 call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.line,       "")
