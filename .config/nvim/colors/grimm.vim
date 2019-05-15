@@ -10,11 +10,10 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.background = { 'default': '#191C1A' }
-" let s:gui.background = { 'default': '#111311' }
 let s:gui.foreground = { 'default': '#AAA8AC' }
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.selection  = { 'default': '#363D3B' }
-let s:gui.line       = { 'default': '#292E2C' }
+let s:gui.selection  = { 'default': '#454F4D' }
+let s:gui.line       = { 'default': '#363D3B' }
 let s:gui.comment    = { 'default': '#454F4D' }
 
 let s:gui.black      = { 'default': '#454F4D' }
@@ -67,7 +66,7 @@ call s:hi("User1",        s:gui.foreground, s:gui.line,       "none")
 call s:hi("User2",        s:gui.green,      s:gui.line,       "none")
 call s:hi("User3",        s:gui.red,        s:gui.line,       "none")
 call s:hi("User4",        s:gui.cyan,       s:gui.line,       "none")
-call s:hi("User5",        s:gui.black,      s:gui.line,       "none")
+call s:hi("User5",        s:gui.background, s:gui.line,       "none")
 call s:hi("User6",        s:gui.yellow,     s:gui.line,       "none")
 call s:hi("User7",        s:gui.magenta,    s:gui.line,       "none")
 call s:hi("User8",        s:gui.line,       s:gui.none,       "none")
