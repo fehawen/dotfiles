@@ -9,19 +9,20 @@ let g:colors_name = "grimm"
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.background = { 'default': '#191C1A' }
+let s:gui.background = { 'default': '#0E100F' }
 let s:gui.foreground = { 'default': '#AAA8AC' }
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.selection  = { 'default': '#454F4D' }
-let s:gui.line       = { 'default': '#363D3B' }
+let s:gui.selection  = { 'default': '#2F3935' }
+let s:gui.line       = { 'default': '#202624' }
+" let s:gui.line       = { 'default': '#1E2321' }
 let s:gui.comment    = { 'default': '#454F4D' }
 
 let s:gui.black      = { 'default': '#454F4D' }
-let s:gui.red        = { 'default': '#9D534F' }
-let s:gui.yellow     = { 'default': '#B09075' }
-let s:gui.green      = { 'default': '#878D7D' }
-let s:gui.cyan       = { 'default': '#97ABB9' }
-let s:gui.blue       = { 'default': '#596E79' }
+let s:gui.red        = { 'default': '#8C4742' }
+let s:gui.yellow     = { 'default': '#AB9178' }
+let s:gui.green      = { 'default': '#888D7E' }
+let s:gui.cyan       = { 'default': '#A4B5C4' }
+let s:gui.blue       = { 'default': '#5D6D78' }
 let s:gui.magenta    = { 'default': '#A37984' }
 
 function! s:hi(group, guifg, guibg, attr)
@@ -114,7 +115,7 @@ call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
 
 call s:hi("NonText",      s:gui.line,       "",               "")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
-call s:hi("MatchParen",   s:gui.background, s:gui.green,      "")
+call s:hi("MatchParen",   s:gui.background, s:gui.red,        "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "italic")
 call s:hi("String",       s:gui.green,      "",               "")
@@ -132,8 +133,8 @@ call s:hi("Number",       s:gui.red,        "",               "")
 call s:hi("Identifier",   s:gui.red,        "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
-call s:hi("Search",       s:gui.background, s:gui.yellow,     "")
-call s:hi("InSearch",     s:gui.background, s:gui.yellow,     "")
+call s:hi("Search",       s:gui.background, s:gui.red,        "")
+call s:hi("InSearch",     s:gui.background, s:gui.red,        "")
 call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
