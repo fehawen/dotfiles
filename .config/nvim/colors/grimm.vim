@@ -9,15 +9,15 @@ let g:colors_name = "grimm"
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.background = { 'default': '#111311' }
+let s:gui.background = { 'default': '#191C1A' }
+" let s:gui.background = { 'default': '#111311' }
 let s:gui.foreground = { 'default': '#AAA8AC' }
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.selection  = { 'default': '#3A413C' }
-let s:gui.line       = { 'default': '#2A2D29' }
-let s:gui.divider    = { 'default': '#1E211E' }
-let s:gui.comment    = { 'default': '#485049' }
+let s:gui.selection  = { 'default': '#363D3B' }
+let s:gui.line       = { 'default': '#292E2C' }
+let s:gui.comment    = { 'default': '#454F4D' }
 
-let s:gui.black      = { 'default': '#485049' }
+let s:gui.black      = { 'default': '#454F4D' }
 let s:gui.red        = { 'default': '#9D534F' }
 let s:gui.yellow     = { 'default': '#B09075' }
 let s:gui.green      = { 'default': '#878D7D' }
@@ -63,15 +63,15 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",        s:gui.foreground, s:gui.divider,       "none")
-call s:hi("User2",        s:gui.green,      s:gui.divider,       "none")
-call s:hi("User3",        s:gui.red,        s:gui.divider,       "none")
-call s:hi("User4",        s:gui.cyan,       s:gui.divider,       "none")
-call s:hi("User5",        s:gui.black,      s:gui.divider,       "none")
-call s:hi("User6",        s:gui.yellow,     s:gui.divider,       "none")
-call s:hi("User7",        s:gui.magenta,    s:gui.divider,       "none")
-call s:hi("User8",        s:gui.divider,    s:gui.none,          "none")
-call s:hi("User9",        s:gui.divider,    s:gui.divider,       "none")
+call s:hi("User1",        s:gui.foreground, s:gui.line,       "none")
+call s:hi("User2",        s:gui.green,      s:gui.line,       "none")
+call s:hi("User3",        s:gui.red,        s:gui.line,       "none")
+call s:hi("User4",        s:gui.cyan,       s:gui.line,       "none")
+call s:hi("User5",        s:gui.black,      s:gui.line,       "none")
+call s:hi("User6",        s:gui.yellow,     s:gui.line,       "none")
+call s:hi("User7",        s:gui.magenta,    s:gui.line,       "none")
+call s:hi("User8",        s:gui.line,       s:gui.none,       "none")
+call s:hi("User9",        s:gui.line,       s:gui.line,       "none")
 
 call s:hi("StatusLine",       s:gui.line,   s:gui.foreground, "")
 call s:hi("StatusLineNC",     s:gui.line,   s:gui.background, "")
@@ -85,7 +85,7 @@ call s:hi("NERDTreeDir",        s:gui.blue,       s:gui.none,     "")
 call s:hi("NERDTreeDirSlash",   s:gui.background, s:gui.none,     "")
 call s:hi("NERDTreeFile",       s:gui.foreground, s:gui.none,     "")
 
-call s:hi("EndOfBuffer",  s:gui.divider,    "",               "")
+call s:hi("EndOfBuffer",  s:gui.line,       "",                  "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
 call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.line,       "")
@@ -102,7 +102,7 @@ call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.red,        "",               "")
 call s:hi("SpellBad",     s:gui.red,        s:gui.none,       "none")
-call s:hi("VertSplit",    s:gui.divider,    s:gui.divider,    "none")
+call s:hi("VertSplit",    s:gui.line,       s:gui.line,       "none")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "")
 
 call s:hi("DiffAdded",    s:gui.green,      "", "")
