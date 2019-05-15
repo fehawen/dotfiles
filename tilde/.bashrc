@@ -151,7 +151,7 @@ ahead_icon="   "
 behind_icon="   "
 battery_critical_icon="  "
 battery_low_icon="  "
-batter_half_icon="  "
+battery_half_icon="  "
 battery_full_icon="  "
 battery_charging_icon="  "
 
@@ -180,7 +180,7 @@ date_icon="$calendar_icon"
 
 battery_critical_color="$red"
 battery_low_color="$yellow"
-batter_half_color="$cyan"
+battery_half_color="$cyan"
 battery_full_color="$green"
 battery_charging_color="$white"
 
@@ -246,21 +246,21 @@ battery_section() {
 	local output=""
 	local charging=$(pmset -g ps | head -1 2> /dev/null)
 	local percentage=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1 2> /dev/null)
-	local perc_sign="%"
+	local battery_level=$(pmset -g batt | grep -Eo "\d+%" 2> /dev/null)
 
 	if [[ "$charging" =~ "AC Power" ]]; then
 		output="${battery_charging_color}${battery_charging_icon}"
 	elif [[ "$percentage" -ge 75 ]]; then
 		output="${battery_full_color}${battery_full_icon}"
 	elif [[ "$percentage" -ge 50 ]]; then
-		output="${batter_half_color}${batter_half_color}"
-	elif [[ "$percentage" -ge 25 ]];then
+		output="${battery_half_color}${battery_half_icon}"
+	elif [[ "$percentage" -ge 25 ]]; then
 		output="${battery_low_color}${battery_low_icon}"
 	else
 		output="${battery_critical_color}${battery_critical_icon}"
 	fi
 
-	echo -e " ${output}${percentage}${perc_sign}"
+	echo -e " ${output}${battery_level}"
 }
 
 # Prints out user only if we"re root, else prints nothing
