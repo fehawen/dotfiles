@@ -77,7 +77,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%8*%=%8*%5*\ \   \ \ \ "
+let NERDTreeStatusline="%8*%=%8*%5*\ \ NERD\ \ "
 
 " }}}
 
@@ -124,7 +124,7 @@ function! ActiveStatusLine()
 	endif
 
 	let l:statusline.="%6*%c  \ \ "
-	let l:statusline.="%7*%l/%L  \ \ "
+	let l:statusline.="%7*%l/%L  \ "
 
 	return l:statusline
 
@@ -143,7 +143,7 @@ function! InactiveStatusLine()
 	let l:statusline.="%8*%5*\ \ "
 
 	let l:statusline.="%c  \ \ "
-	let l:statusline.="%l/%L  \ \ "
+	let l:statusline.="%l/%L  \ "
 
 	return l:statusline
 

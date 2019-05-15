@@ -149,6 +149,7 @@ paperclip_icon="  "
 patch_icon="  "
 ahead_icon="   "
 behind_icon="   "
+battery_panic_icon="  "
 battery_critical_icon="  "
 battery_low_icon="  "
 battery_half_icon="  "
@@ -178,6 +179,7 @@ clock_icon="$stopwatch_icon"
 date_color="$white"
 date_icon="$calendar_icon"
 
+battery_panic_color="$red"
 battery_critical_color="$red"
 battery_low_color="$yellow"
 battery_half_color="$cyan"
@@ -256,8 +258,10 @@ battery_section() {
 		output="${battery_half_color}${battery_half_icon}"
 	elif [[ "$percentage" -ge 25 ]]; then
 		output="${battery_low_color}${battery_low_icon}"
-	else
+	elif [[ "$percentage" -ge 10 ]]; then
 		output="${battery_critical_color}${battery_critical_icon}"
+	else
+		output="${battery_panic_color}${battery_panic_icon}"
 	fi
 
 	echo -e " ${output}${battery_level}"
