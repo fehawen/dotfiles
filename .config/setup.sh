@@ -3,8 +3,8 @@
 setup_kitty() {
 	kitty=(
 		"grimm.conf"
+		"grimmpale.conf"
 		"kitty.conf"
-		"xwing.conf"
 	)
 
 	read -r -p "Include kitty? [y/N] " answer
@@ -82,9 +82,6 @@ setup_neovim() {
 
 		echo -e "\nSymlinking '$HOME/.config/nvim/colors/grimm.vim'."
 		ln -sfv "$(PWD)/nvim/colors/grimm.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/grimm.vim'"
-
-		echo -e "\nSymlinking '$HOME/.config/nvim/colors/xwing.vim'."
-		ln -sfv "$(PWD)/nvim/colors/xwing.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/xwing.vim'"
 
 		echo -e "\nSymlinking '$HOME/.config/nvim/plugin/statusline.vim'."
 		ln -sfv "$(PWD)/nvim/plugin/statusline.vim" "$HOME/.config/nvim/plugin/" || error "Failed to symlink '$(PWD)/nvim/plugin/statusline.vim'"

@@ -82,8 +82,9 @@ set relativenumber number
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
-" Disable cursor line for better performance
-set nocursorline
+" Enable cursor line, disable cursor column
+set cursorline
+set nocursorcolumn
 
 " Sets unix as standard filetype
 set ffs=unix,dos,mac
@@ -174,11 +175,22 @@ autocmd BufNewFile,BufRead *.mjml set syntax=html
 set termguicolors
 
 " Set theme
+let grimmstyle="pale"
 colorscheme grimm
 
 " Set list characters
 set list
-set lcs=tab:❯\ ,trail:•
+set listchars=
+set listchars+=tab:›\ ,
+"set listchars+=tab:❯\ ,
+set listchars+=trail:•
+set listchars+=extends:»
+set listchars+=precedes:«
+
+" Set end of buffer ~ to empty [:space:]
+" NOTE: requires escaped space followed by comma
+" due to autocmd to trim trailing spaces, see above
+set fcs=eob:\ ,
 
 " Enable deoplete on startup (async completion framework)
 let g:deoplete#enable_at_startup = 1

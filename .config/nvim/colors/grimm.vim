@@ -4,26 +4,34 @@ if exists("syntax_on")
 	syntax reset
 endif
 
+let s:style = get(g:, "grimmstyle", "default")
 let g:colors_name = "grimm"
 
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.background = { 'default': '#0E100F' }
-let s:gui.foreground = { 'default': '#AAA8AC' }
-let s:gui.none       = { 'default': 'NONE' }
-let s:gui.selection  = { 'default': '#2F3935' }
-let s:gui.line       = { 'default': '#202624' }
-" let s:gui.line       = { 'default': '#1E2321' }
-let s:gui.comment    = { 'default': '#454F4D' }
+let s:gui.none           = { 'default': 'NONE', 'pale': 'NONE' }
+let s:gui.background     = { 'default': '#0E100F', 'pale': '#2F333D' }
+let s:gui.foreground     = { 'default': '#AAA8AC', 'pale': '#D1D6E0' }
 
-let s:gui.black      = { 'default': '#454F4D' }
-let s:gui.red        = { 'default': '#8C4742' }
-let s:gui.yellow     = { 'default': '#AB9178' }
-let s:gui.green      = { 'default': '#888D7E' }
-let s:gui.cyan       = { 'default': '#A4B5C4' }
-let s:gui.blue       = { 'default': '#5D6D78' }
-let s:gui.magenta    = { 'default': '#A37984' }
+let s:gui.line           = { 'default': '#202624', 'pale': '#373C48'}
+let s:gui.selection      = { 'default': '#2F3935', 'pale': '#4D5668'}
+let s:gui.search         = { 'default': '#8C4742', 'pale': '#535C68'}
+
+let s:gui.comment        = { 'default': '#454F4D', 'pale': '#616A7F'}
+
+let s:gui.linenr         = { 'default': '#2F3935', 'pale': '#4D5668'}
+let s:gui.curslinenr     = { 'default': '#AAA8AC', 'pale': '#D9DEE8'}
+let s:gui.listchars      = { 'default': '#9B614E', 'pale': '#4D5668'}
+
+
+let s:gui.black          = { 'default': '#454F4D', 'pale': '#616A7F'}
+let s:gui.red            = { 'default': '#8C4742', 'pale': '#A2736C'}
+let s:gui.green          = { 'default': '#888D7E', 'pale': '#A0B291'}
+let s:gui.yellow         = { 'default': '#AB9178', 'pale': '#D8C691'}
+let s:gui.blue           = { 'default': '#5D6D78', 'pale': '#8096AD'}
+let s:gui.magenta        = { 'default': '#A37984', 'pale': '#A28F9E'}
+let s:gui.cyan           = { 'default': '#A4B5C4', 'pale': '#91AFBC'}
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -39,7 +47,11 @@ function! s:hi(group, guifg, guibg, attr)
 endfunction
 
 function! s:gui(color)
-	return a:color['default']
+	if exists("g:grimmstyle")
+		return a:color[s:style]
+	else
+		return a:color["default"]
+	endif
 endfunction
 
 " Neovim Terminal colors
@@ -71,7 +83,6 @@ call s:hi("User5",        s:gui.background, s:gui.line,       "none")
 call s:hi("User6",        s:gui.yellow,     s:gui.line,       "none")
 call s:hi("User7",        s:gui.magenta,    s:gui.line,       "none")
 call s:hi("User8",        s:gui.line,       s:gui.none,       "none")
-call s:hi("User9",        s:gui.line,       s:gui.line,       "none")
 
 call s:hi("StatusLine",       s:gui.line,   s:gui.foreground, "")
 call s:hi("StatusLineNC",     s:gui.line,   s:gui.background, "")
@@ -85,19 +96,19 @@ call s:hi("NERDTreeDir",        s:gui.blue,       s:gui.none,     "")
 call s:hi("NERDTreeDirSlash",   s:gui.background, s:gui.none,     "")
 call s:hi("NERDTreeFile",       s:gui.foreground, s:gui.none,     "")
 
-call s:hi("EndOfBuffer",  s:gui.line,       "",                  "")
+call s:hi("EndOfBuffer",  s:gui.background, "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
 call s:hi("Cursor",       s:gui.foreground, "",               "")
-call s:hi("CursorColumn", s:gui.none,       s:gui.line,       "")
+call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
-call s:hi("LineNr",       s:gui.selection,  "",               "")
-call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
-call s:hi("CursorLineNr", s:gui.foreground, s:gui.none,       "")
+call s:hi("LineNr",       s:gui.linenr,     "",               "")
+call s:hi("CursorLine",   s:gui.none,       s:gui.line,       "")
+call s:hi("CursorLineNr", s:gui.curslinenr, s:gui.none,       "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.comment,    s:gui.line,       "")
-call s:hi("PMenu",        s:gui.green,      s:gui.selection,  "")
-call s:hi("PMenuSel",     s:gui.background, s:gui.green,      "")
+call s:hi("PMenu",        s:gui.cyan,       s:gui.line,       "")
+call s:hi("PMenuSel",     s:gui.cyan,       s:gui.selection,  "")
 call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.red,        "",               "")
@@ -113,7 +124,7 @@ call s:hi("DiffChange",   "",               s:gui.cyan,       "")
 call s:hi("DiffDelete",   s:gui.red,        s:gui.black,      "")
 call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
 
-call s:hi("NonText",      s:gui.line,       "",               "")
+call s:hi("NonText",      s:gui.listchars,  "",               "")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
 call s:hi("MatchParen",   s:gui.background, s:gui.red,        "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
@@ -133,8 +144,8 @@ call s:hi("Number",       s:gui.red,        "",               "")
 call s:hi("Identifier",   s:gui.red,        "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
-call s:hi("Search",       s:gui.background, s:gui.red,        "")
-call s:hi("InSearch",     s:gui.background, s:gui.red,        "")
+call s:hi("Search",       s:gui.none,       s:gui.search,     "")
+call s:hi("InSearch",     s:gui.none,       s:gui.search,     "")
 call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
