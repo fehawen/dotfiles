@@ -9,20 +9,24 @@ let g:colors_name = "industrial"
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.background = { 'default': '#263238' }
-let s:gui.foreground = { 'default': '#CFD8DC' }
-let s:gui.none       = { 'default': 'NONE',   }
-let s:gui.selection  = { 'default': '#546E7A' }
-let s:gui.line       = { 'default': '#37474F' }
-let s:gui.comment    = { 'default': '#0E1014' }
+let s:gui.background = { 'dark': '#263238', 'light': '#263238' }
+let s:gui.foreground = { 'dark': '#B0BEC5', 'light': '#B0BEC5' }
+let s:gui.none       = { 'dark': 'NONE',    'light': 'NONE',   }
+let s:gui.selection  = { 'dark': '#546E7A', 'light': '#546E7A' }
+let s:gui.line       = { 'dark': '#37474F', 'light': '#37474F' }
+let s:gui.comment    = { 'dark': '#37474F', 'light': '#37474F' }
 
-let s:gui.black      = { 'default': '#0E1014' }
-let s:gui.red        = { 'default': '#455A64' }
-let s:gui.yellow     = { 'default': '#607D8B' }
-let s:gui.green      = { 'default': '#78909C' }
-let s:gui.cyan       = { 'default': '#90A4AE' }
-let s:gui.blue       = { 'default': '#546E7A' }
-let s:gui.accent     = { 'default': '#F4511E' }
+let s:gui.black      = { 'dark': '#0E1014', 'light': '#0E1014' }
+let s:gui.red        = { 'dark': '#455A64', 'light': '#455A64' }
+let s:gui.yellow     = { 'dark': '#607D8B', 'light': '#607D8B' }
+let s:gui.green      = { 'dark': '#78909C', 'light': '#78909C' }
+let s:gui.cyan       = { 'dark': '#90A4AE', 'light': '#90A4AE' }
+let s:gui.blue       = { 'dark': '#546E7A', 'light': '#546E7A' }
+let s:gui.accent     = { 'dark': '#F4511E', 'light': '#F4511E' }
+
+if !exists('g:industrial_style')
+	let g:industrial_style='default'
+endif
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -38,7 +42,15 @@ function! s:hi(group, guifg, guibg, attr)
 endfunction
 
 function! s:gui(color)
-	return a:color['default']
+	if &background == "light"
+		return a:color['light']
+	else
+		if g:industrial_style == 'default'
+			return a:color['dark']
+		else
+			return a:color[g:industrial_style]
+		endif
+	endif
 endfunction
 
 " Neovim Terminal colors
@@ -62,13 +74,11 @@ if has("nvim")
 endif
 
 " "EDITOR COLORS
-call s:hi("User1",        s:gui.yellow,     s:gui.line,       "italic")
-call s:hi("User2",        s:gui.accent,     s:gui.line,       "italic")
-call s:hi("User3",        s:gui.red,        s:gui.line,       "italic")
-call s:hi("User4",        s:gui.foreground, s:gui.line,       "italic")
-call s:hi("User5",        s:gui.blue,       s:gui.line,       "italic")
-call s:hi("User8",        s:gui.line,       s:gui.background, "italic")
-call s:hi("User9",        s:gui.background, s:gui.line,       "italic")
+call s:hi("User1",        s:gui.foreground, s:gui.line,       "italic")
+call s:hi("User2",        s:gui.yellow,     s:gui.line,       "italic")
+call s:hi("User3",        s:gui.accent,     s:gui.line,       "italic")
+call s:hi("User4",        s:gui.background, s:gui.line,       "italic")
+call s:hi("User8",        s:gui.line,       s:gui.none,       "italic")
 
 call s:hi("StatusLine",       s:gui.line,   s:gui.foreground, "")
 call s:hi("StatusLineNC",     s:gui.line,   s:gui.background, "")
@@ -96,8 +106,8 @@ call s:hi("PMenu",        s:gui.foreground, s:gui.line,       "")
 call s:hi("PMenuSel",     s:gui.cyan,       s:gui.none,       "")
 call s:hi("ErrorMsg",     s:gui.accent,     s:gui.none,       "")
 call s:hi("Error",        s:gui.accent,     s:gui.none,       "")
-call s:hi("WarningMsg",   s:gui.accent,     "",               "")
-call s:hi("VertSplit",    s:gui.line,       s:gui.line,       "")
+call s:hi("WarningMsg",   s:gui.accent,     s:gui.none,       "none")
+call s:hi("VertSplit",    s:gui.line,       s:gui.none,       "none")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "")
 
 call s:hi("DiffAdded",    s:gui.green,      "", "")
