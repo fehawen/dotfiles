@@ -4,6 +4,7 @@ setup_kitty() {
 	kitty=(
 		"grimm.conf"
 		"grimmpale.conf"
+		"industrial.conf"
 		"kitty.conf"
 	)
 
@@ -82,6 +83,9 @@ setup_neovim() {
 
 		echo -e "\nSymlinking '$HOME/.config/nvim/colors/grimm.vim'."
 		ln -sfv "$(PWD)/nvim/colors/grimm.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/grimm.vim'"
+
+		echo -e "\nSymlinking '$HOME/.config/nvim/colors/industrial.vim'."
+		ln -sfv "$(PWD)/nvim/colors/industrial.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/industrial.vim'"
 
 		echo -e "\nSymlinking '$HOME/.config/nvim/plugin/statusline.vim'."
 		ln -sfv "$(PWD)/nvim/plugin/statusline.vim" "$HOME/.config/nvim/plugin/" || error "Failed to symlink '$(PWD)/nvim/plugin/statusline.vim'"

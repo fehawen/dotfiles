@@ -83,8 +83,9 @@ set relativenumber number
 set lazyredraw
 
 " Enable cursor line, disable cursor column
-set cursorline
-set nocursorcolumn
+" set cursorline
+" set nocursorcolumn
+set nocursorline
 
 " Sets unix as standard filetype
 set ffs=unix,dos,mac
@@ -175,8 +176,8 @@ autocmd BufNewFile,BufRead *.mjml set syntax=html
 set termguicolors
 
 " Set theme
-let grimmstyle="pale"
-colorscheme grimm
+" let grimmstyle="pale"
+colorscheme industrial
 
 " Set list characters
 set list

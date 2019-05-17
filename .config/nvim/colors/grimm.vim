@@ -12,11 +12,11 @@ let s:cterm = {}
 
 let s:gui.none           = { 'default': 'NONE', 'pale': 'NONE' }
 let s:gui.background     = { 'default': '#0E100F', 'pale': '#2F333D' }
-let s:gui.foreground     = { 'default': '#AAA8AC', 'pale': '#D1D6E0' }
+let s:gui.foreground     = { 'default': '#AAA8AC', 'pale': '#B7BBC4' }
 
 let s:gui.line           = { 'default': '#202624', 'pale': '#373C48'}
 let s:gui.selection      = { 'default': '#2F3935', 'pale': '#4D5668'}
-let s:gui.search         = { 'default': '#8C4742', 'pale': '#535C68'}
+let s:gui.search         = { 'default': '#2F3935', 'pale': '#535C68'}
 
 let s:gui.comment        = { 'default': '#454F4D', 'pale': '#616A7F'}
 
@@ -102,7 +102,7 @@ call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
 call s:hi("LineNr",       s:gui.linenr,     "",               "")
-call s:hi("CursorLine",   s:gui.none,       s:gui.line,       "")
+call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
 call s:hi("CursorLineNr", s:gui.curslinenr, s:gui.none,       "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
@@ -124,7 +124,7 @@ call s:hi("DiffChange",   "",               s:gui.cyan,       "")
 call s:hi("DiffDelete",   s:gui.red,        s:gui.black,      "")
 call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
 
-call s:hi("NonText",      s:gui.listchars,  "",               "")
+call s:hi("NonText",      s:gui.selection,  "",               "")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
 call s:hi("MatchParen",   s:gui.background, s:gui.red,        "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
