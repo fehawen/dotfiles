@@ -205,7 +205,7 @@ exec_time_section() {
 
 	output="${output}${seconds}s"
 
-	echo -e " ${exec_time_prefix} ${exec_time_color}${output}"
+	printf " ${exec_time_prefix}${exec_time_color} ${output}"
 }
 
 # Show exit status of previous command
