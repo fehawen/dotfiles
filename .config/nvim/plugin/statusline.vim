@@ -105,7 +105,7 @@ function! ActiveStatusLine()
 	let l:statusline.="%2*file\ %1*%t\ "
 
 	if LinterStatus() != ""
-		let l:statusline.="%2*lint\ %3*%{LinterStatus()}\ "
+		let l:statusline.="\ %2*lint\ %3*%{LinterStatus()}\ "
 	endif
 
 	let l:statusline.="\ %8*"
