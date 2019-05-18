@@ -4,7 +4,8 @@
 ### SYMBOLS ###
 ###############
 
-arrow="›"
+#arrow="›"
+arrow="→"
 git_modified="!"
 git_added="+"
 git_deleted="-"
@@ -25,20 +26,19 @@ newline="
 # Section colors, symbols and prefixes
 prefix_color="$white"
 
-clock_color="$yellow"
+clock_color="$blue"
 clock_icon="$stopwatch_icon"
 
 date_prefix="${prefix_color}on"
-date_color="$yellow"
+date_color="$blue"
 date_icon="$calendar_icon"
 
 battery_prefix="${prefix_color}at"
 battery_critical_color="$magenta"
-battery_regular_color="$green"
+battery_regular_color="$yellow"
 
 user_prefix="${prefix_color}is"
 root_color="$magenta"
-user_color="$blue"
 
 dir_prefix="${prefix_color}in"
 dir_color="$cyan"
@@ -83,13 +83,13 @@ trap timer_start DEBUG
 
 # Prints time in hh:mm
 clock_section() {
-	printf "${clock_color}$(date +%H:%M)"
+	printf "${clock_color}$(date '+%H:%M')"
 }
 
 # Prints month and date, e.g. 11 may
 date_section() {
-	date_format="$(date +%d\ %b)"
-	echo -e " ${date_prefix} ${date_color}${date_format}" | tr "[:upper:]" "[:lower:]"
+	date_format="$(date '+%a %d %b')"
+	echo -e " ${date_prefix} ${date_color}${date_format}"
 }
 
 # Prints battery percentage, and if on battery or AC power
@@ -110,8 +110,6 @@ battery_section() {
 user_section() {
 	if [[ "$UID" -eq 0 ]]; then
 		echo -e " ${user_prefix} ${root_color}$USER"
-	else
-		echo -e " ${user_prefix} ${user_color}$USER"
 	fi
 }
 
