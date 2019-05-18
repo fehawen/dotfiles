@@ -1,5 +1,28 @@
 #!/bin/bash
 
+setup_prompt() {
+	themes=(
+		"grimm.sh"
+		"industrial.sh"
+	)
+
+	read -r -p "Include prompt themes? [y/N] " answer
+	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+		echo "Excluding prompt themes..."
+		echo -e "Proceeding...\n"
+	else
+		echo -e "\nSetting up prompt themes..."
+
+		for inc in ${themes[@]}
+		do
+			echo -e "\nSymlinking '$HOME/.config/prompt/$inc'."
+			ln -sfv "$(PWD)/prompt/$inc" "$HOME/.config/prompt/" || error "Failed to symlink $1"
+		done
+	fi
+
+	echo -e "Done.\n"
+}
+
 setup_kitty() {
 	kitty=(
 		"grimm.conf"
@@ -94,6 +117,7 @@ setup_neovim() {
 	echo -e "Done.\n"
 }
 
+setup_prompt
 setup_kitty
 setup_neofetch
 setup_neovim

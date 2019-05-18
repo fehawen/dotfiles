@@ -65,6 +65,7 @@ setup() {
 		symlink "$inc"
 	done
 
+	echo -e "Prompt themes will be setup in the next step.\n"
 	echo -e "Done.\n"
 }
 

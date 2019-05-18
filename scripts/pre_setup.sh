@@ -7,6 +7,7 @@ pre_setup() {
 		"nvim"
 		"nvim/colors"
 		"nvim/plugin"
+		"prompt"
 	)
 
 	echo -e "\nChecking if homebrew exists..."

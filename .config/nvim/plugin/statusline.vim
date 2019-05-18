@@ -109,13 +109,13 @@ function! ActiveStatusLine()
 	let l:statusline.="%1*\   %t\ "
 
 	if LinterStatus() != ""
-		let l:statusline.="%3*\   %{LinterStatus()}\ "
+		let l:statusline.="%1*\   %{LinterStatus()}\ "
 	endif
 
 	let l:statusline.="\ %8*"
 
 	let l:statusline.="%="
-	let l:statusline.="%8*%4*\ "
+	let l:statusline.="%8*%1*\ "
 
 	if SyntaxItem() != ""
 		let l:statusline.="\ %{SyntaxItem()}  \ \ "
@@ -123,7 +123,7 @@ function! ActiveStatusLine()
 		let l:statusline.="\ "
 	endif
 
-	let l:statusline.="%2*%c  \ \ "
+	let l:statusline.="%1*%c  \ \ "
 	let l:statusline.="%l/%L  \ "
 
 	return l:statusline
@@ -135,12 +135,12 @@ function! InactiveStatusLine()
 
 	let l:statusline=""
 
-	let l:statusline.="%4*\   %t\ "
+	let l:statusline.="%2*\   %t\ "
 
 	let l:statusline.="\ %8*"
 
 	let l:statusline.="%="
-	let l:statusline.="%8*%4*\ \ "
+	let l:statusline.="%8*%2*\ \ "
 
 	let l:statusline.="%c  \ \ "
 	let l:statusline.="%l/%L  \ "

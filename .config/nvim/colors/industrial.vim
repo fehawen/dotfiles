@@ -75,15 +75,14 @@ endif
 
 " "EDITOR COLORS
 call s:hi("User1",        s:gui.foreground, s:gui.line,       "italic")
-call s:hi("User2",        s:gui.yellow,     s:gui.line,       "italic")
+call s:hi("User2",        s:gui.blue,       s:gui.line,       "italic")
 call s:hi("User3",        s:gui.accent,     s:gui.line,       "italic")
-call s:hi("User4",        s:gui.background, s:gui.line,       "italic")
 call s:hi("User8",        s:gui.line,       s:gui.none,       "italic")
 
 call s:hi("StatusLine",       s:gui.line,   s:gui.foreground, "")
-call s:hi("StatusLineNC",     s:gui.line,   s:gui.background, "")
+call s:hi("StatusLineNC",     s:gui.line,   s:gui.blue,       "")
 call s:hi("StatusLineTerm",   s:gui.line,   s:gui.foreground, "")
-call s:hi("StatusLineTemrNC", s:gui.line,   s:gui.background, "")
+call s:hi("StatusLineTemrNC", s:gui.line,   s:gui.blue,       "")
 
 call s:hi("NERDTreeOpenable",   s:gui.red,        s:gui.none,     "")
 call s:hi("NERDTreeClosable",   s:gui.red,        s:gui.none,     "")
@@ -92,10 +91,11 @@ call s:hi("NERDTreeDir",        s:gui.blue,       s:gui.none,     "")
 call s:hi("NERDTreeDirSlash",   s:gui.accent,     s:gui.none,     "")
 call s:hi("NERDTreeFile",       s:gui.foreground, s:gui.none,     "")
 
-call s:hi("EndOfBuffer",  s:gui.background, s:gui.none,       "")
+call s:hi("EndOfBuffer",  s:gui.background, "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
 call s:hi("Cursor",       s:gui.accent,     "",               "")
-call s:hi("CursorColumn", s:gui.none,       s:gui.line,       "")
+call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
+call s:hi("SignColumn",   s:gui.accent,     s:gui.none,       "")
 call s:hi("LineNr",       s:gui.line,       "",               "")
 call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
 call s:hi("CursorLineNr", s:gui.accent,     s:gui.none,       "")
@@ -103,10 +103,11 @@ call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.comment,    s:gui.line,       "")
 call s:hi("PMenu",        s:gui.foreground, s:gui.line,       "")
-call s:hi("PMenuSel",     s:gui.cyan,       s:gui.none,       "")
+call s:hi("PMenuSel",     s:gui.foreground, s:gui.blue,       "")
 call s:hi("ErrorMsg",     s:gui.accent,     s:gui.none,       "")
 call s:hi("Error",        s:gui.accent,     s:gui.none,       "")
-call s:hi("WarningMsg",   s:gui.accent,     s:gui.none,       "none")
+call s:hi("WarningMsg",   s:gui.accent,     "",               "")
+call s:hi("SpellBad",     s:gui.accent,     s:gui.none,       "none")
 call s:hi("VertSplit",    s:gui.line,       s:gui.none,       "none")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "")
 
@@ -144,15 +145,15 @@ call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.accent,     "",               "") " @observable etc...
 
 " ALE COLORS
-call s:hi("SpellBad",     s:gui.accent,     s:gui.none, "none")
-call s:hi("AleText",      s:gui.accent,     s:gui.none, "")
-call s:hi("AleWarning",   s:gui.accent,     s:gui.none, "")
-call s:hi("AleLine",      s:gui.red,        s:gui.none, "")
+call s:hi("ALEInfoSign",         s:gui.accent,    s:gui.none, "")
+call s:hi("ALEErrorSign",        s:gui.accent,    s:gui.none, "")
+call s:hi("ALEWarningSign",      s:gui.accent,    s:gui.none, "")
+call s:hi("ALEStyleErrorSign",   s:gui.accent,    s:gui.none, "")
+call s:hi("ALEStyleWarningSign", s:gui.accent,    s:gui.none, "")
 
-hi link ALEErrorSign    AleText
-hi link ALEWarningSign  AleText
-hi link ALEErrorLine    AleLine
-hi link ALEInfoLine     AleLine
+call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
+call s:hi("ALEErrorLine",        s:gui.comment,   s:gui.none, "")
+call s:hi("ALEWarningLine",      s:gui.comment,   s:gui.none, "")
 
 " TYPESCRIPT COLORS: " {{{
 " leafgarland/typescript-vim
