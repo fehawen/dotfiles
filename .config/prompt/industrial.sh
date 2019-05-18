@@ -5,7 +5,6 @@
 ###############
 
 arrow="›"
-# arrow="→"
 git_modified="!"
 git_added="+"
 git_deleted="-"
@@ -241,7 +240,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	printf "${bold}${italic}$(clock_section)$(date_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
+	printf "${bold}${italic}$(clock_section)$(date_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}${reset}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
