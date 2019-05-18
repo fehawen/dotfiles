@@ -77,7 +77,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%8*%=%8*%2*\ \ NERD\ \ "
+let NERDTreeStatusline="%8*%=%8*%4*\ \ NERD\ \ "
 
 " }}}
 
@@ -92,24 +92,20 @@ function! ActiveStatusLine()
 
 	let l:statusline=""
 
+	let l:statusline.="%2*\ \ mode\ "
+
 	if (mode() =~# '\v(n|no)')
-		let l:statusline.="%2*\   "
-	elseif (mode() =~# '\v(v|V)' || ModeCurrent() ==# 'VISUAL BLOCK')
-		let l:statusline.="%3*\   "
-	elseif (mode() =~# '\v(R)')
-		let l:statusline.="%3*\   "
-	elseif (mode() =~# '\v(i)')
-		let l:statusline.="%3*\   "
+		let l:statusline.="%1*"
 	else
-		let l:statusline.="%3*\   "
+		let l:statusline.="%3*"
 	endif
 
-	let l:statusline.="%{ModeCurrent()}\ "
+	let l:statusline.="%{ModeCurrent()}\ \ "
 
-	let l:statusline.="%1*\   %t\ "
+	let l:statusline.="%2*file\ %1*%t\ "
 
 	if LinterStatus() != ""
-		let l:statusline.="%1*\   %{LinterStatus()}\ "
+		let l:statusline.="%2*lint\ %3*%{LinterStatus()}\ "
 	endif
 
 	let l:statusline.="\ %8*"
@@ -118,13 +114,13 @@ function! ActiveStatusLine()
 	let l:statusline.="%8*%1*\ "
 
 	if SyntaxItem() != ""
-		let l:statusline.="\ %{SyntaxItem()}  \ \ "
+		let l:statusline.="\ %2*syntax\ %1*%{SyntaxItem()}\ \ "
 	else
 		let l:statusline.="\ "
 	endif
 
-	let l:statusline.="%1*%c  \ \ "
-	let l:statusline.="%l/%L  \ "
+	let l:statusline.="%2*col\ %1*%c\ \ "
+	let l:statusline.="%2*line\ %1*%l/%L\ \ "
 
 	return l:statusline
 
@@ -135,15 +131,15 @@ function! InactiveStatusLine()
 
 	let l:statusline=""
 
-	let l:statusline.="%2*\   %t\ "
+	let l:statusline.="%4*\ \ file\ %2*%t\ "
 
 	let l:statusline.="\ %8*"
 
 	let l:statusline.="%="
-	let l:statusline.="%8*%2*\ \ "
+	let l:statusline.="%8*%4*\ "
 
-	let l:statusline.="%c  \ \ "
-	let l:statusline.="%l/%L  \ "
+	let l:statusline.="\ col\ %2*%c\ \ "
+	let l:statusline.="%4*line\ %2*%l/%L\ \ "
 
 	return l:statusline
 

@@ -77,6 +77,7 @@ endif
 call s:hi("User1",        s:gui.foreground, s:gui.line,       "italic")
 call s:hi("User2",        s:gui.blue,       s:gui.line,       "italic")
 call s:hi("User3",        s:gui.accent,     s:gui.line,       "italic")
+call s:hi("User4",        s:gui.background, s:gui.line,       "italic")
 call s:hi("User8",        s:gui.line,       s:gui.none,       "italic")
 
 call s:hi("StatusLine",       s:gui.line,   s:gui.foreground, "")
