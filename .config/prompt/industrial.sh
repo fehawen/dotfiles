@@ -29,10 +29,6 @@ prefix_color="$white"
 clock_color="$blue"
 clock_icon="$stopwatch_icon"
 
-date_prefix="${prefix_color}on"
-date_color="$blue"
-date_icon="$calendar_icon"
-
 battery_prefix="${prefix_color}at"
 battery_critical_color="$magenta"
 battery_regular_color="$yellow"
@@ -84,12 +80,6 @@ trap timer_start DEBUG
 # Prints time in hh:mm
 clock_section() {
 	printf "${clock_color}$(date '+%H:%M')"
-}
-
-# Prints month and date, e.g. 11 may
-date_section() {
-	date_format="$(date '+%a %d %b')"
-	echo -e " ${date_prefix} ${date_color}${date_format}"
 }
 
 # Prints battery percentage, and if on battery or AC power
@@ -238,7 +228,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	printf "${bold}${italic}$(clock_section)$(date_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}${reset}$(exit_code_section)${reset}"
+	printf "${bold}${italic}$(clock_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}${reset}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
