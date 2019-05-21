@@ -20,6 +20,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'amadeus/vim-mjml'
 
 " Initialize plugin system
 call plug#end()
@@ -161,13 +162,6 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-"######################################"
-"###### ODD-FILE SYNTAX SETTINGS ######"
-"######################################"
-
-" Load MJML files as HTML syntax
-autocmd BufNewFile,BufRead *.mjml set syntax=html
-
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
 "#####################################"
@@ -176,7 +170,6 @@ autocmd BufNewFile,BufRead *.mjml set syntax=html
 set termguicolors
 
 " Set theme
-" let grimmstyle="pale"
 colorscheme industrial
 
 " Set list characters
