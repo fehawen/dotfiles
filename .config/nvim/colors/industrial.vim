@@ -9,20 +9,20 @@ let g:colors_name = "industrial"
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.background = { 'dark': '#263238', 'light': '#263238' }
-let s:gui.foreground = { 'dark': '#B0BEC5', 'light': '#B0BEC5' }
-let s:gui.none       = { 'dark': 'NONE',    'light': 'NONE',   }
-let s:gui.selection  = { 'dark': '#546E7A', 'light': '#546E7A' }
-let s:gui.line       = { 'dark': '#37474F', 'light': '#37474F' }
-let s:gui.comment    = { 'dark': '#37474F', 'light': '#37474F' }
+let s:gui.background = { 'dark': '#263238', 'transparent': '#08151E' }
+let s:gui.foreground = { 'dark': '#B0BEC5', 'transparent': '#B0BEC5' }
+let s:gui.none       = { 'dark': 'NONE',    'transparent': 'NONE',   }
+let s:gui.selection  = { 'dark': '#546E7A', 'transparent': '#546E7A' }
+let s:gui.line       = { 'dark': '#37474F', 'transparent': '#37474F' }
+let s:gui.comment    = { 'dark': '#37474F', 'transparent': '#37474F' }
 
-let s:gui.black      = { 'dark': '#0E1014', 'light': '#0E1014' }
-let s:gui.red        = { 'dark': '#455A64', 'light': '#455A64' }
-let s:gui.yellow     = { 'dark': '#607D8B', 'light': '#607D8B' }
-let s:gui.green      = { 'dark': '#78909C', 'light': '#78909C' }
-let s:gui.cyan       = { 'dark': '#90A4AE', 'light': '#90A4AE' }
-let s:gui.blue       = { 'dark': '#546E7A', 'light': '#546E7A' }
-let s:gui.accent     = { 'dark': '#F4511E', 'light': '#F4511E' }
+let s:gui.black      = { 'dark': '#37474F', 'transparent': '#37474F' }
+let s:gui.red        = { 'dark': '#455A64', 'transparent': '#455A64' }
+let s:gui.yellow     = { 'dark': '#607D8B', 'transparent': '#607D8B' }
+let s:gui.green      = { 'dark': '#78909C', 'transparent': '#78909C' }
+let s:gui.cyan       = { 'dark': '#90A4AE', 'transparent': '#90A4AE' }
+let s:gui.blue       = { 'dark': '#546E7A', 'transparent': '#546E7A' }
+let s:gui.accent     = { 'dark': '#F4511E', 'transparent': '#F4511E' }
 
 if !exists('g:industrial_style')
 	let g:industrial_style='default'
@@ -42,14 +42,10 @@ function! s:hi(group, guifg, guibg, attr)
 endfunction
 
 function! s:gui(color)
-	if &background == "light"
-		return a:color['light']
+	if g:industrial_style == 'default'
+		return a:color['dark']
 	else
-		if g:industrial_style == 'default'
-			return a:color['dark']
-		else
-			return a:color[g:industrial_style]
-		endif
+		return a:color[g:industrial_style]
 	endif
 endfunction
 

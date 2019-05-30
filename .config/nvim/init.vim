@@ -170,13 +170,13 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
+let g:industrial_style = "transparent"
 colorscheme industrial
 
 " Set list characters
 set list
 set listchars=
 set listchars+=tab:›\ ,
-"set listchars+=tab:❯\ ,
 set listchars+=trail:•
 set listchars+=extends:»
 set listchars+=precedes:«

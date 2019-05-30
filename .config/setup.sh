@@ -28,6 +28,7 @@ setup_kitty() {
 		"grimm.conf"
 		"grimmpale.conf"
 		"industrial.conf"
+		"industrial_transparent.conf"
 		"kitty.conf"
 	)
 
