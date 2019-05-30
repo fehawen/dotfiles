@@ -7,7 +7,6 @@
 	"editor.fontLigatures": true,
 	"editor.fontFamily": "Operator Mono, Source Code Pro",
 	"editor.fontWeight": "400",
-	"editor.lineHeight": 22,
 	"editor.fontSize": 13,
 	"files.trimFinalNewlines": true,
 	"editor.minimap.enabled": false,
