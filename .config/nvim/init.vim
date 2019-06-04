@@ -193,11 +193,11 @@ let g:deoplete#enable_at_startup = 1
 let g:nvim_typescript#diagnostics_enable = 0
 
 " ALE settings
-let g:ale_sign_info= '✔'
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '✔'
-let g:ale_sign_style_error = '✘'
-let g:ale_sign_style_warning = '✔'
+let g:ale_sign_info= '→'
+let g:ale_sign_error = '→'
+let g:ale_sign_warning = '→'
+let g:ale_sign_style_error = '→'
+let g:ale_sign_style_warning = '→'
 
 " NERDTree settings
 let g:NERDTreeMinimalUI = 1
