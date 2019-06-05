@@ -3,6 +3,7 @@
 setup_prompt() {
 	themes=(
 		"grimm.sh"
+		"captain.sh"
 		"industrial.sh"
 	)
 
@@ -26,7 +27,7 @@ setup_prompt() {
 setup_kitty() {
 	kitty=(
 		"grimm.conf"
-		"grimmpale.conf"
+		"grimm_transparent.conf"
 		"industrial.conf"
 		"industrial_transparent.conf"
 		"kitty.conf"

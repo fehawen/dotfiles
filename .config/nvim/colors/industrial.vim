@@ -4,29 +4,26 @@ if exists("syntax_on")
 	syntax reset
 endif
 
+let s:style = get(g:, "industrial_style", "default")
 let g:colors_name = "industrial"
 
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.background = { 'dark': '#263238', 'transparent': '#08151E' }
-let s:gui.foreground = { 'dark': '#B0BEC5', 'transparent': '#B0BEC5' }
-let s:gui.none       = { 'dark': 'NONE',    'transparent': 'NONE',   }
-let s:gui.selection  = { 'dark': '#546E7A', 'transparent': '#546E7A' }
-let s:gui.line       = { 'dark': '#37474F', 'transparent': '#37474F' }
-let s:gui.comment    = { 'dark': '#37474F', 'transparent': '#37474F' }
+let s:gui.background = { 'default': '#263238', 'transparent': '#08151E' }
+let s:gui.foreground = { 'default': '#B0BEC5', 'transparent': '#B0BEC5' }
+let s:gui.none       = { 'default': 'NONE',    'transparent': 'NONE',   }
+let s:gui.selection  = { 'default': '#546E7A', 'transparent': '#546E7A' }
+let s:gui.line       = { 'default': '#37474F', 'transparent': '#37474F' }
+let s:gui.comment    = { 'default': '#37474F', 'transparent': '#37474F' }
 
-let s:gui.black      = { 'dark': '#37474F', 'transparent': '#37474F' }
-let s:gui.red        = { 'dark': '#455A64', 'transparent': '#455A64' }
-let s:gui.yellow     = { 'dark': '#607D8B', 'transparent': '#607D8B' }
-let s:gui.green      = { 'dark': '#78909C', 'transparent': '#78909C' }
-let s:gui.cyan       = { 'dark': '#90A4AE', 'transparent': '#90A4AE' }
-let s:gui.blue       = { 'dark': '#546E7A', 'transparent': '#546E7A' }
-let s:gui.accent     = { 'dark': '#F4511E', 'transparent': '#F4511E' }
-
-if !exists('g:industrial_style')
-	let g:industrial_style='default'
-endif
+let s:gui.black      = { 'default': '#37474F', 'transparent': '#37474F' }
+let s:gui.red        = { 'default': '#455A64', 'transparent': '#455A64' }
+let s:gui.yellow     = { 'default': '#607D8B', 'transparent': '#607D8B' }
+let s:gui.green      = { 'default': '#78909C', 'transparent': '#78909C' }
+let s:gui.cyan       = { 'default': '#90A4AE', 'transparent': '#90A4AE' }
+let s:gui.blue       = { 'default': '#546E7A', 'transparent': '#546E7A' }
+let s:gui.accent     = { 'default': '#F4511E', 'transparent': '#F4511E' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -35,17 +32,16 @@ function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guibg) != ""
 		exec "hi " . a:group . " guibg=" . s:gui(a:guibg)
 	endif
-
 	if a:attr != ""
 		exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
 	endif
 endfunction
 
 function! s:gui(color)
-	if g:industrial_style == 'default'
-		return a:color['dark']
+	if exists("g:industrial_style")
+		return a:color[s:style]
 	else
-		return a:color[g:industrial_style]
+		return a:color["default"]
 	endif
 endfunction
 

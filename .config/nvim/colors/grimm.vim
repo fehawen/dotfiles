@@ -1,4 +1,5 @@
 highlight clear
+
 if exists("syntax_on")
 	syntax reset
 endif
@@ -9,28 +10,22 @@ let g:colors_name = "grimm"
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.none           = { 'default': 'NONE', 'pale': 'NONE' }
-let s:gui.background     = { 'default': '#0E100F', 'pale': '#2F333D' }
-let s:gui.foreground     = { 'default': '#AAA8AC', 'pale': '#B7BBC4' }
+let s:gui.none           = { 'default': 'NONE' }
+let s:gui.background     = { 'default': '#263238' }
+let s:gui.foreground     = { 'default': '#9C9B9D' }
 
-let s:gui.line           = { 'default': '#202624', 'pale': '#373C48'}
-let s:gui.selection      = { 'default': '#2F3935', 'pale': '#4D5668'}
-let s:gui.search         = { 'default': '#2F3935', 'pale': '#535C68'}
+let s:gui.line           = { 'default': '#37474F' }
+let s:gui.selection      = { 'default': '#546E7A' }
+let s:gui.comment        = { 'default': '#455A64' }
+let s:gui.listchars      = { 'default': '#37474F' }
 
-let s:gui.comment        = { 'default': '#454F4D', 'pale': '#616A7F'}
-
-let s:gui.linenr         = { 'default': '#2F3935', 'pale': '#4D5668'}
-let s:gui.curslinenr     = { 'default': '#AAA8AC', 'pale': '#D9DEE8'}
-let s:gui.listchars      = { 'default': '#9B614E', 'pale': '#4D5668'}
-
-
-let s:gui.black          = { 'default': '#454F4D', 'pale': '#616A7F'}
-let s:gui.red            = { 'default': '#8C4742', 'pale': '#A2736C'}
-let s:gui.green          = { 'default': '#888D7E', 'pale': '#A0B291'}
-let s:gui.yellow         = { 'default': '#AB9178', 'pale': '#D8C691'}
-let s:gui.blue           = { 'default': '#5D6D78', 'pale': '#8096AD'}
-let s:gui.magenta        = { 'default': '#A37984', 'pale': '#A28F9E'}
-let s:gui.cyan           = { 'default': '#A4B5C4', 'pale': '#91AFBC'}
+let s:gui.black          = { 'default': '#455A64' }
+let s:gui.red            = { 'default': '#96514E' }
+let s:gui.green          = { 'default': '#878D7D' }
+let s:gui.yellow         = { 'default': '#B09075' }
+let s:gui.blue           = { 'default': '#5E7581' }
+let s:gui.magenta        = { 'default': '#C17D6A' }
+let s:gui.cyan           = { 'default': '#97ABB9' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -39,7 +34,6 @@ function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guibg) != ""
 		exec "hi " . a:group . " guibg=" . s:gui(a:guibg)
 	endif
-
 	if a:attr != ""
 		exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
 	endif
@@ -74,35 +68,32 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",        s:gui.foreground, s:gui.line,       "none")
-call s:hi("User2",        s:gui.green,      s:gui.line,       "none")
-call s:hi("User3",        s:gui.red,        s:gui.line,       "none")
-call s:hi("User4",        s:gui.cyan,       s:gui.line,       "none")
-call s:hi("User5",        s:gui.background, s:gui.line,       "none")
-call s:hi("User6",        s:gui.yellow,     s:gui.line,       "none")
-call s:hi("User7",        s:gui.magenta,    s:gui.line,       "none")
-call s:hi("User8",        s:gui.line,       s:gui.none,       "none")
+call s:hi("User1",        s:gui.foreground, s:gui.line,       "bold")
+call s:hi("User2",        s:gui.blue,       s:gui.line,       "bold")
+call s:hi("User3",        s:gui.magenta,    s:gui.line,       "bold")
+call s:hi("User4",        s:gui.background, s:gui.line,       "bold")
+call s:hi("User8",        s:gui.line,       s:gui.none,       "bold")
 
 call s:hi("StatusLine",       s:gui.line,   s:gui.foreground, "")
 call s:hi("StatusLineNC",     s:gui.line,   s:gui.background, "")
 call s:hi("StatusLineTerm",   s:gui.line,   s:gui.foreground, "")
 call s:hi("StatusLineTemrNC", s:gui.line,   s:gui.background, "")
 
-call s:hi("NERDTreeOpenable",   s:gui.selection,  s:gui.none,     "")
-call s:hi("NERDTreeClosable",   s:gui.red,        s:gui.none,     "")
+call s:hi("NERDTreeOpenable",   s:gui.green,      s:gui.none,     "")
+call s:hi("NERDTreeClosable",   s:gui.magenta,    s:gui.none,     "")
 call s:hi("NERDTreeCWD",        s:gui.comment,    s:gui.none,     "")
 call s:hi("NERDTreeDir",        s:gui.blue,       s:gui.none,     "")
-call s:hi("NERDTreeDirSlash",   s:gui.background, s:gui.none,     "")
-call s:hi("NERDTreeFile",       s:gui.foreground, s:gui.none,     "")
+call s:hi("NERDTreeDirSlash",   s:gui.yellow,     s:gui.none,     "")
+call s:hi("NERDTreeFile",       s:gui.green,      s:gui.none,     "")
 
 call s:hi("EndOfBuffer",  s:gui.background, "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
 call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
-call s:hi("LineNr",       s:gui.linenr,     "",               "")
+call s:hi("LineNr",       s:gui.line,       "",               "")
 call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
-call s:hi("CursorLineNr", s:gui.curslinenr, s:gui.none,       "")
+call s:hi("CursorLineNr", s:gui.red,        s:gui.none,       "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.comment,    s:gui.line,       "")
@@ -123,9 +114,9 @@ call s:hi("DiffChange",   "",               s:gui.cyan,       "")
 call s:hi("DiffDelete",   s:gui.red,        s:gui.black,      "")
 call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
 
-call s:hi("NonText",      s:gui.selection,  "",               "")
+call s:hi("NonText",      s:gui.listchars,  "",               "")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
-call s:hi("MatchParen",   s:gui.background, s:gui.red,        "")
+call s:hi("MatchParen",   s:gui.background, s:gui.foreground, "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "italic")
 call s:hi("String",       s:gui.green,      "",               "")
@@ -143,8 +134,8 @@ call s:hi("Number",       s:gui.red,        "",               "")
 call s:hi("Identifier",   s:gui.red,        "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
-call s:hi("Search",       s:gui.none,       s:gui.search,     "")
-call s:hi("InSearch",     s:gui.none,       s:gui.search,     "")
+call s:hi("Search",       s:gui.background, s:gui.selection,  "")
+call s:hi("InSearch",     s:gui.background, s:gui.selection,  "")
 call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
@@ -175,11 +166,11 @@ call s:hi("typescriptDocParam",                  s:gui.comment,      "", "")
 call s:hi("typescriptDocSeeTag",                 s:gui.comment,      "", "")
 
 call s:hi("typescriptSpecial",                   s:gui.cyan,         "", "")
-call s:hi("typescriptStringD",                   s:gui.cyan,         "", "")
-call s:hi("typescriptStringS",                   s:gui.cyan,         "", "")
-call s:hi("typescriptStringB",                   s:gui.cyan,         "", "")
+call s:hi("typescriptStringD",                   s:gui.green,        "", "")
+call s:hi("typescriptStringS",                   s:gui.green,        "", "")
+call s:hi("typescriptStringB",                   s:gui.green,        "", "")
 call s:hi("typescriptInterpolation",             s:gui.green,        "", "")
-call s:hi("typescriptNumber",                    s:gui.red,          "", "")
+call s:hi("typescriptNumber",                    s:gui.magenta,      "", "")
 call s:hi("typescriptRegexpString",              s:gui.cyan,         "", "")
 call s:hi("typescriptPrototype",                 s:gui.red,          "", "")
 call s:hi("typescriptBrowserObjects",            s:gui.red,          "", "")
@@ -194,8 +185,8 @@ call s:hi("typescriptSource",                    s:gui.red,          "", "") " i
 call s:hi("typescriptIdentifier",                s:gui.red,          "", "") " arguments this void
 call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "") " let var const
 call s:hi("typescriptOperator",                  s:gui.blue,         "", "") " delete new instanceof typeof
-call s:hi("typescriptBoolean",                   s:gui.red,          "", "") " true false
-call s:hi("typescriptNull",                      s:gui.red,          "", "") " null undefined
+call s:hi("typescriptBoolean",                   s:gui.magenta,      "", "") " true false
+call s:hi("typescriptNull",                      s:gui.magenta,      "", "") " null undefined
 call s:hi("typescriptMessage",                   s:gui.green,        "", "") " alert confirm prompt status
 
 call s:hi("typescriptConditional",               s:gui.cyan,         "", "") " if else switch
@@ -222,12 +213,12 @@ call s:hi("typescriptCssStyles",                 s:gui.red,          "", "") " n
 call s:hi("typescriptFuncKeyword",               s:gui.blue,         "", "")
 call s:hi("typescriptFunction",                  s:gui.magenta,      "", "")
 
-call s:hi("typescriptBraces",                    s:gui.green,        "", "")
+call s:hi("typescriptBraces",                    s:gui.yellow,       "", "")
 call s:hi("typescriptParens",                    s:gui.red,          "", "")
 call s:hi("typescriptOpSymbols",                 s:gui.magenta,      "", "")
 call s:hi("typescriptEndColons",                 s:gui.cyan,         "", "")
 call s:hi("typescriptLogicSymbols",              s:gui.magenta,      "", "")
-call s:hi("typescriptDotNotation",               s:gui.yellow,       "", "")
+call s:hi("typescriptDotNotation",               s:gui.magenta,      "", "")
 
 " Javascript colors
 " yajs

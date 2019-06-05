@@ -6,6 +6,7 @@
 
 # Avaiable themes:
 	# grimm
+	# captain
 	# industrial
 
 THEME="industrial"
