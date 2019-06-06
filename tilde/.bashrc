@@ -5,11 +5,11 @@
 ##############
 
 # Avaiable themes:
-	# grimm
 	# captain
 	# industrial
+	# recursive
 
-THEME="industrial"
+THEME="recursive"
 
 ######################
 ### CUSTOMIZATION ####

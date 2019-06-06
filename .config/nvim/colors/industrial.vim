@@ -10,7 +10,7 @@ let g:colors_name = "industrial"
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.background = { 'default': '#263238', 'transparent': '#08151E' }
+let s:gui.background = { 'default': '#263238', 'transparent': '#121E24' }
 let s:gui.foreground = { 'default': '#B0BEC5', 'transparent': '#B0BEC5' }
 let s:gui.none       = { 'default': 'NONE',    'transparent': 'NONE',   }
 let s:gui.selection  = { 'default': '#546E7A', 'transparent': '#546E7A' }

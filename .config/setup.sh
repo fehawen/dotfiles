@@ -2,7 +2,7 @@
 
 setup_prompt() {
 	themes=(
-		"grimm.sh"
+		"recursive.sh"
 		"captain.sh"
 		"industrial.sh"
 	)
@@ -26,10 +26,9 @@ setup_prompt() {
 
 setup_kitty() {
 	kitty=(
-		"grimm.conf"
-		"grimm_transparent.conf"
 		"industrial.conf"
 		"industrial_transparent.conf"
+		"recursive.conf"
 		"kitty.conf"
 	)
 
@@ -106,8 +105,8 @@ setup_neovim() {
 		echo -e "\nSymlinking '$HOME/.config/nvim/init.vim'."
 		ln -sfv "$(PWD)/nvim/init.vim" "$HOME/.config/nvim/" || error "Failed to symlink '$(PWD)/nvim/init.vim'"
 
-		echo -e "\nSymlinking '$HOME/.config/nvim/colors/grimm.vim'."
-		ln -sfv "$(PWD)/nvim/colors/grimm.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/grimm.vim'"
+		echo -e "\nSymlinking '$HOME/.config/nvim/colors/recursive.vim'."
+		ln -sfv "$(PWD)/nvim/colors/recursive.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/recursive.vim'"
 
 		echo -e "\nSymlinking '$HOME/.config/nvim/colors/industrial.vim'."
 		ln -sfv "$(PWD)/nvim/colors/industrial.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/industrial.vim'"

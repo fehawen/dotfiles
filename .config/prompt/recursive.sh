@@ -4,46 +4,15 @@
 ### SYMBOLS ###
 ###############
 
-octopus_icon="  "
-system_icon="  "
-lightning_icon="  "
-deleted_icon="  "
-question_icon="  "
-cog_icon="  "
-cogs_icon="  "
-branch_icon="  "
-tag_icon="  "
-puzzle_icon="  "
-pen_icon="  "
-plus_icon="  "
-home_icon="  "
-folder_icon="   "
-cross_icon="  "
-check_icon="  "
-calendar_icon="  "
-hourglass_icon=" "
-stopwatch_icon="  "
-bag_icon="  "
-floppy_icon="  "
-paperclip_icon="  "
-patch_icon="  "
-ahead_icon="   "
-behind_icon="   "
-battery_panic_icon="  "
-battery_critical_icon="  "
-battery_low_icon="  "
-battery_half_icon="  "
-battery_full_icon="  "
-battery_charging_icon="  "
-
-git_modified="$pen_icon"
-git_added="$plus_icon"
-git_deleted="$deleted_icon"
-git_renamed="$patch_icon"
-git_untracked="$question_icon"
-git_stashed="$floppy_icon"
-git_ahead="$ahead_icon"
-git_behind="$git_behind"
+#arrow="›"
+arrow="→"
+git_modified="!"
+git_added="+"
+git_deleted="-"
+git_renamed="*"
+git_untracked="?"
+git_stashed="$"
+git_uneven="¿"
 
 #######################
 ### SECTION STYLING ###
@@ -54,38 +23,34 @@ newline="
 "
 
 # Section colors, symbols and prefixes
-clock_color="$white"
+prefix_color="$white"
+
+clock_color="$blue"
 clock_icon="$stopwatch_icon"
 
-date_color="$white"
-date_icon="$calendar_icon"
-
-battery_panic_color="$red"
-battery_critical_color="$red"
+battery_prefix="${prefix_color}at"
+battery_good_color="$green"
 battery_low_color="$yellow"
-battery_half_color="$cyan"
-battery_full_color="$green"
-battery_charging_color="$white"
+battery_critical_color="$red"
 
+user_prefix="${prefix_color}is"
+root_color="$magenta"
+
+dir_prefix="${prefix_color}in"
 dir_color="$cyan"
-dir_home_icon="$home_icon"
-dir_folder_icon="$folder_icon"
 
-root_color="$red"
-user_icon="$system_icon"
-user_color="$yellow"
-
+git_prefix="${prefix_color}on"
 git_branch_color="$magenta"
-git_branch_icon="$branch_icon"
+git_status_prefix="("
+git_status_suffix=")"
 git_status_color="$red"
 
-exec_time_color="$white"
-exec_time_icon="$hourglass_icon"
+exec_time_color="$yellow"
+exec_time_prefix="${prefix_color}took"
 
 exit_ok_color="$green"
-exit_ok_icon="$check_icon"
 exit_bad_color="$red"
-exit_bad_icon="$cross_icon"
+exit_symbol="$arrow"
 
 #######################
 ### PROMPT SECTIONS ###
@@ -114,45 +79,35 @@ trap timer_start DEBUG
 
 # Prints time in hh:mm
 clock_section() {
-	echo -e "${clock_color}${clock_icon}`date +"%H:%M"`"
-}
-
-# Prints month and date, e.g. 11 may
-date_section() {
-	date_format="$(date +%d\ %b)"
-	echo -e " ${date_color}${date_icon}${date_format}" | tr "[:upper:]" "[:lower:]"
+	printf "${clock_color}$(date '+%H:%M')"
 }
 
 # Prints battery percentage, and if on battery or AC power
 battery_section() {
-	local output=""
-	local charging=$(pmset -g ps | head -1 2> /dev/null)
+	local batt_color=""
 	local percentage=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1 2> /dev/null)
-	local battery_level=$(pmset -g batt | grep -Eo "\d+%" 2> /dev/null)
 
-	if [[ "$charging" =~ "AC Power" ]]; then
-		output="${battery_charging_color}${battery_charging_icon}"
-	elif [[ "$percentage" -ge 75 ]]; then
-		output="${battery_full_color}${battery_full_icon}"
-	elif [[ "$percentage" -ge 50 ]]; then
-		output="${battery_half_color}${battery_half_icon}"
-	elif [[ "$percentage" -ge 25 ]]; then
-		output="${battery_low_color}${battery_low_icon}"
-	elif [[ "$percentage" -ge 10 ]]; then
-		output="${battery_critical_color}${battery_critical_icon}"
+	if [[ "$percentage" -ge 50 ]]; then
+		batt_color="${battery_good_color}"
+	elif [[ "$percentage" -ge 20 ]]; then
+		batt_color="${battery_low_color}"
 	else
-		output="${battery_panic_color}${battery_panic_icon}"
+		batt_color="${battery_critical_color}"
 	fi
 
-	echo -e " ${output}${battery_level}"
+#		if [[ "$percentage" -ge 20 ]]; then
+#			batt_color="${battery_regular_color}"
+#		else
+#			batt_color="${battery_critical_color}"
+#		fi
+
+	echo -e " ${battery_prefix}${batt_color} ${percentage}%%"
 }
 
 # Prints out user only if we"re root, else prints nothing
 user_section() {
 	if [[ "$UID" -eq 0 ]]; then
-		echo -e "${root_color}${user_icon}$USER"
-	else
-		echo -e "${user_color}${user_icon}$USER"
+		echo -e " ${user_prefix} ${root_color}$USER"
 	fi
 }
 
@@ -167,18 +122,18 @@ dir_section() {
 	res=""
 
 	if [[ "$(PWD)" == "$HOME/$get_dir" ]]; then
-		prefix="${dir_home_icon}~/"
+		prefix="~/"
 	else
-		prefix="${dir_folder_icon}"
+		prefix=""
 	fi
 
 	if [[ "$(PWD)" == "$HOME" ]]; then
-		res="${dir_home_icon}~"
+		res="~"
 	else
 		res="${prefix}${get_dir}"
 	fi
 
-	echo -e " ${dir_color}${res}"
+	echo -e " ${dir_prefix} ${dir_color}${res}"
 }
 
 # Show current Git branch, and if branch isn"t clean show status
@@ -223,18 +178,14 @@ git_section() {
 	local behind="$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)"
 	local ahead="$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)"
 
-	if [[ "$behind" -gt 0 ]]; then
-		status="${git_behind}${status}"
+	if [[ "$behind" -gt 0 || "$ahead" -gt 0 ]]; then
+		status="${git_uneven}${status}"
 	fi
 
-	if [[ "$ahead" -gt 0 ]]; then
-		status="${git_ahead}${status}"
-	fi
-
-	local git_status="${git_branch_color}${git_branch_icon}${branch}"
+	local git_status="${git_prefix} ${git_branch_color}${branch}"
 
 	if [[ "$status" != "" ]]; then
-		git_status="${git_status} ${git_status_color}${status}"
+		git_status="${git_status} ${git_status_color}${git_status_prefix}${status}${git_status_suffix}"
 	fi
 
 	echo -e " ${git_status}"
@@ -258,7 +209,7 @@ exec_time_section() {
 
 	output="${output}${seconds}s"
 
-	echo -e " ${exec_time_color}${exec_time_icon}${output}"
+	printf " ${exec_time_prefix}${exec_time_color} ${output}"
 }
 
 # Show exit status of previous command
@@ -266,12 +217,12 @@ exit_code_section() {
 	local exit_status
 
 	if [[ "$RETVAL" -eq 0 ]]; then
-		exit_status="${exit_ok_color}${exit_ok_icon}"
+		exit_status="${exit_ok_color}"
 	else
-		exit_status="${exit_bad_color}${exit_bad_icon}"
+		exit_status="${exit_bad_color}"
 	fi
 
-	echo -e "${exit_status} "
+	echo -e "${exit_status}${exit_symbol} "
 }
 
 ######################
@@ -281,7 +232,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	echo -e "${newline}${bold}${octopus_icon}$(clock_section)$(date_section)$(battery_section)${newline}$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
+	printf "${bold}${italic}$(clock_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}${reset}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation

@@ -171,7 +171,7 @@ set termguicolors
 
 " Set theme
 " let g:industrial_style = "transparent"
-colorscheme grimm
+colorscheme recursive
 
 " Set list characters
 set list
