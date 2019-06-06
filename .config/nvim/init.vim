@@ -84,9 +84,10 @@ set relativenumber number
 set lazyredraw
 
 " Enable cursor line, disable cursor column
-" set cursorline
-" set nocursorcolumn
-set nocursorline
+set cursorline
+set nocursorcolumn
+" Else, remove above and set to nocursorline
+" set nocursorline
 
 " Sets unix as standard filetype
 set ffs=unix,dos,mac

@@ -15,6 +15,7 @@ let s:gui.background = { 'default': '#2F343F' }
 let s:gui.foreground = { 'default': '#B4BAC4' }
 
 let s:gui.line       = { 'default': '#3E4552' }
+let s:gui.cursorline = { 'default': '#353C48' }
 let s:gui.selection  = { 'default': '#3E4552' }
 let s:gui.comment    = { 'default': '#525764' }
 let s:gui.listchars  = { 'default': '#3E4552' }
@@ -90,10 +91,10 @@ call s:hi("NERDTreeFile",       s:gui.foreground, s:gui.none,     "")
 call s:hi("EndOfBuffer",  s:gui.background, "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
 call s:hi("Cursor",       s:gui.foreground, "",               "")
-call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
+call s:hi("CursorColumn", s:gui.none,       s:gui.cursorline, "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
 call s:hi("LineNr",       s:gui.listchars,  "",               "")
-call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
+call s:hi("CursorLine",   s:gui.none,       s:gui.cursorline, "")
 call s:hi("CursorLineNr", s:gui.foreground, s:gui.none,       "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
