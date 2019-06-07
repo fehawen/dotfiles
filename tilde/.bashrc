@@ -78,13 +78,13 @@ push_todos() {
 	git add . && \
 	git commit -m "Bump." && \
 	git push && \
-	popd
+	cd "$(dirs -l -0)" && dirs -c
 }
 
 pull_todos() {
 	pushd "$HOME/Github/todo/" && \
 	git pull && \
-	popd
+	cd "$(dirs -l -0)" && dirs -c
 }
 
 # Find all files in dirs/subdirs containing search query
