@@ -92,10 +92,10 @@ call s:hi("EndOfBuffer",  s:gui.background, "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
 call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.cursorline, "")
-call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
+call s:hi("SignColumn",   s:gui.red,        s:gui.cursorline, "")
 call s:hi("LineNr",       s:gui.listchars,  "",               "")
 call s:hi("CursorLine",   s:gui.none,       s:gui.cursorline, "")
-call s:hi("CursorLineNr", s:gui.foreground, s:gui.none,       "")
+call s:hi("CursorLineNr", s:gui.foreground, s:gui.cursorline, "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.comment,    s:gui.line,       "")
@@ -142,11 +142,11 @@ call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
 " ALE COLORS
-call s:hi("ALEInfoSign",         s:gui.red,       s:gui.none, "")
-call s:hi("ALEErrorSign",        s:gui.red,       s:gui.none, "")
-call s:hi("ALEWarningSign",      s:gui.red,       s:gui.none, "")
-call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.none, "")
-call s:hi("ALEStyleWarningSign", s:gui.red,       s:gui.none, "")
+call s:hi("ALEInfoSign",         s:gui.red,       s:gui.cursorline, "")
+call s:hi("ALEErrorSign",        s:gui.red,       s:gui.cursorline, "")
+call s:hi("ALEWarningSign",      s:gui.red,       s:gui.cursorline, "")
+call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.cursorline, "")
+call s:hi("ALEStyleWarningSign", s:gui.red,       s:gui.cursorline, "")
 
 call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
 call s:hi("ALEErrorLine",        s:gui.comment,   s:gui.none, "")
@@ -172,7 +172,7 @@ call s:hi("typescriptStringD",                   s:gui.green,        "", "")
 call s:hi("typescriptStringS",                   s:gui.green,        "", "")
 call s:hi("typescriptStringB",                   s:gui.green,        "", "")
 call s:hi("typescriptInterpolation",             s:gui.green,        "", "")
-call s:hi("typescriptNumber",                    s:gui.magenta,      "", "")
+call s:hi("typescriptNumber",                    s:gui.orange,       "", "")
 call s:hi("typescriptRegexpString",              s:gui.cyan,         "", "")
 call s:hi("typescriptPrototype",                 s:gui.red,          "", "")
 call s:hi("typescriptBrowserObjects",            s:gui.red,          "", "")
@@ -186,15 +186,15 @@ call s:hi("typescriptEventListenerMethods",      s:gui.cyan,         "", "")
 call s:hi("typescriptSource",                    s:gui.red,          "", "") " import export from as
 call s:hi("typescriptIdentifier",                s:gui.red,          "", "") " arguments this void
 call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "") " let var const
-call s:hi("typescriptOperator",                  s:gui.blue,         "", "") " delete new instanceof typeof
+call s:hi("typescriptOperator",                  s:gui.orange,       "", "") " delete new instanceof typeof
 call s:hi("typescriptBoolean",                   s:gui.orange,       "", "") " true false
 call s:hi("typescriptNull",                      s:gui.orange,       "", "") " null undefined
 call s:hi("typescriptMessage",                   s:gui.green,        "", "") " alert confirm prompt status
 
 call s:hi("typescriptConditional",               s:gui.cyan,         "", "") " if else switch
-call s:hi("typescriptRepeat",                    s:gui.green,        "", "") " do while for in of
-call s:hi("typescriptBranch",                    s:gui.green,        "", "") " break continue yield await
-call s:hi("typescriptLabel",                     s:gui.green,        "", "") " case default async readonly
+call s:hi("typescriptRepeat",                    s:gui.cyan,         "", "") " do while for in of
+call s:hi("typescriptBranch",                    s:gui.cyan,         "", "") " break continue yield await
+call s:hi("typescriptLabel",                     s:gui.cyan,         "", "") " case default async readonly
 call s:hi("typescriptDecorators",                s:gui.orange,       "", "") " @action @computed, etc
 call s:hi("typescriptStatement",                 s:gui.cyan,         "", "") " return with
 

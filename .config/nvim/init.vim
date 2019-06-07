@@ -56,7 +56,7 @@ set showmatch
 " Tenths of a second to show the matching paren
 set mat=2
 
-" Switching this option off most likely breaks plugins!
+" Switching this option off most likely breaks plugins, someone told me...
 set magic
 
 " Highlight search results
