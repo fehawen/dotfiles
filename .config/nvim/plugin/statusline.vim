@@ -108,10 +108,8 @@ function! ActiveStatusLine()
 		let l:statusline.="\ %2*lint\ %3*%{LinterStatus()}\ "
 	endif
 
-	let l:statusline.="\ %8*"
-
-	let l:statusline.="%="
-	let l:statusline.="%8*%1*\ "
+	let l:statusline.="\ %2*col\ %1*%c\ \ "
+	let l:statusline.="%2*line\ %1*%l/%L\ "
 
 	if SyntaxItem() != ""
 		let l:statusline.="\ %2*syntax\ %1*%{SyntaxItem()}\ \ "
@@ -119,8 +117,7 @@ function! ActiveStatusLine()
 		let l:statusline.="\ "
 	endif
 
-	let l:statusline.="%2*col\ %1*%c\ \ "
-	let l:statusline.="%2*line\ %1*%l/%L\ \ "
+	let l:statusline.="%8*"
 
 	return l:statusline
 
@@ -133,13 +130,10 @@ function! InactiveStatusLine()
 
 	let l:statusline.="%4*\ \ file\ %2*%t\ "
 
-	let l:statusline.="\ %8*"
-
-	let l:statusline.="%="
-	let l:statusline.="%8*%4*\ "
-
-	let l:statusline.="\ col\ %2*%c\ \ "
+	let l:statusline.="%4*\ col\ %2*%c\ \ "
 	let l:statusline.="%4*line\ %2*%l/%L\ \ "
+
+	let l:statusline.="%8*"
 
 	return l:statusline
 
