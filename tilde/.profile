@@ -1,6 +1,6 @@
-if [[ "$OSTYPE" =~ "darwin" ]]; then
-	export EDITOR="/usr/local/bin/nvim"
-else
+#!/usr/bin/env bash
+
+if [[ "$OSTYPE" =~ "linux" ]]; then
 	export EDITOR="usr/bin/nvim"
 	export BROWSER="usr/bin/palemoon"
 fi

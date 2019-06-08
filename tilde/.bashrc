@@ -165,3 +165,8 @@ done
 
 # Set path
 export PATH="${PATH}"
+
+# Set editor, if macOS, else it's set in "~/.profile"
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+	export EDITOR="/usr/local/bin/nvim"
+fi
