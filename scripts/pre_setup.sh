@@ -1,4 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env sh
+
+darwin_pre_setup() {
+	echo "Checking if HOMEBREW exists."
+	if [[ ! $(which brew) ]] && [[ ! $(brew --version &> /dev/null) ]]; then
+		echo "Could not find existing HOMEBREW installation."
+		echo "Now installing."
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	else
+		echo "Found existing HOMEBREW installation."
+		echo "Proceeding."
+	fi
+}
 
 pre_setup() {
 	includes=(
@@ -10,31 +22,34 @@ pre_setup() {
 		"prompt"
 	)
 
-	echo -e "\nChecking if homebrew exists..."
-	if [[ ! $(which brew) ]] && [[ ! $(brew --version &> /dev/null) ]]; then
-		echo "Could not find existing homebrew installation."
-		echo "Now installing..."
-		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	else
-		echo "Found existing homebrew installation."
-		echo "Proceeding..."
+	if [[ "$OSTYPE" =~ "darwin" ]]; then
+		darwin_pre_setup
 	fi
+
+	echo "Checking if directory '$HOME/.config' exists..."
+	if [ ! -d  "$HOME/.config" ]; then
+		echo "Couldn't find directory '$HOME/.config'"
+		mkdir -v $HOME/.config
+	else
+		echo "Directory '$HOME/.config' already exists."
+	fi
+
+	echo "Proceeding."
 
 	for inc in ${includes[@]}
 	do
-		echo -e "\nChecking if '$HOME/.config/$inc' exists..."
+		echo "Checking if directory '$HOME/.config/$inc' exists..."
 		if [ ! -d  "$HOME/.config/$inc" ]; then
-			echo "Couldn't find directory '$HOME/.config/$inc'."
-			echo "Creating directory '$HOME/.config/$inc'"
-			mkdir -p $HOME/.config/$inc
-			echo "Proceeding..."
+			echo "Couldn't find directory '$HOME/.config/$inc'"
+			mkdir -v $HOME/.config/$inc
 		else
 			echo "Directory '$HOME/.config/$inc' already exists."
-			echo "Proceeding..."
 		fi
+
+		echo "Proceeding."
 	done
 
-	echo -e "Done.\n"
+	echo "Done."
 }
 
 pre_setup

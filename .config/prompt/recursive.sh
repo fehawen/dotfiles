@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###############
 ### SYMBOLS ###
@@ -95,12 +95,6 @@ battery_section() {
 		batt_color="${battery_critical_color}"
 	fi
 
-#		if [[ "$percentage" -ge 20 ]]; then
-#			batt_color="${battery_regular_color}"
-#		else
-#			batt_color="${battery_critical_color}"
-#		fi
-
 	echo -e " ${battery_prefix}${batt_color} ${percentage}%%"
 }
 
@@ -121,13 +115,13 @@ dir_section() {
 	prefix=""
 	res=""
 
-	if [[ "$(PWD)" == "$HOME/$get_dir" ]]; then
+	if [[ "$PWD" == "$HOME/$get_dir" ]]; then
 		prefix="~/"
 	else
 		prefix=""
 	fi
 
-	if [[ "$(PWD)" == "$HOME" ]]; then
+	if [[ "$PWD" == "$HOME" ]]; then
 		res="~"
 	else
 		res="${prefix}${get_dir}"

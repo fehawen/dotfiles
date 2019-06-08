@@ -137,9 +137,9 @@ set wildignore+=**/node_modules/**
 "#########################"
 
 " Create the `tags` file (may need to install ctags first)
-command! MakeTags !ctags .
+" command! MakeTags !ctags .
 
-set tags=./tags,tags
+" set tags=./tags,tags
 
 " NOW WE CAN:
 " - Use ^] to jump to tag under cursor

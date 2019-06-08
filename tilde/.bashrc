@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##############
 ### THEMES ###
@@ -165,6 +165,3 @@ done
 
 # Set path
 export PATH="${PATH}"
-
-# Set default editor
-export EDITOR="/usr/local/bin/nvim"

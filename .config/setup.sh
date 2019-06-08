@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 setup_prompt() {
 	themes=(
@@ -7,21 +7,20 @@ setup_prompt() {
 		"industrial.sh"
 	)
 
-	read -r -p "Include prompt themes? [y/N] " answer
+	read -r -p "Include BASH PROMPT themes? [y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo "Excluding prompt themes..."
-		echo -e "Proceeding...\n"
+		echo "Excluding BASH PROMPT themes."
+		echo "Proceeding."
 	else
-		echo -e "\nSetting up prompt themes..."
+		echo "Setting up BASH PROMPT themes."
 
 		for inc in ${themes[@]}
 		do
-			echo -e "\nSymlinking '$HOME/.config/prompt/$inc'."
-			ln -sfv "$(PWD)/prompt/$inc" "$HOME/.config/prompt/" || error "Failed to symlink $1"
+			ln -sfv "$PWD/prompt/$inc" "$HOME/.config/prompt/" || error "Failed to symlink $1"
 		done
 	fi
 
-	echo -e "Done.\n"
+	echo "Done."
 }
 
 setup_kitty() {
@@ -32,90 +31,112 @@ setup_kitty() {
 		"kitty.conf"
 	)
 
-	read -r -p "Include kitty? [y/N] " answer
+	read -r -p "Include KITTY Terminal? [y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo "Excluding kitty..."
-		echo -e "Proceeding...\n"
+		echo "Excluding KITTY."
+		echo "Proceeding."
 	else
-		echo -e "\nSetting up kitty..."
-		echo "Checking if kitty exists..."
+		echo "Setting up KITTY."
+		echo "Checking if KITTY exists."
 
-		if [[ ! $(ls /Applications/ | grep -i kitty) ]]; then
-			echo -e "\nCouldn't find existing kitty installation."
-			echo "Now installing..."
-			curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+			# Look (desperately) for existing Kitty Terminal installation, else install it
+		if [[ ! "$(which kitty 2> /dev/null)" ]] && [[ ! $(ls /Applications/ | grep -i kitty 2> /dev/null) ]] && [[ ! "$(pacman -Q kitty 2> /dev/null)" ]]; then
+			echo "Couldn't find existing KITTY installation."
+
+			# If not macOS, presume we're using Arch
+			if [[ "$OSTYPE" =~ "darwin" ]]; then
+				echo "Now installing KITTY for macOS."
+				curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+			else
+				echo "Now installing KITTY for Arch."
+				sudo pacman -S kitty
+			fi
+
 		else
-			echo -e "\nExisting kitty installation found."
-			echo "Proceeding..."
+			echo "Existing KITTY installation found."
+			echo "Proceeding."
 		fi
 
 		for inc in ${kitty[@]}
 		do
-			echo -e "\nSymlinking '$HOME/.config/kitty/$inc'."
-			ln -sfv "$(PWD)/kitty/$inc" "$HOME/.config/kitty/" || error "Failed to symlink $1"
+			ln -sfv "$PWD/kitty/$inc" "$HOME/.config/kitty/" || error "Failed to symlink $1"
 		done
 	fi
 
-	echo -e "Done.\n"
+	echo "Done."
 }
 
 setup_neofetch() {
-	read -r -p "Include neofetch? [y/N] " answer
+	read -r -p "Include NEOFETCH? [y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo -e "\nExcluding neofetch..."
-		echo "Proceeding..."
+		echo "Excluding NEOFETCH."
+		echo "Proceeding."
 	else
-		echo -e "\nSetting up neofetch..."
-		echo "Checking if neofetch exists..."
+		echo "Setting up NEOFETCH."
+		echo "Checking if neofetch exists."
 
-		if [[ ! $(which neofetch) ]] && [[ ! $(brew ls --versions neofetch) ]]; then
-			echo -e "\nCouldn't find existing neofetch installation."
-			echo "Now installing..."
-			brew install neofetch
+		# Look (desperately) for existing NeoFetch installation, else install it
+		if [[ ! $(which neofetch 2> /dev/null) ]] && [[ ! $(brew ls --versions neofetch 2> /dev/null) ]] && [[ ! $(pacman -Q neofetch 2> /dev/null) ]]; then
+			echo "Couldn't find existing NEOFETCH installation."
+			echo "Now installing."
+
+			# If not macOS, presume we're using Arch
+			if [[ "$OSTYPE" =~ "darwin" ]]; then
+				echo "Now installing NEOFETCH for macOS."
+				brew install neofetch
+			else
+				echo "Now installing NEOFETCH for Arch."
+				sudo pacman -S neofetch
+			fi
+
 		else
-			echo -e "\nExisting neofetch installation found:"
-			echo "Proceeding..."
+			echo "Existing NEOFETCH installation found."
+			echo "Proceeding."
 		fi
 
-		echo -e "\nSymlinking '$HOME/.config/neofetch/config.conf'."
-		ln -sfv "$(PWD)/neofetch/config.conf" "$HOME/.config/neofetch/" || error "Failed to symlink $1"
+		ln -sfv "$PWD/neofetch/config.conf" "$HOME/.config/neofetch/" || error "Failed to symlink $1"
 	fi
 
-	echo -e "Done.\n"
+	echo "Done."
 }
 
 setup_neovim() {
-	read -r -p "Include neovim? [y/N] " answer
+	read -r -p "Include NEOVIM? [y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo -e "\nExcluding neovim..."
-		echo "Proceeding..."
+		echo "Excluding NEOVIM."
+		echo "Proceeding."
 	else
-		echo -e "\nSetting up neovim..."
-		echo "Checking if neovim exists..."
+		echo "Setting up NEOVIM."
+		echo "Checking if NEOVIM exists."
 
-		if [[ ! $(which nvim) ]] && [[ ! $(brew ls --versions neovim) ]]; then
-			echo -e "\nCouldn't find existing neovim installation."
-			echo "Now installing..."
-			brew install neovim
+		# Look (desperately) for existing NeoVim installation, else install it
+		if [[ ! $(which nvim 2> /dev/null) ]] && [[ ! $(brew ls --versions neovim 2> /dev/null) ]] && [[ ! $(pacman -Q neovim 2> /dev/null) ]]; then
+			echo "Couldn't find existing NEOVIM installation."
+
+			# If not macOS, presume we're using Arch
+			if [[ "$OSTYPE" =~ "darwin" ]]; then
+				echo "Now installing NEOVIM for macOS."
+				brew install neovim
+			else
+				echo "Now installing NEOVIM for Arch."
+				sudo pacman -S neovim
+			fi
+
 		else
-			echo -e "\nExisting neovim installation found."
-			echo "Proceeding..."
+			echo "Existing NEOVIM installation found."
+			echo "Proceeding."
 		fi
 
-		echo -e "\nSymlinking '$HOME/.config/nvim/init.vim'."
-		ln -sfv "$(PWD)/nvim/init.vim" "$HOME/.config/nvim/" || error "Failed to symlink '$(PWD)/nvim/init.vim'"
+		ln -sfv "$PWD/nvim/init.vim" "$HOME/.config/nvim/" || error "Failed to symlink '$PWD/nvim/init.vim'"
 
-		echo -e "\nSymlinking '$HOME/.config/nvim/colors/recursive.vim'."
-		ln -sfv "$(PWD)/nvim/colors/recursive.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/recursive.vim'"
+		ln -sfv "$PWD/nvim/colors/recursive.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$PWD/nvim/colors/recursive.vim'"
 
-		echo -e "\nSymlinking '$HOME/.config/nvim/colors/industrial.vim'."
-		ln -sfv "$(PWD)/nvim/colors/industrial.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$(PWD)/nvim/colors/industrial.vim'"
+		ln -sfv "$PWD/nvim/colors/industrial.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$PWD/nvim/colors/industrial.vim'"
 
-		echo -e "\nSymlinking '$HOME/.config/nvim/plugin/statusline.vim'."
-		ln -sfv "$(PWD)/nvim/plugin/statusline.vim" "$HOME/.config/nvim/plugin/" || error "Failed to symlink '$(PWD)/nvim/plugin/statusline.vim'"
+		ln -sfv "$PWD/nvim/plugin/statusline.vim" "$HOME/.config/nvim/plugin/" || error "Failed to symlink '$PWD/nvim/plugin/statusline.vim'"
 	fi
 
-	echo -e "Done.\n"
+	echo "Done."
 }
 
 setup_prompt
