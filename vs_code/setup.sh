@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 
 initialize() {
-	[[ "$OSTYPE" =~ "darwin" ]] || return
-
 	read -r -p "Include VS CODE? [y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
 		echo "Excluding VS CODE."
@@ -33,4 +31,6 @@ setup() {
 	echo "Done."
 }
 
-initialize
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+	initialize
+fi
