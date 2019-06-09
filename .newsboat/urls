@@ -1,0 +1,10 @@
+https://www.aljazeera.com/xml/rss/all.xml "News" "~News: Al Jazeera"
+http://feeds.bbci.co.uk/news/world/rss.xml "News" "~News: BBC"
+https://www.buzzfeed.com/world.xml "News" "~News: BuzzFeed"
+https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml "News" "~News: NY Times"
+https://www.reddit.com/r/worldnews/.rss "News" "~News: Reddit"
+
+https://www.archlinux.org/feeds/news/ "Arch Linux"
+https://www.archlinux.org/feeds/packages/x86_64/ "Arch Linux"
+https://www.archlinux.org/feeds/packages/added/x86_64/ "Arch Linux"
+https://www.archlinux.org/feeds/packages/removed/x86_64/ "Arch Linux"
