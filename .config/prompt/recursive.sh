@@ -123,6 +123,8 @@ dir_section() {
 
 	if [[ "$PWD" == "$HOME/$get_dir" ]]; then
 		prefix="~/"
+	elif [[ "$PWD" == "/$get_dir" ]]; then
+		prefix="/"
 	else
 		prefix=""
 	fi
@@ -133,7 +135,7 @@ dir_section() {
 		res="${prefix}${get_dir}"
 	fi
 
-	echo -e " ${dir_prefix} ${dir_color}${res}"
+	echo -e " ${dir_color}${res}"
 }
 
 # Show current Git branch, and if branch isn"t clean show status
