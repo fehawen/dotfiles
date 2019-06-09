@@ -11,12 +11,29 @@
 
 THEME="recursive"
 
-######################
-### CUSTOMIZATION ####
-######################
+#####################
+### CUSTOMIZATION ###
+#####################
 
 # Do case-insensitive completion for e.g. `cd` commands
 bind "set completion-ignore-case on"
+
+#####################
+#### CONDITONALS ####
+#####################
+
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+	# Set editor, if macOS, else it's set in "~/.profile"
+	export EDITOR="/usr/local/bin/nvim"
+
+	# Set macOS specific aliases for ChunkWM and SKHD
+	alias start-chunkwm="brew services start koekeishiya/formulae/chunkwm"
+	alias restart-chunkwm="brew services restart koekeishiya/formulae/chunkwm"
+	alias stop-chunkwm="brew services stop koekeishiya/formulae/chunkwm"
+	alias start-skhd="brew services start koekeishiya/formulae/skhd"
+	alias restart-skhd="brew services restart koekeishiya/formulae/skhd"
+	alias stop-skhd="brew services stop koekeishiya/formulae/skhd"
+fi
 
 ###############
 ### ALIASES ###
@@ -51,17 +68,10 @@ alias gstashl="git stash list"
 alias gstashd="git stash drop"
 alias code="open -a 'Visual Studio Code'"
 alias gh="cd ~/Github/"
-alias ctags="`brew --prefix`/bin/ctags"
 alias repos="cd ~/Github/"
 alias dot="cd ~/Dotfiles/"
 alias pro="cd ~/projects/"
 alias mongorun="mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data"
-alias start-chunkwm="brew services start koekeishiya/formulae/chunkwm"
-alias restart-chunkwm="brew services restart koekeishiya/formulae/chunkwm"
-alias stop-chunkwm="brew services stop koekeishiya/formulae/chunkwm"
-alias start-skhd="brew services start koekeishiya/formulae/skhd"
-alias restart-skhd="brew services restart koekeishiya/formulae/skhd"
-alias stop-skhd="brew services stop koekeishiya/formulae/skhd"
 alias todoread="cat ~/Github/todo/README.md"
 alias todoedit="nvim ~/Github/todo/README.md"
 alias todopush=push_todos
@@ -165,8 +175,3 @@ done
 
 # Set path
 export PATH="${PATH}"
-
-# Set editor, if macOS, else it's set in "~/.profile"
-if [[ "$OSTYPE" =~ "darwin" ]]; then
-	export EDITOR="/usr/local/bin/nvim"
-fi

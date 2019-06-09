@@ -85,7 +85,13 @@ clock_section() {
 # Prints battery percentage, and if on battery or AC power
 battery_section() {
 	local batt_color=""
-	local percentage=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1 2> /dev/null)
+	local percentage=""
+
+	if [[ "$OSTYPE" =~ "darwin" ]]; then
+		percentage=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1 2> /dev/null)
+	else
+		percentage=$(acpi -b | grep -o '[0-9]*%' | grep -o '[0-9]*')
+	fi
 
 	if [[ "$percentage" -ge 50 ]]; then
 		batt_color="${battery_good_color}"
