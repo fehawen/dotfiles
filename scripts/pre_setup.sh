@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 darwin_pre_setup() {
 	echo "Checking if HOMEBREW exists."

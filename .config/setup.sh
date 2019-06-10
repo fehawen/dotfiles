@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 setup_prompt() {
 	themes=(
@@ -23,48 +23,6 @@ setup_prompt() {
 	echo "Done."
 }
 
-setup_kitty() {
-	kitty=(
-		"industrial.conf"
-		"industrial_transparent.conf"
-		"recursive.conf"
-		"kitty.conf"
-	)
-
-	read -r -p "Include KITTY Terminal? [y/N] " answer
-	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo "Excluding KITTY."
-		echo "Proceeding."
-	else
-		echo "Setting up KITTY."
-		echo "Checking if KITTY exists."
-
-			# Look (desperately) for existing Kitty Terminal installation, else install it
-		if [[ ! "$(which kitty 2> /dev/null)" ]] && [[ ! $(ls /Applications/ | grep -i kitty 2> /dev/null) ]] && [[ ! "$(pacman -Q kitty 2> /dev/null)" ]]; then
-			echo "Couldn't find existing KITTY installation."
-
-			# If not macOS, presume we're using Arch
-			if [[ "$OSTYPE" =~ "darwin" ]]; then
-				echo "Now installing KITTY for macOS."
-				curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-			else
-				echo "Now installing KITTY for Arch."
-				sudo pacman -S kitty
-			fi
-
-		else
-			echo "Existing KITTY installation found."
-			echo "Proceeding."
-		fi
-
-		for inc in ${kitty[@]}
-		do
-			ln -sfv "$PWD/kitty/$inc" "$HOME/.config/kitty/" || error "Failed to symlink $1"
-		done
-	fi
-
-	echo "Done."
-}
 
 setup_neofetch() {
 	read -r -p "Include NEOFETCH? [y/N] " answer
