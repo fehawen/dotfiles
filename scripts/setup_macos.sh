@@ -39,7 +39,7 @@ setup_kitty() {
 
 	for kit in ${kitty[@]}
 	do
-		cd ../.config/kitty/ && ln -sfv "$PWD/kitty/$kit" "$HOME/.config/kitty/" || error "Failed to symlink $kit"
+		cd ../.config/kitty/ && ln -sfv "$PWD/kitty/$kit" "$HOME/.config/kitty" || error "Failed to symlink $kit"
 	done
 
 	echo "Done."
@@ -58,7 +58,7 @@ setup_vscode() {
 			rm $HOME/Library/Application\ Support/Code/User/settings.json
 		fi
 
-		cd ../vs_code/ && ln -sfv "$PWD/settings.json" $HOME/Library/Application\ Support/Code/User/settings.json
+		cd ../vs_code/ && ln -sfv "$PWD/settings.json" "$HOME/Library/Application\ Support/Code/User"
 	fi
 
 	echo "Done."

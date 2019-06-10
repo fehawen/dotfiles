@@ -52,7 +52,7 @@ setup_neofetch() {
 			echo "Proceeding."
 		fi
 
-		ln -sfv "$PWD/neofetch/config.conf" "$HOME/.config/neofetch/" || error "Failed to symlink $1"
+		ln -sfv "$PWD/neofetch/config.conf" "$HOME/.config/neofetch" || error "Failed to symlink $1"
 	fi
 
 	echo "Done."
@@ -85,13 +85,13 @@ setup_neovim() {
 			echo "Proceeding."
 		fi
 
-		ln -sfv "$PWD/nvim/init.vim" "$HOME/.config/nvim/" || error "Failed to symlink '$PWD/nvim/init.vim'"
+		ln -sfv "$PWD/nvim/init.vim" "$HOME/.config/nvim" || error "Failed to symlink '$PWD/nvim/init.vim'"
 
-		ln -sfv "$PWD/nvim/colors/recursive.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$PWD/nvim/colors/recursive.vim'"
+		ln -sfv "$PWD/nvim/colors/recursive.vim" "$HOME/.config/nvim/colors" || error "Failed to symlink '$PWD/nvim/colors/recursive.vim'"
 
-		ln -sfv "$PWD/nvim/colors/industrial.vim" "$HOME/.config/nvim/colors/" || error "Failed to symlink '$PWD/nvim/colors/industrial.vim'"
+		ln -sfv "$PWD/nvim/colors/industrial.vim" "$HOME/.config/nvim/colors" || error "Failed to symlink '$PWD/nvim/colors/industrial.vim'"
 
-		ln -sfv "$PWD/nvim/plugin/statusline.vim" "$HOME/.config/nvim/plugin/" || error "Failed to symlink '$PWD/nvim/plugin/statusline.vim'"
+		ln -sfv "$PWD/nvim/plugin/statusline.vim" "$HOME/.config/nvim/plugin" || error "Failed to symlink '$PWD/nvim/plugin/statusline.vim'"
 	fi
 
 	echo "Done."
