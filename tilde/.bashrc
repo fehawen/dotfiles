@@ -23,9 +23,6 @@ bind "set completion-ignore-case on"
 #####################
 
 if [[ "$OSTYPE" =~ "darwin" ]]; then
-	# Set editor, if macOS, else it's set in "~/.profile"
-	export EDITOR="/usr/local/bin/nvim"
-
 	# Set macOS specific aliases for ChunkWM and SKHD
 	alias start-chunkwm="brew services start koekeishiya/formulae/chunkwm"
 	alias restart-chunkwm="brew services restart koekeishiya/formulae/chunkwm"
@@ -173,5 +170,7 @@ do
 	esac
 done
 
-# Set path
+# Exports
 export PATH="${PATH}"
+export EDITOR="nvim"
+

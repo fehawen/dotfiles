@@ -6,7 +6,6 @@ declare -a includes=(
 	.bash_profile
 	.hushlogin
 	.inputrc
-	.profile
 )
 
 # macOS only dotfiles
