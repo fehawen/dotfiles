@@ -70,16 +70,17 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.foreground,    s:gui.line,          "bold")
-call s:hi("User2",              s:gui.blue,          s:gui.line,          "bold")
-call s:hi("User3",              s:gui.red,           s:gui.line,          "bold")
-call s:hi("User4",              s:gui.background,    s:gui.line,          "bold")
-call s:hi("User8",              s:gui.line,          s:gui.none,          "bold")
+call s:hi("User1",              s:gui.foreground,    s:gui.line,          "italic")
+call s:hi("User2",              s:gui.blue,          s:gui.line,          "italic")
+call s:hi("User3",              s:gui.red,           s:gui.line,          "italic")
+call s:hi("User4",              s:gui.background,    s:gui.line,          "italic")
+call s:hi("User5",              s:gui.background,    s:gui.background,    "italic")
+call s:hi("User8",              s:gui.line,          s:gui.none,          "italic")
 
-call s:hi("StatusLine",         s:gui.line,          s:gui.foreground,    "")
-call s:hi("StatusLineNC",       s:gui.line,          s:gui.background,    "")
-call s:hi("StatusLineTerm",     s:gui.line,          s:gui.foreground,    "")
-call s:hi("StatusLineTemrNC",   s:gui.line,          s:gui.background,    "")
+call s:hi("StatusLine",         s:gui.background,    s:gui.background,    "")
+call s:hi("StatusLineNC",       s:gui.background,    s:gui.background,    "")
+call s:hi("StatusLineTerm",     s:gui.background,    s:gui.background,    "")
+call s:hi("StatusLineTemrNC",   s:gui.background,    s:gui.background,    "")
 
 call s:hi("NERDTreeOpenable",   s:gui.green,         s:gui.none,          "")
 call s:hi("NERDTreeClosable",   s:gui.red,           s:gui.none,          "")
@@ -142,11 +143,11 @@ call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
 " ALE COLORS
-call s:hi("ALEInfoSign",         s:gui.red,       s:gui.cursorline, "")
+call s:hi("ALEInfoSign",         s:gui.yellow,    s:gui.cursorline, "")
 call s:hi("ALEErrorSign",        s:gui.red,       s:gui.cursorline, "")
-call s:hi("ALEWarningSign",      s:gui.red,       s:gui.cursorline, "")
+call s:hi("ALEWarningSign",      s:gui.yellow,    s:gui.cursorline, "")
 call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.cursorline, "")
-call s:hi("ALEStyleWarningSign", s:gui.red,       s:gui.cursorline, "")
+call s:hi("ALEStyleWarningSign", s:gui.yellow,    s:gui.cursorline, "")
 
 call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
 call s:hi("ALEErrorLine",        s:gui.comment,   s:gui.none, "")
