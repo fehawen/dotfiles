@@ -40,8 +40,8 @@ fi
 ###############
 
 alias clr="clear"
-alias la="ls -1AFG"
-alias ls="ls -lAFGh"
+alias la="ls -AFGghl"
+alias las="ls -AFG"
 alias g+="git add"
 alias g-="git rm"
 alias gcm="git commit -m"
