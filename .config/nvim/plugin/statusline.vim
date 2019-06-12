@@ -77,7 +77,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%8*%=%8*%4*\ \ NERD\ \ "
+let NERDTreeStatusline="%5*%=%8*%4*\ \ NERD\ \ %8*%5*%="
 
 " }}}
 
@@ -92,7 +92,9 @@ function! ActiveStatusLine()
 
 	let l:statusline=""
 
-	let l:statusline.="%2*\ \ mode\ "
+	let l:statusline.="%5*%="
+
+	let l:statusline.="%8*%2*\ \ mode\ "
 
 	if (mode() =~# '\v(n|no)')
 		let l:statusline.="%1*"
@@ -119,6 +121,8 @@ function! ActiveStatusLine()
 
 	let l:statusline.="%8*"
 
+	let l:statusline.="%5*%="
+
 	return l:statusline
 
 endfunction
@@ -128,12 +132,16 @@ function! InactiveStatusLine()
 
 	let l:statusline=""
 
-	let l:statusline.="%4*\ \ file\ %2*%t\ "
+	let l:statusline.="%5*%="
+
+	let l:statusline.="%8*%4*\ \ file\ %2*%t\ "
 
 	let l:statusline.="%4*\ col\ %2*%c\ \ "
 	let l:statusline.="%4*line\ %2*%l/%L\ \ "
 
 	let l:statusline.="%8*"
+
+	let l:statusline.="%5*%="
 
 	return l:statusline
 

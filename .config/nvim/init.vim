@@ -21,6 +21,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'amadeus/vim-mjml'
+Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()
@@ -194,15 +195,15 @@ let g:deoplete#enable_at_startup = 1
 let g:nvim_typescript#diagnostics_enable = 0
 
 " ALE settings
-let g:ale_sign_info= '✘'
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '✘'
-let g:ale_sign_style_error = '✘'
-let g:ale_sign_style_warning = '✘'
+let g:ale_sign_info= '●'
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '●'
+let g:ale_sign_style_error = '●'
+let g:ale_sign_style_warning = '●'
 
 " NERDTree settings
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrows = 0
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
 
