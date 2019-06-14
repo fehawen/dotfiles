@@ -4,23 +4,23 @@ if exists("syntax_on")
 	syntax reset
 endif
 
-let s:style = get(g:, "recursive_style", "default")
-let g:colors_name = "recursive"
+let s:style = get(g:, "droid_style", "default")
+let g:colors_name = "droid"
 
 let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.background = { 'default': '#2F343F' }
-let s:gui.foreground = { 'default': '#B4BAC4' }
+let s:gui.background = { 'default': '#FFFFFD' }
+let s:gui.foreground = { 'default': '#353C48' }
 
-let s:gui.line       = { 'default': '#3E4552' }
-let s:gui.cursorline = { 'default': '#353C48' }
-let s:gui.selection  = { 'default': '#3E4552' }
-let s:gui.comment    = { 'default': '#525764' }
-let s:gui.listchars  = { 'default': '#3E4552' }
+let s:gui.line       = { 'default': '#EDEDEB' }
+let s:gui.cursorline = { 'default': '#F7F7F5' }
+let s:gui.selection  = { 'default': '#EDEDEB' }
+let s:gui.comment    = { 'default': '#D9D9D7' }
+let s:gui.listchars  = { 'default': '#E3E3E1' }
 
-let s:gui.black      = { 'default': '#525764' }
+let s:gui.black      = { 'default': '#D9D9D9' }
 let s:gui.red        = { 'default': '#AE5D65' }
 let s:gui.green      = { 'default': '#A4AF9A' }
 let s:gui.yellow     = { 'default': '#B69F87' }
@@ -42,7 +42,7 @@ function! s:hi(group, guifg, guibg, attr)
 endfunction
 
 function! s:gui(color)
-	if exists("g:recursive_style")
+	if exists("g:droid_style")
 		return a:color[s:style]
 	else
 		return a:color["default"]
@@ -70,14 +70,14 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.red,           s:gui.none,          "italic")
-call s:hi("User2",              s:gui.green,         s:gui.none,          "italic")
-call s:hi("User3",              s:gui.yellow,        s:gui.none,          "italic")
-call s:hi("User4",              s:gui.blue,          s:gui.none,          "italic")
-call s:hi("User5",              s:gui.magenta,       s:gui.none,          "italic")
-call s:hi("User6",              s:gui.cyan,          s:gui.none,          "italic")
-call s:hi("User7",              s:gui.foreground,    s:gui.none,          "italic")
-call s:hi("User8",              s:gui.background,    s:gui.background,    "italic")
+call s:hi("User1",              s:gui.red,           s:gui.none,          "bolditalic")
+call s:hi("User2",              s:gui.green,         s:gui.none,          "bolditalic")
+call s:hi("User3",              s:gui.yellow,        s:gui.none,          "bolditalic")
+call s:hi("User4",              s:gui.blue,          s:gui.none,          "bolditalic")
+call s:hi("User5",              s:gui.magenta,       s:gui.none,          "bolditalic")
+call s:hi("User6",              s:gui.cyan,          s:gui.none,          "bolditalic")
+call s:hi("User7",              s:gui.foreground,    s:gui.none,          "bolditalic")
+call s:hi("User8",              s:gui.background,    s:gui.background,    "bolditalic")
 
 call s:hi("StatusLine",         s:gui.background,    s:gui.background,    "none")
 call s:hi("StatusLineNC",       s:gui.background,    s:gui.background,    "none")
