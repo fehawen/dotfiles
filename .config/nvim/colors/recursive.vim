@@ -10,24 +10,24 @@ let g:colors_name = "recursive"
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.none       = { 'default': 'NONE' }
-let s:gui.background = { 'default': '#2F343F' }
-let s:gui.foreground = { 'default': '#B4BAC4' }
+let s:gui.none       = { 'default': 'NONE', 'dark': 'NONE' }
+let s:gui.background = { 'default': '#2F343F', 'dark': '#0B0B0B' }
+let s:gui.foreground = { 'default': '#B4BAC4', 'dark': '#C0C0C0' }
 
-let s:gui.line       = { 'default': '#3E4552' }
-let s:gui.cursorline = { 'default': '#353C48' }
-let s:gui.selection  = { 'default': '#3E4552' }
-let s:gui.comment    = { 'default': '#525764' }
-let s:gui.listchars  = { 'default': '#3E4552' }
+let s:gui.line       = { 'default': '#3E4552', 'dark': '#3B3B3B' }
+let s:gui.cursorline = { 'default': '#353C48', 'dark': '#1B1B1B' }
+let s:gui.selection  = { 'default': '#3E4552', 'dark': '#2B2B2B' }
+let s:gui.comment    = { 'default': '#525764', 'dark': '#4B4B4B' }
+let s:gui.listchars  = { 'default': '#3E4552', 'dark': '#3B3B3B' }
 
-let s:gui.black      = { 'default': '#525764' }
-let s:gui.red        = { 'default': '#AE5D65' }
-let s:gui.green      = { 'default': '#A4AF9A' }
-let s:gui.yellow     = { 'default': '#B69F87' }
-let s:gui.orange     = { 'default': '#BA8E81' }
-let s:gui.blue       = { 'default': '#8A95A8' }
-let s:gui.magenta    = { 'default': '#938899' }
-let s:gui.cyan       = { 'default': '#96A8AD' }
+let s:gui.black      = { 'default': '#525764', 'dark': '#4B4B4B' }
+let s:gui.red        = { 'default': '#AE5D65', 'dark': '#AE5D65' }
+let s:gui.green      = { 'default': '#A4AF9A', 'dark': '#A4AF9A' }
+let s:gui.yellow     = { 'default': '#B69F87', 'dark': '#B69F87' }
+let s:gui.orange     = { 'default': '#BA8E81', 'dark': '#BA8E81' }
+let s:gui.blue       = { 'default': '#8A95A8', 'dark': '#8A95A8' }
+let s:gui.magenta    = { 'default': '#938899', 'dark': '#938899' }
+let s:gui.cyan       = { 'default': '#96A8AD', 'dark': '#96A8AD' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
