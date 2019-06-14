@@ -5,7 +5,6 @@
 " -------------------------------------------------------------------------
 
 function! SyntaxItem()
-
 	let l:syntaxname = synIDattr(synID(line("."),col("."),1),"name")
 
 	if l:syntaxname != ""
@@ -13,7 +12,6 @@ function! SyntaxItem()
 	else
 		return ""
 	endif
-
 endfunction
 
 " }}}
@@ -23,34 +21,33 @@ endfunction
 " -------------------------------------------------------------------------
 
 function! LinterStatus() abort
-
 	let l:counts = ale#statusline#Count(bufnr(''))
 
 	if l:counts.total == 0
 		return ""
-	elseif l:counts.total == 1
-		return printf("%d error", l:counts.total)
 	else
-		return printf("%d errors", l:counts.total)
+		return printf("(%d)", l:counts.total)
 	endif
-
 endfunction
+
+" }}}
 
 " VIM MODES: " {{{
 " https://kadekillary.work/post/statusline-vim/
 " -------------------------------------------------------------------------
+
 let g:currentmode={
 	\'n'  : 'Normal',
-	\'no' : 'Normal Op Pend',
+	\'no' : 'Normal/Op/Pend',
 	\'v'  : 'Visual',
-	\'V'  : 'Visual Line',
-	\'^V' : 'Visual Block',
+	\'V'  : 'Visual/Line',
+	\'^V' : 'Visual/Block',
 	\'s'  : 'Select',
-	\'S'  : 'Select Line',
-	\'^S' : 'Select Block',
+	\'S'  : 'Select/Line',
+	\'^S' : 'Select/Block',
 	\'i'  : 'Insert',
 	\'R'  : 'Replace',
-	\'Rv' : 'Visual Replace',
+	\'Rv' : 'Visual/Replace',
 	\'c'  : 'Command',
 	\'cv' : 'Vim Ex',
 	\'ce' : 'Ex',
@@ -61,15 +58,12 @@ let g:currentmode={
 	\'t'  : 'Terminal'
 \}
 
-
 function! ModeCurrent() abort
-
 	let l:modecurrent = mode()
-	let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'Visual Block'))
+	let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'Visual/Block'))
 	let l:current_status_mode = l:modelist
 
 	return l:current_status_mode
-
 endfunction
 
 " }}}
@@ -77,7 +71,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%5*%=%8*%4*\ \ NERD\ \ %8*%5*%="
+let NERDTreeStatusline="%8*%=%1*NERD%8*%="
 
 " }}}
 
@@ -89,87 +83,75 @@ set laststatus=2
 
 " Format active statusline
 function! ActiveStatusLine()
-
+	" Reset statusline
 	let l:statusline=""
-
-	let l:statusline.="%5*%="
-
-	let l:statusline.="%8*%2*\ \ mode\ "
-
+	" Spacer
+	let l:statusline.="%8*%="
+	" Set color based on mode
 	if (mode() =~# '\v(n|no)')
-		let l:statusline.="%1*"
+		let l:statusline.="%4*"
 	else
-		let l:statusline.="%3*"
+		let l:statusline.="%2*"
 	endif
-
-	let l:statusline.="%{ModeCurrent()}\ \ "
-
-	let l:statusline.="%2*file\ %1*%t\ "
-
+	" Mode
+	let l:statusline.="%{ModeCurrent()}\ "
+	" Filename
+	let l:statusline.="%7*in\ "
+	let l:statusline.="%6*%t\ "
+	" ALE lint errors, if any
 	if LinterStatus() != ""
-		let l:statusline.="\ %2*lint\ %3*%{LinterStatus()}\ "
+		let l:statusline.="%1*%{LinterStatus()}\ "
 	endif
-
-	let l:statusline.="\ %2*col\ %1*%c\ \ "
-	let l:statusline.="%2*line\ %1*%l/%L\ "
-
+	" Column number
+	let l:statusline.="%7*col\ "
+	let l:statusline.="%5*%c\ "
+	" Current line number, total line numbers
+	let l:statusline.="%7*line\ "
+	let l:statusline.="%5*%l/%L"
+	" Show syntax identifier, if any
 	if SyntaxItem() != ""
-		let l:statusline.="\ %2*syntax\ %1*%{SyntaxItem()}\ \ "
-	else
-		let l:statusline.="\ "
+	let l:statusline.="%7*\ is\ "
+		let l:statusline.="%3*%{SyntaxItem()}\ "
 	endif
-
-	let l:statusline.="%8*"
-
-	let l:statusline.="%5*%="
-
+	" Spacer
+	let l:statusline.="%8*%="
+	" Done
 	return l:statusline
-
 endfunction
 
 " Format inactive statusline
 function! InactiveStatusLine()
-
+	" Reset statusline
 	let l:statusline=""
-
-	let l:statusline.="%5*%="
-
-	let l:statusline.="%8*%4*\ \ file\ %2*%t\ "
-
-	let l:statusline.="%4*\ col\ %2*%c\ \ "
-	let l:statusline.="%4*line\ %2*%l/%L\ \ "
-
-	let l:statusline.="%8*"
-
-	let l:statusline.="%5*%="
-
+	" Spacer
+	let l:statusline.="%8*%="
+	" Filename
+	let l:statusline.="%6*%t"
+	" Spacer
+	let l:statusline.="%8*%="
+	" Done
 	return l:statusline
-
 endfunction
 
 " Set active statusline
 function! SetActiveStatusLine()
-
 	if &ft ==? 'nerdtree'
 		return
 	endif
 
 	setlocal statusline=
 	setlocal statusline+=%!ActiveStatusLine()
-
 endfunction
 
 
 " Set inactive statusline
 function! SetInactiveStatusLine()
-
 	if &ft ==? 'nerdtree'
 		return
 	endif
 
 	setlocal statusline=
 	setlocal statusline+=%!InactiveStatusLine()
-
 endfunction
 
 " Autocmd statusline
