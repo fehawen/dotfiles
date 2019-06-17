@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # open Kitty
-alt - return : open -a /Applications/kitty.app
+cmd - return : open -a /Applications/kitty.app
 
 # close focused window
 alt - w : chunkc tiling::window --close
