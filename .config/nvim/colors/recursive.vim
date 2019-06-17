@@ -11,11 +11,11 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE', 'dark': 'NONE' }
-let s:gui.background = { 'default': '#2F343F', 'dark': '#0B0B0B' }
+let s:gui.background = { 'default': '#2F343F', 'dark': '#000000' }
 let s:gui.foreground = { 'default': '#B4BAC4', 'dark': '#C0C0C0' }
 
 let s:gui.line       = { 'default': '#3E4552', 'dark': '#3B3B3B' }
-let s:gui.cursorline = { 'default': '#353C48', 'dark': '#1B1B1B' }
+let s:gui.cursorline = { 'default': '#353C48', 'dark': 'NONE' }
 let s:gui.selection  = { 'default': '#3E4552', 'dark': '#2B2B2B' }
 let s:gui.comment    = { 'default': '#525764', 'dark': '#4B4B4B' }
 let s:gui.listchars  = { 'default': '#3E4552', 'dark': '#3B3B3B' }
@@ -70,19 +70,19 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.red,           s:gui.none,          "italic")
-call s:hi("User2",              s:gui.green,         s:gui.none,          "italic")
-call s:hi("User3",              s:gui.yellow,        s:gui.none,          "italic")
-call s:hi("User4",              s:gui.blue,          s:gui.none,          "italic")
-call s:hi("User5",              s:gui.magenta,       s:gui.none,          "italic")
-call s:hi("User6",              s:gui.cyan,          s:gui.none,          "italic")
-call s:hi("User7",              s:gui.foreground,    s:gui.none,          "italic")
-call s:hi("User8",              s:gui.background,    s:gui.background,    "italic")
+call s:hi("User1",              s:gui.red,           s:gui.none,          "bolditalic")
+call s:hi("User2",              s:gui.green,         s:gui.none,          "bolditalic")
+call s:hi("User3",              s:gui.yellow,        s:gui.none,          "bolditalic")
+call s:hi("User4",              s:gui.blue,          s:gui.none,          "bolditalic")
+call s:hi("User5",              s:gui.magenta,       s:gui.none,          "bolditalic")
+call s:hi("User6",              s:gui.cyan,          s:gui.none,          "bolditalic")
+call s:hi("User7",              s:gui.foreground,    s:gui.none,          "bolditalic")
+call s:hi("User8",              s:gui.none,          s:gui.none,          "bolditalic")
 
 call s:hi("StatusLine",         s:gui.background,    s:gui.background,    "none")
-call s:hi("StatusLineNC",       s:gui.background,    s:gui.background,    "none")
+call s:hi("StatusLineNC",       s:gui.comment,       s:gui.none,          "none")
 call s:hi("StatusLineTerm",     s:gui.background,    s:gui.background,    "none")
-call s:hi("StatusLineTemrNC",   s:gui.background,    s:gui.background,    "none")
+call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.none,          "none")
 
 call s:hi("NERDTreeOpenable",   s:gui.cyan,          s:gui.none,          "")
 call s:hi("NERDTreeClosable",   s:gui.cyan,          s:gui.none,          "")
