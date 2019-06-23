@@ -18,20 +18,6 @@ THEME="recursive"
 # Do case-insensitive completion for e.g. `cd` commands
 bind "set completion-ignore-case on"
 
-#####################
-#### CONDITONALS ####
-#####################
-
-if [[ "$OSTYPE" =~ "darwin" ]]; then
-	# Set macOS specific aliases for ChunkWM and SKHD
-	alias start-chunkwm="brew services start koekeishiya/formulae/chunkwm"
-	alias restart-chunkwm="brew services restart koekeishiya/formulae/chunkwm"
-	alias stop-chunkwm="brew services stop koekeishiya/formulae/chunkwm"
-	alias start-skhd="brew services start koekeishiya/formulae/skhd"
-	alias restart-skhd="brew services restart koekeishiya/formulae/skhd"
-	alias stop-skhd="brew services stop koekeishiya/formulae/skhd"
-fi
-
 ###############
 ### ALIASES ###
 ###############
@@ -102,6 +88,11 @@ find_string() {
 # Find all filenames in dirs/subdirs matching query
 find_filename() {
 	command find . -not -path "*node_modules*" -iname "$1" | sort -u | grep -i --color=always "$1"
+}
+
+# Window manager helper for starting, stopping or restarting either chunkwm or skhd
+wm() {
+	brew services "$1" koekeishiya/formulae/"$2"
 }
 
 ##############
