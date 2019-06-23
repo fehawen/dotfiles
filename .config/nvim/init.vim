@@ -20,8 +20,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-Plug 'amadeus/vim-mjml'
-Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()
@@ -207,8 +205,9 @@ let g:NERDTreeDirArrows = 0
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
 
-let g:NERDTreeDirArrowExpandable = ""
-let g:NERDTreeDirArrowCollapsible = ""
+" If vim-devicons
+" let g:NERDTreeDirArrowExpandable = ""
+" let g:NERDTreeDirArrowCollapsible = ""
 
 "#########################"
 "###### KEYBINDINGS ######"
