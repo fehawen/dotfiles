@@ -61,16 +61,16 @@ setup_arch() {
 	shopt -s dotglob
 
 	for folder in "${folders[@]}"; do
-		if [[ ! -d "$HOME/$folder" ]]; then
-			mkdir -p "$HOME/$folder"
-		fi
-
 		echo "\n"
 		echo "Symlinking files in $folder ..."
 
 		if [[ "$folder" == "tilde" ]]; then
 			symlink_tilde_files
 		else
+			if [[ ! -d "$HOME/$folder" ]]; then
+				mkdir -p "$HOME/$folder"
+			fi
+
 			symlink_files $folder
 		fi
 
