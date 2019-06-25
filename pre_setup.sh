@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 confirm() {
 	read -r -p "Proceed with setup for $1? [y/N] " answer

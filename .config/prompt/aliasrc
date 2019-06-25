@@ -1,0 +1,79 @@
+#!/bin/bash
+
+###############
+### ALIASES ###
+###############
+
+alias clr="clear"
+alias la="ls -AFGghl"
+alias las="ls -AFG"
+alias g+="git add"
+alias g-="git rm"
+alias gcm="git commit -m"
+alias gpuom="git push -u origin master"
+alias gpom="git push origin master"
+alias gpuo="git push -u origin"
+alias gpo="git push origin"
+alias gp="git push"
+alias gs="git status"
+alias gss="git status -s"
+alias giff="git diff"
+alias glog="gitlog"
+alias gitlog="git log --pretty=format:'%n%ar %n%Cred%h %Cblue%an <%ae> %n%Cgreen%s%n' --name-only"
+alias gfetch="git fetch"
+alias gpull="git pull"
+alias gbranch="git branch --list"
+alias gbranchr="git branch -r"
+alias gbranchv="git branch -v"
+alias gcheck="git checkout"
+alias gcheckb="git checkout -b"
+alias gstash="git stash"
+alias gstasha="git stash apply"
+alias gstashl="git stash list"
+alias gstashd="git stash drop"
+alias code="open -a 'Visual Studio Code'"
+alias gh="cd ~/Github/"
+alias repos="cd ~/Github/"
+alias dot="cd ~/Dotfiles/"
+alias pro="cd ~/projects/"
+alias mongorun="mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data"
+alias todoread="cat ~/Github/todo/README.md"
+alias todoedit="nvim ~/Github/todo/README.md"
+alias todopush=push_todos
+alias todopull=pull_todos
+alias hunt=find_string
+alias mark=find_filename
+
+#############
+### UTILS ###
+#############
+
+push_todos() {
+	pushd "$HOME/Github/todo/" && \
+	git add . && \
+	git commit -m "Bump." && \
+	git push && \
+	cd "$(dirs -l -0)" && dirs -c
+}
+
+pull_todos() {
+	pushd "$HOME/Github/todo/" && \
+	git pull && \
+	cd "$(dirs -l -0)" && dirs -c
+}
+
+# Find all files in dirs/subdirs containing search query
+find_string() {
+	command grep --exclude-dir=node_modules --exclude-dir=.fusebox -wroni "$1" . | sort -u | grep -iv "^$1" | sed "/^$/d" | grep -i --color=always "$1"
+}
+
+# Find all filenames in dirs/subdirs matching query
+find_filename() {
+	command find . -not -path "*node_modules*" -iname "$1" | sort -u | grep -i --color=always "$1"
+}
+
+# Window manager helper for starting, stopping or restarting either chunkwm or skhd
+wm() {
+	brew services "$1" koekeishiya/formulae/"$2"
+}
+

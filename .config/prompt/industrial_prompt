@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 ###############
 ### SYMBOLS ###
@@ -29,9 +29,8 @@ clock_color="$blue"
 clock_icon="$stopwatch_icon"
 
 battery_prefix="${prefix_color}at"
-battery_good_color="$green"
-battery_low_color="$yellow"
-battery_critical_color="$red"
+battery_critical_color="$magenta"
+battery_regular_color="$yellow"
 
 user_prefix="${prefix_color}is"
 root_color="$magenta"
@@ -45,7 +44,7 @@ git_status_prefix="("
 git_status_suffix=")"
 git_status_color="$red"
 
-exec_time_color="$yellow"
+exec_time_color="$green"
 exec_time_prefix="${prefix_color}took"
 
 exit_ok_color="$green"
@@ -85,18 +84,10 @@ clock_section() {
 # Prints battery percentage, and if on battery or AC power
 battery_section() {
 	local batt_color=""
-	local percentage=""
+	local percentage=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1 2> /dev/null)
 
-	if [[ "$OSTYPE" =~ "darwin" ]]; then
-		percentage=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1 2> /dev/null)
-	else
-		percentage=$(acpi -b | grep -o '[0-9]*%' | grep -o '[0-9]*')
-	fi
-
-	if [[ "$percentage" -ge 50 ]]; then
-		batt_color="${battery_good_color}"
-	elif [[ "$percentage" -ge 20 ]]; then
-		batt_color="${battery_low_color}"
+	if [[ "$percentage" -ge 20 ]]; then
+		batt_color="${battery_regular_color}"
 	else
 		batt_color="${battery_critical_color}"
 	fi
@@ -121,15 +112,13 @@ dir_section() {
 	prefix=""
 	res=""
 
-	if [[ "$PWD" == "$HOME/$get_dir" ]]; then
+	if [[ "$(PWD)" == "$HOME/$get_dir" ]]; then
 		prefix="~/"
-	elif [[ "$PWD" == "/$get_dir" ]]; then
-		prefix="/"
 	else
 		prefix=""
 	fi
 
-	if [[ "$PWD" == "$HOME" ]]; then
+	if [[ "$(PWD)" == "$HOME" ]]; then
 		res="~"
 	else
 		res="${prefix}${get_dir}"

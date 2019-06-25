@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 set_shell() {
 	echo "\n"
@@ -19,6 +19,8 @@ symlink_tilde_files() {
 		".bashrc"
 		".hushlogin"
 		".inputrc"
+		".profile"
+		".xinitrc"
 	)
 
 	pushd "$PWD/tilde" > /dev/null

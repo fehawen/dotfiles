@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 setup_homebrew() {
 	if [[ ! $(which brew) ]] && [[ ! $(brew --version &> /dev/null) ]]; then
@@ -23,6 +23,7 @@ symlink_tilde_files() {
 		".chunkwmrc"
 		".hushlogin"
 		".inputrc"
+		".profile"
 		".skhdrc"
 	)
 
