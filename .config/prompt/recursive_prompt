@@ -90,7 +90,8 @@ battery_section() {
 	if [[ "$OSTYPE" =~ "darwin" ]]; then
 		percentage=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1 2> /dev/null)
 	else
-		percentage=$(acpi -b | grep -o '[0-9]*%' | grep -o '[0-9]*')
+		# percentage=$(acpi -b | grep -o '[0-9]*%' | grep -o '[0-9]*')
+		percentage=$(cat /sys/class/power_supply/BAT0/capacity)
 	fi
 
 	if [[ "$percentage" -ge 50 ]]; then
