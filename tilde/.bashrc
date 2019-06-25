@@ -69,12 +69,17 @@ ALIAS_FILE="$THEMES_DIR/aliasrc"
 
 [ -f "$ALIAS_FILE" ] && source "$ALIAS_FILE"
 
-###################
-### ENV EXPORTS ###
-###################
+###############
+### EXPORTS ###
+###############
 
 export EDITOR="nvim"
 export LC_ALL=en_US.UTF-8
+
+# Start X if i3 isn't running, and if on Linux (Arch)
+if [[ "$OSTYPE" =~ "linux" ]]; then
+	[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+fi
 
 # Set PATH for macOS
 if [[ "$OSTYPE" =~ "darwin" ]]; then
