@@ -21,6 +21,7 @@ symlink_tilde_files() {
 		".inputrc"
 		".profile"
 		".xinitrc"
+		".Xresources"
 	)
 
 	pushd "$PWD/tilde" > /dev/null
@@ -54,6 +55,7 @@ setup_arch() {
 		".config/nvim/colors"
 		".config/nvim/plugin"
 		".config/prompt"
+		".config/zathura"
 		".newsboat"
 		"tilde"
 	)
