@@ -6,7 +6,7 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-*font: xft:Operator-Mono-Medium:pixelsize=13
+*font: xft:OperatorMonoNerd-Medium:pixelsize=13,xft:OperatorMonoNerd-MediumItalic:pixelsize=13,xft:OperatorMonoNerd-Bold:pixelsize=13,xft:OperatorMonoNerd-BoldItalic:pixelsize=13
 
 *.background: #353C48
 
