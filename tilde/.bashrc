@@ -74,6 +74,7 @@ ALIAS_FILE="$THEMES_DIR/aliasrc"
 ###############
 
 export EDITOR="nvim"
+export TERMINAL="kitty"
 export LC_ALL=en_US.UTF-8
 
 # Start X if i3 isn't running, and if on Linux (Arch)
