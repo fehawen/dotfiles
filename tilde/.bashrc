@@ -9,7 +9,7 @@
 	# industrial_prompt
 	# recursive_prompt
 
-THEME="recursive_prompt"
+THEME="industrial_prompt"
 
 #####################
 ### CUSTOMIZATION ###
