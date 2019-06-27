@@ -1,7 +1,7 @@
 #!/bin/sh
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 
-xrandr --dpi 130
+xrandr --dpi 220
 
 setxkbmap se
 

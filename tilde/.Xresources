@@ -1,12 +1,12 @@
-Xft.dpi: 130
+Xft.dpi: 220
 Xft.autohint: 0
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-*font: xft:OperatorMonoNerd-Medium:pixelsize=13,xft:OperatorMonoNerd-MediumItalic:pixelsize=13,xft:OperatorMonoNerd-Bold:pixelsize=13,xft:OperatorMonoNerd-BoldItalic:pixelsize=13
+*font: xft:OperatorMonoNerd-Medium:pixelsize=8,xft:OperatorMonoNerd-MediumItalic:pixelsize=8,xft:OperatorMonoNerd-Bold:pixelsize=8,xft:OperatorMonoNerd-BoldItalic:pixelsize=8
 
 *background: #353C48
 
