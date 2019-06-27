@@ -28,13 +28,8 @@ prefix_color="$white"
 clock_color="$blue"
 clock_icon="$stopwatch_icon"
 
-battery_prefix="${prefix_color}at"
-battery_good_color="$green"
-battery_low_color="$yellow"
-battery_critical_color="$red"
-
-user_prefix="${prefix_color}is"
-root_color="$magenta"
+user_prefix="${prefix_color}as"
+root_color="$red"
 
 dir_prefix="${prefix_color}in"
 dir_color="$cyan"
@@ -80,29 +75,6 @@ trap timer_start DEBUG
 # Prints time in hh:mm
 clock_section() {
 	printf "${clock_color}$(date '+%H:%M')"
-}
-
-# Prints battery percentage, and if on battery or AC power
-battery_section() {
-	local batt_color=""
-	local percentage=""
-
-	if [[ "$OSTYPE" =~ "darwin" ]]; then
-		percentage=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1 2> /dev/null)
-	else
-		# percentage=$(acpi -b | grep -o '[0-9]*%' | grep -o '[0-9]*')
-		percentage=$(cat /sys/class/power_supply/BAT0/capacity)
-	fi
-
-	if [[ "$percentage" -ge 50 ]]; then
-		batt_color="${battery_good_color}"
-	elif [[ "$percentage" -ge 20 ]]; then
-		batt_color="${battery_low_color}"
-	else
-		batt_color="${battery_critical_color}"
-	fi
-
-	echo -e " ${battery_prefix}${batt_color} ${percentage}%%"
 }
 
 # Prints out user only if we"re root, else prints nothing
@@ -235,7 +207,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	printf "${bold}${italic}$(clock_section)$(battery_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}${reset}$(exit_code_section)${reset}"
+	printf "${bold}${italic}$(clock_section)$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}${reset}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
