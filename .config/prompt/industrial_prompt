@@ -77,15 +77,15 @@ trap timer_start DEBUG
 
 # Prints out user only if we"re root, else prints nothing
 user_section() {
-	if [[ "$UID" -eq 0 ]]; then
-		echo -e "${root_color}$USER ${root_suffix} "
-	fi
+	[[ "$UID" -eq 0 ]] && echo -e "${root_color}$USER ${root_suffix} "
 }
 
 # Prints out current working directory with varying prefix,
 # depending if we"re in $HOME/dir or $HOME/.../dir, or
 # if we"re in a git repo, or in a git repo subdirectory
 dir_section() {
+	# echo "${PWD/#$HOME/~}"
+	# ${PWD#"${PWD%/*/*}/"}
 	local trim_pwd=$(echo "${PWD/#$HOME/~}" | rev | cut -d "/" -f1 -f2 | rev)
 	echo -e "${dir_color}${trim_pwd}"
 }
