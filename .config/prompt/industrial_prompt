@@ -46,9 +46,9 @@ exit_ok_color="$green"
 exit_bad_color="$red"
 exit_symbol="$arrow"
 
-#######################
-### PROMPT SECTIONS ###
-#######################
+#############
+### UTILS ###
+#############
 
 # Check if command exists, without printing error if it doesn"t
 command_exists() {
@@ -59,6 +59,10 @@ command_exists() {
 is_git_repository() {
 	command git rev-parse --is-inside-work-tree &> /dev/null
 }
+
+#######################
+### PROMPT SECTIONS ###
+#######################
 
 timer_start() {
 	start_time=${start_time:-$SECONDS}
@@ -82,27 +86,8 @@ user_section() {
 # depending if we"re in $HOME/dir or $HOME/.../dir, or
 # if we"re in a git repo, or in a git repo subdirectory
 dir_section() {
-	local get_dir="${PWD##*/}"
-	local prefix res
-
-	prefix=""
-	res=""
-
-	if [[ "$PWD" == "$HOME/$get_dir" ]]; then
-		prefix="~/"
-	elif [[ "$PWD" == "/$get_dir" ]]; then
-		prefix="/"
-	else
-		prefix=""
-	fi
-
-	if [[ "$PWD" == "$HOME" ]]; then
-		res="~"
-	else
-		res="${prefix}${get_dir}"
-	fi
-
-	echo -e "${dir_color}${res}"
+	local trim_pwd=$(echo "${PWD/#$HOME/~}" | rev | cut -d "/" -f1 -f2 | rev)
+	echo -e "${dir_color}${trim_pwd}"
 }
 
 # Show current Git branch, and if branch isn"t clean show status
