@@ -1,4 +1,4 @@
-Xft.dpi: 180
+Xft.dpi: 130
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
@@ -8,49 +8,39 @@ Xft.rgba: rgb
 
 *font: xft:OperatorMonoNerd-Medium:pixelsize=13,xft:OperatorMonoNerd-MediumItalic:pixelsize=13,xft:OperatorMonoNerd-Bold:pixelsize=13,xft:OperatorMonoNerd-BoldItalic:pixelsize=13
 
-*.background: #353C48
+*background: #353C48
 
-*.foreground: #B4BAC4
-*.cursorColor: #B4BAC4
+*foreground: #B4BAC4
+*cursorColor: #B4BAC4
 
 ! black
-*.color0:  #525764
-*.color8:  #525764
+*color0:  #525764
+*color8:  #525764
 
 ! red
-*.color1:  #AE5D65
-*.color9:  #AE5D65
+*color1:  #AE5D65
+*color9:  #AE5D65
 
 ! green
-*.color2:  #A4AF9A
-*.color10: #A4AF9A
+*color2:  #A4AF9A
+*color10: #A4AF9A
 
 ! yellow
-*.color3:  #B69F87
-*.color11: #B69F87
+*color3:  #B69F87
+*color11: #B69F87
 
 ! blue
-*.color4:  #8A95A8
-*.color12: #8A95A8
+*color4:  #8A95A8
+*color12: #8A95A8
 
 ! magenta
-*.color5:  #938899
-*.color13: #938899
+*color5:  #938899
+*color13: #938899
 
 ! cyan
-*.color6:  #96A8AD
-*.color14: #96A8AD
+*color6:  #96A8AD
+*color14: #96A8AD
 
 ! White
-*.color7:  #B4BAC4
-*.color15: #B4BAC4
-
-URxvt.background: #2F343F
-URxvt.internalBorder: 8
-URxvt.scrollBar: false
-URxvt.cursorBlink: 1
-
-! urxvt*transparent: true
-! urxvt*shading: 20
-URxvt.transparent: 1
-URxvt.shading: 30
+*color7:  #B4BAC4
+*color15: #B4BAC4

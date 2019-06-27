@@ -49,6 +49,7 @@ setup_arch() {
 	echo "Setting up Arch Linux config ..."
 
 	folders=(
+		".config/i3"
 		".config/kitty"
 		".config/neofetch"
 		".config/nvim"
