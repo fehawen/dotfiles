@@ -10,20 +10,20 @@ let g:colors_name = "industrial"
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.background = { 'default': '#263238', 'transparent': '#121E24' }
-let s:gui.foreground = { 'default': '#B0BEC5', 'transparent': '#B0BEC5' }
-let s:gui.none       = { 'default': 'NONE',    'transparent': 'NONE',   }
-let s:gui.selection  = { 'default': '#546E7A', 'transparent': '#546E7A' }
-let s:gui.line       = { 'default': '#37474F', 'transparent': '#37474F' }
-let s:gui.comment    = { 'default': '#37474F', 'transparent': '#37474F' }
+let s:gui.background = { 'default': '#263238' }
+let s:gui.foreground = { 'default': '#B0BEC5' }
+let s:gui.none       = { 'default': 'NONE',   }
+let s:gui.selection  = { 'default': '#546E7A' }
+let s:gui.line       = { 'default': '#37474F' }
+let s:gui.comment    = { 'default': '#37474F' }
 
-let s:gui.black      = { 'default': '#37474F', 'transparent': '#37474F' }
-let s:gui.red        = { 'default': '#455A64', 'transparent': '#455A64' }
-let s:gui.yellow     = { 'default': '#607D8B', 'transparent': '#607D8B' }
-let s:gui.green      = { 'default': '#78909C', 'transparent': '#78909C' }
-let s:gui.cyan       = { 'default': '#90A4AE', 'transparent': '#90A4AE' }
-let s:gui.blue       = { 'default': '#546E7A', 'transparent': '#546E7A' }
-let s:gui.magenta    = { 'default': '#F4511E', 'transparent': '#F4511E' }
+let s:gui.black      = { 'default': '#37474F' }
+let s:gui.red        = { 'default': '#455A64' }
+let s:gui.yellow     = { 'default': '#607D8B' }
+let s:gui.green      = { 'default': '#78909C' }
+let s:gui.cyan       = { 'default': '#90A4AE' }
+let s:gui.blue       = { 'default': '#546E7A' }
+let s:gui.magenta    = { 'default': '#F4511E' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""

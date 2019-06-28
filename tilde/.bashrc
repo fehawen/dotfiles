@@ -4,12 +4,7 @@
 ### THEMES ###
 ##############
 
-# Avaiable prompt themes:
-	# captain_prompt
-	# industrial_prompt
-	# recursive_prompt
-
-THEME="industrial_prompt"
+THEME="spyder_prompt"
 
 #####################
 ### CUSTOMIZATION ###

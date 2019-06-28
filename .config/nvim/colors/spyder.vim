@@ -4,30 +4,28 @@ if exists("syntax_on")
 	syntax reset
 endif
 
-let s:style = get(g:, "recursive_style", "default")
-let g:colors_name = "recursive"
+let s:style = get(g:, "spyder_style", "default")
+let g:colors_name = "spyder"
 
 let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.background = { 'default': '#2F343F' }
-let s:gui.foreground = { 'default': '#B4BAC4' }
+let s:gui.background = { 'default': '#283237' }
+let s:gui.foreground = { 'default': '#B9C0CB' }
 
-let s:gui.line       = { 'default': '#3E4552' }
-let s:gui.cursorline = { 'default': '#353C48' }
-let s:gui.selection  = { 'default': '#3E4552' }
-let s:gui.comment    = { 'default': '#525764' }
-let s:gui.listchars  = { 'default': '#3E4552' }
+let s:gui.line       = { 'default': '#475962' }
+let s:gui.selection  = { 'default': '#424E56' }
+let s:gui.comment    = { 'default': '#475962' }
+let s:gui.listchars  = { 'default': '#475962' }
 
-let s:gui.black      = { 'default': '#525764' }
-let s:gui.red        = { 'default': '#AE5D65' }
-let s:gui.green      = { 'default': '#A4AF9A' }
-let s:gui.yellow     = { 'default': '#B69F87' }
-let s:gui.orange     = { 'default': '#BA8E81' }
-let s:gui.blue       = { 'default': '#8A95A8' }
-let s:gui.magenta    = { 'default': '#938899' }
-let s:gui.cyan       = { 'default': '#96A8AD' }
+let s:gui.black      = { 'default': '#475962' }
+let s:gui.red        = { 'default': '#E88388' }
+let s:gui.green      = { 'default': '#A7CC8C' }
+let s:gui.yellow     = { 'default': '#DBAA79' }
+let s:gui.blue       = { 'default': '#72BEF2' }
+let s:gui.magenta    = { 'default': '#D291E4' }
+let s:gui.cyan       = { 'default': '#65C2CD' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -42,7 +40,7 @@ function! s:hi(group, guifg, guibg, attr)
 endfunction
 
 function! s:gui(color)
-	if exists("g:recursive_style")
+	if exists("g:spyder_style")
 		return a:color[s:style]
 	else
 		return a:color["default"]
@@ -70,14 +68,14 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.red,           s:gui.none,          "bolditalic")
-call s:hi("User2",              s:gui.green,         s:gui.none,          "bolditalic")
-call s:hi("User3",              s:gui.yellow,        s:gui.none,          "bolditalic")
-call s:hi("User4",              s:gui.blue,          s:gui.none,          "bolditalic")
-call s:hi("User5",              s:gui.magenta,       s:gui.none,          "bolditalic")
-call s:hi("User6",              s:gui.cyan,          s:gui.none,          "bolditalic")
-call s:hi("User7",              s:gui.foreground,    s:gui.none,          "bolditalic")
-call s:hi("User8",              s:gui.none,          s:gui.none,          "bolditalic")
+call s:hi("User1",              s:gui.red,           s:gui.none,          "bold")
+call s:hi("User2",              s:gui.green,         s:gui.none,          "bold")
+call s:hi("User3",              s:gui.yellow,        s:gui.none,          "bold")
+call s:hi("User4",              s:gui.blue,          s:gui.none,          "bold")
+call s:hi("User5",              s:gui.magenta,       s:gui.none,          "bold")
+call s:hi("User6",              s:gui.cyan,          s:gui.none,          "bold")
+call s:hi("User7",              s:gui.foreground,    s:gui.none,          "bold")
+call s:hi("User8",              s:gui.none,          s:gui.none,          "bold")
 
 call s:hi("StatusLine",         s:gui.background,    s:gui.background,    "none")
 call s:hi("StatusLineNC",       s:gui.comment,       s:gui.none,          "none")
@@ -94,16 +92,16 @@ call s:hi("NERDTreeFile",       s:gui.foreground,    s:gui.none,          "")
 call s:hi("EndOfBuffer",  s:gui.background, "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
 call s:hi("Cursor",       s:gui.foreground, "",               "")
-call s:hi("CursorColumn", s:gui.none,       s:gui.cursorline, "")
+call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
 call s:hi("LineNr",       s:gui.listchars,  "",               "")
-call s:hi("CursorLine",   s:gui.none,       s:gui.cursorline, "")
-call s:hi("CursorLineNr", s:gui.foreground, s:gui.cursorline, "")
+call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
+call s:hi("CursorLineNr", s:gui.foreground, s:gui.none,       "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.comment,    s:gui.line,       "")
-call s:hi("PMenu",        s:gui.cyan,       s:gui.cursorline, "")
-call s:hi("PMenuSel",     s:gui.cyan,       s:gui.line,       "")
+call s:hi("PMenu",        s:gui.foreground, s:gui.selection,  "")
+call s:hi("PMenuSel",     s:gui.foreground, s:gui.line,       "")
 call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.red,        "",               "")
@@ -123,7 +121,7 @@ call s:hi("NonText",      s:gui.listchars,  "",               "")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
 call s:hi("MatchParen",   s:gui.none,       s:gui.selection,  "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
-call s:hi("Comment",      s:gui.comment,    "",               "italic")
+call s:hi("Comment",      s:gui.comment,    "",               "")
 call s:hi("String",       s:gui.green,      "",               "")
 call s:hi("Normal",       s:gui.foreground, s:gui.none,       "")
 call s:hi("Visual",       s:gui.foreground, s:gui.selection,  "")
@@ -139,8 +137,8 @@ call s:hi("Number",       s:gui.red,        "",               "")
 call s:hi("Identifier",   s:gui.red,        "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
-call s:hi("Search",       s:gui.foreground, s:gui.selection,  "")
-call s:hi("InSearch",     s:gui.foreground, s:gui.selection,  "")
+call s:hi("Search",       s:gui.none,       s:gui.comment,    "")
+call s:hi("InSearch",     s:gui.none,       s:gui.comment,    "")
 call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
@@ -157,15 +155,15 @@ call s:hi("ALEWarningLine",      s:gui.comment,   s:gui.none, "")
 
 " TYPESCRIPT COLORS
 " leafgarland/typescript-vim
-call s:hi("typescriptComment",                   s:gui.comment,      "", "italic")
-call s:hi("typescriptCommentSkip",               s:gui.comment,      "", "italic")
-call s:hi("typescriptCommentTodo",               s:gui.comment,      "", "italic")
-call s:hi("typescriptLineComment",               s:gui.comment,      "", "italic")
-call s:hi("typescriptRefComment",                s:gui.comment,      "", "italic")
+call s:hi("typescriptComment",                   s:gui.comment,      "", "")
+call s:hi("typescriptCommentSkip",               s:gui.comment,      "", "")
+call s:hi("typescriptCommentTodo",               s:gui.comment,      "", "")
+call s:hi("typescriptLineComment",               s:gui.comment,      "", "")
+call s:hi("typescriptRefComment",                s:gui.comment,      "", "")
 call s:hi("typescriptRefD",                      s:gui.comment,      "", "")
 call s:hi("typescriptRefS",                      s:gui.comment,      "", "")
 
-call s:hi("typescriptDocComment",                s:gui.comment,      "", "italic")
+call s:hi("typescriptDocComment",                s:gui.comment,      "", "")
 call s:hi("typescriptDocTags",                   s:gui.comment,      "", "")
 call s:hi("typescriptDocParam",                  s:gui.comment,      "", "")
 call s:hi("typescriptDocSeeTag",                 s:gui.comment,      "", "")
@@ -175,7 +173,7 @@ call s:hi("typescriptStringD",                   s:gui.green,        "", "")
 call s:hi("typescriptStringS",                   s:gui.green,        "", "")
 call s:hi("typescriptStringB",                   s:gui.green,        "", "")
 call s:hi("typescriptInterpolation",             s:gui.green,        "", "")
-call s:hi("typescriptNumber",                    s:gui.orange,       "", "")
+call s:hi("typescriptNumber",                    s:gui.yellow,       "", "")
 call s:hi("typescriptRegexpString",              s:gui.cyan,         "", "")
 call s:hi("typescriptPrototype",                 s:gui.red,          "", "")
 call s:hi("typescriptBrowserObjects",            s:gui.red,          "", "")
@@ -189,16 +187,16 @@ call s:hi("typescriptEventListenerMethods",      s:gui.cyan,         "", "")
 call s:hi("typescriptSource",                    s:gui.red,          "", "") " import export from as
 call s:hi("typescriptIdentifier",                s:gui.red,          "", "") " arguments this void
 call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "") " let var const
-call s:hi("typescriptOperator",                  s:gui.orange,       "", "") " delete new instanceof typeof
-call s:hi("typescriptBoolean",                   s:gui.orange,       "", "") " true false
-call s:hi("typescriptNull",                      s:gui.orange,       "", "") " null undefined
+call s:hi("typescriptOperator",                  s:gui.yellow,       "", "") " delete new instanceof typeof
+call s:hi("typescriptBoolean",                   s:gui.yellow,       "", "") " true false
+call s:hi("typescriptNull",                      s:gui.yellow,       "", "") " null undefined
 call s:hi("typescriptMessage",                   s:gui.green,        "", "") " alert confirm prompt status
 
 call s:hi("typescriptConditional",               s:gui.cyan,         "", "") " if else switch
 call s:hi("typescriptRepeat",                    s:gui.cyan,         "", "") " do while for in of
 call s:hi("typescriptBranch",                    s:gui.cyan,         "", "") " break continue yield await
 call s:hi("typescriptLabel",                     s:gui.cyan,         "", "") " case default async readonly
-call s:hi("typescriptDecorators",                s:gui.orange,       "", "") " @action @computed, etc
+call s:hi("typescriptDecorators",                s:gui.yellow,       "", "") " @action @computed, etc
 call s:hi("typescriptStatement",                 s:gui.cyan,         "", "") " return with
 
 call s:hi("typescriptGlobalObjects",             s:gui.blue,         "", "") " Array Boolean Date Function Infinity Math Number NaN Object Packages RegExp String Symbol
@@ -249,8 +247,8 @@ call s:hi("typescriptDotNotation",               s:gui.magenta,      "", "")
 " vim-javascript
 call s:hi("jsArrowFuncArgs",   s:gui.green,       "", "")
 call s:hi("jsArrowFunction",   s:gui.magenta,     "", "")
-call s:hi("jsBooleanFalse",    s:gui.orange,      "", "")
-call s:hi("jsBooleanTrue",     s:gui.orange,      "", "")
+call s:hi("jsBooleanFalse",    s:gui.yellow,      "", "")
+call s:hi("jsBooleanTrue",     s:gui.yellow,      "", "")
 call s:hi("jsClassBraces",     s:gui.cyan,        "", "")
 call s:hi("jsClassDefinition", s:gui.yellow,      "", "")
 call s:hi("jsClassKeyword",    s:gui.red,         "", "")

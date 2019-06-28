@@ -170,9 +170,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
-"let g:recursive_style = "default"
-"colorscheme recursive
-colorscheme industrial
+colorscheme spyder
 
 " Set list characters
 set list
