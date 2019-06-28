@@ -89,17 +89,17 @@ git_section() {
 
 	local branch_ahead branch_behind
 
-	[[ "$behind" -gt 0 ]] && status="${git_behind} ${status}"
+	[[ -n $(git stash list) ]] && status="${status} ${git_stashed}"
 
-	[[ "$ahead" -gt 0 ]] && status="${git_ahead} ${status}"
+	[[ -n $(git status --short) ]] && status="${status} ${git_dirty}"
 
-	[[ -n $(git status --short) ]] && status="${git_dirty} ${status}"
+	[[ "$ahead" -gt 0 ]] && status="${status} ${git_ahead}"
 
-	[[ -n $(git stash list) ]] && status="${git_stashed} ${status}"
+	[[ "$behind" -gt 0 ]] && status="${status} ${git_behind}"
 
 	local git_status="${git_branch_color}${branch}"
 
-	[[ "$status" != "" ]] && git_status="${git_status} ${git_status_color}${status}"
+	[[ "$status" != "" ]] && git_status="${git_status}${git_status_color}${status}"
 
 	echo -e " ${git_status}"
 }
