@@ -4,17 +4,12 @@
 ### SYMBOLS ###
 ###############
 
-# arrow="❯"
-arrow="→"
-git_modified="!"
-git_added="+"
-git_deleted="-"
-git_renamed="*"
-git_untracked="?"
-git_stashed="$"
+arrow="❯"
+#arrow="→"
+git_dirty="→"
+git_stashed="←"
 git_ahead="↑"
 git_behind="↓"
-#git_uneven="¿"
 
 #######################
 ### SECTION STYLING ###
@@ -86,51 +81,25 @@ git_section() {
 
 	local status=""
 	local index="$(git status --porcelain -b 2> /dev/null)"
+
 	local branch="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)"
-	local branch_ahead branch_behind
-
-	if $(echo "$index" | command grep -E "^[MARCDU ]D " &> /dev/null); then
-		status="${git_deleted}${status}"
-	elif $(echo "$index" | command grep -E "^D[ UM] " &> /dev/null); then
-		status="${git_deleted}${status}"
-	fi
-
-	if $(echo "$index" | command grep -E "^A[ MDAU] " &> /dev/null); then
-		status="${git_added}${status}"
-	elif $(echo "$index" | command grep -E "^M[ MD] " &> /dev/null); then
-		status="${git_added}${status}"
-	elif $(echo "$index" | command grep -E "^UA" &> /dev/null); then
-		status="${git_added}${status}"
-	fi
-
-	if $(echo "$index" | command grep -E "^R[ MD] " &> /dev/null); then
-		status="${git_renamed}${status}"
-	fi
-
-	if $(command git rev-parse --verify refs/stash > /dev/null 2>&1); then
-		status="${git_stashed}${status}"
-	fi
-
-	if $(echo "$index" | command grep -E "^\?\? " &> /dev/null); then
-		status="${git_untracked}${status}"
-	fi
-
-	if $(echo "$index" | command grep -E "^[ MARC]M " &> /dev/null); then
-		status="${git_modified}${status}"
-	fi
 
 	local behind="$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)"
 	local ahead="$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)"
 
-	if [[ "$behind" -gt 0 || "$ahead" -gt 0 ]]; then
-		status="${git_uneven}${status}"
-	fi
+	local branch_ahead branch_behind
+
+	[[ "$behind" -gt 0 ]] && status="${git_behind} ${status}"
+
+	[[ "$ahead" -gt 0 ]] && status="${git_ahead} ${status}"
+
+	[[ -n $(git status --short) ]] && status="${git_dirty} ${status}"
+
+	[[ -n $(git stash list) ]] && status="${git_stashed} ${status}"
 
 	local git_status="${git_branch_color}${branch}"
 
-	if [[ "$status" != "" ]]; then
-		git_status="${git_status} ${git_status_color}${status}"
-	fi
+	[[ "$status" != "" ]] && git_status="${git_status} ${git_status_color}${status}"
 
 	echo -e " ${git_status}"
 }
