@@ -96,22 +96,18 @@ function! ActiveStatusLine()
 	" Mode
 	let l:statusline.="%{ModeCurrent()}\ "
 	" Filename
-	let l:statusline.="%7*in\ "
 	let l:statusline.="%6*%t\ "
 	" ALE lint errors, if any
 	if LinterStatus() != ""
 		let l:statusline.="%1*%{LinterStatus()}\ "
 	endif
 	" Column number
-	let l:statusline.="%7*col\ "
-	let l:statusline.="%5*%c\ "
+	let l:statusline.="%5*%c:"
 	" Current line number, total line numbers
-	let l:statusline.="%7*line\ "
-	let l:statusline.="%5*%l/%L"
+	let l:statusline.="%l/%L"
 	" Show syntax identifier, if any
 	if SyntaxItem() != ""
-	let l:statusline.="%7*\ is\ "
-		let l:statusline.="%3*%{SyntaxItem()}\ "
+		let l:statusline.="\ %3*%{SyntaxItem()}"
 	endif
 	" Spacer
 	let l:statusline.="%8*%="
