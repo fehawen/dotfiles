@@ -4,8 +4,8 @@
 ### SYMBOLS ###
 ###############
 
-arrow="❯"
-#arrow="→"
+#arrow="❯"
+arrow="›"
 git_dirty="→"
 git_stashed="←"
 git_ahead="↑"
@@ -60,19 +60,15 @@ timer_stop() {
 
 trap timer_start DEBUG
 
-# Prints out user only if we"re root, else prints nothing
+# Prints out user only if we're root, else prints nothing
 user_section() {
 	[[ "$UID" -eq 0 ]] && echo -e "${root_color}$USER "
 }
 
-# Prints out current working directory with varying prefix,
-# depending if we"re in $HOME/dir or $HOME/.../dir, or
-# if we"re in a git repo, or in a git repo subdirectory
+# Prints out current directory and its parent directory, replacing HOME with ~
 dir_section() {
-	# echo "${PWD/#$HOME/~}"
-	# ${PWD#"${PWD%/*/*}/"}
-	local trim_pwd=$(echo "${PWD/#$HOME/~}" | rev | cut -d "/" -f1 -f2 | rev)
-	echo -e "${dir_color}${trim_pwd}"
+	local truncate_cwd="$(pwd | sed -E -e "s|^$HOME|~|" -e 's|^([^/]*/[^/]*/).*(/[^/]*)|\1..\2|')"
+	echo -e "${dir_color}${truncate_cwd}"
 }
 
 # Show current Git branch, and if branch isn"t clean show status
@@ -104,8 +100,7 @@ git_section() {
 	echo -e " ${git_status}"
 }
 
-# Command execution time
-# Formatted output as 1d 3h 7m 6s
+# Command execution time with formatted output as 1d 3h 7m 6s
 exec_time_section() {
 	(( $timer < 3 )) && return
 
@@ -145,7 +140,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	printf "${bold}$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}${reset}$(exit_code_section)${reset}"
+	printf "${bold}$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
@@ -153,4 +148,3 @@ PROMPT_COMMAND=timer_stop
 
 # Set PS1
 export PS1="\$(prompt)"
-
