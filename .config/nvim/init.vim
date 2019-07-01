@@ -83,10 +83,10 @@ set relativenumber number
 set lazyredraw
 
 " Enable cursor line, disable cursor column
-set cursorline
-set nocursorcolumn
+" set cursorline
+" set nocursorcolumn
 " Else, remove above and set to nocursorline
-" set nocursorline
+set nocursorline
 
 " Sets unix as standard filetype
 set ffs=unix,dos,mac
@@ -205,8 +205,8 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
 
 " If vim-devicons
-" let g:NERDTreeDirArrowExpandable = ""
-" let g:NERDTreeDirArrowCollapsible = ""
+let g:NERDTreeDirArrowExpandable = "→"
+let g:NERDTreeDirArrowCollapsible = "↓"
 
 "#########################"
 "###### KEYBINDINGS ######"
