@@ -85,9 +85,9 @@ git_section() {
 
 	local branch_ahead branch_behind
 
-	[[ -n $(git stash list) ]] && status="${status} ${git_stashed}"
+	[[ -n $(git stash list 2> /dev/null) ]] && status="${status} ${git_stashed}"
 
-	[[ -n $(git status --short) ]] && status="${status} ${git_dirty}"
+	[[ -n $(git status --short 2> /dev/null) ]] && status="${status} ${git_dirty}"
 
 	[[ "$ahead" -gt 0 ]] && status="${status} ${git_ahead}"
 
