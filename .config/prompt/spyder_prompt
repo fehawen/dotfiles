@@ -26,11 +26,15 @@ newline="
 # Section colors, symbols and prefixes
 prefix_color="$white"
 root_color="$red"
+root_suffix="${prefix_color}in"
 dir_color="$blue"
+git_prefix="${prefix_color}on"
 git_branch_color="$magenta"
 git_status_color="$red"
+git_status_prefix="("
+git_status_suffix=")"
 exec_time_color="$yellow"
-exec_time_prefix="${prefix_color}exec"
+exec_time_prefix="${prefix_color}took"
 exit_ok_color="$green"
 exit_bad_color="$red"
 exit_symbol="$arrow"
@@ -66,7 +70,7 @@ trap timer_start DEBUG
 
 # Prints out user only if we're root, else prints nothing
 user_section() {
-	[[ "$UID" -eq 0 ]] && echo -e "${root_color}$USER "
+	[[ "$UID" -eq 0 ]] && echo -e "${root_color}$USER ${root_suffix} "
 }
 
 # Prints out current directory and its parent directory, replacing HOME with ~
@@ -97,9 +101,9 @@ git_section() {
 
 	[[ -n $(git stash list 2> /dev/null) ]] && status="${status} ${git_stashed}"
 
-	local git_status="${git_branch_color}${branch}"
+	local git_status="${git_prefix} ${git_branch_color}${branch}"
 
-	[[ "$status" != "" ]] && git_status="${git_status}${git_status_color}${status}"
+	[[ "$status" != "" ]] && git_status="${git_status} ${git_status_color}${git_status_prefix}${status} ${git_status_suffix}"
 
 	echo -e " ${git_status}"
 }
