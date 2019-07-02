@@ -4,12 +4,16 @@
 ### SYMBOLS ###
 ###############
 
-#arrow="❯"
-arrow="›"
-git_dirty="→"
-git_stashed="←"
-git_ahead="↑"
-git_behind="↓"
+# arrow="›"
+arrow="❯"
+git_dirty="D"
+git_stashed="S"
+git_ahead="A"
+git_behind="B"
+# git_dirty="→"
+# git_stashed="←"
+# git_ahead="↑"
+# git_behind="↓"
 
 #######################
 ### SECTION STYLING ###
@@ -85,13 +89,13 @@ git_section() {
 
 	local branch_ahead branch_behind
 
-	[[ -n $(git stash list 2> /dev/null) ]] && status="${status} ${git_stashed}"
-
 	[[ -n $(git status --short 2> /dev/null) ]] && status="${status} ${git_dirty}"
 
 	[[ "$ahead" -gt 0 ]] && status="${status} ${git_ahead}"
 
 	[[ "$behind" -gt 0 ]] && status="${status} ${git_behind}"
+
+	[[ -n $(git stash list 2> /dev/null) ]] && status="${status} ${git_stashed}"
 
 	local git_status="${git_branch_color}${branch}"
 

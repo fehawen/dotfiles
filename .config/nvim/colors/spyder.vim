@@ -17,6 +17,7 @@ let s:gui.foreground = { 'default': '#B9C0CB' }
 let s:gui.line       = { 'default': '#475962' }
 let s:gui.selection  = { 'default': '#424E56' }
 let s:gui.comment    = { 'default': '#475962' }
+let s:gui.search     = { 'default': '#6B7F8B' }
 let s:gui.listchars  = { 'default': '#475962' }
 
 let s:gui.black      = { 'default': '#475962' }
@@ -137,8 +138,8 @@ call s:hi("Number",       s:gui.red,        "",               "")
 call s:hi("Identifier",   s:gui.red,        "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
-call s:hi("Search",       s:gui.none,       s:gui.comment,    "")
-call s:hi("InSearch",     s:gui.none,       s:gui.comment,    "")
+call s:hi("Search",       s:gui.none,       s:gui.search,     "")
+call s:hi("InSearch",     s:gui.none,       s:gui.search,     "")
 call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
@@ -185,26 +186,26 @@ call s:hi("typescriptEventListenerKeywords",     s:gui.cyan,         "", "")
 call s:hi("typescriptEventListenerMethods",      s:gui.cyan,         "", "")
 
 call s:hi("typescriptSource",                    s:gui.red,          "", "") " import export from as
-call s:hi("typescriptIdentifier",                s:gui.red,          "", "") " arguments this void
-call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "") " let var const
+call s:hi("typescriptIdentifier",                s:gui.red,          "", "bold") " arguments this void
+call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "bold") " let var const
 call s:hi("typescriptOperator",                  s:gui.yellow,       "", "") " delete new instanceof typeof
-call s:hi("typescriptBoolean",                   s:gui.yellow,       "", "") " true false
-call s:hi("typescriptNull",                      s:gui.yellow,       "", "") " null undefined
+call s:hi("typescriptBoolean",                   s:gui.yellow,       "", "bold") " true false
+call s:hi("typescriptNull",                      s:gui.yellow,       "", "bold") " null undefined
 call s:hi("typescriptMessage",                   s:gui.green,        "", "") " alert confirm prompt status
 
-call s:hi("typescriptConditional",               s:gui.cyan,         "", "") " if else switch
+call s:hi("typescriptConditional",               s:gui.cyan,         "", "bold") " if else switch
 call s:hi("typescriptRepeat",                    s:gui.cyan,         "", "") " do while for in of
-call s:hi("typescriptBranch",                    s:gui.cyan,         "", "") " break continue yield await
+call s:hi("typescriptBranch",                    s:gui.cyan,         "", "bold") " break continue yield await
 call s:hi("typescriptLabel",                     s:gui.cyan,         "", "") " case default async readonly
 call s:hi("typescriptDecorators",                s:gui.yellow,       "", "") " @action @computed, etc
-call s:hi("typescriptStatement",                 s:gui.cyan,         "", "") " return with
+call s:hi("typescriptStatement",                 s:gui.cyan,         "", "bold") " return with
 
-call s:hi("typescriptGlobalObjects",             s:gui.blue,         "", "") " Array Boolean Date Function Infinity Math Number NaN Object Packages RegExp String Symbol
+call s:hi("typescriptGlobalObjects",             s:gui.blue,         "", "bold") " Array Boolean Date Function Infinity Math Number NaN Object Packages RegExp String Symbol
 call s:hi("typescriptExceptions   ",             s:gui.green,        "", "") " try catch throw finally Error EvalError RangeError ReferenceError SyntaxError TypeError URIError
-call s:hi("typescriptReserved",                  s:gui.blue,         "", "") " constructor as interface module enum int export interface static extends super class private implements import public type from get set keyof...
+call s:hi("typescriptReserved",                  s:gui.blue,         "", "bold") " constructor as interface module enum int export interface static extends super class private implements import public type from get set keyof...
 call s:hi("typescriptVars",                      s:gui.green,        "", "")
 call s:hi("typescriptParameters",                s:gui.green,        "", "")
-call s:hi("typescriptType",                      s:gui.yellow,       "", "") " void any string boolean number symbol never object
+call s:hi("typescriptType",                      s:gui.yellow,       "", "bold") " void any string boolean number symbol never object
 
 call s:hi("typescriptDomErrNo",                  s:gui.red,          "", "")
 call s:hi("typescriptDomNodeConsts",             s:gui.red,          "", "")
