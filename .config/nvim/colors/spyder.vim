@@ -15,10 +15,11 @@ let s:gui.background = { 'default': '#283237' }
 let s:gui.foreground = { 'default': '#B9C0CB' }
 
 let s:gui.line       = { 'default': '#475962' }
+let s:gui.cursorline = { 'default': '#2D393F' }
 let s:gui.selection  = { 'default': '#424E56' }
 let s:gui.comment    = { 'default': '#475962' }
-let s:gui.search     = { 'default': '#6B7F8B' }
 let s:gui.listchars  = { 'default': '#475962' }
+let s:gui.search     = { 'default': '#313E46' }
 
 let s:gui.black      = { 'default': '#475962' }
 let s:gui.red        = { 'default': '#E88388' }
@@ -96,8 +97,8 @@ call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
 call s:hi("LineNr",       s:gui.listchars,  "",               "")
-call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
-call s:hi("CursorLineNr", s:gui.foreground, s:gui.none,       "")
+call s:hi("CursorLine",   s:gui.none,       s:gui.cursorline, "")
+call s:hi("CursorLineNr", s:gui.foreground, s:gui.cursorline, "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.background, s:gui.line,       "")
@@ -144,11 +145,11 @@ call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
 " ALE COLORS
-call s:hi("ALEInfoSign",         s:gui.yellow,    s:gui.none, "")
-call s:hi("ALEErrorSign",        s:gui.red,       s:gui.none, "")
-call s:hi("ALEWarningSign",      s:gui.yellow,    s:gui.none, "")
-call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.none, "")
-call s:hi("ALEStyleWarningSign", s:gui.yellow,    s:gui.none, "")
+call s:hi("ALEInfoSign",         s:gui.yellow,    s:gui.cursorline, "bold")
+call s:hi("ALEErrorSign",        s:gui.red,       s:gui.cursorline, "bold")
+call s:hi("ALEWarningSign",      s:gui.yellow,    s:gui.cursorline, "bold")
+call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.cursorline, "bold")
+call s:hi("ALEStyleWarningSign", s:gui.yellow,    s:gui.cursorline, "bold")
 
 call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
 call s:hi("ALEErrorLine",        s:gui.comment,   s:gui.none, "")
