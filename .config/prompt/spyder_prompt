@@ -31,8 +31,8 @@ dir_color="$blue"
 git_prefix="${prefix_color}on"
 git_branch_color="$magenta"
 git_status_color="$red"
-git_status_prefix="("
-git_status_suffix=")"
+git_status_prefix="["
+git_status_suffix="]"
 exec_time_color="$yellow"
 exec_time_prefix="${prefix_color}took"
 exit_ok_color="$green"
@@ -93,17 +93,17 @@ git_section() {
 
 	local branch_ahead branch_behind
 
-	[[ -n $(git status --short 2> /dev/null) ]] && status="${status} ${git_dirty}"
+	[[ -n $(git status --short 2> /dev/null) ]] && status="${status}${git_dirty}"
 
-	[[ "$ahead" -gt 0 ]] && status="${status} ${git_ahead}"
+	[[ "$ahead" -gt 0 ]] && status="${status}${git_ahead}"
 
-	[[ "$behind" -gt 0 ]] && status="${status} ${git_behind}"
+	[[ "$behind" -gt 0 ]] && status="${status}${git_behind}"
 
-	[[ -n $(git stash list 2> /dev/null) ]] && status="${status} ${git_stashed}"
+	[[ -n $(git stash list 2> /dev/null) ]] && status="${status}${git_stashed}"
 
 	local git_status="${git_prefix} ${git_branch_color}${branch}"
 
-	[[ "$status" != "" ]] && git_status="${git_status} ${git_status_color}${git_status_prefix}${status} ${git_status_suffix}"
+	[[ "$status" != "" ]] && git_status="${git_status} ${git_status_color}${git_status_prefix}${status}${git_status_suffix}"
 
 	echo -e " ${git_status}"
 }
