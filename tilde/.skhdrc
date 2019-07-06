@@ -77,10 +77,10 @@ shift + cmd - 6 : chunkc tiling::window --send-to-desktop 6; chunkc tiling::desk
 
 # move region separators in the specified direction instead of making the regions explicitly larger/smaller
 # https://github.com/koekeishiya/chunkwm/wiki/Useful-tips-and-workarounds#resize-regions-similar-to-the-behavior-known-from-the-i3-window-manager
-shift + alt - a : chunkc tiling::window --use-temporary-ratio 0.01 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.01 --adjust-window-edge east
-shift + alt - s : chunkc tiling::window --use-temporary-ratio 0.01 --adjust-window-edge south; chunkc tiling::window --use-temporary-ratio -0.01 --adjust-window-edge north
-shift + alt - w : chunkc tiling::window --use-temporary-ratio 0.01 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio -0.01 --adjust-window-edge south
-shift + alt - d : chunkc tiling::window --use-temporary-ratio 0.01 --adjust-window-edge east; chunkc tiling::window --use-temporary-ratio -0.01 --adjust-window-edge west
+shift + alt - a : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge east
+shift + alt - s : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge south; chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge north
+shift + alt - w : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge south
+shift + alt - d : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge east; chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge west
 
 # rotate tree
 alt - r : chunkc tiling::desktop --rotate 90
