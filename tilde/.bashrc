@@ -69,6 +69,7 @@ ALIAS_FILE="$THEMES_DIR/aliasrc"
 ###############
 
 export EDITOR="nvim"
+export VISUAL="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
 export LC_ALL=en_US.UTF-8
