@@ -20,17 +20,6 @@ alias gss="git status -s"
 alias giff="git diff"
 alias glog="gitlog"
 alias gitlog="git log --pretty=format:'%n%ar %n%Cred%h %Cblue%an <%ae> %n%Cgreen%s%n' --name-only"
-alias gfetch="git fetch"
-alias gpull="git pull"
-alias gbranch="git branch --list"
-alias gbranchr="git branch -r"
-alias gbranchv="git branch -v"
-alias gcheck="git checkout"
-alias gcheckb="git checkout -b"
-alias gstash="git stash"
-alias gstasha="git stash apply"
-alias gstashl="git stash list"
-alias gstashd="git stash drop"
 alias code="open -a 'Visual Studio Code'"
 alias gh="cd ~/Github/"
 alias repos="cd ~/Github/"
@@ -43,6 +32,7 @@ alias todopush=push_todos
 alias todopull=pull_todos
 alias hunt=find_string
 alias mark=find_filename
+alias rr="ranger"
 
 #############
 ### UTILS ###
