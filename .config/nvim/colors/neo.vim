@@ -12,22 +12,22 @@ let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
 let s:gui.background = { 'default': '#181F23' }
-let s:gui.foreground = { 'default': '#ACFDFF' }
+let s:gui.foreground = { 'default': '#84D5D9' }
 
-let s:gui.line       = { 'default': '#3B4C56' }
+let s:gui.line       = { 'default': '#243E41' }
 let s:gui.cursorline = { 'default': '#1C2529' }
-let s:gui.selection  = { 'default': '#224F52' }
+let s:gui.selection  = { 'default': '#84D5D9' }
 let s:gui.comment    = { 'default': '#3B4C56' }
-let s:gui.listchars  = { 'default': '#3B4C56' }
+let s:gui.listchars  = { 'default': '#243E41' }
 let s:gui.search     = { 'default': '#347B7F' }
 
 let s:gui.black      = { 'default': '#3B4C56' }
 let s:gui.red        = { 'default': '#F13548' }
-let s:gui.green      = { 'default': '#347B7F' }
-let s:gui.yellow     = { 'default': '#48999D' }
-let s:gui.blue       = { 'default': '#5CADB1' }
-let s:gui.magenta    = { 'default': '#70C1C5' }
-let s:gui.cyan       = { 'default': '#84D5D9' }
+let s:gui.green      = { 'default': '#2E6C6F' }
+let s:gui.yellow     = { 'default': '#347B7F' }
+let s:gui.blue       = { 'default': '#48999D' }
+let s:gui.magenta    = { 'default': '#5CADB1' }
+let s:gui.cyan       = { 'default': '#70C1C5' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -70,7 +70,7 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.red,           s:gui.none,          "bold")
+call s:hi("User1",              s:gui.listchars,     s:gui.none,          "bold")
 call s:hi("User2",              s:gui.green,         s:gui.none,          "bold")
 call s:hi("User3",              s:gui.yellow,        s:gui.none,          "bold")
 call s:hi("User4",              s:gui.blue,          s:gui.none,          "bold")
@@ -84,9 +84,9 @@ call s:hi("StatusLineNC",       s:gui.comment,       s:gui.none,          "none"
 call s:hi("StatusLineTerm",     s:gui.background,    s:gui.background,    "none")
 call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.none,          "none")
 
-call s:hi("NERDTreeOpenable",   s:gui.green,         s:gui.none,          "")
-call s:hi("NERDTreeClosable",   s:gui.red,           s:gui.none,          "")
-call s:hi("NERDTreeCWD",        s:gui.comment,       s:gui.none,          "")
+call s:hi("NERDTreeOpenable",   s:gui.listchars,     s:gui.none,          "")
+call s:hi("NERDTreeClosable",   s:gui.listchars,     s:gui.none,          "")
+call s:hi("NERDTreeCWD",        s:gui.listchars,     s:gui.none,          "")
 call s:hi("NERDTreeDir",        s:gui.blue,          s:gui.none,          "")
 call s:hi("NERDTreeDirSlash",   s:gui.magenta,       s:gui.none,          "")
 call s:hi("NERDTreeFile",       s:gui.foreground,    s:gui.none,          "")
@@ -102,8 +102,8 @@ call s:hi("CursorLineNr", s:gui.foreground, s:gui.cursorline, "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.background, s:gui.line,       "")
-call s:hi("PMenu",        s:gui.foreground, s:gui.selection,  "")
-call s:hi("PMenuSel",     s:gui.foreground, s:gui.line,       "")
+call s:hi("PMenu",        s:gui.background, s:gui.yellow,     "")
+call s:hi("PMenuSel",     s:gui.background, s:gui.magenta,    "")
 call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.red,        "",               "")
@@ -121,12 +121,12 @@ call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
 
 call s:hi("NonText",      s:gui.listchars,  "",               "")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
-call s:hi("MatchParen",   s:gui.none,       s:gui.selection,  "")
+call s:hi("MatchParen",   s:gui.background, s:gui.search,     "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "")
 call s:hi("String",       s:gui.green,      "",               "")
 call s:hi("Normal",       s:gui.foreground, s:gui.none,       "")
-call s:hi("Visual",       s:gui.foreground, s:gui.selection,  "")
+call s:hi("Visual",       s:gui.background, s:gui.selection,  "")
 call s:hi("Constant",     s:gui.blue,       "",               "")
 call s:hi("Type",         s:gui.blue,       "",               "")
 call s:hi("Define",       s:gui.cyan,       "",               "")
@@ -139,8 +139,8 @@ call s:hi("Number",       s:gui.red,        "",               "")
 call s:hi("Identifier",   s:gui.red,        "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
-call s:hi("Search",       s:gui.none,       s:gui.search,     "")
-call s:hi("InSearch",     s:gui.none,       s:gui.search,     "")
+call s:hi("Search",       s:gui.background, s:gui.search,     "")
+call s:hi("InSearch",     s:gui.background, s:gui.search,     "")
 call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
@@ -187,7 +187,7 @@ call s:hi("typescriptEventListenerKeywords",     s:gui.cyan,         "", "")
 call s:hi("typescriptEventListenerMethods",      s:gui.cyan,         "", "")
 
 call s:hi("typescriptSource",                    s:gui.red,          "", "") " import export from as
-call s:hi("typescriptIdentifier",                s:gui.red,          "", "bold") " arguments this void
+call s:hi("typescriptIdentifier",                s:gui.green,        "", "bold") " arguments this void
 call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "bold") " let var const
 call s:hi("typescriptOperator",                  s:gui.yellow,       "", "") " delete new instanceof typeof
 call s:hi("typescriptBoolean",                   s:gui.yellow,       "", "bold") " true false
@@ -198,7 +198,7 @@ call s:hi("typescriptConditional",               s:gui.cyan,         "", "bold")
 call s:hi("typescriptRepeat",                    s:gui.cyan,         "", "") " do while for in of
 call s:hi("typescriptBranch",                    s:gui.cyan,         "", "bold") " break continue yield await
 call s:hi("typescriptLabel",                     s:gui.cyan,         "", "") " case default async readonly
-call s:hi("typescriptDecorators",                s:gui.yellow,       "", "") " @action @computed, etc
+call s:hi("typescriptDecorators",                s:gui.green,        "", "") " @action @computed, etc
 call s:hi("typescriptStatement",                 s:gui.cyan,         "", "bold") " return with
 
 call s:hi("typescriptGlobalObjects",             s:gui.blue,         "", "bold") " Array Boolean Date Function Infinity Math Number NaN Object Packages RegExp String Symbol
@@ -218,9 +218,9 @@ call s:hi("typescriptCssStyles",                 s:gui.red,          "", "") " n
 call s:hi("typescriptFuncKeyword",               s:gui.blue,         "", "")
 call s:hi("typescriptFunction",                  s:gui.magenta,      "", "")
 
-call s:hi("typescriptBraces",                    s:gui.yellow,       "", "")
-call s:hi("typescriptParens",                    s:gui.red,          "", "")
-call s:hi("typescriptOpSymbols",                 s:gui.magenta,      "", "")
+call s:hi("typescriptBraces",                    s:gui.cyan,         "", "")
+call s:hi("typescriptParens",                    s:gui.cyan,         "", "")
+call s:hi("typescriptOpSymbols",                 s:gui.yellow,       "", "")
 call s:hi("typescriptEndColons",                 s:gui.cyan,         "", "")
 call s:hi("typescriptLogicSymbols",              s:gui.magenta,      "", "")
 call s:hi("typescriptDotNotation",               s:gui.magenta,      "", "")
@@ -253,19 +253,19 @@ call s:hi("jsBooleanFalse",    s:gui.yellow,      "", "")
 call s:hi("jsBooleanTrue",     s:gui.yellow,      "", "")
 call s:hi("jsClassBraces",     s:gui.cyan,        "", "")
 call s:hi("jsClassDefinition", s:gui.yellow,      "", "")
-call s:hi("jsClassKeyword",    s:gui.red,         "", "")
+call s:hi("jsClassKeyword",    s:gui.cyan,         "", "")
 call s:hi("jsConditional",     s:gui.cyan,        "", "")
 call s:hi("jsFuncArgs",        s:gui.green,       "", "")
 call s:hi("jsFuncBraces",      s:gui.magenta,     "", "")
 call s:hi("jsFuncCall",        s:gui.cyan,        "", "")
-call s:hi("jsFuncParens",      s:gui.red,         "", "")
+call s:hi("jsFuncParens",      s:gui.cyan,         "", "")
 call s:hi("jsFunction",        s:gui.blue,        "", "")
 call s:hi("jsFunctionKey",     s:gui.magenta,     "", "")
 call s:hi("jsGlobalObjects",   s:gui.yellow,      "", "")
 call s:hi("jsNoise",           s:gui.magenta,     "", "")
 call s:hi("jsObjectKey",       s:gui.foreground,  "", "")
 call s:hi("jsOperator",        s:gui.magenta,     "", "")
-call s:hi("jsParens",          s:gui.red,         "", "")
+call s:hi("jsParens",          s:gui.cyan,         "", "")
 call s:hi("jsReturn",          s:gui.green,       "", "")
 call s:hi("jsStorageClass",    s:gui.magenta,     "", "")
 call s:hi("jsThis",            s:gui.blue,        "", "")
@@ -285,16 +285,16 @@ call s:hi("jsThis",            s:gui.blue,        "", "")
 call s:hi("htmlTag",            s:gui.cyan,    "", "")
 call s:hi("htmlEndTag",         s:gui.cyan,    "", "")
 call s:hi("htmlTagName",        s:gui.magenta, "", "")
-call s:hi("htmlSpecialTagName", s:gui.red,     "", "")
+call s:hi("htmlSpecialTagName", s:gui.green,   "", "")
 call s:hi("htmlArg",            s:gui.yellow,  "", "")
 
 " jsx colors
 
-call s:hi("tsxTag",             s:gui.red,       "", "")
+call s:hi("tsxTag",             s:gui.green,     "", "")
 call s:hi("tsxTagName",         s:gui.yellow,    "", "")
 call s:hi("tsxCloseString",     s:gui.yellow,    "", "")
 call s:hi("tsxString",          s:gui.cyan,      "", "")
-call s:hi("tsxCloseTag",        s:gui.red,       "", "")
+call s:hi("tsxCloseTag",        s:gui.green,     "", "")
 call s:hi("tsxAttrib",          s:gui.blue,      "", "")
 call s:hi("tsxEqual",           s:gui.magenta,   "", "")
 call s:hi("tsxIfOperator",      s:gui.magenta,   "", "")
