@@ -56,6 +56,7 @@ setup_arch() {
 		".config/nvim/colors"
 		".config/nvim/plugin"
 		".config/prompt"
+		".config/ranger"
 		".config/zathura"
 		".newsboat"
 		"tilde"
