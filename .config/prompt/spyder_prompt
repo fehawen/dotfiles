@@ -5,7 +5,8 @@
 ###############
 
 # arrow="›"
-arrow="❯"
+# arrow="❯"
+arrow="→"
 git_dirty="D"
 git_stashed="S"
 git_ahead="A"
