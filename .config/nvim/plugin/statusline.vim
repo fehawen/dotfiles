@@ -101,10 +101,8 @@ function! ActiveStatusLine()
 	if LinterStatus() != ""
 		let l:statusline.="%1*%{LinterStatus()}\ "
 	endif
-	" Column number
-	let l:statusline.="%5*%c:"
 	" Current line number, total line numbers
-	let l:statusline.="%l/%L"
+	let l:statusline.="%5*%l/%L"
 	" Show syntax identifier, if any
 	if SyntaxItem() != ""
 		let l:statusline.="\ %3*%{SyntaxItem()}"

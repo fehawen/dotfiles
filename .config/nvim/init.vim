@@ -58,6 +58,9 @@ set mat=2
 " Switching this option off most likely breaks plugins, someone told me...
 set magic
 
+" Always show sign column
+set signcolumn=yes
+
 " Highlight search results
 set hlsearch
 
@@ -77,7 +80,10 @@ set shiftwidth=2
 set autoindent
 
 " Add line numbers
-set relativenumber number
+" set relativenumber number
+
+" Disable line number
+set nonumber
 
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
