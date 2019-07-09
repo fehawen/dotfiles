@@ -22,7 +22,7 @@ let s:gui.listchars  = { 'default': '#243E41' }
 let s:gui.search     = { 'default': '#347B7F' }
 
 let s:gui.black      = { 'default': '#3B4C56' }
-let s:gui.red        = { 'default': '#F13548' }
+let s:gui.red        = { 'default': '#F7544A' }
 let s:gui.green      = { 'default': '#347B7F' }
 let s:gui.yellow     = { 'default': '#48999D' }
 let s:gui.blue       = { 'default': '#5CADB1' }
@@ -70,7 +70,7 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.listchars,     s:gui.none,          "bold")
+call s:hi("User1",              s:gui.red,           s:gui.none,          "bold")
 call s:hi("User2",              s:gui.green,         s:gui.none,          "bold")
 call s:hi("User3",              s:gui.yellow,        s:gui.none,          "bold")
 call s:hi("User4",              s:gui.blue,          s:gui.none,          "bold")
@@ -102,8 +102,8 @@ call s:hi("CursorLineNr", s:gui.foreground, s:gui.cursorline, "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.background, s:gui.line,       "")
-call s:hi("PMenu",        s:gui.background, s:gui.green,      "")
-call s:hi("PMenuSel",     s:gui.background, s:gui.yellow,     "")
+call s:hi("PMenu",        s:gui.background, s:gui.yellow,     "")
+call s:hi("PMenuSel",     s:gui.background, s:gui.blue,       "")
 call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.red,        "",               "")
