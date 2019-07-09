@@ -19,6 +19,7 @@ let s:gui.cursorline = { 'default': '#1C2529' }
 let s:gui.selection  = { 'default': '#84D5D9' }
 let s:gui.comment    = { 'default': '#3B4C56' }
 let s:gui.listchars  = { 'default': '#243E41' }
+let s:gui.specialkey = { 'default': '#1B2F30' }
 let s:gui.search     = { 'default': '#347B7F' }
 
 let s:gui.black      = { 'default': '#3B4C56' }
@@ -119,7 +120,7 @@ call s:hi("DiffChange",   "",               s:gui.cyan,       "")
 call s:hi("DiffDelete",   s:gui.red,        s:gui.black,      "")
 call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
 
-call s:hi("NonText",      s:gui.listchars,  "",               "none")
+call s:hi("NonText",      s:gui.specialkey, "",               "none")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
 call s:hi("MatchParen",   s:gui.background, s:gui.search,     "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
