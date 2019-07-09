@@ -12,7 +12,7 @@ let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
 let s:gui.background = { 'default': '#181F23' }
-let s:gui.foreground = { 'default': '#84D5D9' }
+let s:gui.foreground = { 'default': '#ACFDFF' }
 
 let s:gui.line       = { 'default': '#243E41' }
 let s:gui.cursorline = { 'default': '#1C2529' }
@@ -23,11 +23,11 @@ let s:gui.search     = { 'default': '#347B7F' }
 
 let s:gui.black      = { 'default': '#3B4C56' }
 let s:gui.red        = { 'default': '#F13548' }
-let s:gui.green      = { 'default': '#2E6C6F' }
-let s:gui.yellow     = { 'default': '#347B7F' }
-let s:gui.blue       = { 'default': '#48999D' }
-let s:gui.magenta    = { 'default': '#5CADB1' }
-let s:gui.cyan       = { 'default': '#70C1C5' }
+let s:gui.green      = { 'default': '#347B7F' }
+let s:gui.yellow     = { 'default': '#48999D' }
+let s:gui.blue       = { 'default': '#5CADB1' }
+let s:gui.magenta    = { 'default': '#70C1C5' }
+let s:gui.cyan       = { 'default': '#84D5D9' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -288,8 +288,7 @@ call s:hi("htmlTagName",        s:gui.magenta, "", "")
 call s:hi("htmlSpecialTagName", s:gui.green,   "", "")
 call s:hi("htmlArg",            s:gui.yellow,  "", "")
 
-" jsx colors
-
+" JSX
 call s:hi("tsxTag",             s:gui.green,     "", "")
 call s:hi("tsxTagName",         s:gui.yellow,    "", "")
 call s:hi("tsxCloseString",     s:gui.yellow,    "", "")
@@ -301,7 +300,14 @@ call s:hi("tsxIfOperator",      s:gui.magenta,   "", "")
 call s:hi("tsxAttributeBraces", s:gui.magenta,   "", "")
 call s:hi("tsxElseOperator",    s:gui.magenta,   "", "")
 
+" XML
 call s:hi("xmlTag",     s:gui.cyan,    "", "")
 call s:hi("xmlEndTag",  s:gui.cyan,    "", "")
 call s:hi("xmlTagName", s:gui.magenta, "", "")
 call s:hi("xmlAttrib",  s:gui.yellow,  "", "")
+
+" VIM
+call s:hi("VimVar",     s:gui.yellow,  "", "")
+call s:hi("VimString",  s:gui.blue,    "", "")
+call s:hi("VimFuncVar", s:gui.green,   "", "")
+
