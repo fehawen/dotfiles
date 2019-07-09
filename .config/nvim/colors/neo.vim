@@ -119,7 +119,7 @@ call s:hi("DiffChange",   "",               s:gui.cyan,       "")
 call s:hi("DiffDelete",   s:gui.red,        s:gui.black,      "")
 call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
 
-call s:hi("NonText",      s:gui.listchars,  "",               "")
+call s:hi("NonText",      s:gui.listchars,  "",               "none")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
 call s:hi("MatchParen",   s:gui.background, s:gui.search,     "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
