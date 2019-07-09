@@ -203,8 +203,8 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 0
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
-" let g:NERDTreeDirArrowExpandable = "→"
-" let g:NERDTreeDirArrowCollapsible = "↓"
+let g:NERDTreeDirArrowExpandable = "●"
+let g:NERDTreeDirArrowCollapsible = "●"
 
 "#########################"
 "###### KEYBINDINGS ######"
