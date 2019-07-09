@@ -183,10 +183,10 @@ set list
 set listchars=
 "set listchars+=tab:→\ ,
 "set listchars+=tab:❯\ ,
-set listchars+=tab:•\ ,
-set listchars+=trail:✘
-set listchars+=extends:»
-set listchars+=precedes:«
+set listchars+=tab:│\ ,
+set listchars+=trail:•
+set listchars+=extends:…
+set listchars+=precedes:…
 
 " Set end of buffer ~ to empty [:space:]
 " NOTE: requires escaped space followed by comma
