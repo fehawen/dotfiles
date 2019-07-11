@@ -23,7 +23,7 @@ let s:gui.specialkey = { 'default': '#1B2F30' }
 let s:gui.search     = { 'default': '#347B7F' }
 
 let s:gui.black      = { 'default': '#3B4C56' }
-let s:gui.red        = { 'default': '#F7544A' }
+let s:gui.red        = { 'default': '#FF352B' }
 let s:gui.green      = { 'default': '#347B7F' }
 let s:gui.yellow     = { 'default': '#48999D' }
 let s:gui.blue       = { 'default': '#5CADB1' }
@@ -219,8 +219,8 @@ call s:hi("typescriptCssStyles",                 s:gui.red,          "", "") " n
 call s:hi("typescriptFuncKeyword",               s:gui.blue,         "", "")
 call s:hi("typescriptFunction",                  s:gui.magenta,      "", "")
 
-call s:hi("typescriptBraces",                    s:gui.cyan,         "", "")
-call s:hi("typescriptParens",                    s:gui.cyan,         "", "")
+call s:hi("typescriptBraces",                    s:gui.blue,         "", "")
+call s:hi("typescriptParens",                    s:gui.blue,         "", "")
 call s:hi("typescriptOpSymbols",                 s:gui.yellow,       "", "")
 call s:hi("typescriptEndColons",                 s:gui.cyan,         "", "")
 call s:hi("typescriptLogicSymbols",              s:gui.magenta,      "", "")
