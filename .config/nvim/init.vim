@@ -20,6 +20,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+Plug 'davidyorr/vim-es6-unused-imports'
 
 " Initialize plugin system
 call plug#end()
@@ -88,11 +89,9 @@ set nonumber
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
-" Enable cursor line, disable cursor column
-set cursorline
-set cursorcolumn
-" Else, remove above and set to nocursorline
-" set nocursorline
+" Disable cursor line, disable cursor column
+set nocursorline
+set nocursorcolumn
 
 " Sets unix as standard filetype
 set ffs=unix,dos,mac
@@ -167,6 +166,14 @@ autocmd BufWritePre * %s/\s\+$//e
 " Open NERDTree if no file specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Check for unused es6 imports
+autocmd BufWinEnter *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
+autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
+
+" Set es6 unused import colors
+let g:es6_imports_gui_fg_color="#243E41"
+let g:es6_imports_gui_bg_color="#181F23"
 
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
