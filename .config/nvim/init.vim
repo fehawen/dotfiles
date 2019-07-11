@@ -90,7 +90,7 @@ set lazyredraw
 
 " Enable cursor line, disable cursor column
 set cursorline
-set nocursorcolumn
+set cursorcolumn
 " Else, remove above and set to nocursorline
 " set nocursorline
 
