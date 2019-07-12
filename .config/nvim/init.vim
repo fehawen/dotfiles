@@ -20,6 +20,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+Plug 'davidyorr/vim-es6-unused-imports'
 
 " Initialize plugin system
 call plug#end()
@@ -58,6 +59,9 @@ set mat=2
 " Switching this option off most likely breaks plugins, someone told me...
 set magic
 
+" Always show sign column
+set signcolumn=yes
+
 " Highlight search results
 set hlsearch
 
@@ -77,16 +81,17 @@ set shiftwidth=2
 set autoindent
 
 " Add line numbers
-set relativenumber number
+" set relativenumber number
+
+" Disable line number
+set nonumber
 
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
-" Enable cursor line, disable cursor column
-set cursorline
+" Disable cursor line, disable cursor column
+set nocursorline
 set nocursorcolumn
-" Else, remove above and set to nocursorline
-" set nocursorline
 
 " Sets unix as standard filetype
 set ffs=unix,dos,mac
@@ -162,6 +167,14 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+" Check for unused es6 imports
+autocmd BufWinEnter *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
+autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
+
+" Set es6 unused import colors
+let g:es6_imports_gui_fg_color="#243E41"
+let g:es6_imports_gui_bg_color="#181F23"
+
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
 "#####################################"
@@ -170,15 +183,15 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set termguicolors
 
 " Set theme
-colorscheme spyder
+colorscheme neo
 
 " Set list characters
 set list
 set listchars=
-set listchars+=tab:›\ ,
+"set listchars+=tab:→\ ,
+"set listchars+=tab:❯\ ,
+set listchars+=tab:│\ ,
 set listchars+=trail:•
-set listchars+=extends:»
-set listchars+=precedes:«
 
 " Set end of buffer ~ to empty [:space:]
 " NOTE: requires escaped space followed by comma
@@ -192,19 +205,19 @@ let g:deoplete#enable_at_startup = 1
 let g:nvim_typescript#diagnostics_enable = 0
 
 " ALE settings
-let g:ale_sign_info= "?"
-let g:ale_sign_error = "?"
-let g:ale_sign_warning = "?"
-let g:ale_sign_style_error = "?"
-let g:ale_sign_style_warning = "?"
+let g:ale_sign_info= "•"
+let g:ale_sign_error = "•"
+let g:ale_sign_warning = "•"
+let g:ale_sign_style_error = "•"
+let g:ale_sign_style_warning = "•"
 
 " NERDTree settings
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 0
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
-" let g:NERDTreeDirArrowExpandable = "→"
-" let g:NERDTreeDirArrowCollapsible = "↓"
+let g:NERDTreeDirArrowExpandable = "●"
+let g:NERDTreeDirArrowCollapsible = "●"
 
 "#########################"
 "###### KEYBINDINGS ######"

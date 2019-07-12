@@ -71,7 +71,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%8*%=%1*NERD%8*%="
+let NERDTreeStatusline="%8*%=%2*NERD%8*%="
 
 " }}}
 
@@ -89,22 +89,20 @@ function! ActiveStatusLine()
 	let l:statusline.="%8*%="
 	" Set color based on mode
 	if (mode() =~# '\v(n|no)')
-		let l:statusline.="%4*"
-	else
 		let l:statusline.="%2*"
+	else
+		let l:statusline.="%6*"
 	endif
 	" Mode
 	let l:statusline.="%{ModeCurrent()}\ "
 	" Filename
-	let l:statusline.="%6*%t\ "
+	let l:statusline.="%7*%t\ "
 	" ALE lint errors, if any
 	if LinterStatus() != ""
 		let l:statusline.="%1*%{LinterStatus()}\ "
 	endif
-	" Column number
-	let l:statusline.="%5*%c:"
 	" Current line number, total line numbers
-	let l:statusline.="%l/%L"
+	let l:statusline.="%5*%l/%L"
 	" Show syntax identifier, if any
 	if SyntaxItem() != ""
 		let l:statusline.="\ %3*%{SyntaxItem()}"
@@ -122,7 +120,7 @@ function! InactiveStatusLine()
 	" Spacer
 	let l:statusline.="%8*%="
 	" Filename
-	let l:statusline.="%6*%t"
+	let l:statusline.="%2*%t"
 	" Spacer
 	let l:statusline.="%8*%="
 	" Done

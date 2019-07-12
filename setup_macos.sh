@@ -58,6 +58,7 @@ setup_macos() {
 		".config/nvim/colors"
 		".config/nvim/plugin"
 		".config/prompt"
+		".config/ranger"
 		".newsboat"
 		"tilde"
 	)
