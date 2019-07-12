@@ -16,10 +16,10 @@ font pango:SF Mono Medium 12
 
 # Gaps
 gaps inner 10
-gaps outer 5
+gaps outer 0
 
 # Borders
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 3
 
 # Colors
 set_from_resource $darkBlack     color0
@@ -39,10 +39,13 @@ set_from_resource $cyan          color14
 set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
-#                        Border      Background    Foreground    Indicator    Child Border
-client.focused           $white      $white        $white        $white       $white
-client.unfocused         $black      $black        $black        $black       $black
-client.focused_inactive  $black      $black        $black        $black       $black
+set $borderFocused #475962
+set $borderUnfocused #313E46
+
+#                        Border            Background        Foreground        Indicator         Child Border
+client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
+client.unfocused         $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused
+client.focused_inactive  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused
 
 # Focus
 focus_follows_mouse no
@@ -173,9 +176,14 @@ bindsym $mod+Control+l resize grow width 5 px or 5 ppt
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+  status_command i3blocks
 }
 
-# Change screen brightness
+# Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+# Volume controls
+bindsym XF86AudioMute exec pamixer -t
+bindsym XF86AudioLowerVolume exec pamixer -d 5
+bindsym XF86AudioRaiseVolume exec pamixer -i 5

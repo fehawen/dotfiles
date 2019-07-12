@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # NOTE: any 'chunkc' command that is run from this config file
