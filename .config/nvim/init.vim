@@ -89,8 +89,8 @@ set nonumber
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
-" Disable cursor line, disable cursor column
-set nocursorline
+" Enable cursor line, disable cursor column
+set cursorline
 set nocursorcolumn
 
 " Sets unix as standard filetype
@@ -172,8 +172,13 @@ autocmd BufWinEnter *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 
 " Set es6 unused import colors
-let g:es6_imports_gui_fg_color="#243E41"
-let g:es6_imports_gui_bg_color="#181F23"
+" Neo Theme
+" let g:es6_imports_gui_fg_color="#243E41"
+" let g:es6_imports_gui_bg_color="#181F23"
+" Alpine Theme
+let g:es6_imports_gui_fg_color="#1F2E49"
+let g:es6_imports_gui_bg_color="#111822"
+
 
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
@@ -183,14 +188,14 @@ let g:es6_imports_gui_bg_color="#181F23"
 set termguicolors
 
 " Set theme
-colorscheme neo
+colorscheme alpine
 
 " Set list characters
 set list
 set listchars=
-"set listchars+=tab:→\ ,
-"set listchars+=tab:❯\ ,
-set listchars+=tab:│\ ,
+set listchars+=tab:→\ ,
+" set listchars+=tab:❯\ ,
+" set listchars+=tab:│\ ,
 set listchars+=trail:•
 
 " Set end of buffer ~ to empty [:space:]
