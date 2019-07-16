@@ -11,25 +11,25 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.background = { 'default': '#111822' }
-let s:gui.foreground = { 'default': '#9EB2CF' }
+let s:gui.background = { 'default': '#131B26' }
+let s:gui.foreground = { 'default': '#FFFFFF' }
 
-let s:gui.line       = { 'default': '#1F2936' }
-let s:gui.cursorline = { 'default': '#131B26' }
-let s:gui.selection  = { 'default': '#627693' }
-let s:gui.comment    = { 'default': '#1F2936' }
-let s:gui.listchars  = { 'default': '#1F2936' }
-let s:gui.specialkey = { 'default': '#1F2936' }
-let s:gui.search     = { 'default': '#3A4E6B' }
+let s:gui.line       = { 'default': '#3C4B5D' }
+let s:gui.cursorline = { 'default': '#18202A' }
+let s:gui.selection  = { 'default': '#FFFFFF' }
+let s:gui.comment    = { 'default': '#3C4B5D' }
+let s:gui.listchars  = { 'default': '#3C4B5D' }
+let s:gui.specialkey = { 'default': '#3C4B5D' }
+let s:gui.search     = { 'default': '#3C4B5D' }
 
 " This Is as comment
-let s:gui.black      = { 'default': '#1F2936' }
-let s:gui.red        = { 'default': '#FF9BA6' }
-let s:gui.green      = { 'default': '#3A4E6B' }
-let s:gui.yellow     = { 'default': '#4E627F' }
-let s:gui.blue       = { 'default': '#627693' }
-let s:gui.magenta    = { 'default': '#768AA7' }
-let s:gui.cyan       = { 'default': '#8A9EBB' }
+let s:gui.black      = { 'default': '#3C4B5D' }
+let s:gui.red        = { 'default': '#FF4848' }
+let s:gui.green      = { 'default': '#696969' }
+let s:gui.yellow     = { 'default': '#878787' }
+let s:gui.blue       = { 'default': '#A5A5A5' }
+let s:gui.magenta    = { 'default': '#C3C3C3' }
+let s:gui.cyan       = { 'default': '#E1E1E1' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -110,7 +110,7 @@ call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.red,        "",               "")
 call s:hi("SpellBad",     s:gui.red,        s:gui.none,       "none")
-call s:hi("VertSplit",    s:gui.line,       s:gui.none,       "none")
+call s:hi("VertSplit",    s:gui.background,       s:gui.none,       "none")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "")
 
 call s:hi("DiffAdded",    s:gui.green,      "", "")
@@ -147,11 +147,11 @@ call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
 " ALE COLORS
-call s:hi("ALEInfoSign",         s:gui.yellow,    s:gui.cursorline, "")
-call s:hi("ALEErrorSign",        s:gui.red,       s:gui.cursorline, "")
-call s:hi("ALEWarningSign",      s:gui.yellow,    s:gui.cursorline, "")
-call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.cursorline, "")
-call s:hi("ALEStyleWarningSign", s:gui.yellow,    s:gui.cursorline, "")
+call s:hi("ALEInfoSign",         s:gui.yellow,    s:gui.none, "")
+call s:hi("ALEErrorSign",        s:gui.red,       s:gui.none, "")
+call s:hi("ALEWarningSign",      s:gui.yellow,    s:gui.none, "")
+call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.none, "")
+call s:hi("ALEStyleWarningSign", s:gui.yellow,    s:gui.none, "")
 
 call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
 call s:hi("ALEErrorLine",        s:gui.comment,   s:gui.none, "")
@@ -174,9 +174,9 @@ call s:hi("typescriptDocSeeTag",                 s:gui.comment,      "", "")
 
 call s:hi("typescriptSpecial",                   s:gui.cyan,         "", "")
 call s:hi("typescriptStringD",                   s:gui.green,        "", "")
-call s:hi("typescriptStringS",                   s:gui.green,        "", "")
-call s:hi("typescriptStringB",                   s:gui.green,        "", "")
-call s:hi("typescriptInterpolation",             s:gui.green,        "", "")
+call s:hi("typescriptStringS",                   s:gui.blue,         "", "")
+call s:hi("typescriptStringB",                   s:gui.blue,         "", "")
+call s:hi("typescriptInterpolation",             s:gui.blue,         "", "")
 call s:hi("typescriptNumber",                    s:gui.yellow,       "", "")
 call s:hi("typescriptRegexpString",              s:gui.cyan,         "", "")
 call s:hi("typescriptPrototype",                 s:gui.red,          "", "")

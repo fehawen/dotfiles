@@ -59,8 +59,8 @@ set mat=2
 " Switching this option off most likely breaks plugins, someone told me...
 set magic
 
-" Always show sign column
-set signcolumn=yes
+" Don't show signcolumn
+set signcolumn=no
 
 " Highlight search results
 set hlsearch
@@ -193,9 +193,10 @@ colorscheme alpine
 " Set list characters
 set list
 set listchars=
-set listchars+=tab:→\ ,
+" set listchars+=tab:→\ ,
 " set listchars+=tab:❯\ ,
 " set listchars+=tab:│\ ,
+set listchars+=tab:⚬\ ,
 set listchars+=trail:•
 
 " Set end of buffer ~ to empty [:space:]
