@@ -171,13 +171,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd BufWinEnter *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 
-" Set es6 unused import colors
-" Neo Theme
-" let g:es6_imports_gui_fg_color="#243E41"
-" let g:es6_imports_gui_bg_color="#181F23"
-" Alpine Theme
-let g:es6_imports_gui_fg_color="#1F2E49"
-let g:es6_imports_gui_bg_color="#111822"
+" Set es6 unused import plugin colors
+" Atomical Theme
+let g:es6_imports_gui_fg_color="#6E7288"
+let g:es6_imports_gui_bg_color="#393945"
 
 
 "#####################################"
@@ -188,7 +185,7 @@ let g:es6_imports_gui_bg_color="#111822"
 set termguicolors
 
 " Set theme
-colorscheme alpine
+colorscheme atomical
 
 " Set list characters
 set list

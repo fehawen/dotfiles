@@ -4,7 +4,7 @@
 ### THEMES ###
 ##############
 
-THEME="spyder_prompt"
+THEME="base_prompt"
 
 #####################
 ### CUSTOMIZATION ###

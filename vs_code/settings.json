@@ -23,7 +23,7 @@
 	"terminal.integrated.fontWeight": "400",
 	"terminal.integrated.lineHeight": 1.2,
 	"terminal.integrated.fontSize": 13,
-	"workbench.colorTheme": "Kary Pro Colors － Eye Light",
+	"workbench.colorTheme": "Material Theme",
 	"window.title": "",
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
