@@ -14,13 +14,11 @@ let s:gui.none       = { 'default': 'NONE' }
 let s:gui.background = { 'default': '#32323E' }
 let s:gui.foreground = { 'default': '#FFFFFF' }
 
-" let s:gui.line       = { 'default': '#4D505F' }
-" let s:gui.cursorline = { 'default': '#32323E' }
-let s:gui.line       = { 'default': '#393945' }
+let s:gui.line       = { 'default': '#4D505F' }
 let s:gui.cursorline = { 'default': '#393945' }
 let s:gui.selection  = { 'default': '#6E7288' }
 let s:gui.comment    = { 'default': '#6E7288' }
-let s:gui.listchars  = { 'default': '#4D505F' }
+let s:gui.listchars  = { 'default': '#6E7288' }
 let s:gui.search     = { 'default': '#4D505F' }
 
 let s:gui.black      = { 'default': '#6E7288' }
@@ -32,23 +30,6 @@ let s:gui.magenta    = { 'default': '#FF4495' }
 let s:gui.purple     = { 'default': '#D211FE' }
 let s:gui.cyan       = { 'default': '#40C4FF' }
 let s:gui.grey       = { 'default': '#B4b8CD' }
-
-" red: #ff4495;
-" green: #52e3c2;
-" blue: #0781ff;
-" purple: #d211fe;
-" bright-orange: #ff4b12;
-" orange: #ed8a19;
-" light-blue: #40c4ff;
-" grey-odd: #546e7a;
-" grey-1: #282833;
-" grey-2: #32323e;
-" grey-3: #393945;
-" grey-4: #40424f;
-" grey-5: #4d505f;
-" grey-6: #6e7288;
-" grey-7: #b4b8cd;
-" contrast: #fff;
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -125,10 +106,10 @@ call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.background, s:gui.line,       "")
 call s:hi("PMenu",        s:gui.foreground, s:gui.selection,  "")
 call s:hi("PMenuSel",     s:gui.foreground, s:gui.line,       "")
-call s:hi("ErrorMsg",     s:gui.magenta,    s:gui.none,       "")
-call s:hi("Error",        s:gui.magenta,    s:gui.none,       "")
-call s:hi("WarningMsg",   s:gui.magenta,    "",               "")
-call s:hi("SpellBad",     s:gui.magenta,    s:gui.none,       "none")
+call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
+call s:hi("Error",        s:gui.red,        s:gui.none,       "")
+call s:hi("WarningMsg",   s:gui.red,        "",               "")
+call s:hi("SpellBad",     s:gui.red,        s:gui.none,       "none")
 call s:hi("VertSplit",    s:gui.line,       s:gui.none,       "none")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "")
 
