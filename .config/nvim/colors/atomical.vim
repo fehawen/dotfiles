@@ -91,7 +91,7 @@ call s:hi("NERDTreeClosable",   s:gui.red,           s:gui.none,          "")
 call s:hi("NERDTreeCWD",        s:gui.comment,       s:gui.none,          "")
 call s:hi("NERDTreeDir",        s:gui.cyan,          s:gui.none,          "")
 call s:hi("NERDTreeDirSlash",   s:gui.background,    s:gui.none,          "")
-call s:hi("NERDTreeFile",       s:gui.foreground,    s:gui.none,          "")
+call s:hi("NERDTreeFile",       s:gui.grey,          s:gui.none,          "")
 
 call s:hi("EndOfBuffer",  s:gui.background, "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
@@ -225,7 +225,7 @@ call s:hi("typescriptParens",                    s:gui.magenta,     "", "")
 call s:hi("typescriptOpSymbols",                 s:gui.purple,      "", "")
 call s:hi("typescriptEndColons",                 s:gui.cyan,        "", "")
 call s:hi("typescriptLogicSymbols",              s:gui.purple,      "", "")
-call s:hi("typescriptDotNotation",               s:gui.purple,      "", "")
+call s:hi("typescriptDotNotation",               s:gui.grey,        "", "")
 
 " Javascript colors
 " yajs
