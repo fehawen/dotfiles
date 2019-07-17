@@ -91,7 +91,7 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.grey,          s:gui.none,          "bold")
+call s:hi("User1",              s:gui.red,           s:gui.none,          "bold")
 call s:hi("User2",              s:gui.green,         s:gui.none,          "bold")
 call s:hi("User3",              s:gui.yellow,        s:gui.none,          "bold")
 call s:hi("User4",              s:gui.blue,          s:gui.none,          "bold")
