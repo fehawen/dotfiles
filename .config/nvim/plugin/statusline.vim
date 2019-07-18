@@ -71,7 +71,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%8*%=%2*NERD%8*%="
+let NERDTreeStatusline="%8*%=%7*NERD%8*%="
 
 " }}}
 
@@ -120,7 +120,7 @@ function! InactiveStatusLine()
 	" Spacer
 	let l:statusline.="%8*%="
 	" Filename
-	let l:statusline.="%2*%t"
+	let l:statusline.="%7*%t"
 	" Spacer
 	let l:statusline.="%8*%="
 	" Done
