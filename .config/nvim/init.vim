@@ -59,8 +59,8 @@ set mat=2
 " Switching this option off most likely breaks plugins, someone told me...
 set magic
 
-" Always show signcolumn
-set signcolumn=yes
+" Don't show signcolumn
+set signcolumn=no
 
 " Highlight search results
 set hlsearch
