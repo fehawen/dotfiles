@@ -1,7 +1,6 @@
 #!/bin/sh
 
 set_shell() {
-	echo "\n"
 	echo "Checking which SHELL..."
 
 	if $(echo "$SHELL" | command grep -i '/bin/bash' &> /dev/null); then
@@ -49,6 +48,7 @@ setup_arch() {
 	echo "Setting up Arch Linux config ..."
 
 	folders=(
+		".config/conky"
 		".config/i3"
 		".config/kitty"
 		".config/neofetch"
@@ -65,7 +65,6 @@ setup_arch() {
 	shopt -s dotglob
 
 	for folder in "${folders[@]}"; do
-		echo "\n"
 		echo "Symlinking files in $folder ..."
 
 		if [[ "$folder" == "tilde" ]]; then
@@ -84,7 +83,6 @@ setup_arch() {
 
 	set_shell
 
-	echo "\n"
 	echo "DONE."
 }
 

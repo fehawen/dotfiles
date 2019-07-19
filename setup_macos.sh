@@ -70,7 +70,6 @@ setup_macos() {
 			mkdir -p "$HOME/$folder"
 		fi
 
-		echo "\n"
 		echo "Symlinking files in $folder ..."
 
 		if [[ "$folder" == "tilde" ]]; then
@@ -86,7 +85,6 @@ setup_macos() {
 	setup_homebrew
 	setup_vscode
 
-	echo "\n"
 	echo "DONE."
 }
 
