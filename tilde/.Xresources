@@ -6,7 +6,7 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-*font: xft:SF Mono Medium:pixelsize=8,xft:SF Mono Medium Italic:pixelsize=8,xft:SF Mono Bold:pixelsize=8,xft:SF Mono Bold Italic:pixelsize=8
+*font: xft:SF Mono Medium:pixelsize=11,xft:SF Mono Medium Italic:pixelsize=11,xft:SF Mono Bold:pixelsize=11,xft:SF Mono Bold Italic:pixelsize=11
 
 *background: #32323E
 
