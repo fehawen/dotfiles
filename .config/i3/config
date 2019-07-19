@@ -19,7 +19,7 @@ gaps inner 10
 gaps outer 0
 
 # Borders
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 1
 
 # Colors
 set_from_resource $darkBlack     color0
@@ -39,8 +39,8 @@ set_from_resource $cyan          color14
 set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
-set $borderFocused #475962
-set $borderUnfocused #313E46
+set $borderFocused #B4b8CD
+set $borderUnfocused #6E7288
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -59,6 +59,9 @@ for_window [instance="popup"] resize set 2800 1400
 for_window [instance="popup"] move scratchpad
 exec --no-startup-id kitty --name popup
 
+# Launch conky on startup
+exec --no-startup-id conky
+
 # Launch new terminal window
 bindsym $mod+Return exec --no-startup-id kitty
 
@@ -76,7 +79,6 @@ bindsym $mod+d exec dmenu_run
 
 # kill focused window
 bindsym $mod+Shift+q kill
-bindsym $mod+q kill
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -110,10 +112,13 @@ bindsym $mod+f fullscreen toggle
 # bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+space floating toggle
+
+floating_minimum_size 2800 x 1400
+floating_maximum_size 2800 x 1400
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+Shift+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -168,16 +173,10 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Resize focused window
-bindsym $mod+Control+h resize shrink width 5 px or 5 ppt
-bindsym $mod+Control+j resize shrink height 5 px or 5 ppt
-bindsym $mod+Control+k resize grow height 5 px or 5 ppt
-bindsym $mod+Control+l resize grow width 5 px or 5 ppt
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  status_command i3status
-}
+bindsym $mod+Control+h resize shrink width 1 px or 1 ppt
+bindsym $mod+Control+j resize shrink height 1 px or 1 ppt
+bindsym $mod+Control+k resize grow height 1 px or 1 ppt
+bindsym $mod+Control+l resize grow width 1 px or 1 ppt
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
