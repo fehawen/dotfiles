@@ -33,6 +33,7 @@ alias todopull=pull_todos
 alias hunt=find_string
 alias mark=find_filename
 alias rr="ranger"
+alias bklt=set_xbacklight
 
 #############
 ### UTILS ###
@@ -67,3 +68,7 @@ wm() {
 	brew services "$1" koekeishiya/formulae/"$2"
 }
 
+# Change X background light, when acbklight keys increments are precise enough
+set_xbacklight() {
+	command xbacklight -set $1
+}
