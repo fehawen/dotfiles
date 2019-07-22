@@ -34,6 +34,7 @@ alias hunt=find_string
 alias mark=find_filename
 alias rr="ranger"
 alias bklt=set_xbacklight
+alias wthr=get_weather
 
 #############
 ### UTILS ###
@@ -55,20 +56,31 @@ pull_todos() {
 
 # Find all files in dirs/subdirs containing search query
 find_string() {
-	command grep --exclude-dir=node_modules --exclude-dir=.fusebox -wroni "$1" . | sort -u | grep -iv "^$1" | sed "/^$/d" | grep -i --color=always "$1"
+	command grep --exclude-dir=node_modules --exclude-dir=.fusebox -wroni "${1}" . | sort -u | grep -iv "^${1}" | sed "/^$/d" | grep -i --color=always "${1}"
 }
 
 # Find all filenames in dirs/subdirs matching query
 find_filename() {
-	command find . -not -path "*node_modules*" -iname "$1" | sort -u | grep -i --color=always "$1"
+	command find . -not -path "*node_modules*" -iname "${1}" | sort -u | grep -i --color=always "${1}"
 }
 
 # Window manager helper for starting, stopping or restarting either chunkwm or skhd
 wm() {
-	brew services "$1" koekeishiya/formulae/"$2"
+	brew services "${1}" koekeishiya/formulae/"${2}"
 }
 
 # Change X background light, when acbklight keys increments are precise enough
 set_xbacklight() {
-	command xbacklight -set $1
+	command xbacklight -set "${1}"
+}
+
+# Get weather report for specified location
+# if first argument is "full", get 3-day forecast for morning, nnon, evening, night
+# else if first argument is only location, get current weather only
+get_weather() {
+	if [[ "$1" == "full" ]]; then
+		command curl "http://wttr.in/${2}?M"
+	else
+		command curl "http://wttr.in/${1}?0&M"
+	fi
 }
