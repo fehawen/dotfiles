@@ -39,7 +39,7 @@ set_from_resource $cyan          color14
 set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
-set $borderFocused #B4b8CD
+set $borderFocused #B4B8CD
 set $borderUnfocused #6E7288
 
 #                        Border            Background        Foreground        Indicator         Child Border
@@ -60,7 +60,7 @@ for_window [instance="popup"] move scratchpad
 exec --no-startup-id kitty --name popup
 
 # Launch conky on startup
-exec --no-startup-id conky
+# exec --no-startup-id conky
 
 # Launch new terminal window
 bindsym $mod+Return exec --no-startup-id kitty
@@ -81,8 +81,21 @@ bindsym $mod+d exec dmenu_run
 bindsym $mod+Shift+q kill
 
 # Disable bar
+# bar {
+# 	mode invisible
+# }
 bar {
-		mode invisible
+	font pango:SF Mono Bold 13
+	colors {
+		background #32323E
+		statusline #FFFFFF
+		separator #32323E
+
+		focused_workspace  #32323E #32323E #52E3C2
+		active_workspace   #32323E #32323E #52E3C2
+		inactive_workspace #32323E #32323E #6E7288
+		urgent_workspace   #32323E #32323E #FF4495
+	}
 }
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
