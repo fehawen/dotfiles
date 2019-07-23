@@ -33,6 +33,7 @@ alias todopull=pull_todos
 alias hunt=find_string
 alias mark=find_filename
 alias rr="ranger"
+alias wrls="sudo wifi-menu"
 alias bklt=set_xbacklight
 alias wthr=get_weather
 
