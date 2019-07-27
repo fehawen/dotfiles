@@ -80,21 +80,23 @@ bindsym $mod+d exec dmenu_run
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# Disable bar
-# bar {
-# 	mode invisible
-# }
+# Conky bar
 bar {
-	font pango:SF Mono Bold 13
+	font pango:SF Mono Bold 11
+	workspace_buttons yes
 	colors {
 		background #32323E
 		statusline #FFFFFF
-		separator #32323E
+		separator #4D505F
 
-		focused_workspace  #32323E #32323E #52E3C2
-		active_workspace   #32323E #32323E #52E3C2
-		inactive_workspace #32323E #32323E #6E7288
-		urgent_workspace   #32323E #32323E #FF4495
+		focused_workspace  #32323E #0781FF #32323E
+		active_workspace   #32323E #0781FF #32323E
+		inactive_workspace #32323E #6E7288 #32323E
+		urgent_workspace   #32323E #0781FF #32323E
+		#focused_workspace  #32323E #32323E #52E3C2
+		#active_workspace   #32323E #32323E #52E3C2
+		#inactive_workspace #32323E #32323E #6E7288
+		#urgent_workspace   #32323E #32323E #FF4495
 	}
 	status_command $HOME/.config/i3/i3conkybar
 }
