@@ -59,26 +59,29 @@ for_window [instance="popup"] resize set 2800 1400
 for_window [instance="popup"] move scratchpad
 exec --no-startup-id kitty --name popup
 
-# Launch conky on startup
-# exec --no-startup-id conky
-
 # Launch new terminal window
 bindsym $mod+Return exec --no-startup-id kitty
 
 # Show popup terminal
 bindsym $mod+p [instance="popup"] scratchpad show; [instance="popup"] move position center
 
-# Launch popup terminal manually, used in case accidentally killed or whatever
+# Launch popup terminal manually, used in case accidentally closed or whatever
 bindsym $mod+Shift+Control+p exec --no-startup-id kitty --name popup
 
 # Start browser
 bindsym $mod+Shift+b exec --no-startup-id firefox
 
-# Start dmenu
+# Launch dmenu
 bindsym $mod+d exec dmenu_run
 
-# kill focused window
+# Launch i3-dmenu-desktop
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+
+# Kill focused window
 bindsym $mod+Shift+q kill
+
+# Lock screen
+bindsym $mod+Shift+x exec --no-startup-id i3lock -c 32323E
 
 # Conky bar
 bar {
@@ -100,11 +103,6 @@ bar {
 	}
 	status_command $HOME/.config/i3/i3conkybar
 }
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Change focus
 bindsym $mod+h focus left
