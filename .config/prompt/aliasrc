@@ -28,12 +28,13 @@ alias pro="cd ~/projects/"
 alias mongorun="mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data"
 alias todoread="cat ~/Github/todo/README.md"
 alias todoedit="nvim ~/Github/todo/README.md"
+alias rr="ranger"
+alias wrls="sudo wifi-menu"
+alias screenshot="scrot ~/Github/fehawen-files/screenshots/%Y-%m-%d-%T-screenshot.png -d 5"
 alias todopush=push_todos
 alias todopull=pull_todos
 alias hunt=find_string
 alias mark=find_filename
-alias rr="ranger"
-alias wrls="sudo wifi-menu"
 alias bklt=set_xbacklight
 alias wthr=get_weather
 
