@@ -15,7 +15,7 @@ set $mod Mod4
 font pango:SF Mono Medium 11
 
 # Gaps
-gaps inner 10
+gaps inner 11
 gaps outer 0
 
 # Borders
@@ -39,8 +39,8 @@ set_from_resource $cyan          color14
 set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
-set $borderFocused #B4B8CD
-set $borderUnfocused #6E7288
+set $borderFocused #40424F
+set $borderUnfocused #40424F
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -81,21 +81,21 @@ bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+Shift+q kill
 
 # Lock screen
-bindsym $mod+Shift+x exec --no-startup-id i3lock -c 32323E
+bindsym $mod+Shift+x exec --no-startup-id i3lock -c 282833
 
 # Conky bar
 bar {
 	font pango:SF Mono Bold 11
 	workspace_buttons yes
 	colors {
-		background #32323E
+		background #282833
 		statusline #FFFFFF
 		separator #4D505F
 
-		focused_workspace  #32323E #0781FF #32323E
-		active_workspace   #32323E #0781FF #32323E
-		inactive_workspace #32323E #6E7288 #32323E
-		urgent_workspace   #32323E #0781FF #32323E
+		focused_workspace  #282833 #0781FF #282833
+		active_workspace   #282833 #0781FF #282833
+		inactive_workspace #282833 #6E7288 #282833
+		urgent_workspace   #282833 #0781FF #282833
 		#focused_workspace  #32323E #32323E #52E3C2
 		#active_workspace   #32323E #32323E #52E3C2
 		#inactive_workspace #32323E #32323E #6E7288

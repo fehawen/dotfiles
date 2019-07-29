@@ -11,12 +11,12 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.background = { 'default': '#32323E' }
+let s:gui.background = { 'default': '#282833' }
 let s:gui.foreground = { 'default': '#FFFFFF' }
 
-let s:gui.line       = { 'default': '#4D505F' }
-let s:gui.cursorline = { 'default': '#393945' }
-let s:gui.selection  = { 'default': '#6E7288' }
+let s:gui.line       = { 'default': '#40424F' }
+let s:gui.cursorline = { 'default': '#32323E' }
+let s:gui.selection  = { 'default': '#40424F' }
 let s:gui.comment    = { 'default': '#6E7288' }
 let s:gui.listchars  = { 'default': '#6E7288' }
 let s:gui.search     = { 'default': '#4D505F' }
@@ -123,7 +123,7 @@ call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
 
 call s:hi("NonText",      s:gui.listchars,  "",               "")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
-call s:hi("MatchParen",   s:gui.none,       s:gui.search,     "")
+call s:hi("MatchParen",   s:gui.background, s:gui.magenta,    "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "")
 call s:hi("String",       s:gui.green,      "",               "")
