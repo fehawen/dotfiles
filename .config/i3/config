@@ -96,10 +96,6 @@ bar {
 		active_workspace   #282833 #282833 #0781FF
 		inactive_workspace #282833 #282833 #6E7288
 		urgent_workspace   #282833 #282833 #0781FF
-		#focused_workspace  #32323E #32323E #52E3C2
-		#active_workspace   #32323E #32323E #52E3C2
-		#inactive_workspace #32323E #32323E #6E7288
-		#urgent_workspace   #32323E #32323E #FF4495
 	}
 	status_command $HOME/.config/i3/i3conkybar
 }
