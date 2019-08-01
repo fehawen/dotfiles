@@ -59,6 +59,7 @@ setup_arch() {
 		".config/ranger"
 		".config/zathura"
 		".newsboat"
+		".surf/styles"
 		"tilde"
 	)
 
