@@ -1,0 +1,95 @@
+* {
+	font: SFMono-Regular !important;
+	background-color: #282833 !important;
+	color: #FFFFFF !important;
+	border: none !important;
+	border-top: none !important;
+	border-right: none !important;
+	border-bottom: none !important;
+	border-left: none !important;
+}
+
+pre,
+textarea,
+body,
+td,
+tr,
+p {
+	font: SFMono-Regular !important;
+	background-color: #282833 !important;
+	background-image: none !important;
+	color: #FFFFFF !important;
+}
+
+div {
+	font: SFMono-Regular !important;
+	background-color: #282833 !important;
+	background-image: none !important;
+	color: #FFFFFF !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font: SFMono-Regular !important;
+	background-color: #282833 !important;
+	color: #FF4495 !important;
+}
+
+a {
+	font: SFMono-Regular !important;
+	color: #40C4FF !important;
+}
+
+button {
+	font: SFMono-Regular !important;
+	background-color: #52E3C2 !important;
+	color: #282833 !important;
+	border: none !important;
+	border-radius: 0 !important;
+}
+
+button svg,
+button i,
+button span,
+button div,
+button p,
+button h1,
+button h2,
+button h3,
+button h4,
+button h5,
+button h6 {
+	background-color: transparent !important;
+	color: #282833 !important;
+}
+
+button svg {
+	fill: #282833 !important;
+}
+
+svg {
+	fill: #ED8A19 !important;
+}
+
+hr {
+	display: none !important;
+}
+
+input, form {
+	background-color: #282833 !important;
+	color: #ED8A19 !important;
+	border-radius: 0 !important;
+}
+
+input {
+	border: 1px solid #ED8A19 !important;
+}
+
+form {
+	border: none !important;
+}
+
