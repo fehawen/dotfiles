@@ -185,7 +185,7 @@ let g:es6_imports_gui_bg_color="#393945"
 set termguicolors
 
 " Set theme
-colorscheme atomical
+colorscheme plasmatic
 
 " Set list characters
 set list
