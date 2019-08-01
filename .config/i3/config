@@ -68,8 +68,11 @@ bindsym $mod+p [instance="popup"] scratchpad show; [instance="popup"] move posit
 # Launch popup terminal manually, used in case accidentally closed or whatever
 bindsym $mod+Shift+Control+p exec --no-startup-id kitty --name popup
 
-# Start browser
+# Start regular browser
 bindsym $mod+Shift+b exec --no-startup-id firefox
+
+# Start minimal browser
+bindsym $mod+Control+b exec --no-startup-id surf
 
 # Launch dmenu
 bindsym $mod+d exec dmenu_run
