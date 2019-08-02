@@ -19,7 +19,8 @@ gaps inner 11
 gaps outer 0
 
 # Borders
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 0
+for_window [instance="popup"] border pixel 11
 
 # Colors
 set_from_resource $darkBlack     color0
@@ -39,8 +40,8 @@ set_from_resource $cyan          color14
 set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
-set $borderFocused #40424F
-set $borderUnfocused #40424F
+set $borderFocused #3D4C5F
+set $borderUnfocused #3D4C5F
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -84,21 +85,22 @@ bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+Shift+q kill
 
 # Lock screen
-bindsym $mod+Shift+x exec --no-startup-id i3lock -c 282833
+bindsym $mod+Shift+x exec --no-startup-id i3lock -c 3D4C5F
 
 # Conky bar
 bar {
 	font pango:SF Mono Bold 11
+	height 50
 	workspace_buttons yes
 	colors {
-		background #282833
-		statusline #FFFFFF
-		separator #4D505F
+		background #323F4E
+		statusline #E5E5E5
+		separator #56687E
 
-		focused_workspace  #282833 #282833 #0781FF
-		active_workspace   #282833 #282833 #0781FF
-		inactive_workspace #282833 #282833 #6E7288
-		urgent_workspace   #282833 #282833 #0781FF
+		focused_workspace  #E5E5E5 #E5E5E5 #323F4E
+		active_workspace   #E5E5E5 #E5E5E5 #323F4E
+		inactive_workspace #E5E5E5 #323F4E #E5E5E5
+		urgent_workspace   #E5E5E5 #E5E5E5 #323F4E
 	}
 	status_command $HOME/.config/i3/i3conkybar
 }
@@ -146,15 +148,15 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws1 " 1 "
+set $ws2 " 2 "
+set $ws3 " 3 "
+set $ws4 " 4 "
+set $ws5 " 5 "
+set $ws6 " 6 "
+set $ws7 " 7 "
+set $ws8 " 8 "
+set $ws9 " 9 "
 # set $ws10 "10"
 
 # switch to workspace

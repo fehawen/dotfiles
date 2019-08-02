@@ -24,7 +24,7 @@ let s:gui.search     = { 'default': '#56687E' }
 let s:gui.black      = { 'default': '#56687E' }
 let s:gui.red        = { 'default': '#F48FB1' }
 let s:gui.green      = { 'default': '#A1EFD3' }
-let s:gui.yellow     = { 'default': '#F1FA8C' }
+let s:gui.yellow     = { 'default': '#FAE38C' }
 let s:gui.blue       = { 'default': '#92B6F4' }
 let s:gui.magenta    = { 'default': '#BD99FF' }
 let s:gui.orange     = { 'default': '#F2A272' }
@@ -128,7 +128,7 @@ call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "")
 call s:hi("String",       s:gui.green,      "",               "")
 call s:hi("Normal",       s:gui.foreground, s:gui.none,       "")
-call s:hi("Visual",       s:gui.foreground, s:gui.selection,  "")
+call s:hi("Visual",       s:gui.background, s:gui.selection,  "")
 call s:hi("Constant",     s:gui.blue,       "",               "")
 call s:hi("Type",         s:gui.blue,       "",               "")
 call s:hi("Define",       s:gui.cyan,       "",               "")
