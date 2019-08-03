@@ -185,7 +185,7 @@ let g:es6_imports_gui_bg_color="#393945"
 set termguicolors
 
 " Set theme
-colorscheme nightfall
+colorscheme neo
 
 " Set list characters
 set list

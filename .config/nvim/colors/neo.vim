@@ -12,23 +12,23 @@ let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
 let s:gui.background = { 'default': '#181F23' }
-let s:gui.foreground = { 'default': '#ACFDFF' }
+let s:gui.foreground = { 'default': '#B5ECCC' }
 
-let s:gui.line       = { 'default': '#243E41' }
-let s:gui.cursorline = { 'default': '#1C2529' }
-let s:gui.selection  = { 'default': '#84D5D9' }
-let s:gui.comment    = { 'default': '#3B4C56' }
-let s:gui.listchars  = { 'default': '#243E41' }
-let s:gui.specialkey = { 'default': '#1B2F30' }
-let s:gui.search     = { 'default': '#347B7F' }
+let s:gui.line       = { 'default': '#437D60' }
+let s:gui.cursorline = { 'default': '#162023' }
+let s:gui.selection  = { 'default': '#58A67B' }
+let s:gui.comment    = { 'default': '#2F444A' }
+let s:gui.listchars  = { 'default': '#2F444A' }
+let s:gui.specialkey = { 'default': '#243E41' }
+let s:gui.search     = { 'default': '#437D60' }
 
-let s:gui.black      = { 'default': '#3B4C56' }
-let s:gui.red        = { 'default': '#FF352B' }
-let s:gui.green      = { 'default': '#347B7F' }
-let s:gui.yellow     = { 'default': '#48999D' }
-let s:gui.blue       = { 'default': '#5CADB1' }
-let s:gui.magenta    = { 'default': '#70C1C5' }
-let s:gui.cyan       = { 'default': '#84D5D9' }
+let s:gui.black      = { 'default': '#2F444A' }
+let s:gui.red        = { 'default': '#437D60' }
+let s:gui.green      = { 'default': '#4D916D' }
+let s:gui.yellow     = { 'default': '#58A67B' }
+let s:gui.blue       = { 'default': '#5EB484' }
+let s:gui.magenta    = { 'default': '#6ECF98' }
+let s:gui.cyan       = { 'default': '#75DEA2' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -87,10 +87,10 @@ call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.none,          "none"
 
 call s:hi("NERDTreeOpenable",   s:gui.yellow,        s:gui.none,          "")
 call s:hi("NERDTreeClosable",   s:gui.blue,          s:gui.none,          "")
-call s:hi("NERDTreeCWD",        s:gui.foreground,    s:gui.none,          "")
+call s:hi("NERDTreeCWD",        s:gui.red,           s:gui.none,          "")
 call s:hi("NERDTreeDir",        s:gui.blue,          s:gui.none,          "")
 call s:hi("NERDTreeDirSlash",   s:gui.magenta,       s:gui.none,          "")
-call s:hi("NERDTreeFile",       s:gui.cyan,          s:gui.none,          "")
+call s:hi("NERDTreeFile",       s:gui.foreground,    s:gui.none,          "")
 
 call s:hi("EndOfBuffer",  s:gui.background, "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
@@ -98,7 +98,7 @@ call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
 call s:hi("LineNr",       s:gui.listchars,  "",               "")
-call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
+call s:hi("CursorLine",   s:gui.none,       s:gui.cursorline, "")
 call s:hi("CursorLineNr", s:gui.foreground, s:gui.cursorline, "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
