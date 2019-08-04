@@ -97,10 +97,10 @@ bar {
 		statusline #B5ECCC
 		separator #2F444A
 
-		focused_workspace  #4D916D #4D916D #0F191D
-		active_workspace   #4D916D #4D916D #0F191D
-		inactive_workspace #4D916D #0F191D #4D916D
-		urgent_workspace   #4D916D #4D916D #0F191D
+		focused_workspace  #0F191D #0F191D #4D916D
+		active_workspace   #0F191D #0F191D #4D916D
+		inactive_workspace #0F191D #0F191D #2F444A
+		urgent_workspace   #0F191D #0F191D #4D916D
 	}
 	status_command $HOME/.config/i3/i3conkybar
 }
