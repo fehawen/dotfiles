@@ -1,7 +1,7 @@
 * {
 	font: SFMono-Regular !important;
-	background-color: #282833 !important;
-	color: #FFFFFF !important;
+	background-color: #0F191D !important;
+	color: #B5ECCC !important;
 	border: none !important;
 	border-top: none !important;
 	border-right: none !important;
@@ -16,16 +16,16 @@ td,
 tr,
 p {
 	font: SFMono-Regular !important;
-	background-color: #282833 !important;
+	background-color: #0F191D !important;
 	background-image: none !important;
-	color: #FFFFFF !important;
+	color: #B5ECCC !important;
 }
 
 div {
 	font: SFMono-Regular !important;
-	background-color: #282833 !important;
+	background-color: #0F191D !important;
 	background-image: none !important;
-	color: #FFFFFF !important;
+	color: #B5ECCC !important;
 }
 
 h1,
@@ -35,8 +35,8 @@ h4,
 h5,
 h6 {
 	font: SFMono-Regular !important;
-	background-color: #282833 !important;
-	color: #FF4495 !important;
+	background-color: #0F191D !important;
+	color: #4D916D !important;
 }
 
 a {
@@ -46,8 +46,8 @@ a {
 
 button {
 	font: SFMono-Regular !important;
-	background-color: #52E3C2 !important;
-	color: #282833 !important;
+	background-color: #B05E36 !important;
+	color: #0F191D !important;
 	border: none !important;
 	border-radius: 0 !important;
 }
@@ -64,15 +64,15 @@ button h4,
 button h5,
 button h6 {
 	background-color: transparent !important;
-	color: #282833 !important;
+	color: #0F191D !important;
 }
 
 button svg {
-	fill: #282833 !important;
+	fill: #0F191D !important;
 }
 
 svg {
-	fill: #ED8A19 !important;
+	fill: #6ECF98 !important;
 }
 
 hr {
@@ -80,13 +80,13 @@ hr {
 }
 
 input, form {
-	background-color: #282833 !important;
-	color: #ED8A19 !important;
+	background-color: #0F191D !important;
+	color: #6ECF98 !important;
 	border-radius: 0 !important;
 }
 
 input {
-	border: 1px solid #ED8A19 !important;
+	border: 1px solid #6ECF98 !important;
 }
 
 form {
