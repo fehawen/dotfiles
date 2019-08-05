@@ -41,13 +41,23 @@ h6 {
 
 a {
 	font: SFMono-Regular !important;
-	color: #40C4FF !important;
+	color: #5EB484 !important;
+	background-color: #0F191D !important;
+	border: none !important;
 }
 
 button {
 	font: SFMono-Regular !important;
-	background-color: #B05E36 !important;
+	background-color: #5EB484 !important;
 	color: #0F191D !important;
+	border: none !important;
+	border-radius: 0 !important;
+}
+
+summary {
+	font: SFMono-Regular !important;
+	background-color: transparent !important;
+	color: #5EB484 !important;
 	border: none !important;
 	border-radius: 0 !important;
 }
@@ -62,13 +72,44 @@ button h2,
 button h3,
 button h4,
 button h5,
-button h6 {
+button h6,
+a svg,
+a i,
+a span,
+a div,
+a p,
+a h1,
+a h2,
+a h3,
+a h4,
+a h5,
+a h6 {
 	background-color: transparent !important;
 	color: #0F191D !important;
 }
 
+summary svg,
+summary i,
+summary span,
+summary div,
+summary p,
+summary h1,
+summary h2,
+summary h3,
+summary h4,
+summary h5,
+summary h6,
 button svg {
+	background-color: transparent !important;
+	color: #5EB484 !important;
+}
+
+a svg {
 	fill: #0F191D !important;
+}
+
+summary svg {
+	fill: #5EB484 !important;
 }
 
 svg {
@@ -87,9 +128,9 @@ input, form {
 
 input {
 	border: 1px solid #6ECF98 !important;
+	padding-left: 10px !important;
 }
 
 form {
 	border: none !important;
 }
-
