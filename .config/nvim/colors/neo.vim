@@ -23,8 +23,7 @@ let s:gui.specialkey = { 'default': '#243E41' }
 let s:gui.search     = { 'default': '#4D916D' }
 
 let s:gui.black      = { 'default': '#2F444A' }
-let s:gui.red        = { 'default': '#437D60' }
-" let s:gui.red        = { 'default': '#B05E36' }
+let s:gui.red        = { 'default': '#B05E36' }
 let s:gui.green      = { 'default': '#4D916D' }
 let s:gui.yellow     = { 'default': '#58A67B' }
 let s:gui.blue       = { 'default': '#5EB484' }
