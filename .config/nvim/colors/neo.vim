@@ -23,7 +23,8 @@ let s:gui.specialkey = { 'default': '#243E41' }
 let s:gui.search     = { 'default': '#4D916D' }
 
 let s:gui.black      = { 'default': '#2F444A' }
-let s:gui.red        = { 'default': '#B05E36' }
+let s:gui.red        = { 'default': '#437D60' }
+" let s:gui.red        = { 'default': '#B05E36' }
 let s:gui.green      = { 'default': '#4D916D' }
 let s:gui.yellow     = { 'default': '#58A67B' }
 let s:gui.blue       = { 'default': '#5EB484' }
@@ -87,7 +88,7 @@ call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.none,          "none"
 
 call s:hi("NERDTreeOpenable",   s:gui.yellow,        s:gui.none,          "")
 call s:hi("NERDTreeClosable",   s:gui.blue,          s:gui.none,          "")
-call s:hi("NERDTreeCWD",        s:gui.red,           s:gui.none,          "")
+call s:hi("NERDTreeCWD",        s:gui.comment,       s:gui.none,          "")
 call s:hi("NERDTreeDir",        s:gui.blue,          s:gui.none,          "")
 call s:hi("NERDTreeDirSlash",   s:gui.magenta,       s:gui.none,          "")
 call s:hi("NERDTreeFile",       s:gui.foreground,    s:gui.none,          "")
