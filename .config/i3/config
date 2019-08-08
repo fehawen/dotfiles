@@ -20,7 +20,6 @@ gaps outer 0
 
 # Borders
 for_window [class=".*"] border pixel 2
-# for_window [instance="popup"] border pixel 11
 
 # Colors
 set_from_resource $darkBlack     color0
