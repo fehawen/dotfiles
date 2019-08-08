@@ -1,12 +1,10 @@
-set statusbar-h-padding 0
-set statusbar-v-padding 0
-set page-padding 1
-map u scroll half-up
-map d scroll half-down
-map D toggle_page_mode
-map r reload
-map R rotate
-map K zoom in
-map J zoom out
-map i recolor
-map p print
+set font "SFMono-Medium 11"
+
+set default-fg "#B5ECCC"
+set default-bg "#0F191D"
+
+set statusbar-fg "#6ECF98"
+set statusbar-bg "#162023"
+
+set inputbar-fg "#B5ECCC"
+set inputbar-bg "#162023"
