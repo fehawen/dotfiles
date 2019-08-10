@@ -1,6 +1,6 @@
 <h1 align="center">
 	<a href="https://github.com/fehawen/dotfiles">
-		<img alt="arch-rice" src="https://user-images.githubusercontent.com/36552788/62441321-e09c0280-b753-11e9-856f-de2a6f4736ef.png" width="960">
+		<img alt="arch-rice" src="https://user-images.githubusercontent.com/36552788/62822906-4c360380-bb8a-11e9-8e50-390faaf63eb4.png" width="960">
 	</a>
 	<br>
 </h1>
