@@ -8,39 +8,39 @@ Xft.rgba: rgb
 
 *font: xft:SF Mono Medium:pixelsize=11,xft:SF Mono Medium Italic:pixelsize=11,xft:SF Mono Bold:pixelsize=11,xft:SF Mono Bold Italic:pixelsize=11
 
-*background: #0F191D
+*background: #0f191d
+*foreground: #65987c
 
-*foreground: #B5ECCC
-*cursorColor: #75DEA2
+*cursorColor: #98baa7
 
 ! black
-*color0:  #2F444A
-*color8:  #2F444A
+*color0:  #2f444a
+*color8:  #2f444a
 
 ! red
-*color1:  #B05E36
-*color9:  #B05E36
+*color1:  #8a6b5c
+*color9:  #8a6b5c
 
 ! green
-*color2:  #4D916D
-*color10: #4D916D
+*color2:  #58856d
+*color10: #58856d
 
 ! yellow
-*color3:  #58A67B
-*color11: #58A67B
+*color3:  #65987c
+*color11: #65987c
 
 ! blue
-*color4:  #5EB484
-*color12: #5EB484
+*color4:  #71a086
+*color12: #71a086
 
 ! magenta
-*color5:  #6ECF98
-*color13: #6ECF98
+*color5:  #8bb19b
+*color13: #8bb19b
 
 ! cyan
-*color6:  #75DEA2
-*color14: #75DEA2
+*color6:  #98baa7
+*color14: #98baa7
 
 ! White
-*color7:  #B5ECCC
-*color15: #B5ECCC
+*color7:  #c7d9ce
+*color15: #c7d9ce

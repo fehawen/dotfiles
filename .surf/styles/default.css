@@ -1,7 +1,7 @@
 * {
 	font: SFMono-Regular !important;
-	background-color: #0F191D !important;
-	color: #B5ECCC !important;
+	background-color: #0f191d !important;
+	color: #c7d9ce !important;
 	border: none !important;
 	border-top: none !important;
 	border-right: none !important;
@@ -16,16 +16,16 @@ td,
 tr,
 p {
 	font: SFMono-Regular !important;
-	background-color: #0F191D !important;
+	background-color: #0f191d !important;
 	background-image: none !important;
-	color: #B5ECCC !important;
+	color: #c7d9ce !important;
 }
 
 div {
 	font: SFMono-Regular !important;
-	background-color: #0F191D !important;
+	background-color: #0f191d !important;
 	background-image: none !important;
-	color: #B5ECCC !important;
+	color: #c7d9ce !important;
 }
 
 h1,
@@ -35,21 +35,21 @@ h4,
 h5,
 h6 {
 	font: SFMono-Regular !important;
-	background-color: #0F191D !important;
-	color: #4D916D !important;
+	background-color: #0f191d !important;
+	color: #58856d !important;
 }
 
 a {
 	font: SFMono-Regular !important;
-	color: #5EB484 !important;
-	background-color: #0F191D !important;
+	color: #71a086 !important;
+	background-color: #0f191d !important;
 	border: none !important;
 }
 
 button {
 	font: SFMono-Regular !important;
-	background-color: #5EB484 !important;
-	color: #0F191D !important;
+	background-color: #71a086 !important;
+	color: #0f191d !important;
 	border: none !important;
 	border-radius: 0 !important;
 }
@@ -57,7 +57,7 @@ button {
 summary {
 	font: SFMono-Regular !important;
 	background-color: transparent !important;
-	color: #5EB484 !important;
+	color: #71a086 !important;
 	border: none !important;
 	border-radius: 0 !important;
 }
@@ -85,7 +85,7 @@ a h4,
 a h5,
 a h6 {
 	background-color: transparent !important;
-	color: #0F191D !important;
+	color: #0f191d !important;
 }
 
 summary svg,
@@ -101,19 +101,19 @@ summary h5,
 summary h6,
 button svg {
 	background-color: transparent !important;
-	color: #5EB484 !important;
+	color: #71a086 !important;
 }
 
 a svg {
-	fill: #0F191D !important;
+	fill: #0f191d !important;
 }
 
 summary svg {
-	fill: #5EB484 !important;
+	fill: #71a086 !important;
 }
 
 svg {
-	fill: #6ECF98 !important;
+	fill: #8bb19b !important;
 }
 
 hr {
@@ -121,13 +121,13 @@ hr {
 }
 
 input, form {
-	background-color: #0F191D !important;
-	color: #6ECF98 !important;
+	background-color: #0f191d !important;
+	color: #8bb19b !important;
 	border-radius: 0 !important;
 }
 
 input {
-	border: 1px solid #6ECF98 !important;
+	border: 1px solid #8bb19b !important;
 	padding-left: 10px !important;
 }
 

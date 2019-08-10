@@ -11,24 +11,24 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.background = { 'default': '#181F23' }
-let s:gui.foreground = { 'default': '#B5ECCC' }
+let s:gui.foreground = { 'default': '#c7d9ce' }
+let s:gui.background = { 'default': '#0f191d' }
 
-let s:gui.line       = { 'default': '#437D60' }
+let s:gui.line       = { 'default': '#437d60' }
 let s:gui.cursorline = { 'default': '#162023' }
-let s:gui.selection  = { 'default': '#58A67B' }
-let s:gui.comment    = { 'default': '#2F444A' }
-let s:gui.listchars  = { 'default': '#2F444A' }
-let s:gui.specialkey = { 'default': '#243E41' }
-let s:gui.search     = { 'default': '#4D916D' }
+let s:gui.selection  = { 'default': '#65987c' }
+let s:gui.comment    = { 'default': '#2f444a' }
+let s:gui.listchars  = { 'default': '#2f444a' }
+let s:gui.specialkey = { 'default': '#243e41' }
+let s:gui.search     = { 'default': '#58856d' }
 
-let s:gui.black      = { 'default': '#2F444A' }
-let s:gui.red        = { 'default': '#B05E36' }
-let s:gui.green      = { 'default': '#4D916D' }
-let s:gui.yellow     = { 'default': '#58A67B' }
-let s:gui.blue       = { 'default': '#5EB484' }
-let s:gui.magenta    = { 'default': '#6ECF98' }
-let s:gui.cyan       = { 'default': '#75DEA2' }
+let s:gui.black      = { 'default': '#2f444a' }
+let s:gui.red        = { 'default': '#8a6b5c' }
+let s:gui.green      = { 'default': '#58856d' }
+let s:gui.yellow     = { 'default': '#65987c' }
+let s:gui.blue       = { 'default': '#71a086' }
+let s:gui.magenta    = { 'default': '#8bb19b' }
+let s:gui.cyan       = { 'default': '#98baa7' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
