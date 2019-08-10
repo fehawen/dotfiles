@@ -313,3 +313,8 @@ call s:hi("VimString",  s:gui.blue,    "", "")
 call s:hi("VimFuncVar", s:gui.green,   "", "")
 call s:hi("VimNumber",  s:gui.cyan,    "", "")
 
+" Shell
+call s:hi("shSetList",     s:gui.green,      "", "")
+call s:hi("shTestOpr",     s:gui.blue,       "", "")
+call s:hi("shNumber",      s:gui.yellow,     "", "")
+call s:hi("shConditional", s:gui.cyan,       "", "")
