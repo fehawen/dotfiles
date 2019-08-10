@@ -61,6 +61,7 @@ setup_arch() {
 		".newsboat"
 		".surf/styles"
 		"tilde"
+		".wallpapers"
 	)
 
 	shopt -s dotglob
