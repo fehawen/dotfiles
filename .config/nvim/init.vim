@@ -196,10 +196,9 @@ set listchars=
 set listchars+=tab:⚬\ ,
 set listchars+=trail:•
 
-" Set end of buffer ~ to empty [:space:]
-" NOTE: requires escaped space followed by comma
-" due to autocmd to trim trailing spaces, see above
-set fcs=eob:\ ,
+" Set end of buffer and vertsplit to empty
+set fillchars+=eob:\ ,
+set fillchars+=vert:\ ,
 
 " Enable deoplete on startup (async completion framework)
 let g:deoplete#enable_at_startup = 1

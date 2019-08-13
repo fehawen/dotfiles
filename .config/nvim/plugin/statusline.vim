@@ -86,7 +86,7 @@ function! ActiveStatusLine()
 	" Reset statusline
 	let l:statusline=""
 	" Spacer
-	let l:statusline.="%8*%="
+	let l:statusline.="%8*  "
 	" Set color based on mode
 	if (mode() =~# '\v(n|no)')
 		let l:statusline.="%2*"
@@ -118,7 +118,7 @@ function! InactiveStatusLine()
 	" Reset statusline
 	let l:statusline=""
 	" Spacer
-	let l:statusline.="%8*%="
+	let l:statusline.="%8*  "
 	" Filename
 	let l:statusline.="%7*%t"
 	" Spacer

@@ -80,10 +80,10 @@ call s:hi("User6",              s:gui.cyan,          s:gui.cursorline,          
 call s:hi("User7",              s:gui.foreground,    s:gui.cursorline,          "bold")
 call s:hi("User8",              s:gui.comment,       s:gui.cursorline,          "bold")
 
-call s:hi("StatusLine",         s:gui.foreground,    s:gui.cursorline,    "none")
-call s:hi("StatusLineNC",       s:gui.comment,       s:gui.cursorline,    "none")
-call s:hi("StatusLineTerm",     s:gui.foreground,    s:gui.cursorline,    "none")
-call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.cursorline,    "none")
+call s:hi("StatusLine",         s:gui.foreground,    s:gui.background,    "none")
+call s:hi("StatusLineNC",       s:gui.comment,       s:gui.background,    "none")
+call s:hi("StatusLineTerm",     s:gui.foreground,    s:gui.background,    "none")
+call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.background,    "none")
 
 call s:hi("NERDTreeOpenable",   s:gui.yellow,        s:gui.none,          "")
 call s:hi("NERDTreeClosable",   s:gui.blue,          s:gui.none,          "")
