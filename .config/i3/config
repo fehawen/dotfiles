@@ -19,7 +19,8 @@ gaps inner 11
 gaps outer 0
 
 # Borders
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 0
+for_window [instance="popup"] border pixel 11
 
 # Colors
 set_from_resource $darkBlack     color0
@@ -39,8 +40,8 @@ set_from_resource $cyan          color14
 set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
-set $borderFocused #58856d
-set $borderUnfocused #58856d
+set $borderFocused #162023
+set $borderUnfocused #162023
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
