@@ -89,7 +89,8 @@ bindsym $mod+Shift+x exec --no-startup-id i3lock -i $HOME/.wallpapers/arch-neo.p
 # Conky bar
 bar {
 	font pango:SF Mono Bold 11
-	height 50
+	height 35
+	position top
 	workspace_buttons yes
 	colors {
 		background #0f191d
