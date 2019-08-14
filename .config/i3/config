@@ -87,6 +87,10 @@ bindsym $mod+Shift+q kill
 # Lock screen
 bindsym $mod+Shift+x exec --no-startup-id i3lock -i $HOME/.wallpapers/arch-neo.png
 
+# Take screenshot
+bindsym $mod+Shift+Control+s exec scrot ~/Github/fehawen-files/screenshots/%Y-%m-%d-%T-screenshot.png
+
+
 # Conky bar
 bar {
 	font pango:SF Mono Bold 11
