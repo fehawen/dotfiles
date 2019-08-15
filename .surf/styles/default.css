@@ -131,6 +131,10 @@ input {
 	padding-left: 10px !important;
 }
 
+label svg {
+	display: none !important;
+}
+
 form {
 	border: none !important;
 }
