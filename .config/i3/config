@@ -204,8 +204,8 @@ bindsym $mod+Control+k resize grow height 1 px or 1 ppt
 bindsym $mod+Control+l resize grow width 1 px or 1 ppt
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Volume controls
 bindsym XF86AudioMute exec pamixer -t
