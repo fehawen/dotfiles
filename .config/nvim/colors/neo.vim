@@ -15,7 +15,7 @@ let s:gui.foreground = { 'default': '#c7d9ce' }
 let s:gui.background = { 'default': '#0f191d' }
 
 let s:gui.line       = { 'default': '#437d60' }
-let s:gui.cursorline = { 'default': '#162023' }
+let s:gui.cursorline = { 'default': '#0a1519' }
 let s:gui.selection  = { 'default': '#65987c' }
 let s:gui.comment    = { 'default': '#2f444a' }
 let s:gui.listchars  = { 'default': '#2f444a' }
