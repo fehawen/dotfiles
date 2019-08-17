@@ -16,6 +16,7 @@ let s:gui.background = { 'default': '#0f191d' }
 
 let s:gui.line       = { 'default': '#437d60' }
 let s:gui.cursorline = { 'default': '#131d21' }
+let s:gui.vertsplit  = { 'default': '#0a1519' }
 let s:gui.selection  = { 'default': '#65987c' }
 let s:gui.comment    = { 'default': '#353f44' }
 let s:gui.listchars  = { 'default': '#353f44' }
@@ -71,14 +72,14 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.red,           s:gui.cursorline,          "bold")
-call s:hi("User2",              s:gui.green,         s:gui.cursorline,          "bold")
-call s:hi("User3",              s:gui.yellow,        s:gui.cursorline,          "bold")
-call s:hi("User4",              s:gui.blue,          s:gui.cursorline,          "bold")
-call s:hi("User5",              s:gui.magenta,       s:gui.cursorline,          "bold")
-call s:hi("User6",              s:gui.cyan,          s:gui.cursorline,          "bold")
-call s:hi("User7",              s:gui.foreground,    s:gui.cursorline,          "bold")
-call s:hi("User8",              s:gui.comment,       s:gui.cursorline,          "bold")
+call s:hi("User1",              s:gui.red,           s:gui.vertsplit,     "bold")
+call s:hi("User2",              s:gui.green,         s:gui.vertsplit,     "bold")
+call s:hi("User3",              s:gui.yellow,        s:gui.vertsplit,     "bold")
+call s:hi("User4",              s:gui.blue,          s:gui.vertsplit,     "bold")
+call s:hi("User5",              s:gui.magenta,       s:gui.vertsplit,     "bold")
+call s:hi("User6",              s:gui.cyan,          s:gui.vertsplit,     "bold")
+call s:hi("User7",              s:gui.foreground,    s:gui.vertsplit,     "bold")
+call s:hi("User8",              s:gui.comment,       s:gui.vertsplit,     "bold")
 
 call s:hi("StatusLine",         s:gui.foreground,    s:gui.background,    "none")
 call s:hi("StatusLineNC",       s:gui.comment,       s:gui.background,    "none")
