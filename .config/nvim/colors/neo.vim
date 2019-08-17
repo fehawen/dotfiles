@@ -15,14 +15,14 @@ let s:gui.foreground = { 'default': '#c7d9ce' }
 let s:gui.background = { 'default': '#0f191d' }
 
 let s:gui.line       = { 'default': '#437d60' }
-let s:gui.cursorline = { 'default': '#0a1519' }
+let s:gui.cursorline = { 'default': '#131d21' }
 let s:gui.selection  = { 'default': '#65987c' }
-let s:gui.comment    = { 'default': '#2f444a' }
-let s:gui.listchars  = { 'default': '#2f444a' }
+let s:gui.comment    = { 'default': '#353f44' }
+let s:gui.listchars  = { 'default': '#353f44' }
 let s:gui.specialkey = { 'default': '#243e41' }
 let s:gui.search     = { 'default': '#58856d' }
 
-let s:gui.black      = { 'default': '#2f444a' }
+let s:gui.black      = { 'default': '#353f44' }
 let s:gui.red        = { 'default': '#8a6b5c' }
 let s:gui.green      = { 'default': '#58856d' }
 let s:gui.yellow     = { 'default': '#65987c' }

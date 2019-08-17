@@ -100,11 +100,11 @@ bar {
 	colors {
 		background #0f191d
 		statusline #B5ECCC
-		separator #2F444A
+		separator #353f44
 
 		focused_workspace  #0f191d #0f191d #58856d
 		active_workspace   #0f191d #0f191d #58856d
-		inactive_workspace #0f191d #0f191d #2f444a
+		inactive_workspace #0f191d #0f191d #353f44
 		urgent_workspace   #0f191d #0f191d #58856d
 	}
 	status_command $HOME/.config/i3/i3conkybar
