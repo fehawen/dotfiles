@@ -4,32 +4,31 @@ if exists("syntax_on")
 	syntax reset
 endif
 
-let s:style = get(g:, "neo_style", "default")
-let g:colors_name = "neo"
+let s:style = get(g:, "base_style", "default")
+let g:colors_name = "base"
 
 let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.foreground = { 'default': '#eeeeee' }
-let s:gui.background = { 'default': '#0e1c24' }
+let s:gui.foreground = { 'default': '#8c989d' }
+let s:gui.background = { 'default': '#0f191d' }
 
 let s:gui.line       = { 'default': '#437d60' }
-let s:gui.cursorline = { 'default': '#495861' }
-let s:gui.vertsplit  = { 'default': '#495861' }
+let s:gui.cursorline = { 'default': '#131d21' }
 let s:gui.selection  = { 'default': '#65987c' }
-let s:gui.comment    = { 'default': '#495861' }
-let s:gui.listchars  = { 'default': '#495861' }
+let s:gui.comment    = { 'default': '#353f44' }
+let s:gui.listchars  = { 'default': '#353f44' }
 let s:gui.specialkey = { 'default': '#243e41' }
-let s:gui.search     = { 'default': '#58856d' }
+let s:gui.search     = { 'default': '#718ca0' }
 
-let s:gui.black      = { 'default': '#495861' }
-let s:gui.red        = { 'default': '#ef9a9a' }
-let s:gui.green      = { 'default': '#c5e1a5' }
-let s:gui.yellow     = { 'default': '#ffe082' }
-let s:gui.blue       = { 'default': '#90caf9' }
-let s:gui.magenta    = { 'default': '#ce93d8' }
-let s:gui.cyan       = { 'default': '#80deea' }
+let s:gui.black      = { 'default': '#353f44' }
+let s:gui.red        = { 'default': '#a07171' }
+let s:gui.green      = { 'default': '#71a086' }
+let s:gui.yellow     = { 'default': '#a09471' }
+let s:gui.blue       = { 'default': '#718ca0' }
+let s:gui.magenta    = { 'default': '#a0718f' }
+let s:gui.cyan       = { 'default': '#71a0a0' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -44,7 +43,7 @@ function! s:hi(group, guifg, guibg, attr)
 endfunction
 
 function! s:gui(color)
-	if exists("g:neo_style")
+	if exists("g:base_style")
 		return a:color[s:style]
 	else
 		return a:color["default"]
@@ -72,14 +71,14 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.red,           s:gui.vertsplit,     "bold")
-call s:hi("User2",              s:gui.green,         s:gui.vertsplit,     "bold")
-call s:hi("User3",              s:gui.yellow,        s:gui.vertsplit,     "bold")
-call s:hi("User4",              s:gui.blue,          s:gui.vertsplit,     "bold")
-call s:hi("User5",              s:gui.magenta,       s:gui.vertsplit,     "bold")
-call s:hi("User6",              s:gui.cyan,          s:gui.vertsplit,     "bold")
-call s:hi("User7",              s:gui.foreground,    s:gui.vertsplit,     "bold")
-call s:hi("User8",              s:gui.comment,       s:gui.vertsplit,     "bold")
+call s:hi("User1",              s:gui.red,           s:gui.cursorline,     "bold")
+call s:hi("User2",              s:gui.green,         s:gui.cursorline,     "bold")
+call s:hi("User3",              s:gui.yellow,        s:gui.cursorline,     "bold")
+call s:hi("User4",              s:gui.blue,          s:gui.cursorline,     "bold")
+call s:hi("User5",              s:gui.magenta,       s:gui.cursorline,     "bold")
+call s:hi("User6",              s:gui.cyan,          s:gui.cursorline,     "bold")
+call s:hi("User7",              s:gui.foreground,    s:gui.cursorline,     "bold")
+call s:hi("User8",              s:gui.comment,       s:gui.cursorline,     "bold")
 
 call s:hi("StatusLine",         s:gui.foreground,    s:gui.background,    "none")
 call s:hi("StatusLineNC",       s:gui.comment,       s:gui.background,    "none")
