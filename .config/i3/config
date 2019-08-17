@@ -70,7 +70,7 @@ bindsym $mod+p [instance="popup"] scratchpad show; [instance="popup"] move posit
 bindsym $mod+Shift+Control+p exec --no-startup-id kitty --name popup
 
 # Start regular browser
-bindsym $mod+Shift+b exec --no-startup-id firefox
+bindsym $mod+Shift+b exec --no-startup-id chromium
 
 # Start minimal browser
 bindsym $mod+Control+b exec --no-startup-id surf
