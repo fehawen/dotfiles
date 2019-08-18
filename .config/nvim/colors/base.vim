@@ -77,7 +77,7 @@ call s:hi("User4",              s:gui.blue,          s:gui.cursorline,     "bold
 call s:hi("User5",              s:gui.magenta,       s:gui.cursorline,     "bold")
 call s:hi("User6",              s:gui.cyan,          s:gui.cursorline,     "bold")
 call s:hi("User7",              s:gui.foreground,    s:gui.cursorline,     "bold")
-call s:hi("User8",              s:gui.comment,       s:gui.cursorline,     "bold")
+call s:hi("User8",              s:gui.selection,     s:gui.cursorline,     "bold")
 
 call s:hi("StatusLine",         s:gui.foreground,    s:gui.background,    "none")
 call s:hi("StatusLineNC",       s:gui.comment,       s:gui.background,    "none")
@@ -85,10 +85,10 @@ call s:hi("StatusLineTerm",     s:gui.foreground,    s:gui.background,    "none"
 call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.background,    "none")
 
 call s:hi("NERDTreeOpenable",   s:gui.yellow,        s:gui.none,          "")
-call s:hi("NERDTreeClosable",   s:gui.blue,          s:gui.none,          "")
+call s:hi("NERDTreeClosable",   s:gui.yellow,        s:gui.none,          "")
 call s:hi("NERDTreeCWD",        s:gui.comment,       s:gui.none,          "")
 call s:hi("NERDTreeDir",        s:gui.blue,          s:gui.none,          "")
-call s:hi("NERDTreeDirSlash",   s:gui.magenta,       s:gui.none,          "")
+call s:hi("NERDTreeDirSlash",   s:gui.background,    s:gui.none,          "")
 call s:hi("NERDTreeFile",       s:gui.foreground,    s:gui.none,          "")
 
 call s:hi("EndOfBuffer",  s:gui.background, "",               "")
