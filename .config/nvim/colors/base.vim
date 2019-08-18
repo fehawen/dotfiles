@@ -11,25 +11,24 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.foreground = { 'default': '#8c989d' }
-let s:gui.background = { 'default': '#0f191d' }
+let s:gui.foreground = { 'default': '#c5c8c6' }
+let s:gui.background = { 'default': '#1a2428' }
 
 let s:gui.line       = { 'default': '#437d60' }
-let s:gui.cursorline = { 'default': '#131d21' }
-let s:gui.selection  = { 'default': '#65987c' }
-let s:gui.comment    = { 'default': '#353f44' }
-let s:gui.listchars  = { 'default': '#353f44' }
+let s:gui.cursorline = { 'default': '#202a2e' }
+let s:gui.selection  = { 'default': '#959795' }
+let s:gui.comment    = { 'default': '#566166' }
+let s:gui.listchars  = { 'default': '#566166' }
 let s:gui.specialkey = { 'default': '#243e41' }
-let s:gui.search     = { 'default': '#718ca0' }
+let s:gui.search     = { 'default': '#de935f' }
 
-let s:gui.black      = { 'default': '#353f44' }
-let s:gui.red        = { 'default': '#a07171' }
-let s:gui.green      = { 'default': '#71a086' }
-let s:gui.yellow     = { 'default': '#a09471' }
-let s:gui.blue       = { 'default': '#718ca0' }
-let s:gui.magenta    = { 'default': '#a0718f' }
-let s:gui.cyan       = { 'default': '#71a0a0' }
-
+let s:gui.black      = { 'default': '#566166' }
+let s:gui.red        = { 'default': '#cc6666' }
+let s:gui.green      = { 'default': '#b5bd68' }
+let s:gui.yellow     = { 'default': '#de935f' }
+let s:gui.blue       = { 'default': '#81a2be' }
+let s:gui.magenta    = { 'default': '#b294bb' }
+let s:gui.cyan       = { 'default': '#8abeb7' }
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
 		exec "hi " . a:group . " guifg=" . s:gui(a:guifg)
@@ -103,8 +102,8 @@ call s:hi("CursorLineNr", s:gui.foreground, s:gui.cursorline, "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.background, s:gui.line,       "")
-call s:hi("PMenu",        s:gui.magenta,    s:gui.listchars,  "")
-call s:hi("PMenuSel",     s:gui.foreground, s:gui.listchars,  "")
+call s:hi("PMenu",        s:gui.background, s:gui.foreground, "")
+call s:hi("PMenuSel",     s:gui.comment,    s:gui.foreground, "")
 call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.red,        "",               "")
@@ -122,7 +121,7 @@ call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
 
 call s:hi("NonText",      s:gui.specialkey, "",               "none")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
-call s:hi("MatchParen",   s:gui.background, s:gui.search,     "")
+call s:hi("MatchParen",   s:gui.background, s:gui.selection,  "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "")
 call s:hi("String",       s:gui.green,      "",               "")
