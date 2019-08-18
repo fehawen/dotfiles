@@ -8,7 +8,7 @@ Xft.rgba: rgb
 
 *font: xft:SF Mono Regular:pixelsize=11,xft:SF Mono Regular Italic:pixelsize=11,xft:SF Mono Bold:pixelsize=11,xft:SF Mono Bold Italic:pixelsize=11
 
-*background: #1a2428
+*background: #1e282c
 *foreground: #c5c8c6
 
 *cursorColor: #c5c8c6

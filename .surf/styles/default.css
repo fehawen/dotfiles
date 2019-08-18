@@ -1,7 +1,7 @@
 * {
 	font: SFMono-Regular !important;
-	background-color: #0f191d !important;
-	color: #c7d9ce !important;
+	background-color: #1a2428 !important;
+	color: #c5c8c6 !important;
 	border: none !important;
 	border-top: none !important;
 	border-right: none !important;
@@ -16,16 +16,16 @@ td,
 tr,
 p {
 	font: SFMono-Regular !important;
-	background-color: #0f191d !important;
+	background-color: #1a2428 !important;
 	background-image: none !important;
-	color: #c7d9ce !important;
+	color: #c5c8c6 !important;
 }
 
 div {
 	font: SFMono-Regular !important;
-	background-color: #0f191d !important;
+	background-color: #1a2428 !important;
 	background-image: none !important;
-	color: #c7d9ce !important;
+	color: #c5c8c6 !important;
 }
 
 h1,
@@ -35,29 +35,29 @@ h4,
 h5,
 h6 {
 	font: SFMono-Regular !important;
-	background-color: #0f191d !important;
-	color: #58856d !important;
+	background-color: #1a2428 !important;
+	color: #b294bb !important;
 }
 
 a {
 	font: SFMono-Regular !important;
-	color: #71a086 !important;
-	background-color: #0f191d !important;
+	color: #8abeb7 !important;
+	background-color: #1a2428 !important;
 	border: none !important;
 }
 
 button {
 	font: SFMono-Regular !important;
-	background-color: #71a086 !important;
-	color: #0f191d !important;
+	background-color: #1a2428 !important;
+	color: #de935f !important;
 	border: none !important;
 	border-radius: 0 !important;
 }
 
 summary {
 	font: SFMono-Regular !important;
-	background-color: transparent !important;
-	color: #71a086 !important;
+	background-color: #1a2428 !important;
+	color: #8abeb7 !important;
 	border: none !important;
 	border-radius: 0 !important;
 }
@@ -84,8 +84,8 @@ a h3,
 a h4,
 a h5,
 a h6 {
-	background-color: transparent !important;
-	color: #0f191d !important;
+	background-color: #1a2428 !important;
+	color: #de935f !important;
 }
 
 summary svg,
@@ -100,20 +100,20 @@ summary h4,
 summary h5,
 summary h6,
 button svg {
-	background-color: transparent !important;
-	color: #71a086 !important;
+	background-color: #1a2428 !important;
+	color: #b294bb !important;
 }
 
 a svg {
-	fill: #0f191d !important;
+	fill: #de935f !important;
 }
 
 summary svg {
-	fill: #71a086 !important;
+	fill: #de935f !important;
 }
 
 svg {
-	fill: #8bb19b !important;
+	fill: #de935f !important;
 }
 
 hr {
@@ -121,13 +121,13 @@ hr {
 }
 
 input, form {
-	background-color: #0f191d !important;
-	color: #8bb19b !important;
+	background-color: #1a2428 !important;
+	color: #de935f !important;
 	border-radius: 0 !important;
 }
 
 input {
-	border: 1px solid #8bb19b !important;
+	border: 1px solid #de935f !important;
 	padding-left: 10px !important;
 }
 

@@ -19,8 +19,8 @@ gaps inner 11
 gaps outer 0
 
 # Borders
-for_window [class=".*"] border pixel 0
-for_window [instance="popup"] border pixel 11
+for_window [class=".*"] border pixel 6
+# for_window [instance="popup"] border pixel 11
 
 # Colors
 set_from_resource $darkBlack     color0
@@ -98,14 +98,14 @@ bar {
 	position top
 	workspace_buttons yes
 	colors {
-		background #1a2428
+		background #1e282c
 		statusline #c5c8c6
-		separator #566166
+		separator #1e282c
 
-		focused_workspace  #1a2428 #1a2428 #c5c8c6
-		active_workspace   #1a2428 #1a2428 #c5c8c6
-		inactive_workspace #1a2428 #1a2428 #566166
-		urgent_workspace   #1a2428 #1a2428 #c5c8c6
+		focused_workspace  #1e282c #1e282c #c5c8c6
+		active_workspace   #1e282c #1e282c #c5c8c6
+		inactive_workspace #1e282c #1e282c #566166
+		urgent_workspace   #1e282c #1e282c #c5c8c6
 	}
 	status_command $HOME/.config/i3/i3conkybar
 }
