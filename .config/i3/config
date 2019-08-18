@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # Font
-font pango:SF Mono Medium 11
+font pango:SF Mono Regular 11
 
 # Gaps
 gaps inner 11
