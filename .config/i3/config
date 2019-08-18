@@ -94,7 +94,7 @@ bindsym $mod+Shift+Control+s exec scrot ~/Github/fehawen-files/screenshots/%Y-%m
 # Conky bar
 bar {
 	font pango:SF Mono Bold 11
-	height 35
+	height 40
 	position top
 	workspace_buttons yes
 	colors {
