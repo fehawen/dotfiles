@@ -29,7 +29,7 @@ let s:gui.blue       = { 'default': '#0781FF' }
 let s:gui.magenta    = { 'default': '#FF4495' }
 let s:gui.purple     = { 'default': '#D211FE' }
 let s:gui.cyan       = { 'default': '#40C4FF' }
-let s:gui.grey       = { 'default': '#B4b8CD' }
+let s:gui.grey       = { 'default': '#B4B8CD' }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""

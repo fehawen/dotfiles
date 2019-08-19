@@ -11,24 +11,24 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { 'default': 'NONE' }
-let s:gui.foreground = { 'default': '#c5c8c6' }
-let s:gui.background = { 'default': '#1e282c' }
+let s:gui.foreground = { 'default': '#B2BEBF' }
+let s:gui.background = { 'default': '#1E282C' }
 
-let s:gui.line       = { 'default': '#437d60' }
-let s:gui.cursorline = { 'default': '#202a2e' }
+let s:gui.line       = { 'default': '#437D60' }
+let s:gui.cursorline = { 'default': '#202A2E' }
 let s:gui.selection  = { 'default': '#959795' }
 let s:gui.comment    = { 'default': '#566166' }
 let s:gui.listchars  = { 'default': '#566166' }
-let s:gui.specialkey = { 'default': '#243e41' }
-let s:gui.search     = { 'default': '#de935f' }
+let s:gui.specialkey = { 'default': '#243E41' }
+let s:gui.search     = { 'default': '#949FA3' }
 
 let s:gui.black      = { 'default': '#566166' }
-let s:gui.red        = { 'default': '#cc6666' }
-let s:gui.green      = { 'default': '#b5bd68' }
-let s:gui.yellow     = { 'default': '#de935f' }
-let s:gui.blue       = { 'default': '#81a2be' }
-let s:gui.magenta    = { 'default': '#b294bb' }
-let s:gui.cyan       = { 'default': '#8abeb7' }
+let s:gui.red        = { 'default': '#AE5151' }
+let s:gui.green      = { 'default': '#779687' }
+let s:gui.yellow     = { 'default': '#B98675' }
+let s:gui.blue       = { 'default': '#5E828F' }
+let s:gui.magenta    = { 'default': '#B48291' }
+let s:gui.cyan       = { 'default': '#7AB1B3' }
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
 		exec "hi " . a:group . " guifg=" . s:gui(a:guifg)
@@ -189,7 +189,7 @@ call s:hi("typescriptEventListenerMethods",      s:gui.cyan,         "", "")
 call s:hi("typescriptSource",                    s:gui.red,          "", "") " import export from as
 call s:hi("typescriptIdentifier",                s:gui.green,        "", "bold") " arguments this void
 call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "bold") " let var const
-call s:hi("typescriptOperator",                  s:gui.yellow,       "", "") " delete new instanceof typeof
+call s:hi("typescriptOperator",                  s:gui.yellow,       "", "bold") " delete new instanceof typeof
 call s:hi("typescriptBoolean",                   s:gui.yellow,       "", "bold") " true false
 call s:hi("typescriptNull",                      s:gui.yellow,       "", "bold") " null undefined
 call s:hi("typescriptMessage",                   s:gui.green,        "", "") " alert confirm prompt status
@@ -198,7 +198,7 @@ call s:hi("typescriptConditional",               s:gui.cyan,         "", "bold")
 call s:hi("typescriptRepeat",                    s:gui.cyan,         "", "") " do while for in of
 call s:hi("typescriptBranch",                    s:gui.cyan,         "", "bold") " break continue yield await
 call s:hi("typescriptLabel",                     s:gui.cyan,         "", "") " case default async readonly
-call s:hi("typescriptDecorators",                s:gui.green,        "", "") " @action @computed, etc
+call s:hi("typescriptDecorators",                s:gui.magenta,      "", "") " @action @computed, etc
 call s:hi("typescriptStatement",                 s:gui.cyan,         "", "bold") " return with
 
 call s:hi("typescriptGlobalObjects",             s:gui.blue,         "", "bold") " Array Boolean Date Function Infinity Math Number NaN Object Packages RegExp String Symbol
@@ -292,8 +292,8 @@ call s:hi("htmlArg",            s:gui.yellow,  "", "")
 
 " JSX
 call s:hi("tsxTag",             s:gui.green,     "", "")
-call s:hi("tsxTagName",         s:gui.yellow,    "", "")
-call s:hi("tsxCloseString",     s:gui.yellow,    "", "")
+call s:hi("tsxTagName",         s:gui.yellow,    "", "bold")
+call s:hi("tsxCloseString",     s:gui.yellow,    "", "bold")
 call s:hi("tsxString",          s:gui.cyan,      "", "")
 call s:hi("tsxCloseTag",        s:gui.green,     "", "")
 call s:hi("tsxAttrib",          s:gui.blue,      "", "")
