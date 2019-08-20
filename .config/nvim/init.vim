@@ -172,9 +172,8 @@ autocmd BufWinEnter *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 
 " Set es6 unused import plugin colors
-" Atomical Theme
-let g:es6_imports_gui_fg_color="#6E7288"
-let g:es6_imports_gui_bg_color="#393945"
+let g:es6_imports_gui_fg_color="#566166"
+let g:es6_imports_gui_bg_color="#242E32"
 
 
 "#####################################"

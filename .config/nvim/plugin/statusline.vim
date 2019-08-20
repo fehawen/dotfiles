@@ -26,7 +26,7 @@ function! LinterStatus() abort
 	if l:counts.total == 0
 		return ""
 	else
-		return printf("(%d)", l:counts.total)
+		return printf("ERROR: %d", l:counts.total)
 	endif
 endfunction
 
@@ -71,7 +71,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%7*%=%8*\ NERD\ %7*%8*%7*%="
+let NERDTreeStatusline="%7*%=%8*\ TREE\ %7*%="
 
 " }}}
 
@@ -89,33 +89,33 @@ function! ActiveStatusLine()
 	let l:statusline.="%7*"
 	" Set separator, and color based on status/mode
 	if LinterStatus() != ""
-		let l:statusline.="%1*%2*"
+		let l:statusline.="%2*"
 	elseif (mode() =~# '\v(n|no)')
-		let l:statusline.="%3*%4*"
+		let l:statusline.="%4*"
 	else
-		let l:statusline.="%5*%6*"
+		let l:statusline.="%6*"
 	endif
 	" Mode
 	let l:statusline.="\ %{ModeCurrent()}\ │\ "
-	" Filename
-	let l:statusline.="%t\ │\ "
+	" Current line number, total line numbers
+	let l:statusline.="%l/%L\ │\ "
 	" ALE lint errors, if any
 	if LinterStatus() != ""
 		let l:statusline.="%{LinterStatus()}\ │\ "
 	endif
-	" Current line number, total line numbers
-	let l:statusline.="%l/%L\ "
-	" Show syntax identifier, if any
-	if SyntaxItem() != ""
-		let l:statusline.="│\ %{SyntaxItem()}\ "
-	endif
+	" Filename
+	let l:statusline.="%t\ "
 	" Set separator, and color based on status/mode
 	if LinterStatus() != ""
-		let l:statusline.="%1*%2*"
+		let l:statusline.="%1*"
 	elseif (mode() =~# '\v(n|no)')
-		let l:statusline.="%3*%4*"
+		let l:statusline.="%3*"
 	else
-		let l:statusline.="%5*%6*"
+		let l:statusline.="%5*"
+	endif
+	" Show syntax identifier, if any
+	if SyntaxItem() != ""
+		let l:statusline.="\ %{SyntaxItem()}"
 	endif
 	" Spacer
 	let l:statusline.="%7*%="
@@ -130,9 +130,9 @@ function! InactiveStatusLine()
 	" Spacer
 	let l:statusline.="%7*"
 	" Filename
-	let l:statusline.="%8*\ %t\ %7*%8*"
+	let l:statusline.="%8*\ %t\ %7*"
 	" Spacer
-	let l:statusline.="%7*%="
+	let l:statusline.="%="
 	" Done
 	return l:statusline
 endfunction
