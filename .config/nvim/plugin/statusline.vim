@@ -71,7 +71,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%7*%=%8*\ TREE\ %7*%="
+let NERDTreeStatusline="%8*%=%1*\ NERDTree%="
 
 " }}}
 
@@ -85,40 +85,30 @@ set laststatus=2
 function! ActiveStatusLine()
 	" Reset statusline
 	let l:statusline=""
-	" Spacer
-	let l:statusline.="%7*"
-	" Set separator, and color based on status/mode
-	if LinterStatus() != ""
-		let l:statusline.="%2*"
-	elseif (mode() =~# '\v(n|no)')
-		let l:statusline.="%4*"
+	" Color by mode
+	if (mode() =~# '\v(n|no)')
+		let l:statusline.="%5*"
+	elseif (mode() =~# '\v(c|ce|cv)')
+		let l:statusline.="%1*"
 	else
-		let l:statusline.="%6*"
+		let l:statusline.="%3*"
 	endif
 	" Mode
-	let l:statusline.="\ %{ModeCurrent()}\ │\ "
+	let l:statusline.="\ %{ModeCurrent()}\ %8*\ "
 	" Current line number, total line numbers
-	let l:statusline.="%l/%L\ │\ "
+	let l:statusline.="%6*\ %l/%L\ %8*\ "
 	" ALE lint errors, if any
 	if LinterStatus() != ""
-		let l:statusline.="%{LinterStatus()}\ │\ "
+		let l:statusline.="%2*\ %{LinterStatus()}\ %8*\ "
 	endif
 	" Filename
-	let l:statusline.="%t\ "
-	" Set separator, and color based on status/mode
-	if LinterStatus() != ""
-		let l:statusline.="%1*"
-	elseif (mode() =~# '\v(n|no)')
-		let l:statusline.="%3*"
-	else
-		let l:statusline.="%5*"
-	endif
+	let l:statusline.="%7*\ %t\ "
 	" Show syntax identifier, if any
 	if SyntaxItem() != ""
-		let l:statusline.="\ %{SyntaxItem()}"
+		let l:statusline.="%8*\ %4*\ %{SyntaxItem()}\ "
 	endif
 	" Spacer
-	let l:statusline.="%7*%="
+	let l:statusline.="%8*%="
 	" Done
 	return l:statusline
 endfunction
@@ -127,12 +117,10 @@ endfunction
 function! InactiveStatusLine()
 	" Reset statusline
 	let l:statusline=""
-	" Spacer
-	let l:statusline.="%7*"
 	" Filename
-	let l:statusline.="%8*\ %t\ %7*"
+	let l:statusline.="%1*\ %t\ "
 	" Spacer
-	let l:statusline.="%="
+	let l:statusline.="%8*%="
 	" Done
 	return l:statusline
 endfunction
