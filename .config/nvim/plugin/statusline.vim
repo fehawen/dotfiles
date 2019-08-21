@@ -71,7 +71,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%8*%=%1*\ NERDTree%="
+let NERDTreeStatusline="%1*%=%4*\ \ \ NERDTree\ %1*%="
 
 " }}}
 
@@ -94,21 +94,21 @@ function! ActiveStatusLine()
 		let l:statusline.="%3*"
 	endif
 	" Mode
-	let l:statusline.="\ %{ModeCurrent()}\ %8*\ "
+	let l:statusline.="\ \ \ %{ModeCurrent()}\ %8*│"
 	" Current line number, total line numbers
-	let l:statusline.="%6*\ %l/%L\ %8*\ "
+	let l:statusline.="%6*\ \ \ %l/%L\ %8*│"
 	" ALE lint errors, if any
 	if LinterStatus() != ""
-		let l:statusline.="%2*\ %{LinterStatus()}\ %8*\ "
+		let l:statusline.="%2*\ \ \ %{LinterStatus()}\ %8*│"
 	endif
 	" Filename
-	let l:statusline.="%7*\ %t\ "
+	let l:statusline.="%7*\ \ \ %t\ "
 	" Show syntax identifier, if any
 	if SyntaxItem() != ""
-		let l:statusline.="%8*\ %4*\ %{SyntaxItem()}\ "
+		let l:statusline.="%8*│%4*\ \ \ %{SyntaxItem()}\ "
 	endif
 	" Spacer
-	let l:statusline.="%8*%="
+	let l:statusline.="%1*%="
 	" Done
 	return l:statusline
 endfunction

@@ -7,7 +7,7 @@
 # arrow="›"
 # arrow="❯"
 arrow="→"
-git_dirty="?"
+git_dirty="*"
 git_stashed="$"
 git_ahead="+"
 git_behind="-"
@@ -31,6 +31,7 @@ root_suffix="${prefix_color}in"
 dir_color="$cyan"
 git_prefix="${prefix_color}on"
 git_branch_color="$magenta"
+git_branch_symbol=" "
 git_status_color="$red"
 git_status_prefix="${prefix_color}is"
 exec_time_color="$yellow"
@@ -101,7 +102,7 @@ git_section() {
 
 	[[ -n $(git stash list 2> /dev/null) ]] && status="${status} ${git_stashed}"
 
-	local git_status="${git_prefix} ${git_branch_color}${branch}"
+	local git_status="${git_prefix} ${git_branch_color}${git_branch_symbol}${branch}"
 
 	[[ "$status" != "" ]] && git_status="${git_status} ${git_status_prefix}${git_status_color}${status}"
 
@@ -148,7 +149,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	printf "${bold}$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}${reset}$(exit_code_section)${reset}"
+	printf "${bold}$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
