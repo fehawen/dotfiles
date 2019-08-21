@@ -193,7 +193,8 @@ set listchars=
 " set listchars+=tab:❯\ ,
 " set listchars+=tab:│\ ,
 set listchars+=tab:⚬\ ,
-set listchars+=trail:•
+set listchars+=trail:␣
+set listchars+=space:␣
 
 " Set end of buffer and vertsplit to empty
 set fillchars+=eob:\ ,

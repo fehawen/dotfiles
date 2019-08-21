@@ -26,7 +26,7 @@ function! LinterStatus() abort
 	if l:counts.total == 0
 		return ""
 	else
-		return printf("ERROR: %d", l:counts.total)
+		return printf("%d", l:counts.total)
 	endif
 endfunction
 
@@ -71,7 +71,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%1*%=%4*\ \ \ NERDTree\ %1*%="
+let NERDTreeStatusline="%1*%=%4*\ NERDTree\ %1*%="
 
 " }}}
 
@@ -89,23 +89,23 @@ function! ActiveStatusLine()
 	if (mode() =~# '\v(n|no)')
 		let l:statusline.="%5*"
 	elseif (mode() =~# '\v(c|ce|cv)')
-		let l:statusline.="%1*"
+		let l:statusline.="%8*"
 	else
 		let l:statusline.="%3*"
 	endif
 	" Mode
-	let l:statusline.="\ \ \ %{ModeCurrent()}\ %8*│"
+	let l:statusline.="\ %{ModeCurrent()}\ %1*\ "
 	" Current line number, total line numbers
-	let l:statusline.="%6*\ \ \ %l/%L\ %8*│"
+	let l:statusline.="%6*\ %l/%L\ %1*\ "
 	" ALE lint errors, if any
 	if LinterStatus() != ""
-		let l:statusline.="%2*\ \ \ %{LinterStatus()}\ %8*│"
+		let l:statusline.="%2*\ %{LinterStatus()}\ %1*\ "
 	endif
 	" Filename
-	let l:statusline.="%7*\ \ \ %t\ "
+	let l:statusline.="%7*\ %t\ "
 	" Show syntax identifier, if any
 	if SyntaxItem() != ""
-		let l:statusline.="%8*│%4*\ \ \ %{SyntaxItem()}\ "
+		let l:statusline.="%1*\ %4*\ %{SyntaxItem()}\ "
 	endif
 	" Spacer
 	let l:statusline.="%1*%="
@@ -118,9 +118,9 @@ function! InactiveStatusLine()
 	" Reset statusline
 	let l:statusline=""
 	" Filename
-	let l:statusline.="%1*\ %t\ "
+	let l:statusline.="%8*\ %t\ "
 	" Spacer
-	let l:statusline.="%8*%="
+	let l:statusline.="%1*%="
 	" Done
 	return l:statusline
 endfunction

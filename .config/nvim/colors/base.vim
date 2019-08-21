@@ -78,7 +78,7 @@ call s:hi("User4",              s:gui.yellow,        s:gui.statusline,    "bold"
 call s:hi("User5",              s:gui.blue,          s:gui.statusline,    "bold")
 call s:hi("User6",              s:gui.magenta,       s:gui.statusline,    "bold")
 call s:hi("User7",              s:gui.cyan,          s:gui.statusline,    "bold")
-call s:hi("User8",              s:gui.background,    s:gui.statusline,    "bold")
+call s:hi("User8",              s:gui.comment,       s:gui.statusline,    "bold")
 
 call s:hi("StatusLine",         s:gui.foreground,    s:gui.background,    "none")
 call s:hi("StatusLineNC",       s:gui.comment,       s:gui.background,    "none")
