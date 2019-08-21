@@ -30,6 +30,7 @@ let s:gui.yellow     = { 'default': '#B98675' }
 let s:gui.blue       = { 'default': '#5E828F' }
 let s:gui.magenta    = { 'default': '#B48291' }
 let s:gui.cyan       = { 'default': '#7AB1B3' }
+
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
 		exec "hi " . a:group . " guifg=" . s:gui(a:guifg)
