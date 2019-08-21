@@ -69,11 +69,14 @@ bindsym $mod+p [instance="popup"] scratchpad show; [instance="popup"] move posit
 # Launch popup terminal manually, used in case accidentally closed or whatever
 bindsym $mod+Shift+Control+p exec --no-startup-id kitty --name popup
 
-# Start regular browser
+# Start chrome browser
 bindsym $mod+Shift+b exec --no-startup-id chromium
 
-# Start minimal browser
-bindsym $mod+Control+b exec --no-startup-id surf
+# Start chrome browser
+bindsym $mod+Control+b exec --no-startup-id firefox
+
+# Start surf browser
+bindsym $mod+Control+Shift+b exec --no-startup-id surf
 
 # Launch dmenu
 bindsym $mod+d exec dmenu_run
@@ -94,18 +97,19 @@ bindsym $mod+Shift+Control+s exec scrot ~/Github/fehawen-files/screenshots/%Y-%m
 # Conky bar
 bar {
 	font pango:SF Mono Bold 11
-	height 40
+	height 45
 	position top
 	workspace_buttons yes
+	strip_workspace_numbers yes
 	colors {
 		background #1E282C
 		statusline #B2BEBF
 		separator #1E282C
 
-		focused_workspace  #1E282C #1E282C #B2BEBF
-		active_workspace   #1E282C #1E282C #B2BEBF
-		inactive_workspace #1E282C #1E282C #566166
-		urgent_workspace   #1E282C #1E282C #B2BEBF
+		focused_workspace  #182226 #182226 #B2BEBF
+		active_workspace   #182226 #182226 #B2BEBF
+		inactive_workspace #182226 #182226 #4C575B
+		urgent_workspace   #182226 #182226 #B2BEBF
 	}
 	status_command $HOME/.config/i3/i3conkybar
 }
@@ -153,15 +157,15 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 " 1 "
-set $ws2 " 2 "
-set $ws3 " 3 "
-set $ws4 " 4 "
-set $ws5 " 5 "
-set $ws6 " 6 "
-set $ws7 " 7 "
-set $ws8 " 8 "
-set $ws9 " 9 "
+set $ws1 "1:  "
+set $ws2 "2:  "
+set $ws3 "3:  "
+set $ws4 "4:  "
+set $ws5 "5:  "
+set $ws6 "6:  "
+set $ws7 "7:  "
+set $ws8 "8:  "
+set $ws9 "9:  "
 # set $ws10 "10"
 
 # switch to workspace
