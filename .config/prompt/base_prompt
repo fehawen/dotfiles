@@ -7,10 +7,10 @@
 # arrow="›"
 # arrow="❯"
 arrow="→"
-git_dirty="*"
-git_stashed="$"
-git_ahead="+"
-git_behind="-"
+git_dirty="d"
+git_stashed="s"
+git_ahead="a"
+git_behind="b"
 # git_dirty="→"
 # git_stashed="←"
 # git_ahead="↑"
@@ -31,7 +31,6 @@ root_suffix="${prefix_color}in"
 dir_color="$cyan"
 git_prefix="${prefix_color}on"
 git_branch_color="$magenta"
-git_branch_symbol=" "
 git_status_color="$red"
 git_status_prefix="${prefix_color}is"
 exec_time_color="$yellow"
@@ -102,7 +101,7 @@ git_section() {
 
 	[[ -n $(git stash list 2> /dev/null) ]] && status="${status} ${git_stashed}"
 
-	local git_status="${git_prefix} ${git_branch_color}${git_branch_symbol}${branch}"
+	local git_status="${git_prefix} ${git_branch_color}${branch}"
 
 	[[ "$status" != "" ]] && git_status="${git_status} ${git_status_prefix}${git_status_color}${status}"
 
