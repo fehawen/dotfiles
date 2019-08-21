@@ -107,7 +107,7 @@ call s:hi("PMenu",        s:gui.background, s:gui.foreground, "")
 call s:hi("PMenuSel",     s:gui.comment,    s:gui.foreground, "")
 call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
-call s:hi("WarningMsg",   s:gui.red,        "",               "")
+call s:hi("WarningMsg",   s:gui.yellow,     "",               "")
 call s:hi("SpellBad",     s:gui.red,        s:gui.none,       "none")
 call s:hi("VertSplit",    s:gui.line,       s:gui.none,       "none")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "")
@@ -133,11 +133,11 @@ call s:hi("Type",         s:gui.blue,       "",               "")
 call s:hi("Define",       s:gui.cyan,       "",               "")
 call s:hi("Statement",    s:gui.blue,       "",               "")
 call s:hi("Function",     s:gui.magenta,    "",               "")
-call s:hi("Conditional",  s:gui.red,        "",               "")
+call s:hi("Conditional",  s:gui.cyan,       "",               "")
 call s:hi("Float",        s:gui.green,      "",               "")
 call s:hi("Noise",        s:gui.cyan,       "",               "")
-call s:hi("Number",       s:gui.red,        "",               "")
-call s:hi("Identifier",   s:gui.red,        "",               "")
+call s:hi("Number",       s:gui.yellow,     "",               "")
+call s:hi("Identifier",   s:gui.blue,       "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
 call s:hi("Search",       s:gui.background, s:gui.search,     "")
@@ -178,8 +178,8 @@ call s:hi("typescriptStringB",                   s:gui.green,        "", "")
 call s:hi("typescriptInterpolation",             s:gui.green,        "", "")
 call s:hi("typescriptNumber",                    s:gui.yellow,       "", "")
 call s:hi("typescriptRegexpString",              s:gui.cyan,         "", "")
-call s:hi("typescriptPrototype",                 s:gui.red,          "", "")
-call s:hi("typescriptBrowserObjects",            s:gui.red,          "", "")
+call s:hi("typescriptPrototype",                 s:gui.magenta,      "", "")
+call s:hi("typescriptBrowserObjects",            s:gui.magenta,      "", "")
 call s:hi("typescriptDOMObjects",                s:gui.blue,         "", "")
 call s:hi("typescriptDOMMethods",                s:gui.yellow,       "", "")
 call s:hi("typescriptDOMProperties",             s:gui.yellow,       "", "")
@@ -187,7 +187,7 @@ call s:hi("typescriptHtmlElemProperties",        s:gui.cyan,         "", "")
 call s:hi("typescriptEventListenerKeywords",     s:gui.cyan,         "", "")
 call s:hi("typescriptEventListenerMethods",      s:gui.cyan,         "", "")
 
-call s:hi("typescriptSource",                    s:gui.red,          "", "") " import export from as
+call s:hi("typescriptSource",                    s:gui.blue,         "", "") " import export from as
 call s:hi("typescriptIdentifier",                s:gui.green,        "", "bold") " arguments this void
 call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "bold") " let var const
 call s:hi("typescriptOperator",                  s:gui.yellow,       "", "bold") " delete new instanceof typeof
@@ -209,12 +209,12 @@ call s:hi("typescriptVars",                      s:gui.green,        "", "")
 call s:hi("typescriptParameters",                s:gui.green,        "", "")
 call s:hi("typescriptType",                      s:gui.yellow,       "", "bold") " void any string boolean number symbol never object
 
-call s:hi("typescriptDomErrNo",                  s:gui.red,          "", "")
-call s:hi("typescriptDomNodeConsts",             s:gui.red,          "", "")
+call s:hi("typescriptDomErrNo",                  s:gui.magenta,      "", "")
+call s:hi("typescriptDomNodeConsts",             s:gui.magenta,      "", "")
 
 call s:hi("typescriptHtmlEvents",                s:gui.foreground,   "", "") " onblur onclick onfocus onkeydown onkeypress onkeyup ...
 
-call s:hi("typescriptCssStyles",                 s:gui.red,          "", "") " not sure where these ever occur... ?
+call s:hi("typescriptCssStyles",                 s:gui.yellow,       "", "") " not sure where these ever occur... ?
 
 call s:hi("typescriptFuncKeyword",               s:gui.blue,         "", "")
 call s:hi("typescriptFunction",                  s:gui.magenta,      "", "")
