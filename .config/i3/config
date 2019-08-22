@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # Font
-font pango:SF Mono Regular 11
+font pango:SF Mono Semibold 11
 
 # Gaps
 gaps inner 11
@@ -96,7 +96,7 @@ bindsym $mod+Shift+Control+s exec scrot ~/Github/fehawen-files/screenshots/%Y-%m
 
 # Conky bar
 bar {
-	font pango:SF Mono Bold 11
+	font pango:SF Mono Heavy 11
 	height 50
 	position top
 	workspace_buttons yes
