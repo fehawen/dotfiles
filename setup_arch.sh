@@ -32,6 +32,48 @@ symlink_tilde_files() {
 	cd "$(dirs -l -0)" && dirs -c
 }
 
+symlink_hardware_specific_tilde_files() {
+	pushd "$PWD/tilde/${1}"
+
+	for file in *; do
+		if [ -f "$file" ]; then
+			ln -sfv "$PWD/$file" "$HOME/$file"
+		fi
+	done
+
+	cd "$(dirs -l -0)" && dirs -c
+}
+
+confirm_hardware() {
+	echo ""
+
+	PS3="Please select your computer model: "
+
+	options=(
+		"Dell XPS 13 9343"
+		"HP ProBook 650 G3"
+		"Quit"
+	)
+
+	select opt in "${options[@]}"
+	do
+		case $opt in
+			"Dell XPS 13 9343")
+				symlink_hardware_specific_tilde_files "xps"
+				break
+				;;
+			"HP ProBook 650 G3")
+				symlink_hardware_specific_tilde_files "probook"
+				break
+				;;
+			"Quit")
+				break
+				;;
+			*) echo "Invalid option: $REPLY";;
+		esac
+	done
+}
+
 symlink_files() {
 	pushd "$PWD/$1" > /dev/null
 
@@ -81,7 +123,13 @@ setup_arch() {
 
 	done
 
+	echo ""
+
+	confirm_hardware
+
 	shopt -u dotglob
+
+	echo ""
 
 	set_shell
 

@@ -14,19 +14,19 @@ confirm() {
 PS3="Please select your OS: "
 
 options=(
-	"Dotfiles - Arch Linux"
-	"Dotfiles - macOS"
+	"Dotfiles for Arch Linux"
+	"Dotfiles for macOS"
 	"Quit"
 )
 
 select opt in "${options[@]}"
 do
 	case $opt in
-		"Dotfiles - Arch Linux")
+		"Dotfiles for Arch Linux")
 			confirm "arch"
 			break
 			;;
-		"Dotfiles - macOS")
+		"Dotfiles for macOS")
 			confirm "macos"
 			break
 			;;

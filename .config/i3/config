@@ -201,6 +201,9 @@ bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# Switch between internal/external display
+bindsym $mod+Shift+Control+d exec ~/Dotfiles/utils/setoutput.sh
+
 # Resize focused window
 bindsym $mod+Control+h resize shrink width 1 px or 1 ppt
 bindsym $mod+Control+j resize shrink height 1 px or 1 ppt
