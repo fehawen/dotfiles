@@ -93,11 +93,10 @@ bindsym $mod+Shift+x exec --no-startup-id i3lock -i $HOME/.wallpapers/arch-neo.p
 # Take screenshot
 bindsym $mod+Shift+Control+s exec scrot ~/Github/fehawen-files/screenshots/%Y-%m-%d-%T-screenshot.png
 
-
 # Conky bar
 bar {
 	font pango:SF Mono Heavy 11
-	height 50
+	height 30
 	position top
 	workspace_buttons yes
 	strip_workspace_numbers yes
