@@ -60,7 +60,12 @@ pull_todos() {
 
 # Find all files in dirs/subdirs containing search query
 find_string() {
-	command grep --exclude-dir=node_modules --exclude-dir=.fusebox --exclude-dir=dist -wroni "${1}" . | sort -u | grep -iv "^${1}" | sed "/^$/d" | grep -i --color=always "${1}"
+	command grep \
+		--exclude-dir=node_modules \
+		--exclude-dir=.fusebox \
+		--exclude-dir=dist \
+		--exclude-dir=.git \
+		-wroni "${1}" . | sort -u | grep -iv "^${1}" | sed "/^$/d" | grep -i --color=always "${1}"
 }
 
 # Find all filenames in dirs/subdirs matching query
