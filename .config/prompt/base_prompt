@@ -20,9 +20,8 @@ git_behind="b"
 ### SECTION STYLING ###
 #######################
 
-# Conventional solution for new line
-newline="
-"
+# New line
+newline="\n"
 
 # Section colors, symbols and prefixes
 prefix_color="$white"
@@ -148,7 +147,7 @@ exit_code_section() {
 # Compose prompt
 prompt() {
 	RETVAL=$?
-	printf "${bold}$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
+	printf "${newline}${bold}$(user_section)$(dir_section)$(git_section)$(exec_time_section)${newline}$(exit_code_section)${reset}"
 }
 
 # Stop timer for execution duration calculation
