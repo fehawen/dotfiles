@@ -6,13 +6,6 @@
 
 THEME="base_prompt"
 
-#####################
-### CUSTOMIZATION ###
-#####################
-
-# Do case-insensitive completion for e.g. `cd` commands
-bind "set completion-ignore-case on"
-
 ##############
 ### COLORS ###
 ##############
