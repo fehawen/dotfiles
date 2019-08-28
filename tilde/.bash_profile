@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 [ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
