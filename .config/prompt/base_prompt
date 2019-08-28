@@ -4,7 +4,7 @@
 ### VARIABLES ###
 #################
 
-arrow_symbol="❯"
+arrow_symbol="›"
 untracked_symbol="?"
 modified_symbol="!"
 staged_symbol="+"
@@ -73,7 +73,7 @@ user_module() {
 # -----------------------------------------------------------------------------
 
 dir_module() {
-	local dir="$(PWD | sed -E -e "s|^$HOME|~|")"
+	local dir="$(pwd | sed -E -e "s|^$HOME|~|")"
 	local trim_dir="${dir#"${dir%/*/*}/"}"
 
 	PS1+=" ${prefix_color}${dir_prefix} ${dir_color}${trim_dir}"
@@ -151,7 +151,7 @@ exit_code_module() {
 		exit_status="${exit_bad_color}"
 	fi
 
-	PS1+="${newline}${reset}${exit_status}${exit_symbol}${reset} "
+	PS1+="${newline}${reset}${bold}${exit_status}${exit_symbol}${reset} "
 }
 
 ####################
