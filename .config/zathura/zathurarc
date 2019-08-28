@@ -1,4 +1,4 @@
-set font "SFMono-Medium 11"
+set font "Operator Mono Medium 11"
 
 set default-fg "#B5ECCC"
 set default-bg "#0F191D"

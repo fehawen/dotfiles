@@ -156,7 +156,9 @@ input, form {
 
 input {
 	border: 1px solid #B48291 !important;
-	padding-left: 10px !important;
+	padding-left: 16px !important;
+	padding-right: 16px !important;
+	height: 32px !important;
 }
 
 label svg {
