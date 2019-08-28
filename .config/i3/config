@@ -88,10 +88,10 @@ bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+Shift+q kill
 
 # Lock screen
-bindsym $mod+Shift+x exec --no-startup-id i3lock -i $HOME/.wallpapers/arch-neo.png
+bindsym $mod+Shift+x exec --no-startup-id i3lock -i $HOME/.wallpapers/wallpaper.png
 
 # Take screenshot
-bindsym $mod+Shift+Control+s exec scrot ~/Github/fehawen-files/screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 
 # Conky bar
 bar {
