@@ -1,7 +1,9 @@
 * {
-	font: SFMono-Regular !important;
-	background-color: #1a2428 !important;
-	color: #c5c8c6 !important;
+	font-family: "Operator Mono", monospace, sans-serif, serif !important;
+	font-size: 16px !important;
+	font-weight: 400 !important;
+	background-color: #1E282C !important;
+	color: #B2BEBF !important;
 	border: none !important;
 	border-top: none !important;
 	border-right: none !important;
@@ -15,48 +17,81 @@ body,
 td,
 tr,
 p {
-	font: SFMono-Regular !important;
-	background-color: #1a2428 !important;
+	font-family: "Operator Mono", monospace, sans-serif, serif !important;
+	font-size: 16px !important;
+	font-weight: 400 !important;
+	background-color: #1E282C !important;
 	background-image: none !important;
-	color: #c5c8c6 !important;
+	color: #B2BEBF !important;
 }
 
 div {
-	font: SFMono-Regular !important;
-	background-color: #1a2428 !important;
+	font-family: "Operator Mono", monospace, sans-serif, serif !important;
+	font-weight: 400 !important;
+	background-color: #1E282C !important;
 	background-image: none !important;
-	color: #c5c8c6 !important;
+	color: #B2BEBF !important;
 }
 
-h1,
+h1 {
+	font-family: "Operator Mono", monospace, sans-serif, serif !important;
+	font-size: 24px !important;
+	font-weight: 400 !important;
+	font-style: italic !important;
+	background-color: #1E282C !important;
+	color: #B2BEBF !important;
+}
+
+a h1 {
+	color: #5E828F !important;
+}
+
 h2,
 h3,
 h4,
 h5,
 h6 {
-	font: SFMono-Regular !important;
-	background-color: #1a2428 !important;
-	color: #b294bb !important;
+	font-family: "Operator Mono", monospace, sans-serif, serif !important;
+	font-size: 20px !important;
+	font-weight: 400 !important;
+	font-style: italic !important;
+	background-color: #1E282C !important;
+	color: #B2BEBF !important;
+}
+
+a h2,
+a h3,
+a h4,
+a h5,
+a h6 {
+	color: #5E828F !important;
+}
+
+a p {
+	color: #566166 !important;
 }
 
 a {
-	font: SFMono-Regular !important;
-	color: #8abeb7 !important;
-	background-color: #1a2428 !important;
+	font-family: "Operator Mono", monospace, sans-serif, serif !important;
+	font-weight: 400 !important;
+	color: #B48291 !important;
+	background-color: #1E282C !important;
 	border: none !important;
 }
 
 button {
-	font: SFMono-Regular !important;
-	background-color: #1a2428 !important;
-	color: #de935f !important;
+	font-family: "Operator Mono", monospace, sans-serif, serif !important;
+	font-weight: 400 !important;
+	background-color: #1E282C !important;
+	color: #B48291 !important;
 	border: none !important;
 	border-radius: 0 !important;
 }
 
 summary {
-	font: SFMono-Regular !important;
-	background-color: #1a2428 !important;
+	font-family: "Operator Mono", monospace, sans-serif, serif !important;
+	font-weight: 400 !important;
+	background-color: #1E282C !important;
 	color: #8abeb7 !important;
 	border: none !important;
 	border-radius: 0 !important;
@@ -76,16 +111,9 @@ button h6,
 a svg,
 a i,
 a span,
-a div,
-a p,
-a h1,
-a h2,
-a h3,
-a h4,
-a h5,
-a h6 {
-	background-color: #1a2428 !important;
-	color: #de935f !important;
+a div {
+	background-color: #1E282C !important;
+	color: #B48291 !important;
 }
 
 summary svg,
@@ -100,20 +128,20 @@ summary h4,
 summary h5,
 summary h6,
 button svg {
-	background-color: #1a2428 !important;
-	color: #b294bb !important;
+	background-color: #1E282C !important;
+	color: #B48291 !important;
 }
 
 a svg {
-	fill: #de935f !important;
+	fill: #B48291 !important;
 }
 
 summary svg {
-	fill: #de935f !important;
+	fill: #B48291 !important;
 }
 
 svg {
-	fill: #de935f !important;
+	fill: #B48291 !important;
 }
 
 hr {
@@ -121,13 +149,13 @@ hr {
 }
 
 input, form {
-	background-color: #1a2428 !important;
-	color: #de935f !important;
+	background-color: #1E282C !important;
+	color: #B48291 !important;
 	border-radius: 0 !important;
 }
 
 input {
-	border: 1px solid #de935f !important;
+	border: 1px solid #B48291 !important;
 	padding-left: 10px !important;
 }
 
@@ -137,4 +165,14 @@ label svg {
 
 form {
 	border: none !important;
+}
+
+[class*="cookie"],
+[class^="cookie-"],
+[class$="-cookie"],
+[id*="cookie"],
+[id^="cookie-"],
+[id$="-cookie"] {
+	display: none !important;
+	visibility: hidden !important;
 }
