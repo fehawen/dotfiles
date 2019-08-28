@@ -125,7 +125,7 @@ call s:hi("NonText",      s:gui.specialkey, "",               "none")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
 call s:hi("MatchParen",   s:gui.background, s:gui.selection,  "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
-call s:hi("Comment",      s:gui.comment,    "",               "")
+call s:hi("Comment",      s:gui.comment,    "",               "italic")
 call s:hi("String",       s:gui.green,      "",               "")
 call s:hi("Normal",       s:gui.foreground, s:gui.none,       "")
 call s:hi("Visual",       s:gui.background, s:gui.selection,  "")
@@ -159,15 +159,15 @@ call s:hi("ALEWarningLine",      s:gui.comment,   s:gui.none, "")
 
 " TYPESCRIPT COLORS
 " leafgarland/typescript-vim
-call s:hi("typescriptComment",                   s:gui.comment,      "", "")
-call s:hi("typescriptCommentSkip",               s:gui.comment,      "", "")
-call s:hi("typescriptCommentTodo",               s:gui.comment,      "", "")
-call s:hi("typescriptLineComment",               s:gui.comment,      "", "")
-call s:hi("typescriptRefComment",                s:gui.comment,      "", "")
+call s:hi("typescriptComment",                   s:gui.comment,      "", "italic")
+call s:hi("typescriptCommentSkip",               s:gui.comment,      "", "italic")
+call s:hi("typescriptCommentTodo",               s:gui.comment,      "", "italic")
+call s:hi("typescriptLineComment",               s:gui.comment,      "", "italic")
+call s:hi("typescriptRefComment",                s:gui.comment,      "", "italic")
 call s:hi("typescriptRefD",                      s:gui.comment,      "", "")
 call s:hi("typescriptRefS",                      s:gui.comment,      "", "")
 
-call s:hi("typescriptDocComment",                s:gui.comment,      "", "")
+call s:hi("typescriptDocComment",                s:gui.comment,      "", "italic")
 call s:hi("typescriptDocTags",                   s:gui.comment,      "", "")
 call s:hi("typescriptDocParam",                  s:gui.comment,      "", "")
 call s:hi("typescriptDocSeeTag",                 s:gui.comment,      "", "")
@@ -200,7 +200,7 @@ call s:hi("typescriptConditional",               s:gui.cyan,         "", "bold")
 call s:hi("typescriptRepeat",                    s:gui.cyan,         "", "") " do while for in of
 call s:hi("typescriptBranch",                    s:gui.cyan,         "", "bold") " break continue yield await
 call s:hi("typescriptLabel",                     s:gui.cyan,         "", "") " case default async readonly
-call s:hi("typescriptDecorators",                s:gui.magenta,      "", "") " @action @computed, etc
+call s:hi("typescriptDecorators",                s:gui.magenta,      "", "italic") " @action @computed, etc
 call s:hi("typescriptStatement",                 s:gui.cyan,         "", "bold") " return with
 
 call s:hi("typescriptGlobalObjects",             s:gui.blue,         "", "bold") " Array Boolean Date Function Infinity Math Number NaN Object Packages RegExp String Symbol
