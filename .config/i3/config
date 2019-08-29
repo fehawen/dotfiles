@@ -96,7 +96,6 @@ bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-scree
 # Conky bar
 bar {
 	font pango:Operator Mono Medium Italic 11
-	height 35
 	position top
 	workspace_buttons yes
 	strip_workspace_numbers yes
