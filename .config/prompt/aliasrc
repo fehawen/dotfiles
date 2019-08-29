@@ -84,11 +84,11 @@ set_xbacklight() {
 }
 
 # Get weather report for specified location
-# if first argument is "full", get 3-day forecast for morning, nnon, evening, night
+# if second argument (optional) is "-f", get 3-day forecast for morning, nnon, evening, night
 # else if first argument is only location, get current weather only
 get_weather() {
-	if [[ "$1" == "full" ]]; then
-		command curl "http://wttr.in/${2}?M"
+	if [[ "$2" == "-f" ]]; then
+		command curl "http://wttr.in/${1}?M"
 	else
 		command curl "http://wttr.in/${1}?0&M"
 	fi
