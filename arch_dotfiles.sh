@@ -86,7 +86,7 @@ symlink_files() {
 	cd "$(dirs -l -0)" && dirs -c
 }
 
-setup_arch() {
+setup_dotfiles() {
 	echo "Setting up Arch Linux config ..."
 
 	folders=(
@@ -136,4 +136,4 @@ setup_arch() {
 	echo "DONE."
 }
 
-setup_arch
+setup_dotfiles

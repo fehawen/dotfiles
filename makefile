@@ -1,4 +1,4 @@
 .SILENT:
 
-setup:
-	./pre_setup.sh
+install:
+	./setup.sh

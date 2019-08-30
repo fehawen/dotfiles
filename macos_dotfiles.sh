@@ -48,7 +48,7 @@ symlink_files() {
 	cd "$(dirs -l -0)" && dirs -c
 }
 
-setup_macos() {
+setup_dotfiles() {
 	echo "Setting up macOS config ..."
 
 	folders=(
@@ -88,4 +88,4 @@ setup_macos() {
 	echo "DONE."
 }
 
-setup_macos
+setup_dotfiles

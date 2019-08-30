@@ -243,11 +243,11 @@ map! § <C-c>
 map <Tab> :noh<CR>
 
 " Disable arrow keys, coz I needs to learn
-map <Up> <Nop>
-map! <Up> <Nop>
-map <Down> <Nop>
-map! <Down> <Nop>
-map <Left> <Nop>
-map! <Left> <Nop>
-map <Right> <Nop>
-map! <Right> <Nop>
+" map <Up> <Nop>
+" map! <Up> <Nop>
+" map <Down> <Nop>
+" map! <Down> <Nop>
+" map <Left> <Nop>
+" map! <Left> <Nop>
+" map <Right> <Nop>
+" map! <Right> <Nop>
