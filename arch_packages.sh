@@ -50,13 +50,19 @@ install_packages() {
 }
 
 configure_touchpad() {
-	echo ""
+	read -r -p "Configure touchpad? [y/N] " answer
+	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+		echo "Skipping touchpad configuration..."
+		echo ""
+	else
 
-	echo "Configuring touchpad..."
+		echo ""
 
-	echo ""
+		echo "Configuring touchpad..."
 
-	echo "Writing content to '/usr/share/X11/xorg.conf.d/40-libinput.conf'..."
+		echo ""
+
+		echo "Writing content to '/usr/share/X11/xorg.conf.d/40-libinput.conf'..."
 
 sudo tee -a /usr/share/X11/xorg.conf.d/40-libinput.conf >> /dev/null << EOT
 
@@ -75,10 +81,37 @@ EndSection
 
 EOT
 
-	echo "DONE."
+		echo "DONE."
 
-	echo ""
+		echo ""
+
+	fi
+}
+
+enable_docker() {
+	read -r -p "Start and enable Docker? [y/N] " answer
+	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+		echo "Skipping Docker..."
+		echo ""
+	else
+
+		echo "Starting Docker through systemctl..."
+
+		command sudo systemctl start docker
+
+		echo ""
+
+		echo "Starting Docker through systemctl..."
+
+		command sudo systemctl enable docker
+
+		echo "DONE."
+
+		echo ""
+
+	fi
 }
 
 install_packages
 configure_touchpad
+enable_docker
