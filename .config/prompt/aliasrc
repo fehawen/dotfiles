@@ -38,6 +38,7 @@ alias todopull=pull_todos
 alias hunt=find_string
 alias mark=find_filename
 alias bklt=set_xbacklight
+alias vlme=set_volume
 alias wthr=get_weather
 
 #############
@@ -78,9 +79,14 @@ wm() {
 	brew services "${1}" koekeishiya/formulae/"${2}"
 }
 
-# Change X background light, when acbklight keys increments are precise enough
+# Change X screen brightness, when backlight keys increments aren't precise enough
 set_xbacklight() {
 	command xbacklight -set "${1}"
+}
+
+# Change volume through pamixer, when colume keys increments aren't precise enough
+set_volume() {
+	command pamixer --set-volume "${1}"
 }
 
 # Get weather report for specified location
