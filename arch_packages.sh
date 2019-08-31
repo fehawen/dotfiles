@@ -97,13 +97,13 @@ enable_docker() {
 
 		echo "Starting Docker through systemctl..."
 
-		command sudo systemctl start docker
+		command systemctl start docker
 
 		echo ""
 
 		echo "Starting Docker through systemctl..."
 
-		command sudo systemctl enable docker
+		command systemctl enable docker
 
 		echo "DONE."
 
