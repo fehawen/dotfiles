@@ -1,7 +1,7 @@
 #!/bin/sh
 
 confirm() {
-	read -r -p "Proceed with dotfiles setup for $1? [y/N] " answer
+	read -r -p "Proceed with $2 setup for $1? [y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
 		echo "Setup declined..."
 		echo "Now exiting."
