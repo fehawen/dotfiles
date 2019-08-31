@@ -30,6 +30,7 @@ install_packages() {
 		"surf"
 		"gtop"
 		"ranger"
+		"neofetch"
 		"scrot"
 		"newsboat"
 		"zip"
