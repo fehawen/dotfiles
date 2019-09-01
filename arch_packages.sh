@@ -14,6 +14,7 @@ install_packages() {
 		"xorg-xinit"
 		"xorg-xrandr"
 		"xorg-xsetroot"
+		"xorg-xbacklight"
 		"python-pillow"
 		"imagemagick"
 		"alsa-utils"
