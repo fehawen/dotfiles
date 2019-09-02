@@ -72,7 +72,7 @@ find_string_in_file() {
 
 # Find all sbudirs/filenames in dirs/subdirs matching query
 find_matching_file_or_subdir() {
-	command find . -not -path "*node_modules*" -not -path "*.git*" -iname "*${1}*" | sort -u | grep -i --color=always "${1}"
+	command find . -not -path "*node_modules*" -not -path "*.git*" -not -path "*dist*" -iname "*${1}*" | sort -u | grep -i --color=always "${1}"
 }
 
 # Window manager helper for starting, stopping or restarting either chunkwm or skhd
