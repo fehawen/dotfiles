@@ -11,9 +11,9 @@ Arch Rice
 
 ## To Do
 
-[x] Add script to install all necessary packages for Arch with `pacman`
-    [ ] Add a single setup script, with e.g. `curl`, to partially automate installation/setup to avoid having to clone dotfile repo
-[ ] Add script to install all necessary packages for macOS with `brew`
+- [x] Add script to install all necessary packages for Arch with `pacman`
+    - [ ] Add a single setup script, with e.g. `curl`, to partially automate installation/setup to avoid having to clone dotfile repo
+- [ ] Add script to install all necessary packages for macOS with `brew`
 
 ## About
 
