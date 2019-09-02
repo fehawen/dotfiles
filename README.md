@@ -9,15 +9,17 @@
 Arch Rice
 </h4>
 
-## TODO
+## To Do
 
-Set up script to install all necessary packages for either Arch or macOS.
+[x] Add script to install all necessary packages for Arch with `pacman`
+    [ ] Add a single setup script, with e.g. `curl`, to partially automate installation/setup to avoid having to clone dotfile repo
+[ ] Add script to install all necessary packages for macOS with `brew`
 
 ## About
 
 Just getting my dots on, the good ol' rice and dice.
 
-## Install
+## Setup
 
 1. Clone repo
 
@@ -25,12 +27,8 @@ Just getting my dots on, the good ol' rice and dice.
 $ git clone https://github.com/fehawen/dotfiles ~/Dotfiles
 ```
 
-2. Make
+2. Run
 
 ```bash
 $ cd ~/Dotfiles && make
 ```
-
-3. Select OS in menu (Arch or macOS) to symlink the relevant dotfiles.
-
-4. Install necessary packages with `pacman` or `brew`, as I haven't set up a script to install all packages for us, yet.
