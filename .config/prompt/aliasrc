@@ -35,8 +35,9 @@ alias screenshot="scrot ~/Github/fehawen-files/screenshots/%Y-%m-%d-%T-screensho
 alias colorblocks="~/Dotfiles/utils/colorblocks"
 alias todopush=push_todos
 alias todopull=pull_todos
-alias hunt=find_string
-alias mark=find_filename
+alias hunt=find_string_in_file
+alias mark=find_matching_file_or_subdir
+alias scope=find_subdir
 alias bklt=set_xbacklight
 alias vlme=set_volume
 alias wthr=get_weather
@@ -60,7 +61,7 @@ pull_todos() {
 }
 
 # Find all files in dirs/subdirs containing search query
-find_string() {
+find_string_in_file() {
 	command grep \
 		--exclude-dir=node_modules \
 		--exclude-dir=.fusebox \
@@ -69,9 +70,9 @@ find_string() {
 		-wroni "${1}" . | sort -u | grep -iv "^${1}" | sed "/^$/d" | grep -i --color=always "${1}"
 }
 
-# Find all filenames in dirs/subdirs matching query
-find_filename() {
-	command find . -not -path "*node_modules*" -iname "${1}" | sort -u | grep -i --color=always "${1}"
+# Find all sbudirs/filenames in dirs/subdirs matching query
+find_matching_file_or_subdir() {
+	command find . -not -path "*node_modules*" -not -path "*.git*" -iname "*${1}*" | sort -u | grep -i --color=always "${1}"
 }
 
 # Window manager helper for starting, stopping or restarting either chunkwm or skhd
