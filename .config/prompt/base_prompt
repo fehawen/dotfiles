@@ -5,16 +5,18 @@
 #################
 
 arrow_symbol="›"
-untracked_symbol="?"
-modified_symbol="!"
-staged_symbol="+"
-stashed_symbol="§"
-ahead_symbol="@"
-behind_symbol="ß"
-conflicts_symbol="*"
 exit_symbol="$arrow_symbol"
 
 newline="\n"
+
+ahead_symbol=" +"
+behind_symbol=" -"
+conflicts_symbol=" &"
+deleted_symbol=" ¿"
+modified_symbol=" !"
+staged_symbol=" *"
+stashed_symbol=" §"
+untracked_symbol=" ?"
 
 prefix_color="$white"
 time_color="$blue"
@@ -30,7 +32,7 @@ root_prefix="as"
 dir_prefix="in"
 git_prefix="on"
 git_status_prefix="("
-git_status_suffix=")"
+git_status_suffix=" )"
 exec_time_prefix="took"
 
 ###############
@@ -99,10 +101,13 @@ git_status_module() {
 	local conflicts="$(git diff --name-only --diff-filter=U 2> /dev/null | wc -l)"
 	[[ "$conflicts" -gt 0 ]] && status+="${conflicts_symbol}"
 
+	local deleted="$(git diff --name-only --diff-filter=D 2> /dev/null | wc -l)"
+	[[ "$deleted" -gt 0 ]] && status+="${deleted_symbol}"
+
 	local staged="$(git diff --staged --name-only --diff-filter=AM 2> /dev/null | wc -l)"
 	[[ "$staged" -gt 0 ]] && status+="${staged_symbol}"
 
-	local modified="$(git diff --name-only --diff-filter=M 2> /dev/null | wc -l )"
+	local modified="$(git diff --name-only --diff-filter=M 2> /dev/null | wc -l)"
 	[[ "$modified" -gt 0 ]] && status+="${modified_symbol}"
 
 	local untracked="$(git ls-files --other --exclude-standard | wc -l)"
