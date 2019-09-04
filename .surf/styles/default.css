@@ -1,7 +1,4 @@
 * {
-	font-family: "Operator Mono", monospace, sans-serif, serif !important;
-	font-size: 16px !important;
-	font-weight: 400 !important;
 	background-color: #1E282C !important;
 	color: #B2BEBF !important;
 	border: none !important;
@@ -17,27 +14,18 @@ body,
 td,
 tr,
 p {
-	font-family: "Operator Mono", monospace, sans-serif, serif !important;
-	font-size: 16px !important;
-	font-weight: 400 !important;
 	background-color: #1E282C !important;
 	background-image: none !important;
 	color: #B2BEBF !important;
 }
 
 div {
-	font-family: "Operator Mono", monospace, sans-serif, serif !important;
-	font-weight: 400 !important;
 	background-color: #1E282C !important;
 	background-image: none !important;
 	color: #B2BEBF !important;
 }
 
 h1 {
-	font-family: "Operator Mono", monospace, sans-serif, serif !important;
-	font-size: 24px !important;
-	font-weight: 400 !important;
-	font-style: italic !important;
 	background-color: #1E282C !important;
 	color: #B2BEBF !important;
 }
@@ -51,10 +39,6 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Operator Mono", monospace, sans-serif, serif !important;
-	font-size: 20px !important;
-	font-weight: 400 !important;
-	font-style: italic !important;
 	background-color: #1E282C !important;
 	color: #B2BEBF !important;
 }
@@ -72,16 +56,12 @@ a p {
 }
 
 a {
-	font-family: "Operator Mono", monospace, sans-serif, serif !important;
-	font-weight: 400 !important;
 	color: #B48291 !important;
 	background-color: #1E282C !important;
 	border: none !important;
 }
 
 button {
-	font-family: "Operator Mono", monospace, sans-serif, serif !important;
-	font-weight: 400 !important;
 	background-color: #1E282C !important;
 	color: #B48291 !important;
 	border: none !important;
@@ -89,8 +69,6 @@ button {
 }
 
 summary {
-	font-family: "Operator Mono", monospace, sans-serif, serif !important;
-	font-weight: 400 !important;
 	background-color: #1E282C !important;
 	color: #8abeb7 !important;
 	border: none !important;
