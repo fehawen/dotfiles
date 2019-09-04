@@ -42,6 +42,7 @@ install_packages() {
 		"zathura"
 		"poppler"
 		"zathura-pdf-poppler"
+		"python-pip"
 	)
 
 	command sudo pacman -Syu ${packages[@]}
