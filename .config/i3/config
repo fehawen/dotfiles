@@ -56,7 +56,7 @@ floating_modifier $mod
 
 # Launch popup terminal on i3 startup
 for_window [instance="popup"] floating enable
-for_window [instance="popup"] resize set 2800 1400
+for_window [instance="popup"] resize set 2400 1200
 for_window [instance="popup"] move scratchpad
 exec --no-startup-id kitty --name popup
 
@@ -69,13 +69,13 @@ bindsym $mod+p [instance="popup"] scratchpad show; [instance="popup"] move posit
 # Launch popup terminal manually, used in case accidentally closed or whatever
 bindsym $mod+Shift+Control+p exec --no-startup-id kitty --name popup
 
-# Start chrome browser
+# Launch chrome browser
 bindsym $mod+Shift+b exec --no-startup-id chromium
 
-# Start chrome browser
+# Launch chrome browser
 bindsym $mod+Control+b exec --no-startup-id firefox
 
-# Start surf browser
+# Launch surf browser
 bindsym $mod+Control+Shift+b exec --no-startup-id surf
 
 # Launch dmenu
@@ -92,6 +92,9 @@ bindsym $mod+Shift+x exec --no-startup-id i3lock -i $HOME/.wallpapers/wallpaper.
 
 # Take screenshot
 bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
+
+# Launch virtualbox
+bindsym $mod+Shift+Control+v exec --no-startup-id virtualbox
 
 # Conky bar
 bar {
@@ -141,8 +144,8 @@ bindsym $mod+f fullscreen toggle
 # toggle tiling / floating
 bindsym $mod+space floating toggle
 
-floating_minimum_size 2800 x 1400
-floating_maximum_size 2800 x 1400
+floating_minimum_size 2400 x 1200
+floating_maximum_size 2400 x 1200
 
 # change focus between tiling / floating windows
 # bindsym $mod+Shift+space focus mode_toggle
