@@ -72,15 +72,8 @@ if [[ "$OSTYPE" =~ "linux" ]]; then
 	[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 fi
 
-# Set PATH for macOS
-if [[ "$OSTYPE" =~ "darwin" ]]; then
-	paths=(
-		"${HOME}/.local/bin/"
-		"${HOME}/.npm-global/bin"
-		"${HOME}/Library/Python/3.7/bin"
-		"${HOME}/paths/mongodb-osx-x86_64-4.0.3/bin"
-	)
-
+compose_path() {
+	local paths=$1
 	# Include desired paths in PATH and export, leaving default PATH still intact and preventing duplicates
 	for p in "${paths[@]}"
 	do
@@ -91,4 +84,26 @@ if [[ "$OSTYPE" =~ "darwin" ]]; then
 	done
 
 	export PATH="${PATH}"
+}
+
+# Set PATH for macOS
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+	paths=(
+		"${HOME}/.yarn/bin"
+		"${HOME}/.local/bin/"
+		"${HOME}/.npm-global/bin"
+		"${HOME}/Library/Python/3.7/bin"
+		"${HOME}/paths/mongodb-osx-x86_64-4.0.3/bin"
+	)
+
+	compose_path $paths
+fi
+
+# Set PATH for Linux
+if [[ "$OSTYPE" =~ "linux" ]]; then
+	paths=(
+		"${HOME}/.yarn/bin"
+	)
+
+	compose_path $paths
 fi
