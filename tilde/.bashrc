@@ -103,6 +103,7 @@ fi
 if [[ "$OSTYPE" =~ "linux" ]]; then
 	paths=(
 		"${HOME}/.yarn/bin"
+		"${HOME}/.npm-global/bin"
 	)
 
 	compose_path $paths
