@@ -30,7 +30,7 @@ symlink_tilde_files() {
 	pushd "$PWD/tilde" > /dev/null
 
 	for file in "${tildes[@]}"; do
-		ln -sfv "$PWD/$file" "$HOME/$file"
+		ln -sfv "$PWD/$file" "${HOME}/$file"
 	done
 
 	cd "$(dirs -l -0)" && dirs -c
@@ -41,7 +41,7 @@ symlink_files() {
 
 	for file in *; do
 		if [ -f "$file" ]; then
-			ln -sfv "$PWD/$file" "$HOME/$1/$file"
+			ln -sfv "$PWD/$file" "${HOME}/$1/$file"
 		fi
 	done
 
@@ -66,8 +66,8 @@ setup_dotfiles() {
 	shopt -s dotglob
 
 	for folder in "${folders[@]}"; do
-		if [[ ! -d "$HOME/$folder" ]]; then
-			mkdir -p "$HOME/$folder"
+		if [[ ! -d "${HOME}/$folder" ]]; then
+			mkdir -p "${HOME}/$folder"
 		fi
 
 		echo "Symlinking files in $folder ..."
