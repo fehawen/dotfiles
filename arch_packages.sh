@@ -94,9 +94,11 @@ EOT
 enable_docker() {
 	read -r -p "Start and enable Docker? [y/N] " answer
 	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo "Skipping Docker..."
+		echo "Skipping Docker systemctl setup..."
 		echo ""
 	else
+
+		echo ""
 
 		echo "Starting Docker through systemctl..."
 
@@ -115,6 +117,65 @@ enable_docker() {
 	fi
 }
 
+configure_docker() {
+	read -r -p "Manage Docker as a non-root user? [y/N] " answer
+	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+		echo "Skipping Docker non-root configuration..."
+		echo ""
+	else
+
+		echo ""
+
+		echo "Adding 'docker' group..."
+
+		command sudo groupadd docker
+
+		echo ""
+
+		echo "Adding user $USER to 'docker' group..."
+
+		command sudo usermod -aG docker $USER
+
+		echo "DONE."
+
+		echo ""
+
+	fi
+}
+
+configure_npm() {
+	read -r -p "Manage NPM as a non-root user? [y/N] " answer
+	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+		echo "Skipping NPM non-root configuration..."
+		echo ""
+	else
+
+		local npm_dir="${HOME}/.npm-global"
+
+		echo ""
+
+		if [[ ! -d "$npm_dir" ]]; then
+			echo "Creating dir $npm_dir..."
+			mkdir -p "$npm_dir"
+		else
+			echo "Directory $npm_dir already exists..."
+		fi
+
+		echo ""
+
+		echo "Adding $npm_dir to npm config..."
+
+		command npm config set prefix '~/.npm-global'
+
+		echo "DONE."
+
+		echo ""
+
+	fi
+}
+
 install_packages
 configure_touchpad
 enable_docker
+configure_docker
+configure_npm
