@@ -193,8 +193,8 @@ set listchars=
 " set listchars+=tab:❯\ ,
 " set listchars+=tab:│\ ,
 set listchars+=tab:›\ ,
-set listchars+=trail:·,
-set listchars+=space:·,
+set listchars+=trail:•,
+"set listchars+=space:·,
 
 " Set end of buffer and vertsplit to empty
 set fillchars+=eob:\ ,
@@ -241,6 +241,9 @@ map! § <C-c>
 
 " Map Tab in normal mode to clear search highlight
 map <Tab> :noh<CR>
+
+" Map Esc to exit Terminal
+tnoremap <Esc> <C-\><C-n>
 
 " Disable arrow keys, coz I needs to learn
 " map <Up> <Nop>
