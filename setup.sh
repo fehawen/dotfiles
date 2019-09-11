@@ -11,11 +11,14 @@ confirm() {
 	fi
 }
 
-PS3="Please select your OS: "
+COLUMNS=12
+
+PS3="Please select an option: "
 
 options=(
-	"Dotfiles for Arch Linux"
 	"Packages for Arch Linux"
+	"Configuration for Arch Linux"
+	"Dotfiles for Arch Linux"
 	"Dotfiles for macOS"
 	"Quit"
 )
@@ -23,12 +26,16 @@ options=(
 select opt in "${options[@]}"
 do
 	case $opt in
-		"Dotfiles for Arch Linux")
-			confirm "arch" "dotfiles"
-			break
-			;;
 		"Packages for Arch Linux")
 			confirm "arch" "packages"
+			break
+			;;
+		"Configuration for Arch Linux")
+			confirm "arch" "configuration"
+			break
+			;;
+		"Dotfiles for Arch Linux")
+			confirm "arch" "dotfiles"
 			break
 			;;
 		"Dotfiles for macOS")
