@@ -234,6 +234,7 @@ map <C-n> :NERDTreeToggle<CR>
 " Navigate between ALE errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-h> :ALEHover<CR>
 
 " Map § to act as Esc since the MacBook touchbar is... well, crap
 map § <Esc>
