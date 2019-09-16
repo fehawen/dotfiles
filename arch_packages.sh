@@ -5,6 +5,11 @@ install_packages() {
 
 	echo ""
 
+	# For VirtualBox, if needed, add:
+	# virtualbox
+	# virtualbox-guest-utils
+	# xf86-video-vmware (was required a while back, not sure if it still is, but works without for me)
+
 	packages=(
 		"mesa"
 		"xf86-video-intel"
