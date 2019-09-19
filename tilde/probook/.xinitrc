@@ -2,7 +2,7 @@
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-xrandr --dpi 80
+#xrandr --dpi 80
 
 xsetroot -solid "#182226"
 
