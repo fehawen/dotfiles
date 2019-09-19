@@ -12,17 +12,16 @@
 set $mod Mod4
 
 # Font
-font pango:Operator Mono Medium 11
+font pango:Operator Mono Medium 13
 
 # Gaps
-gaps inner 11
-#gaps top 14
-gaps left 269
+gaps inner 13
+gaps left 400
 #gaps outer 0
 
 # Borders
 for_window [class=".*"] border pixel 1
-# for_window [instance="popup"] border pixel 11
+# for_window [instance="popup"] border pixel 13
 
 # Colors
 set_from_resource $darkBlack     color0
@@ -99,7 +98,7 @@ bindsym $mod+Shift+Control+v exec --no-startup-id virtualbox
 
 # Conky bar
 #bar {
-#	font pango:Operator Mono Medium Italic 11
+#	font pango:Operator Mono Medium Italic 13
 #	position top
 #	workspace_buttons yes
 #	strip_workspace_numbers yes
