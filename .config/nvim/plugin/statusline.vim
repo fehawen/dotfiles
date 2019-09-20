@@ -71,7 +71,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%1*%=%4*\ NERDTree\ %1*%="
+let NERDTreeStatusline="%1*%=%4*\ NERDTree\ %1*"
 
 " }}}
 
