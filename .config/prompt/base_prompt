@@ -11,6 +11,7 @@ newline="\n"
 
 ahead_symbol="+"
 behind_symbol="-"
+branch_symbol=""
 conflicts_symbol="&"
 deleted_symbol="¿"
 modified_symbol="!"
@@ -88,7 +89,7 @@ git_branch_module() {
 
 	local branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
 
-	PS1+=" ${prefix_color}${git_prefix} ${git_branch_color}${branch}"
+	PS1+=" ${prefix_color}${git_prefix} ${git_branch_color}${branch_symbol} ${branch}"
 }
 
 # -----------------------------------------------------------------------------
