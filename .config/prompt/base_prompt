@@ -20,7 +20,6 @@ stashed_symbol="§"
 untracked_symbol="?"
 
 prefix_color="$white"
-time_color="$blue"
 root_color="$red"
 dir_color="$cyan"
 git_branch_color="$magenta"
@@ -29,7 +28,6 @@ exec_time_color="$yellow"
 exit_ok_color="$green"
 exit_bad_color="$red"
 
-root_prefix="as"
 dir_prefix="in"
 git_prefix="on"
 git_status_prefix="("
@@ -63,14 +61,8 @@ trap timer_start DEBUG
 ### MODULES ###
 ###############
 
-time_module() {
-	PS1+="${time_color}$(date '+%H:%M')"
-}
-
-# -----------------------------------------------------------------------------
-
 user_module() {
-	[[ "$UID" -eq 0 ]] && PS1+=" ${prefix_color}${root_prefix} ${root_color}$USER"
+	[[ "$UID" -eq 0 ]] && PS1+="${root_color}$USER ${prefix_color}${dir_prefix} "
 }
 
 # -----------------------------------------------------------------------------
@@ -79,7 +71,7 @@ dir_module() {
 	local dir="$(pwd | sed -E -e "s|^$HOME|~|")"
 	local trim_dir="${dir#"${dir%/*/*}/"}"
 
-	PS1+=" ${prefix_color}${dir_prefix} ${dir_color}${trim_dir}"
+	PS1+="${dir_color}${trim_dir}"
 }
 
 # -----------------------------------------------------------------------------
@@ -165,7 +157,6 @@ exit_code_module() {
 ####################
 
 prompt_modules=(
-	"time_module"
 	"user_module"
 	"dir_module"
 	"git_branch_module"
