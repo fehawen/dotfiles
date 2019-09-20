@@ -190,7 +190,7 @@ call s:hi("typescriptEventListenerMethods",      s:gui.cyan,         "", "")
 
 call s:hi("typescriptSource",                    s:gui.blue,         "", "") " import export from as
 call s:hi("typescriptIdentifier",                s:gui.green,        "", "bold") " arguments this void
-call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "bold") " let var const
+call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "bold,italic") " let var const
 call s:hi("typescriptOperator",                  s:gui.yellow,       "", "bold") " delete new instanceof typeof
 call s:hi("typescriptBoolean",                   s:gui.yellow,       "", "bold") " true false
 call s:hi("typescriptNull",                      s:gui.yellow,       "", "bold") " null undefined
