@@ -16,12 +16,12 @@ font pango:Operator Mono Medium 13
 
 # Gaps
 gaps inner 13
-gaps left 400
+#gaps left 313
 #gaps outer 0
 
 # Borders
-for_window [class=".*"] border pixel 1
-# for_window [instance="popup"] border pixel 13
+for_window [class=".*"] border pixel 0
+for_window [instance="popup"] border pixel 13
 
 # Colors
 set_from_resource $darkBlack     color0
@@ -41,8 +41,8 @@ set_from_resource $cyan          color14
 set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
-set $borderFocused #566166
-set $borderUnfocused #566166
+set $borderFocused #182226
+set $borderUnfocused #182226
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -97,23 +97,23 @@ bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-scree
 bindsym $mod+Shift+Control+v exec --no-startup-id virtualbox
 
 # Conky bar
-#bar {
-#	font pango:Operator Mono Medium Italic 13
-#	position top
-#	workspace_buttons yes
-#	strip_workspace_numbers yes
-#	colors {
-#		background #1E282C
-#		statusline #B2BEBF
-#		separator #1E282C
-#
-#		focused_workspace  #1E282C #1E282C #B2BEBF
-#		active_workspace   #1E282C #1E282C #B2BEBF
-#		inactive_workspace #1E282C #1E282C #4C575B
-#		urgent_workspace   #1E282C #1E282C #B2BEBF
-#	}
-#	status_command $HOME/.config/i3/i3conkybar
-#}
+bar {
+	font pango:Operator Mono Medium Italic 13
+	position top
+	workspace_buttons yes
+	strip_workspace_numbers yes
+	colors {
+		background #1E282C
+		statusline #B2BEBF
+		separator #1E282C
+
+		focused_workspace  #1E282C #1E282C #B2BEBF
+		active_workspace   #1E282C #1E282C #B2BEBF
+		inactive_workspace #1E282C #1E282C #4C575B
+		urgent_workspace   #1E282C #1E282C #B2BEBF
+	}
+	status_command $HOME/.config/i3/i3conkybar
+}
 
 # Change focus
 bindsym $mod+h focus left
