@@ -16,8 +16,7 @@ font pango:Operator Mono Medium 13
 
 # Gaps
 gaps inner 13
-#gaps left 313
-#gaps outer 0
+gaps outer 0
 
 # Borders
 for_window [class=".*"] border pixel 0
