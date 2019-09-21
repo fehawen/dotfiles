@@ -1,7 +1,4 @@
 " SYNTAX HIGHLIGHT GROUP: " {{{
-" https://vim.fandom.com/wiki/Showing_syntax_highlight_group_in_statusline
-" https://stackoverflow.com/questions/9464844/how-to-get-group-name-of-highlighting-under-cursor-in-vim
-" https://www.reddit.com/r/vim/comments/e19bu/whats_your_status_line/
 " -------------------------------------------------------------------------
 
 function! SyntaxItem()
@@ -17,7 +14,6 @@ endfunction
 " }}}
 
 " ALE LINTER STATUS: " {{{
-" https://github.com/w0rp/ale#5v-how-can-i-show-errors-or-warnings-in-my-statusline
 " -------------------------------------------------------------------------
 
 function! LinterStatus() abort
@@ -33,7 +29,6 @@ endfunction
 " }}}
 
 " VIM MODES: " {{{
-" https://kadekillary.work/post/statusline-vim/
 " -------------------------------------------------------------------------
 
 let g:currentmode={
@@ -68,10 +63,36 @@ endfunction
 
 " }}}
 
+" READONLY FLAG CHECK: " {{{
+" -------------------------------------------------------------------------
+
+function! ReadOnly()
+	if &readonly || !&modifiable
+		return 'READONLY'
+	else
+		return ''
+	endif
+endfunction
+
+" }}}
+
+" MODIFIED FLAG CHECK: " {{{
+" -------------------------------------------------------------------------
+
+function! Modified()
+	if &modified
+		return 'modified'
+	else
+		return ''
+	endif
+endfunction
+
+" }}}
+
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%1*%=%4*\ NERDTree\ %1*"
+let NERDTreeStatusline="%4*NERDTree%1*"
 
 " }}}
 
@@ -94,21 +115,33 @@ function! ActiveStatusLine()
 		let l:statusline.="%3*"
 	endif
 	" Mode
-	let l:statusline.="\ %{ModeCurrent()}\ %1*\ "
+	let l:statusline.="%{ModeCurrent()}\ "
 	" Current line number, total line numbers
-	let l:statusline.="%6*\ %l/%L\ %1*\ "
+	let l:statusline.="%6*\ %l:%L\ "
 	" ALE lint errors, if any
 	if LinterStatus() != ""
-		let l:statusline.="%2*\ %{LinterStatus()}\ %1*\ "
+		let l:statusline.="%2*\ %{LinterStatus()}\ "
 	endif
 	" Filename
 	let l:statusline.="%7*\ %t\ "
-	" Show syntax identifier, if any
-	if SyntaxItem() != ""
-		let l:statusline.="%1*\ %4*\ %{SyntaxItem()}\ "
+	" Show if file is readonly
+	if ReadOnly() != ""
+		let l:statusline.="%4*\ %{ReadOnly()}\ "
+	endif
+	" Show if file has been modified
+	if Modified() != ""
+		let l:statusline.="%8*\ %{Modified()}\ "
 	endif
 	" Spacer
 	let l:statusline.="%1*%="
+	" Show syntax identifier, if any
+	if SyntaxItem() != ""
+		let l:statusline.="%4*\ %{SyntaxItem()}\ "
+	endif
+	" File encoding
+	let l:statusline.="%7*\ %{(&fenc!=''?&fenc:&enc)}\ "
+	" File format
+	let l:statusline.="%5*\ %{&ff}"
 	" Done
 	return l:statusline
 endfunction
@@ -118,9 +151,13 @@ function! InactiveStatusLine()
 	" Reset statusline
 	let l:statusline=""
 	" Filename
-	let l:statusline.="%8*\ %t\ "
+	let l:statusline.="%8*%t\ "
 	" Spacer
 	let l:statusline.="%1*%="
+	" File encoding
+	let l:statusline.="%8*\ %{(&fenc!=''?&fenc:&enc)}\ "
+	" File format
+	let l:statusline.="\ %{&ff}"
 	" Done
 	return l:statusline
 endfunction
@@ -134,7 +171,6 @@ function! SetActiveStatusLine()
 	setlocal statusline=
 	setlocal statusline+=%!ActiveStatusLine()
 endfunction
-
 
 " Set inactive statusline
 function! SetInactiveStatusLine()
