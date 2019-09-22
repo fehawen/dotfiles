@@ -175,6 +175,20 @@ autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 let g:es6_imports_gui_fg_color="#566166"
 let g:es6_imports_gui_bg_color="#242E32"
 
+"augroup filespecific
+"	autocmd!
+"	au BufRead,BufNewFile *.json set ft=typescript
+"	au BufRead,BufNewFile *.js set ft=typescript
+"	au FileType go set noet nolist
+"	au FileType python setl ts=4
+"	au FileType rust setl sw=0 sts=0
+"augroup END
+
+augroup cursorline
+	autocmd!
+	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+	autocmd WinLeave * setlocal nocursorline
+augroup END
 
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
