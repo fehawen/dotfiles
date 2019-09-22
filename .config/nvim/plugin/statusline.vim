@@ -185,10 +185,8 @@ endfunction
 " Autocmd statusline
 augroup statusline
 	autocmd!
-	autocmd WinEnter * call SetActiveStatusLine()
-	autocmd WinLeave * call SetInactiveStatusLine()
-	autocmd BufEnter * call SetActiveStatusLine()
-	autocmd BufLeave * call SetInactiveStatusLine()
+	autocmd WinEnter,BufEnter * call SetActiveStatusLine()
+	autocmd WinLeave,BufLeave * call SetInactiveStatusLine()
 augroup end
 
 " }}}
