@@ -32,7 +32,6 @@ alias todoread="cat ~/Github/todo/README.md"
 alias todoedit="nvim ~/Github/todo/README.md"
 alias rr="ranger"
 alias icat="kitty +kitten icat"
-alias wrls="sudo wifi-menu"
 alias screenshot="scrot ~/Github/fehawen-files/screenshots/%Y-%m-%d-%T-screenshot.png -d 10"
 alias colorblocks="~/Dotfiles/utils/colorblocks"
 alias todopush=push_todos
