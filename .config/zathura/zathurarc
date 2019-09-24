@@ -1,10 +1,10 @@
-set font "Operator Mono Medium 11"
+set font "Operator Mono Medium 13"
 
-set default-fg "#B5ECCC"
-set default-bg "#0F191D"
+set default-fg "#B2BEBF"
+set default-bg "#1E282C"
 
-set statusbar-fg "#6ECF98"
-set statusbar-bg "#162023"
+set statusbar-fg "#566166"
+set statusbar-bg "#242E32"
 
-set inputbar-fg "#B5ECCC"
-set inputbar-bg "#162023"
+set inputbar-fg "#B98675"
+set inputbar-bg "#242E32"
