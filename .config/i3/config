@@ -78,6 +78,9 @@ bindsym $mod+Control+b exec --no-startup-id firefox
 # Launch surf browser
 bindsym $mod+Control+Shift+b exec --no-startup-id surf
 
+# Launch postman
+bindsym $mod+Shift+p exec --no-startup-id postman
+
 # Launch dmenu
 bindsym $mod+d exec dmenu_run
 
