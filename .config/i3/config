@@ -19,7 +19,7 @@ gaps inner 13
 gaps outer 0
 
 # Borders
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border none
 for_window [instance="popup"] border pixel 13
 
 # Colors
@@ -160,16 +160,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6: "
-set $ws7 "7: "
-set $ws8 "8: "
-set $ws9 "9: "
-# set $ws10 "10"
+set $ws1 "1: 1st"
+set $ws2 "2: 2nd"
+set $ws3 "3: 3rd"
+set $ws4 "4: 4th"
+set $ws5 "5: 5th"
+set $ws6 "6: 6th"
+set $ws7 "7: 7th"
+set $ws8 "8: 8th"
+set $ws9 "9: 9th"
+# set $ws10 "10th"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
