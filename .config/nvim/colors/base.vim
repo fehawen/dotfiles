@@ -154,8 +154,8 @@ call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.cursorline, "")
 call s:hi("ALEStyleWarningSign", s:gui.yellow,    s:gui.cursorline, "")
 
 call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
-call s:hi("ALEErrorLine",        s:gui.comment,   s:gui.none, "")
-call s:hi("ALEWarningLine",      s:gui.comment,   s:gui.none, "")
+call s:hi("ALEErrorLine",        s:gui.red,       s:gui.none, "")
+call s:hi("ALEWarningLine",      s:gui.yellow,    s:gui.none, "")
 
 " TYPESCRIPT COLORS
 " leafgarland/typescript-vim
