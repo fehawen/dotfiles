@@ -15,12 +15,12 @@ set $mod Mod4
 font pango:Operator Mono Medium 13
 
 # Gaps
-gaps inner 13
+gaps inner 12
 gaps outer 0
 
 # Borders
 for_window [class=".*"] border none
-for_window [instance="popup"] border pixel 13
+for_window [instance="popup"] border pixel 12
 
 # Colors
 set_from_resource $darkBlack     color0
@@ -102,7 +102,7 @@ bindsym $mod+Shift+Control+v exec --no-startup-id virtualbox
 bar {
 	id bar-1
 	tray_output none
-	height 13
+	height 12
 	position top
 	workspace_buttons no
 	colors {
