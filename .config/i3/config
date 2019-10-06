@@ -98,21 +98,38 @@ bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-scree
 # Launch virtualbox
 bindsym $mod+Shift+Control+v exec --no-startup-id virtualbox
 
+# Ugly fix for conky bar top offset
+bar {
+	id bar-1
+	tray_output none
+	height 13
+	position top
+	workspace_buttons no
+	colors {
+		background #182226
+		statusline #182226
+		separator #182226
+	}
+}
+
 # Conky bar
 bar {
+	id bar-2
+	tray_output none
 	font pango:Operator Mono Medium Italic 13
+	height 40
 	position top
-	workspace_buttons yes
+	workspace_buttons no
 	strip_workspace_numbers yes
 	colors {
-		background #1E282C
-		statusline #B2BEBF
-		separator #1E282C
+		background #182226
+		statusline #182226
+		separator #182226
 
-		focused_workspace  #1E282C #1E282C #B2BEBF
-		active_workspace   #1E282C #1E282C #B2BEBF
-		inactive_workspace #1E282C #1E282C #4C575B
-		urgent_workspace   #1E282C #1E282C #AE5151
+		focused_workspace  #182226 #182226 #B2BEBF
+		active_workspace   #182226 #182226 #B2BEBF
+		inactive_workspace #182226 #182226 #4C575B
+		urgent_workspace   #182226 #182226 #AE5151
 	}
 	status_command $HOME/.config/i3/i3conkybar
 }
@@ -160,16 +177,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: 1st"
-set $ws2 "2: 2nd"
-set $ws3 "3: 3rd"
-set $ws4 "4: 4th"
-set $ws5 "5: 5th"
-set $ws6 "6: 6th"
-set $ws7 "7: 7th"
-set $ws8 "8: 8th"
-set $ws9 "9: 9th"
-# set $ws10 "10th"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+# set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
