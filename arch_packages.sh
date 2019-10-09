@@ -11,15 +11,15 @@ install_packages() {
 	# xf86-video-vmware (was required a while back, not sure if it still is, but works without for me)
 
 	packages=(
-		"mesa"
-		"xf86-video-intel"
-		"xf86-input-libinput"
-		"pacman-contrib"
 		"xorg-server"
 		"xorg-xinit"
 		"xorg-xrandr"
 		"xorg-xsetroot"
 		"xorg-xbacklight"
+		"xf86-video-intel"
+		"xf86-input-libinput"
+		"mesa"
+		"pacman-contrib"
 		"python-pillow"
 		"imagemagick"
 		"alsa-utils"
@@ -49,6 +49,7 @@ install_packages() {
 		"zathura-pdf-poppler"
 		"python-pip"
 		"jshon"
+		"noto-fonts-emoji"
 	)
 
 	command sudo pacman -Syu ${packages[@]}
