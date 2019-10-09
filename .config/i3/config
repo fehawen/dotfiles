@@ -17,6 +17,7 @@ font pango:Operator Mono Medium 13
 # Gaps
 gaps inner 12
 gaps outer 0
+gaps top -12
 
 # Borders
 for_window [class=".*"] border none
@@ -98,26 +99,12 @@ bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-scree
 # Launch virtualbox
 bindsym $mod+Shift+Control+v exec --no-startup-id virtualbox
 
-# Ugly fix for conky bar top offset
-bar {
-	id bar-1
-	tray_output none
-	height 12
-	position top
-	workspace_buttons no
-	colors {
-		background #182226
-		statusline #182226
-		separator #182226
-	}
-}
-
 # Conky bar
 bar {
 	id bar-2
 	tray_output none
 	font pango:Operator Mono Medium Italic 13
-	height 40
+	height 60
 	position top
 	workspace_buttons no
 	strip_workspace_numbers yes
