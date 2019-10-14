@@ -5,7 +5,7 @@
 #xrandr --dpi 133
 #xrandr --dpi 220
 
-xsetroot -solid "#182226"
+xsetroot -solid "#0D202F"
 
 setxkbmap se
 

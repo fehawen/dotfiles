@@ -41,8 +41,8 @@ set_from_resource $cyan          color14
 set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
-set $borderFocused #182226
-set $borderUnfocused #182226
+set $borderFocused #0D202F
+set $borderUnfocused #0D202F
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -109,14 +109,14 @@ bar {
 	workspace_buttons no
 	strip_workspace_numbers yes
 	colors {
-		background #182226
-		statusline #182226
-		separator #182226
+		background #0D202F
+		statusline #0D202F
+		separator #0D202F
 
-		focused_workspace  #182226 #182226 #B2BEBF
-		active_workspace   #182226 #182226 #B2BEBF
-		inactive_workspace #182226 #182226 #4C575B
-		urgent_workspace   #182226 #182226 #AE5151
+		focused_workspace  #0D202F #0D202F #B2BEBF
+		active_workspace   #0D202F #0D202F #B2BEBF
+		inactive_workspace #0D202F #0D202F #4C575B
+		urgent_workspace   #0D202F #0D202F #AE5151
 	}
 	status_command $HOME/.config/i3/i3conkybar
 }

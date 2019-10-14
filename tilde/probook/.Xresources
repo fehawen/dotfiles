@@ -8,14 +8,14 @@ Xft.rgba: rgb
 
 *font: xft:Operator Mono Medium:pixelsize=11,xft:Operator Mono Medium Italic:pixelsize=11,xft:Operator Mono Bold:pixelsize=11,xft:Operator Mono Bold Italic:pixelsize=11
 
-*background: #1E282C
+*background: #132635
 *foreground: #B2BEBF
 
 *cursorColor: #B2BEBF
 
 ! black
-*color0:  #566166
-*color8:  #566166
+*color0:  #475763
+*color8:  #475763
 
 ! red
 *color1:  #AE5151

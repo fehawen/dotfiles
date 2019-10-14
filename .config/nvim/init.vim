@@ -198,7 +198,7 @@ augroup END
 set termguicolors
 
 " Set theme
-colorscheme base
+colorscheme slate
 
 " Set list characters
 set list
