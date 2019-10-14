@@ -82,6 +82,9 @@ bindsym $mod+Control+Shift+b exec --no-startup-id surf
 # Launch postman
 bindsym $mod+Shift+p exec --no-startup-id postman
 
+# Launch gimp
+bindsym $mod+Shift+g exec --no-startup-id gimp
+
 # Launch dmenu
 bindsym $mod+d exec dmenu_run
 
