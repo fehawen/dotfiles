@@ -18,12 +18,12 @@ let s:gui.line       = { 'default': '#475763' }
 let s:gui.cursorline = { 'default': '#192C3B' }
 let s:gui.statusline = { 'default': '#0D202F' }
 let s:gui.selection  = { 'default': '#788388' }
-let s:gui.comment    = { 'default': '#475763' }
-let s:gui.listchars  = { 'default': '#475763' }
-let s:gui.specialkey = { 'default': '#475763' }
+let s:gui.comment    = { 'default': '#41515C' }
+let s:gui.listchars  = { 'default': '#41515C' }
+let s:gui.specialkey = { 'default': '#41515C' }
 let s:gui.search     = { 'default': '#B98675' }
 
-let s:gui.black      = { 'default': '#475763' }
+let s:gui.black      = { 'default': '#41515C' }
 let s:gui.red        = { 'default': '#AE5151' }
 let s:gui.green      = { 'default': '#779687' }
 let s:gui.yellow     = { 'default': '#B98675' }

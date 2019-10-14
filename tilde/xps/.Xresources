@@ -15,8 +15,8 @@ Xft.rgba: rgb
 *cursorColor: #B2BEBF
 
 ! black
-*color0:  #475763
-*color8:  #475763
+*color0:  #41515C
+*color8:  #41515C
 
 ! red
 *color1:  #AE5151
