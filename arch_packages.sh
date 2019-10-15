@@ -44,6 +44,7 @@ install_packages() {
 		"npm"
 		"docker"
 		"docker-compose"
+		"openssh",
 		"zathura"
 		"poppler"
 		"zathura-pdf-poppler"
