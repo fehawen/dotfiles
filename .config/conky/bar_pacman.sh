@@ -11,8 +11,8 @@ time_since_update() {
 	local output=""
 
 	local weeks=$(( $difference / 604800 ))
-	local days=$(( $difference / 86400 ))
-	local hours=$(( $difference / 3600 ))
+	local days=$(( $difference / 60 / 60 / 24 ))
+	local hours=$(( $difference / 60 / 60 % 24 ))
 
 	(( $weeks > 0 )) && output+="${weeks}w "
 	(( $days > 0 )) && output+="${days}d "
