@@ -39,7 +39,6 @@ alias todopush=push_todos
 alias todopull=pull_todos
 alias hunt=find_string_in_file
 alias mark=find_matching_file_or_subdir
-alias scope=find_subdir
 alias bklt=set_xbacklight
 alias vlme=set_volume
 alias wthr=get_weather
