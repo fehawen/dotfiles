@@ -125,8 +125,8 @@ exec_time_module() {
 
 	local output=""
 
-	local days=$(( $timer / 60 / 60 / 24 ))
-	local hours=$(( $timer / 60 / 60 % 24 ))
+	local days=$(( $timer / 86400 ))
+	local hours=$(( $timer / 3600 % 24 ))
 	local minutes=$(( $timer / 60 % 60 ))
 	local seconds=$(( $timer % 60 ))
 

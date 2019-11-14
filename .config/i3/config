@@ -61,6 +61,23 @@ for_window [instance="popup"] resize set 2400 1200
 for_window [instance="popup"] move scratchpad
 exec --no-startup-id kitty --name popup
 
+############
+#### i3 ####
+############
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+##################
+#### TERMINAL ####
+##################
+
 # Launch new terminal window
 bindsym $mod+Return exec --no-startup-id kitty
 
@@ -70,20 +87,47 @@ bindsym $mod+p [instance="popup"] scratchpad show; [instance="popup"] move posit
 # Launch popup terminal manually, used in case accidentally closed or whatever
 bindsym $mod+Shift+Control+p exec --no-startup-id kitty --name popup
 
-# Launch chrome browser
-bindsym $mod+Shift+b exec --no-startup-id chromium
+#################
+#### GENERAL ####
+#################
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Lock screen
+bindsym $mod+Shift+x exec ~/Dotfiles/utils/setlockscreen.sh
+
+######################
+#### APPLICATIONS ####
+######################
 
 # Launch chrome browser
-bindsym $mod+Control+b exec --no-startup-id firefox
+bindsym $mod+Control+c exec --no-startup-id chromium
+
+# Launch chrome browser
+bindsym $mod+Control+f exec --no-startup-id firefox
 
 # Launch surf browser
-bindsym $mod+Control+Shift+b exec --no-startup-id surf
+bindsym $mod+Control+s exec --no-startup-id surf
 
 # Launch postman
-bindsym $mod+Shift+p exec --no-startup-id postman
+bindsym $mod+Control+p exec --no-startup-id postman
 
 # Launch gimp
-bindsym $mod+Shift+g exec --no-startup-id gimp
+bindsym $mod+Control+g exec --no-startup-id gimp
+
+# Launch inkscape
+bindsym $mod+Control+i exec --no-startup-id inkscape
+
+###############
+#### UTILS ####
+###############
+
+# Take screenshot
+bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
+
+# Switch between internal/external display
+bindsym $mod+Shift+Control+d exec ~/Dotfiles/utils/setoutput.sh
 
 # Launch dmenu
 bindsym $mod+d exec dmenu_run
@@ -91,16 +135,9 @@ bindsym $mod+d exec dmenu_run
 # Launch i3-dmenu-desktop
 bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
-# Kill focused window
-bindsym $mod+Shift+q kill
-
-# Lock screen
-bindsym $mod+Shift+x exec ~/Dotfiles/utils/setlockscreen.sh
-# Take screenshot
-bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
-
-# Launch virtualbox
-bindsym $mod+Shift+Control+v exec --no-startup-id virtualbox
+#############
+#### BAR ####
+#############
 
 # Conky bar
 bar {
@@ -123,6 +160,10 @@ bar {
 	}
 	status_command $HOME/.config/i3/i3conkybar
 }
+
+#################################
+#### WORKSPACES & NAVIGATION ####
+#################################
 
 # Change focus
 bindsym $mod+h focus left
@@ -202,17 +243,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 # bindsym $mod+Shift+0 move container to workspace $ws10
 
-# Reload the configuration file
-bindsym $mod+Shift+c reload
-
-# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-# Switch between internal/external display
-bindsym $mod+Shift+Control+d exec ~/Dotfiles/utils/setoutput.sh
+############################
+#### ACTION KEYBINDINGS ####
+############################
 
 # Resize focused window
 bindsym $mod+Control+h resize shrink width 1 px or 1 ppt

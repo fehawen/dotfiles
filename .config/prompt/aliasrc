@@ -39,10 +39,10 @@ alias todopush=push_todos
 alias todopull=pull_todos
 alias hunt=find_string_in_file
 alias mark=find_matching_file_or_subdir
-alias scope=find_subdir
 alias bklt=set_xbacklight
 alias vlme=set_volume
 alias wthr=get_weather
+alias clone=clone_repo
 
 #############
 ### UTILS ###
@@ -101,4 +101,19 @@ get_weather() {
 	else
 		command curl "http://wttr.in/${1}?0&M"
 	fi
+}
+
+# Clone a Github by providing arguments:
+# 1: username
+# 2: repository
+clone_repo() {
+	if [ $# -lt 2 ]; then
+		echo "Too few arguments provided"
+		echo "Please provide:"
+		echo "ARG 1: username"
+		echo "ARG 2: repository"
+		exit 1
+	fi
+
+	command git clone https://github.com/"$1"/"$2".git
 }
