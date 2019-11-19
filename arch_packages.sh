@@ -41,10 +41,11 @@ install_packages() {
 		"newsboat"
 		"zip"
 		"unzip"
+		"p7zip"
 		"npm"
 		"docker"
 		"docker-compose"
-		"openssh",
+		"openssh"
 		"zathura"
 		"poppler"
 		"zathura-pdf-poppler"
