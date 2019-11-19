@@ -8,3 +8,5 @@ if [[ $(xrandr | grep "$external_output disconnected") ]]; then
 else
 	xrandr --output $internal_output --off --output $external_output --auto
 fi
+
+i3-msg "restart"
