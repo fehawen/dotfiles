@@ -1,0 +1,10 @@
+#!/bin/bash
+
+internal_output="eDP1"
+external_output="DP1"
+
+if [[ $(xrandr | grep "$external_output disconnected") ]]; then
+	xrandr --output $internal_output --auto --output $external_output --off
+else
+	xrandr --output $internal_output --off --output $external_output --auto
+fi

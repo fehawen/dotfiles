@@ -57,7 +57,6 @@ floating_modifier $mod
 
 # Launch popup terminal on i3 startup
 for_window [instance="popup"] floating enable
-for_window [instance="popup"] resize set 2400 1200
 for_window [instance="popup"] move scratchpad
 exec --no-startup-id kitty --name popup
 
@@ -81,11 +80,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Launch new terminal window
 bindsym $mod+Return exec --no-startup-id kitty
 
-# Show popup terminal
-bindsym $mod+p [instance="popup"] scratchpad show; [instance="popup"] move position center
-
-# Launch popup terminal manually, used in case accidentally closed or whatever
-bindsym $mod+Shift+Control+p exec --no-startup-id kitty --name popup
+# Toggle popup terminal
+bindsym $mod+p exec $HOME/.config/i3/i3popup
 
 #################
 #### GENERAL ####
@@ -95,7 +91,7 @@ bindsym $mod+Shift+Control+p exec --no-startup-id kitty --name popup
 bindsym $mod+Shift+q kill
 
 # Lock screen
-bindsym $mod+Shift+x exec ~/Dotfiles/utils/setlockscreen.sh
+bindsym $mod+Shift+x exec $HOME/.config/i3/i3screenlock
 
 ######################
 #### APPLICATIONS ####
@@ -127,7 +123,7 @@ bindsym $mod+Control+i exec --no-startup-id inkscape
 bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 
 # Switch between internal/external display
-bindsym $mod+Shift+Control+d exec ~/Dotfiles/utils/setoutput.sh
+bindsym $mod+Shift+Control+d exec $HOME/.config/i3/i3monitor
 
 # Launch dmenu
 bindsym $mod+d exec dmenu_run
@@ -194,14 +190,11 @@ bindsym $mod+f fullscreen toggle
 # toggle tiling / floating
 bindsym $mod+space floating toggle
 
-floating_minimum_size 2400 x 1200
-floating_maximum_size 2400 x 1200
-
 # change focus between tiling / floating windows
-# bindsym $mod+Shift+space focus mode_toggle
+bindsym $mod+Shift+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 # bindsym $mod+d focus child
