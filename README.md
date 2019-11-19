@@ -9,15 +9,9 @@
 Arch Rice
 </h4>
 
-## To Do
-
-- [x] Add script to install all necessary packages for Arch with `pacman`
-- [ ] Add script to install all necessary packages for macOS with `brew`
-- [ ] Add a single setup script and `curl` to avoid having to clone dotfiles manually etc
-
 ## About
 
-Just getting my dots on, the good ol' rice and dice.
+Just getting my dots on, the good old rice and dice.
 
 ## Setup
 
@@ -32,3 +26,5 @@ $ git clone https://github.com/fehawen/dotfiles ~/Dotfiles
 ```bash
 $ cd ~/Dotfiles && make
 ```
+
+3. Easy now...
