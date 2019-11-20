@@ -104,7 +104,7 @@ PS3="Please select an option: "
 select OPT in "${options[@]}"
 do
 	case $OPT in
-		"Custom value")
+		"Custom Value")
 			customize "verbose"
 			break
 			;;
