@@ -1,7 +1,8 @@
 #!/bin/bash
 
-declare popup_width=$(($(xrandr | grep \* | awk '{print $1}' | cut -dx -f1) / 100 * 75))
-declare popup_height=$(($(xrandr | grep \* | awk '{print $1}' | cut -dx -f2) / 100 * 75))
+declare popup_width=$(($(xrandr --listmonitors | grep \+ | awk '{print $3}' | cut -d/ -f1) / 100 * 75))
+declare popup_height=$(($(xrandr --listmonitors | grep \+ | awk '{print $3}' | cut -dx -f2 | cut -d/ -f1) / 100 * 75))
+
 
 if [[ ! $(i3-msg -t get_tree | grep -o "popup") ]]; then
 	i3-msg "exec --no-startup-id kitty --name popup"
