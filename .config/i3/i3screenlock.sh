@@ -2,7 +2,7 @@
 
 # TODO Fix image resolutions/scale
 
-screen_resolution=$(xrandr | grep \* | awk '{print $1}')
+declare "screen_resolution=$(xrandr | grep \* | awk '{print $1}')"
 
 if [[ "$screen_resolution" == "3200x1800" ]]; then
 	i3-msg 'exec --no-startup-id i3lock -i ~/.wallpapers/wallpaper-3200x1800.png' &> /dev/null
