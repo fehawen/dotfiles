@@ -15,12 +15,15 @@ confirm() {
 	printf "\nCALCULATED CONFIGURATION:\n${1}\n\n"
 
 	read -r -p "Execute xrandr scaling? [y/N] " answer
-	if [ "$answer" != y ] && [ "$answer" != Y ]; then
-		echo "Scaling declined..."
-		echo "Now exiting."
+	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
+		echo "Scaling declined."
+		echo "Exiting..."
 		exit
 	else
+		echo "Executing..."
 		$1 && i3-msg "restart" &> /dev/null
+		echo "Restarting i3-wm..."
+		echo "Done."
 	fi
 }
 
@@ -28,10 +31,6 @@ resolution() {
 	if [[ "$1" == "default" ]]; then
 		echo "${default_width}x${default_height}"
 	else
-		# Use scale integer arg to calculate resolution,
-		# since Bash can't handle decimal calculations
-		# So we do e.g. 1024 / 10 * 15 to simulate calculating
-		# a 1024 px resolution by 1.5 scaling
 		declare width="$((${default_width} / 10 * ${1}))"
 		declare height="$((${default_height} / 10 * ${1}))"
 
@@ -41,13 +40,9 @@ resolution() {
 
 scale() {
 	if [[ "$1" == "default" ]]; then
-		# Restore to default scale
 		declare config="xrandr --output ${external_output} --scale 1x1 --panning ${default_width}x${default_height}"
 		confirm "${config}"
 	else
-		# Convert scale integer arg to floating point
-		# to allow for xrandr scale to be set,
-		# e.g. convert 15 to 1.5 to scale 1.5x1.5
 		declare float="$(printf %.1f "${1}e-1")"
 		declare scale="${float}x${float}"
 
@@ -58,30 +53,50 @@ scale() {
 	fi
 }
 
-# Must match order an desired value of
-# corresponding options array index
+customize() {
+	if [[ "$1" == "verbose" ]]; then
+		echo -e "\nEnter scaling value to calculate configuration."
+		echo "NOTE: Value must be at least 1, with no more than 1 decimal."
+		echo -e "Type 'quit' to exit.\n"
+	fi
+
+	read -r -p "Value: " answer
+	if [[ "$answer" == "quit" ]]; then
+		echo "Exiting..."
+		exit 0
+	fi
+
+	declare sanitized="${answer//[.,]/}"
+
+	if [[ $sanitized == 0* ]]; then
+		echo -e "\nERROR: Value must be at least 1"
+		echo -e "Try again.\n"
+		customize
+	elif [[ ${#sanitized} -gt 2 ]]; then
+		echo -e "\nERROR: Value can only have 1 decimal"
+		echo -e "Try again.\n"
+		customize
+	else
+		scale $sanitized
+	fi
+}
+
 declare -a actions=(
 	"default"
-	11
 	12
-	13
 	14
-	15
+	16
 )
 
 declare -a options=(
-	"${external_output} at $(resolution "default") (Default)"
-	"${external_output} at $(resolution 11)"
+	"${external_output} at $(resolution "default") (default)"
 	"${external_output} at $(resolution 12)"
-	"${external_output} at $(resolution 13)"
 	"${external_output} at $(resolution 14)"
-	"${external_output} at $(resolution 15)"
+	"${external_output} at $(resolution 16)"
+	"Custom Value"
 	"Quit"
 )
 
-# Enforce columnized options
-# Number of columns doesn't matter,
-# as long as options are not displayed as rows
 COLUMNS=12
 
 PS3="Please select an option: "
@@ -89,13 +104,15 @@ PS3="Please select an option: "
 select OPT in "${options[@]}"
 do
 	case $OPT in
+		"Custom value")
+			customize "verbose"
+			break
+			;;
 		"Quit")
-			echo "Quitting..."
+			echo "Exiting..."
 			break
 			;;
 		*)
-			# Use reply option index to execute with
-			# corresponding actions index as argument
 			scale ${actions[$(($REPLY - 1))]}
 			break
 			;;
