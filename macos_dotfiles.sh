@@ -17,7 +17,7 @@ setup_vscode() {
 }
 
 symlink_tilde_files() {
-	tildes=(
+	declare -a tildes=(
 		".bash_profile"
 		".bashrc"
 		".chunkwmrc"
@@ -29,8 +29,8 @@ symlink_tilde_files() {
 
 	pushd "$PWD/tilde" > /dev/null
 
-	for file in "${tildes[@]}"; do
-		ln -sfv "$PWD/$file" "${HOME}/$file"
+	for FILE in "${tildes[@]}"; do
+		ln -sfv "$PWD/$FILE" "${HOME}/$FILE"
 	done
 
 	cd "$(dirs -l -0)" && dirs -c
@@ -39,9 +39,9 @@ symlink_tilde_files() {
 symlink_files() {
 	pushd "$PWD/$1" > /dev/null
 
-	for file in *; do
-		if [ -f "$file" ]; then
-			ln -sfv "$PWD/$file" "${HOME}/$1/$file"
+	for FILE in *; do
+		if [[ -f "$FILE" ]]; then
+			ln -sfv "$PWD/$FILE" "${HOME}/$1/$FILE"
 		fi
 	done
 
@@ -51,7 +51,7 @@ symlink_files() {
 setup_dotfiles() {
 	echo "Setting up macOS config ..."
 
-	folders=(
+	declare -a folders=(
 		".config/kitty"
 		".config/neofetch"
 		".config/nvim"
@@ -65,17 +65,17 @@ setup_dotfiles() {
 
 	shopt -s dotglob
 
-	for folder in "${folders[@]}"; do
-		if [[ ! -d "${HOME}/$folder" ]]; then
-			mkdir -p "${HOME}/$folder"
+	for FOLDER in "${folders[@]}"; do
+		if [[ ! -d "${HOME}/$FOLDER" ]]; then
+			mkdir -p "${HOME}/$FOLDER"
 		fi
 
-		echo "Symlinking files in $folder ..."
+		echo "Symlinking files in $FOLDER ..."
 
-		if [[ "$folder" == "tilde" ]]; then
+		if [[ "$FOLDER" == "tilde" ]]; then
 			symlink_tilde_files
 		else
-			symlink_files $folder
+			symlink_files $FOLDER
 		fi
 
 	done

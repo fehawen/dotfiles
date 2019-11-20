@@ -13,7 +13,7 @@ set_shell() {
 }
 
 symlink_tilde_files() {
-	tildes=(
+	declare -a tildes=(
 		".bash_profile"
 		".bashrc"
 		".hushlogin"
@@ -25,8 +25,8 @@ symlink_tilde_files() {
 
 	pushd "$PWD/tilde" > /dev/null
 
-	for file in "${tildes[@]}"; do
-		ln -sfv "$PWD/$file" "${HOME}/$file"
+	for FILE in "${tildes[@]}"; do
+		ln -sfv "$PWD/$FILE" "${HOME}/$FILE"
 	done
 
 	cd "$(dirs -l -0)" && dirs -c
@@ -35,9 +35,9 @@ symlink_tilde_files() {
 symlink_hardware_specific_tilde_files() {
 	pushd "$PWD/tilde/${1}"
 
-	for file in *; do
-		if [ -f "$file" ]; then
-			ln -sfv "$PWD/$file" "${HOME}/$file"
+	for FILE in *; do
+		if [[ -f "$FILE" ]]; then
+			ln -sfv "$PWD/$FILE" "${HOME}/$FILE"
 		fi
 	done
 
@@ -49,15 +49,15 @@ confirm_hardware() {
 
 	PS3="Please select your computer model: "
 
-	options=(
+	declare -a options=(
 		"Dell XPS 13 9343"
 		"HP ProBook 650 G3"
 		"Quit"
 	)
 
-	select opt in "${options[@]}"
+	select OPT in "${options[@]}"
 	do
-		case $opt in
+		case $OPT in
 			"Dell XPS 13 9343")
 				symlink_hardware_specific_tilde_files "xps"
 				break
@@ -77,9 +77,9 @@ confirm_hardware() {
 symlink_files() {
 	pushd "$PWD/$1" > /dev/null
 
-	for file in *; do
-		if [ -f "$file" ]; then
-			ln -sfv "$PWD/$file" "${HOME}/$1/$file"
+	for FILE in *; do
+		if [ -f "$FILE" ]; then
+			ln -sfv "$PWD/$FILE" "${HOME}/$1/$FILE"
 		fi
 	done
 
@@ -89,7 +89,7 @@ symlink_files() {
 setup_dotfiles() {
 	echo "Setting up Arch Linux config ..."
 
-	folders=(
+	declare -a folders=(
 		".config/conky"
 		".config/i3"
 		".config/kitty"
@@ -108,17 +108,17 @@ setup_dotfiles() {
 
 	shopt -s dotglob
 
-	for folder in "${folders[@]}"; do
-		echo "Symlinking files in $folder ..."
+	for FOLDER in "${folders[@]}"; do
+		echo "Symlinking files in $FOLDER ..."
 
-		if [[ "$folder" == "tilde" ]]; then
+		if [[ "$FOLDER" == "tilde" ]]; then
 			symlink_tilde_files
 		else
-			if [[ ! -d "${HOME}/$folder" ]]; then
-				mkdir -p "${HOME}/$folder"
+			if [[ ! -d "${HOME}/$FOLDER" ]]; then
+				mkdir -p "${HOME}/$FOLDER"
 			fi
 
-			symlink_files $folder
+			symlink_files $FOLDER
 		fi
 
 	done

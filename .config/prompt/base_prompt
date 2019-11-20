@@ -38,12 +38,8 @@ exec_time_prefix="took"
 ### HELPERS ###
 ###############
 
-command_exists() {
-	command -v $1 > /dev/null 2>&1
-}
-
 is_git_repository() {
-	command git rev-parse --is-inside-work-tree &> /dev/null
+	git rev-parse --is-inside-work-tree &> /dev/null
 }
 
 timer_start() {
@@ -68,8 +64,8 @@ user_module() {
 # -----------------------------------------------------------------------------
 
 dir_module() {
-	local dir="$(pwd | sed -E -e "s|^$HOME|~|")"
-	local trim_dir="${dir#"${dir%/*/*}/"}"
+	declare dir="$(pwd | sed -E -e "s|^$HOME|~|")"
+	declare trim_dir="${dir#"${dir%/*/*}/"}"
 
 	PS1+="${dir_color}${trim_dir}"
 }
@@ -79,7 +75,7 @@ dir_module() {
 git_branch_module() {
 	is_git_repository || return
 
-	local branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+	declare branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
 
 	PS1+=" ${prefix_color}${git_prefix} ${git_branch_color}${branch_symbol} ${branch}"
 }
@@ -89,30 +85,30 @@ git_branch_module() {
 git_status_module() {
 	is_git_repository || return
 
-	local status=""
+	declare status=""
 
-	local conflicts="$(git diff --name-only --diff-filter=U 2> /dev/null | wc -l)"
+	declare conflicts="$(git diff --name-only --diff-filter=U 2> /dev/null | wc -l)"
 	[[ "$conflicts" -gt 0 ]] && status+="${conflicts_symbol}"
 
-	local deleted="$(git diff --name-only --diff-filter=D 2> /dev/null | wc -l)"
+	declare deleted="$(git diff --name-only --diff-filter=D 2> /dev/null | wc -l)"
 	[[ "$deleted" -gt 0 ]] && status+="${deleted_symbol}"
 
-	local staged="$(git diff --staged --name-only --diff-filter=AM 2> /dev/null | wc -l)"
+	declare staged="$(git diff --staged --name-only --diff-filter=AM 2> /dev/null | wc -l)"
 	[[ "$staged" -gt 0 ]] && status+="${staged_symbol}"
 
-	local modified="$(git diff --name-only --diff-filter=M 2> /dev/null | wc -l)"
+	declare modified="$(git diff --name-only --diff-filter=M 2> /dev/null | wc -l)"
 	[[ "$modified" -gt 0 ]] && status+="${modified_symbol}"
 
-	local untracked="$(git ls-files --other --exclude-standard | wc -l)"
+	declare untracked="$(git ls-files --other --exclude-standard | wc -l)"
 	[[ "$untracked" -gt 0 ]] && status+="${untracked_symbol}"
 
-	local ahead="$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)"
+	declare ahead="$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)"
 	[[ "$ahead" -gt 0 ]] && status+="${ahead_symbol}"
 
-	local behind="$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)"
+	declare behind="$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)"
 	[[ "$behind" -gt 0 ]] && status+="${behind_symbol}"
 
-	local stashed="$(git stash list 2> /dev/null)"
+	declare stashed="$(git stash list 2> /dev/null)"
 	[[ -n "$stashed" ]] && status+="${stashed_symbol}"
 
 	[[ "$status" != "" ]] && PS1+=" ${git_status_color}${git_status_prefix}${status}${git_status_suffix}"
@@ -123,12 +119,12 @@ git_status_module() {
 exec_time_module() {
 	(( $timer < 3 )) && return
 
-	local output=""
+	declare output=""
 
-	local days=$(( $timer / 86400 ))
-	local hours=$(( $timer / 3600 % 24 ))
-	local minutes=$(( $timer / 60 % 60 ))
-	local seconds=$(( $timer % 60 ))
+	declare days=$(( $timer / 86400 ))
+	declare hours=$(( $timer / 3600 % 24 ))
+	declare minutes=$(( $timer / 60 % 60 ))
+	declare seconds=$(( $timer % 60 ))
 
 	(( $days > 0 )) && output+="${days}d "
 	(( $hours > 0 )) && output+="${hours}h "
@@ -141,7 +137,7 @@ exec_time_module() {
 # -----------------------------------------------------------------------------
 
 exit_code_module() {
-	local exit_status
+	declare exit_status
 
 	if [[ "$RETVAL" -eq 0 ]]; then
 		exit_status="${exit_ok_color}"
@@ -156,7 +152,7 @@ exit_code_module() {
 ### PROMPT ORDER ###
 ####################
 
-prompt_modules=(
+declare -a prompt_modules=(
 	"user_module"
 	"dir_module"
 	"git_branch_module"
@@ -178,8 +174,8 @@ compose_prompt() {
 
 	PS1+="${bold}${italic}"
 
-	for module in "${!prompt_modules[@]}"; do
-		${prompt_modules[$module]}
+	for MODULE in "${!prompt_modules[@]}"; do
+		${prompt_modules[$MODULE]}
 	done
 }
 

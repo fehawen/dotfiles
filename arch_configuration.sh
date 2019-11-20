@@ -2,7 +2,7 @@
 
 configure_touchpad() {
 	read -r -p "Configure touchpad? [y/N] " answer
-	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
 		echo "Skipping touchpad configuration..."
 		echo ""
 	else
@@ -41,7 +41,7 @@ EOT
 
 enable_docker() {
 	read -r -p "Start and enable Docker? [y/N] " answer
-	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
 		echo "Skipping Docker systemctl setup..."
 		echo ""
 	else
@@ -67,7 +67,7 @@ enable_docker() {
 
 configure_docker() {
 	read -r -p "Manage Docker as a non-root user? [y/N] " answer
-	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
 		echo "Skipping Docker non-root configuration..."
 		echo ""
 	else
@@ -93,7 +93,7 @@ configure_docker() {
 
 configure_npm() {
 	read -r -p "Manage NPM as a non-root user? [y/N] " answer
-	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
 		echo "Skipping NPM non-root configuration..."
 		echo ""
 	else

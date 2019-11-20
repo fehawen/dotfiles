@@ -10,7 +10,7 @@ install_packages() {
 	# virtualbox-guest-utils
 	# xf86-video-vmware (was required a while back, not sure if it still is, but works without for me)
 
-	packages=(
+	declare -a packages=(
 		"xorg-server"
 		"xorg-xinit"
 		"xorg-xrandr"
@@ -54,7 +54,7 @@ install_packages() {
 		"noto-fonts-emoji"
 	)
 
-	command sudo pacman -Syu ${packages[@]}
+	sudo pacman -Syu ${packages[@]}
 
 	echo "DONE."
 

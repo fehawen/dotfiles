@@ -64,7 +64,7 @@ pull_todos() {
 
 # Find all files in dirs/subdirs containing search query
 find_string_in_file() {
-	command grep \
+	grep \
 		--exclude-dir=node_modules \
 		--exclude-dir=.fusebox \
 		--exclude-dir=dist \
@@ -74,7 +74,7 @@ find_string_in_file() {
 
 # Find all sbudirs/filenames in dirs/subdirs matching query
 find_matching_file_or_subdir() {
-	command find . -not -path "*node_modules*" -not -path "*.git*" -not -path "*dist*" -iname "*${1}*" | sort -u | grep -i --color=always "${1}"
+	find . -not -path "*node_modules*" -not -path "*.git*" -not -path "*dist*" -iname "*${1}*" | sort -u | grep -i --color=always "${1}"
 }
 
 # Window manager helper for starting, stopping or restarting either chunkwm or skhd
@@ -84,12 +84,12 @@ wm() {
 
 # Change X screen brightness, when backlight keys increments aren't precise enough
 set_xbacklight() {
-	command xbacklight -set "${1}"
+	xbacklight -set "${1}"
 }
 
 # Change volume through pamixer, when colume keys increments aren't precise enough
 set_volume() {
-	command pamixer --set-volume "${1}"
+	pamixer --set-volume "${1}"
 }
 
 # Get weather report for specified location
@@ -97,9 +97,9 @@ set_volume() {
 # else if first argument is only location, get current weather only
 get_weather() {
 	if [[ "$2" == "-f" ]]; then
-		command curl "http://wttr.in/${1}?M"
+		curl "http://wttr.in/${1}?M"
 	else
-		command curl "http://wttr.in/${1}?0&M"
+		curl "http://wttr.in/${1}?0&M"
 	fi
 }
 
@@ -115,5 +115,5 @@ clone_repo() {
 		exit 1
 	fi
 
-	command git clone https://github.com/"$1"/"$2".git
+	git clone https://github.com/"$1"/"$2".git
 }

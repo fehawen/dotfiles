@@ -2,7 +2,7 @@
 
 confirm() {
 	read -r -p "Proceed with $2 setup for $1? [y/N] " answer
-	if [ "$answer" != y ] && [ "$answer" != Y ]; then
+	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
 		echo "Setup declined..."
 		echo "Now exiting."
 		exit
@@ -15,7 +15,7 @@ COLUMNS=12
 
 PS3="Please select an option: "
 
-options=(
+declare -a options=(
 	"Packages for Arch Linux"
 	"Configuration for Arch Linux"
 	"Dotfiles for Arch Linux"

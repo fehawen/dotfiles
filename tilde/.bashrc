@@ -4,7 +4,7 @@
 ### THEMES ###
 ##############
 
-THEME="base_prompt"
+declare THEME="base_prompt"
 
 ##############
 ### COLORS ###
@@ -44,18 +44,18 @@ fi
 ### THEME SETUP ###
 ###################
 
-THEMES_DIR="$HOME/.config/prompt"
-PROMPT_THEME="$THEMES_DIR/$THEME"
+declare THEMES_DIR="$HOME/.config/prompt"
+declare PROMPT_THEME="$THEMES_DIR/$THEME"
 
-[ -f "$PROMPT_THEME" ] && source "$PROMPT_THEME"
+[[ -f "$PROMPT_THEME" ]] && source "$PROMPT_THEME"
 
 ##################
 ### ALIAS FILE ###
 ##################
 
-ALIAS_FILE="$THEMES_DIR/aliasrc"
+declare ALIAS_FILE="$THEMES_DIR/aliasrc"
 
-[ -f "$ALIAS_FILE" ] && source "$ALIAS_FILE"
+[[ -f "$ALIAS_FILE" ]] && source "$ALIAS_FILE"
 
 ###############
 ### EXPORTS ###
@@ -64,16 +64,16 @@ ALIAS_FILE="$THEMES_DIR/aliasrc"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="kitty"
-export BROWSER="firefox"
+export BROWSER="chromium"
 export LC_ALL=en_US.UTF-8
 
 # Start X if i3 isn't running, and if on Linux (Arch)
 if [[ "$OSTYPE" =~ "linux" ]]; then
-	[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+	[[ "$(tty)" = "/dev/tty1" ]] && ! pgrep -x i3 >/dev/null && exec startx
 fi
 
 compose_path() {
-	local paths=($@)
+	declare -a paths=($@)
 	# Include desired paths in PATH and export, leaving default PATH still intact and preventing duplicates
 	for p in "${paths[@]}"
 	do
@@ -88,7 +88,7 @@ compose_path() {
 
 # Set PATH for macOS
 if [[ "$OSTYPE" =~ "darwin" ]]; then
-	paths=(
+	declare -a paths=(
 		"${HOME}/.yarn/bin"
 		"${HOME}/.local/bin/"
 		"${HOME}/.npm-global/bin"
@@ -101,7 +101,7 @@ fi
 
 # Set PATH for Linux
 if [[ "$OSTYPE" =~ "linux" ]]; then
-	paths=(
+	declare -a paths=(
 		"${HOME}/.yarn/bin"
 		"${HOME}/.npm-global/bin"
 	)
