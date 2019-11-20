@@ -73,7 +73,7 @@ if [[ "$OSTYPE" =~ "linux" ]]; then
 fi
 
 compose_path() {
-	local paths=$1
+	local paths=($@)
 	# Include desired paths in PATH and export, leaving default PATH still intact and preventing duplicates
 	for p in "${paths[@]}"
 	do
@@ -96,7 +96,7 @@ if [[ "$OSTYPE" =~ "darwin" ]]; then
 		"${HOME}/paths/mongodb-osx-x86_64-4.0.3/bin"
 	)
 
-	compose_path $paths
+	compose_path ${paths[@]}
 fi
 
 # Set PATH for Linux
@@ -106,5 +106,5 @@ if [[ "$OSTYPE" =~ "linux" ]]; then
 		"${HOME}/.npm-global/bin"
 	)
 
-	compose_path $paths
+	compose_path ${paths[@]}
 fi
