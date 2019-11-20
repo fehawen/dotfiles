@@ -81,7 +81,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Return exec --no-startup-id kitty
 
 # Toggle popup terminal
-bindsym $mod+p exec $HOME/.config/i3/i3popup
+bindsym $mod+p exec $HOME/.config/i3/i3popup.sh
 
 #################
 #### GENERAL ####
@@ -91,7 +91,7 @@ bindsym $mod+p exec $HOME/.config/i3/i3popup
 bindsym $mod+Shift+q kill
 
 # Lock screen
-bindsym $mod+Shift+x exec $HOME/.config/i3/i3screenlock
+bindsym $mod+Shift+x exec $HOME/.config/i3/i3screenlock.sh
 
 ######################
 #### APPLICATIONS ####
@@ -123,7 +123,7 @@ bindsym $mod+Control+i exec --no-startup-id inkscape
 bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 
 # Switch between internal/external display
-bindsym $mod+Shift+Control+d exec $HOME/.config/i3/i3monitor
+bindsym $mod+Shift+Control+d exec $HOME/.config/i3/i3monitor.sh
 
 # Launch dmenu
 bindsym $mod+d exec dmenu_run
@@ -154,7 +154,7 @@ bar {
 		inactive_workspace #0D202F #0D202F #4C575B
 		urgent_workspace   #0D202F #0D202F #AE5151
 	}
-	status_command $HOME/.config/i3/i3conkybar
+	status_command $HOME/.config/i3/i3conkybar.sh
 }
 
 #################################
