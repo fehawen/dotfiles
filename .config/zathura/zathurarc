@@ -1,10 +1,38 @@
-set font "Operator Mono Medium 13"
+# Zathura configuration file
+# See man 'man zathurarc'
+
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# One page per row by default
+set pages-per-row 1
+
+# Stop at page boundries
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+# Zoom settings
+set zoom-min 10
+set guioptions ""
+
+# Theme settings
+set font "OperatorMono 13"
 
 set default-fg "#B2BEBF"
-set default-bg "#1E282C"
+set default-bg "#132635"
 
-set statusbar-fg "#566166"
-set statusbar-bg "#242E32"
+set statusbar-fg "#41515C"
+set statusbar-bg "#192C3B"
 
-set inputbar-fg "#B98675"
-set inputbar-bg "#242E32"
+set inputbar-fg "#7AB1B3"
+set inputbar-bg "#192C3B"
+
+set notification-error-fg "#AE5151"
+set notification-error-bg "#192C3B"
+
+set notification-warning-fg "#B98675"
+set notification-warning-bg "#192C3B"
+
+set highlight-color "#788388"
+set highlight-active-color "#779687"
