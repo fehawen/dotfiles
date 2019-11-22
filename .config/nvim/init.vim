@@ -157,6 +157,10 @@ set wildignore+=**/node_modules/**
 "###### AUTOCMDS, ETC ###	###"
 "############################"
 
+" Syntax highlighting for TS/TSX
+" au BufNewFile,BufRead *.ts setlocal filetype=typescript
+" au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+
 " Auto resize panes
 autocmd VimResized * wincmd =
 
