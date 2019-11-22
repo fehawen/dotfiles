@@ -103,8 +103,11 @@ bindsym $mod+Control+c exec --no-startup-id chromium
 # Launch chrome browser
 bindsym $mod+Control+f exec --no-startup-id firefox
 
+# Launch spotify
+bindsym $mod+Control+s exec --no-startup-id spotify
+
 # Launch surf browser
-bindsym $mod+Control+s exec --no-startup-id surf
+bindsym $mod+Control+u exec --no-startup-id surf
 
 # Launch postman
 bindsym $mod+Control+p exec --no-startup-id postman
