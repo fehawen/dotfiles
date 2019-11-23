@@ -1,5 +1,6 @@
 * {
-	background-color: #1E282C !important;
+	font-family: "Operator Mono Book" !important;
+	background-color: #132635 !important;
 	color: #B2BEBF !important;
 	border: none !important;
 	border-top: none !important;
@@ -8,29 +9,35 @@
 	border-left: none !important;
 }
 
+*::before {
+	background-image: none !important;
+}
+
 pre,
 textarea,
 body,
 td,
 tr,
 p {
-	background-color: #1E282C !important;
-	background-image: none !important;
+	font-family: "Operator Mono Book" !important;
+	background-color: #132635 !important;
 	color: #B2BEBF !important;
 }
 
 div {
-	background-color: #1E282C !important;
-	background-image: none !important;
+	font-family: "Operator Mono Book" !important;
+	background-color: #132635 !important;
 	color: #B2BEBF !important;
 }
 
 h1 {
-	background-color: #1E282C !important;
+	font-family: "Operator Mono Book" !important;
+	background-color: #132635 !important;
 	color: #B2BEBF !important;
 }
 
 a h1 {
+	font-family: "Operator Mono Book" !important;
 	color: #5E828F !important;
 }
 
@@ -39,7 +46,8 @@ h3,
 h4,
 h5,
 h6 {
-	background-color: #1E282C !important;
+	font-family: "Operator Mono Book" !important;
+	background-color: #132635 !important;
 	color: #B2BEBF !important;
 }
 
@@ -48,29 +56,34 @@ a h3,
 a h4,
 a h5,
 a h6 {
+	font-family: "Operator Mono Book" !important;
 	color: #5E828F !important;
 }
 
 a p {
+	font-family: "Operator Mono Book" !important;
 	color: #566166 !important;
 }
 
 a {
+	font-family: "Operator Mono Book" !important;
 	color: #B48291 !important;
-	background-color: #1E282C !important;
+	background-color: #132635 !important;
 	border: none !important;
 }
 
 button {
-	background-color: #1E282C !important;
+	font-family: "Operator Mono Book" !important;
+	background-color: #132635 !important;
 	color: #B48291 !important;
 	border: none !important;
 	border-radius: 0 !important;
 }
 
 summary {
-	background-color: #1E282C !important;
-	color: #8abeb7 !important;
+	font-family: "Operator Mono Book" !important;
+	background-color: #132635 !important;
+	color: #B2BEBF !important;
 	border: none !important;
 	border-radius: 0 !important;
 }
@@ -90,7 +103,8 @@ a svg,
 a i,
 a span,
 a div {
-	background-color: #1E282C !important;
+	font-family: "Operator Mono Book" !important;
+	background-color: #132635 !important;
 	color: #B48291 !important;
 }
 
@@ -106,7 +120,7 @@ summary h4,
 summary h5,
 summary h6,
 button svg {
-	background-color: #1E282C !important;
+	background-color: #132635 !important;
 	color: #B48291 !important;
 }
 
@@ -127,12 +141,14 @@ hr {
 }
 
 input, form {
-	background-color: #1E282C !important;
+	font-family: "Operator Mono Book" !important;
+	background-color: #132635 !important;
 	color: #B48291 !important;
 	border-radius: 0 !important;
 }
 
 input {
+	font-family: "Operator Mono Book" !important;
 	border: 1px solid #B48291 !important;
 	padding-left: 16px !important;
 	padding-right: 16px !important;
@@ -144,6 +160,7 @@ label svg {
 }
 
 form {
+	font-family: "Operator Mono Book" !important;
 	border: none !important;
 }
 
