@@ -1,6 +1,6 @@
 #!/bin/sh
 
-last_update=$(grep Running\ \'pacman\ -Syu /var/log/pacman.log | tail -1 | awk '{print $1, $2}' | sed 's/[][]//g')
+last_update=$(grep Running\ \'pacman\ -Syu /var/log/pacman.log | tail -1 | awk '{print $1, $2}' | sed 's/[][]//g' | cut -dT -f1)
 
 update_timestamp=$(date -d "${last_update}" +%s)
 current_timestap=$(date +%s)
