@@ -79,13 +79,16 @@ configure_npm() {
 	fi
 }
 
-configure_pynvim() {
-	read -r -p "Enable Python3 interface (pip) for Deoplete (nvim/vim)? [y/N] " answer
+configure_neovim() {
+	read -r -p "Install dependencies for NeoVim and plugins? [y/N] " answer
 	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
-		echo -e "\nSkipping Python3 for Deoplete configuration...\n"
+		echo -e "\nSkipping NeoVim configuration...\n"
 	else
 		echo -e "\nEnabling Python3 with 'pip3 install --user pynvim' command..."
 		pip3 install --user pynvim
+
+		echo -e "\nInstalling neovim NPM package..."
+		npm install -g neovim
 
 		echo -e "DONE.\n"
 	fi
@@ -95,6 +98,6 @@ configure_touchpad
 enable_docker
 configure_docker
 configure_npm
-configure_pynvim
+configure_neovim
 
 echo -e "Configuration completed.\n"
