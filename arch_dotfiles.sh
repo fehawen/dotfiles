@@ -1,16 +1,4 @@
-#!/bin/sh
-
-set_shell() {
-	echo "Checking which SHELL..."
-
-	if $(echo "$SHELL" | command grep -i '/bin/bash' &> /dev/null); then
-		echo "SHELL is already set to $SHELL"
-	else
-		echo "SHELL is set to $SHELL"
-		echo "Changing SHELL to /bin/bash."
-		chsh -s /bin/bash
-	fi
-}
+#!/bin/bash
 
 symlink_tilde_files() {
 	declare -a tildes=(
@@ -45,7 +33,7 @@ symlink_hardware_specific_tilde_files() {
 }
 
 confirm_hardware() {
-	echo ""
+	echo -e "\nHardware specific configuration...\n"
 
 	PS3="Please select your computer model: "
 
@@ -69,7 +57,7 @@ confirm_hardware() {
 			"Quit")
 				break
 				;;
-			*) echo "Invalid option: $REPLY";;
+			*) echo -e "\nInvalid option: $REPLY\n";;
 		esac
 	done
 }
@@ -109,7 +97,7 @@ setup_dotfiles() {
 	shopt -s dotglob
 
 	for FOLDER in "${folders[@]}"; do
-		echo "Symlinking files in $FOLDER ..."
+		echo -e "\nSymlinking files in $FOLDER ..."
 
 		if [[ "$FOLDER" == "tilde" ]]; then
 			symlink_tilde_files
@@ -120,20 +108,12 @@ setup_dotfiles() {
 
 			symlink_files $FOLDER
 		fi
-
 	done
 
-	echo ""
-
 	confirm_hardware
-
 	shopt -u dotglob
 
-	echo ""
-
-	set_shell
-
-	echo "DONE."
+	echo -e "DONE.\n"
 }
 
 setup_dotfiles

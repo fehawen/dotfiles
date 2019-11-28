@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 setup_homebrew() {
 	if [[ ! $(which brew) ]] && [[ ! $(brew --version &> /dev/null) ]]; then
-		echo "Could not find existing HOMEBREW installation."
-		echo "Now installing..."
+		echo -e "\nCould not find existing HOMEBREW installation."
+		echo -e "\nNow installing..."
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
 }
@@ -49,7 +49,7 @@ symlink_files() {
 }
 
 setup_dotfiles() {
-	echo "Setting up macOS config ..."
+	echo -e "\nSetting up macOS config...\n"
 
 	declare -a folders=(
 		".config/kitty"
@@ -70,14 +70,13 @@ setup_dotfiles() {
 			mkdir -p "${HOME}/$FOLDER"
 		fi
 
-		echo "Symlinking files in $FOLDER ..."
+		echo -e "\nSymlinking files in $FOLDER ..."
 
 		if [[ "$FOLDER" == "tilde" ]]; then
 			symlink_tilde_files
 		else
 			symlink_files $FOLDER
 		fi
-
 	done
 
 	shopt -u dotglob
@@ -85,7 +84,7 @@ setup_dotfiles() {
 	setup_homebrew
 	setup_vscode
 
-	echo "DONE."
+	echo -e "DONE.\n"
 }
 
 setup_dotfiles

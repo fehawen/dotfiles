@@ -1,14 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 install_packages() {
-	echo "Installing packages for Arch Linux..."
-
-	echo ""
-
-	# For VirtualBox, if needed, add:
-	# virtualbox
-	# virtualbox-guest-utils
-	# xf86-video-vmware (was required a while back, not sure if it still is, but works without for me)
+	echo -e "\nInstalling packages for Arch Linux...\n"
 
 	declare -a packages=(
 		"xorg-server"
@@ -56,10 +49,7 @@ install_packages() {
 
 	sudo pacman -Syu ${packages[@]}
 
-	echo "DONE."
-
-	echo ""
-
+	echo -e "DONE.\n"
 }
 
 install_packages

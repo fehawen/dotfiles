@@ -1,19 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 configure_touchpad() {
 	read -r -p "Configure touchpad? [y/N] " answer
 	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
-		echo "Skipping touchpad configuration..."
-		echo ""
+		echo -e "\nSkipping touchpad configuration...\n"
 	else
-
-		echo ""
-
-		echo "Configuring touchpad..."
-
-		echo ""
-
-		echo "Writing content to '/usr/share/X11/xorg.conf.d/40-libinput.conf'..."
+		echo -e "\nConfiguring touchpad..."
+		echo -e "\nWriting content to '/usr/share/X11/xorg.conf.d/40-libinput.conf'..."
 
 sudo tee -a /usr/share/X11/xorg.conf.d/40-libinput.conf >> /dev/null << EOT
 
@@ -32,93 +25,69 @@ EndSection
 
 EOT
 
-		echo "DONE."
-
-		echo ""
-
+		echo -e "DONE.\n"
 	fi
 }
 
 enable_docker() {
 	read -r -p "Start and enable Docker? [y/N] " answer
 	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
-		echo "Skipping Docker systemctl setup..."
-		echo ""
+		echo -e "\nSkipping Docker systemctl setup...\n"
 	else
+		echo -e "\nStarting Docker through systemctl..."
+		systemctl start docker
 
-		echo ""
+		echo -e "\nStarting Docker through systemctl..."
+		systemctl enable docker
 
-		echo "Starting Docker through systemctl..."
-
-		command systemctl start docker
-
-		echo ""
-
-		echo "Starting Docker through systemctl..."
-
-		command systemctl enable docker
-
-		echo "DONE."
-
-		echo ""
-
+		echo -e "DONE.\n"
 	fi
 }
 
 configure_docker() {
 	read -r -p "Manage Docker as a non-root user? [y/N] " answer
 	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
-		echo "Skipping Docker non-root configuration..."
-		echo ""
+		echo -e "\nSkipping Docker non-root configuration...\n"
 	else
+		echo -e "\nAdding 'docker' group..."
+		sudo groupadd docker
 
-		echo ""
+		echo -e "\nAdding user $USER to 'docker' group..."
+		sudo usermod -aG docker $USER
 
-		echo "Adding 'docker' group..."
-
-		command sudo groupadd docker
-
-		echo ""
-
-		echo "Adding user $USER to 'docker' group..."
-
-		command sudo usermod -aG docker $USER
-
-		echo "DONE."
-
-		echo ""
-
+		echo -e "DONE.\n"
 	fi
 }
 
 configure_npm() {
 	read -r -p "Manage NPM as a non-root user? [y/N] " answer
 	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
-		echo "Skipping NPM non-root configuration..."
-		echo ""
+		echo -e "\nSkipping NPM non-root configuration...\n"
 	else
-
-		local npm_dir="${HOME}/.npm-global"
-
-		echo ""
+		declare npm_dir="${HOME}/.npm-global"
 
 		if [[ ! -d "$npm_dir" ]]; then
-			echo "Creating dir $npm_dir..."
+			echo -e "\nCreating dir $npm_dir..."
 			mkdir -p "$npm_dir"
 		else
-			echo "Directory $npm_dir already exists..."
+			echo -e "\nDirectory $npm_dir already exists..."
 		fi
 
-		echo ""
+		echo -e "\nAdding $npm_dir to npm config..."
+		npm config set prefix '~/.npm-global'
+		echo -e "DONE.\n"
+	fi
+}
 
-		echo "Adding $npm_dir to npm config..."
+configure_pynvim() {
+	read -r -p "Enable Python3 interface (pip) for Deoplete (nvim/vim)? [y/N] " answer
+	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
+		echo -e "\nSkipping Python3 for Deoplete configuration...\n"
+	else
+		echo -e "\nEnabling Python3 with 'pip3 install --user pynvim' command..."
+		pip3 install --user pynvim
 
-		command npm config set prefix '~/.npm-global'
-
-		echo "DONE."
-
-		echo ""
-
+		echo -e "DONE.\n"
 	fi
 }
 
@@ -126,3 +95,6 @@ configure_touchpad
 enable_docker
 configure_docker
 configure_npm
+configure_pynvim
+
+echo -e "Configuration completed.\n"
