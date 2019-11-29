@@ -140,7 +140,7 @@ bindsym $mod+d exec dmenu_run -i -b -p "Launch:" -nb "#0D202F" -nf "#7AB1B3" -sb
 
 # Conky bar
 bar {
-	id bar-2
+	id bar-1
 	tray_output none
 	font pango:Operator Mono Medium Italic 13
 	height 60
