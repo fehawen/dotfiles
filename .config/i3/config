@@ -129,7 +129,7 @@ bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-scree
 bindsym $mod+Shift+Control+d exec $HOME/.config/i3/i3monitor.sh
 
 # Launch dmenu
-bindsym $mod+d exec dmenu_run -i -b -p "Launch:" -nb "#0D202F" -nf "#7AB1B3" -sb "#7AB1B3" -sf "#0D202F" -fn "operatormonobold-13"
+bindsym $mod+d exec dmenu_run -i -b -p "Launch:" -nb "#0D202F" -nf "#41515C" -sb "#132635" -sf "#41515C" -fn "operatormonobold-15"
 
 # Launch i3-dmenu-desktop
 # bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
