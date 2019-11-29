@@ -103,7 +103,7 @@ setup_dotfiles() {
 			symlink_tilde_files
 		else
 			if [[ ! -d "${HOME}/$FOLDER" ]]; then
-				mkdir -p "${HOME}/$FOLDER"
+				mkdir -pv "${HOME}/$FOLDER"
 			fi
 
 			symlink_files $FOLDER
