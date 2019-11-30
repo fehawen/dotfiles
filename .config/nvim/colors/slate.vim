@@ -73,13 +73,13 @@ endif
 
 " EDITOR COLORS
 call s:hi("User1",              s:gui.background,    s:gui.background,    "bold,italic")
-call s:hi("User2",              s:gui.red,           s:gui.background,    "bold,italic")
-call s:hi("User3",              s:gui.green,         s:gui.background,    "bold,italic")
-call s:hi("User4",              s:gui.yellow,        s:gui.background,    "bold,italic")
-call s:hi("User5",              s:gui.blue,          s:gui.background,    "bold,italic")
-call s:hi("User6",              s:gui.magenta,       s:gui.background,    "bold,italic")
-call s:hi("User7",              s:gui.cyan,          s:gui.background,    "bold,italic")
-call s:hi("User8",              s:gui.comment,       s:gui.background,    "bold,italic")
+call s:hi("User2",              s:gui.red,           s:gui.statusline,    "bold,italic")
+call s:hi("User3",              s:gui.green,         s:gui.statusline,    "bold,italic")
+call s:hi("User4",              s:gui.yellow,        s:gui.statusline,    "bold,italic")
+call s:hi("User5",              s:gui.blue,          s:gui.statusline,    "bold,italic")
+call s:hi("User6",              s:gui.magenta,       s:gui.statusline,    "bold,italic")
+call s:hi("User7",              s:gui.cyan,          s:gui.statusline,    "bold,italic")
+call s:hi("User8",              s:gui.comment,       s:gui.statusline,    "bold,italic")
 
 call s:hi("StatusLine",         s:gui.foreground,    s:gui.background,    "none")
 call s:hi("StatusLineNC",       s:gui.comment,       s:gui.background,    "none")
@@ -88,7 +88,7 @@ call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.background,    "none"
 
 call s:hi("NERDTreeOpenable",   s:gui.yellow,        s:gui.none,          "")
 call s:hi("NERDTreeClosable",   s:gui.yellow,        s:gui.none,          "")
-call s:hi("NERDTreeCWD",        s:gui.comment,       s:gui.none,          "")
+call s:hi("NERDTreeCWD",        s:gui.yellow,        s:gui.none,          "")
 call s:hi("NERDTreeDir",        s:gui.blue,          s:gui.none,          "")
 call s:hi("NERDTreeDirSlash",   s:gui.background,    s:gui.none,          "")
 call s:hi("NERDTreeFile",       s:gui.foreground,    s:gui.none,          "")
