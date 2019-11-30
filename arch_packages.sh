@@ -3,13 +3,16 @@
 install_packages() {
 	echo -e "\nInstalling packages for Arch Linux...\n"
 
+	# Removing this package for now,
+	# as me way not really need it:
+	# "xf86-video-intel"
+
 	declare -a packages=(
 		"xorg-server"
 		"xorg-xinit"
 		"xorg-xrandr"
 		"xorg-xsetroot"
 		"xorg-xbacklight"
-		"xf86-video-intel"
 		"xf86-input-libinput"
 		"mesa"
 		"pacman-contrib"
