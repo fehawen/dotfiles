@@ -10,26 +10,26 @@ let g:colors_name = "slate"
 let s:gui = {}
 let s:cterm = {}
 
-let s:gui.none       = { 'default': 'NONE' }
-let s:gui.foreground = { 'default': '#B2BEBF' }
-let s:gui.background = { 'default': '#132635' }
+let s:gui.none       = { "default": "NONE" }
+let s:gui.foreground = { "default": "#B2BEBF" }
+let s:gui.background = { "default": "#132635" }
 
-let s:gui.line       = { 'default': '#475763' }
-let s:gui.cursorline = { 'default': '#192C3B' }
-let s:gui.statusline = { 'default': '#0D202F' }
-let s:gui.selection  = { 'default': '#788388' }
-let s:gui.comment    = { 'default': '#41515C' }
-let s:gui.listchars  = { 'default': '#41515C' }
-let s:gui.specialkey = { 'default': '#41515C' }
-let s:gui.search     = { 'default': '#B98675' }
+let s:gui.line       = { "default": "#475763" }
+let s:gui.cursorline = { "default": "#192C3B" }
+let s:gui.statusline = { "default": "#0D202F" }
+let s:gui.selection  = { "default": "#788388" }
+let s:gui.comment    = { "default": "#41515C" }
+let s:gui.listchars  = { "default": "#41515C" }
+let s:gui.specialkey = { "default": "#41515C" }
+let s:gui.search     = { "default": "#B98675" }
 
-let s:gui.black      = { 'default': '#41515C' }
-let s:gui.red        = { 'default': '#AE5151' }
-let s:gui.green      = { 'default': '#779687' }
-let s:gui.yellow     = { 'default': '#B98675' }
-let s:gui.blue       = { 'default': '#5E828F' }
-let s:gui.magenta    = { 'default': '#B48291' }
-let s:gui.cyan       = { 'default': '#7AB1B3' }
+let s:gui.black      = { "default": "#41515C" }
+let s:gui.red        = { "default": "#AE5151" }
+let s:gui.green      = { "default": "#779687" }
+let s:gui.yellow     = { "default": "#B98675" }
+let s:gui.blue       = { "default": "#5E828F" }
+let s:gui.magenta    = { "default": "#B48291" }
+let s:gui.cyan       = { "default": "#7AB1B3" }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -51,7 +51,7 @@ function! s:gui(color)
 	endif
 endfunction
 
-" Neovim Terminal colors
+" NEOVIM TERMINAL COLORS
 if has("nvim")
 	let g:terminal_color_0  = s:gui(s:gui.background)
 	let g:terminal_color_1  = s:gui(s:gui.red)
@@ -81,17 +81,30 @@ call s:hi("User6",              s:gui.magenta,       s:gui.statusline,    "bold,
 call s:hi("User7",              s:gui.cyan,          s:gui.statusline,    "bold,italic")
 call s:hi("User8",              s:gui.comment,       s:gui.statusline,    "bold,italic")
 
+" STATUSLINE COLORS (basic/fallback as we have a separate statusline in ./plugin)
 call s:hi("StatusLine",         s:gui.foreground,    s:gui.background,    "none")
 call s:hi("StatusLineNC",       s:gui.comment,       s:gui.background,    "none")
 call s:hi("StatusLineTerm",     s:gui.foreground,    s:gui.background,    "none")
 call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.background,    "none")
 
-call s:hi("NERDTreeOpenable",   s:gui.yellow,        s:gui.none,          "")
-call s:hi("NERDTreeClosable",   s:gui.yellow,        s:gui.none,          "")
-call s:hi("NERDTreeCWD",        s:gui.yellow,        s:gui.none,          "")
-call s:hi("NERDTreeDir",        s:gui.blue,          s:gui.none,          "")
+"call"
+" NERDTREE COLORS
+call s:hi("NERDTreeOpenable",   s:gui.yellow,        s:gui.none,          "bold")
+call s:hi("NERDTreeClosable",   s:gui.yellow,        s:gui.none,          "bold")
+call s:hi("NERDTreeCWD",        s:gui.yellow,        s:gui.none,          "italic")
+call s:hi("NERDTreeDir",        s:gui.blue,          s:gui.none,          "bold,italic")
 call s:hi("NERDTreeDirSlash",   s:gui.background,    s:gui.none,          "")
-call s:hi("NERDTreeFile",       s:gui.foreground,    s:gui.none,          "")
+call s:hi("NERDTreeExecFile",   s:gui.red,           s:gui.none,          "")
+
+" ALE COLORS
+call s:hi("ALEInfoSign",         s:gui.yellow,    s:gui.cursorline, "")
+call s:hi("ALEErrorSign",        s:gui.red,       s:gui.cursorline, "")
+call s:hi("ALEWarningSign",      s:gui.yellow,    s:gui.cursorline, "")
+call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.cursorline, "")
+call s:hi("ALEStyleWarningSign", s:gui.yellow,    s:gui.cursorline, "")
+call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
+call s:hi("ALEErrorLine",        s:gui.red,       s:gui.none, "")
+call s:hi("ALEWarningLine",      s:gui.yellow,    s:gui.none, "")
 
 call s:hi("EndOfBuffer",  s:gui.background, "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
@@ -145,17 +158,6 @@ call s:hi("Search",       s:gui.background, s:gui.search,     "")
 call s:hi("InSearch",     s:gui.background, s:gui.search,     "")
 call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
-
-" ALE COLORS
-call s:hi("ALEInfoSign",         s:gui.yellow,    s:gui.cursorline, "")
-call s:hi("ALEErrorSign",        s:gui.red,       s:gui.cursorline, "")
-call s:hi("ALEWarningSign",      s:gui.yellow,    s:gui.cursorline, "")
-call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.cursorline, "")
-call s:hi("ALEStyleWarningSign", s:gui.yellow,    s:gui.cursorline, "")
-
-call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
-call s:hi("ALEErrorLine",        s:gui.red,       s:gui.none, "")
-call s:hi("ALEWarningLine",      s:gui.yellow,    s:gui.none, "")
 
 " TYPESCRIPT COLORS
 " leafgarland/typescript-vim

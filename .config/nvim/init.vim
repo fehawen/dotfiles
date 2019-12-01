@@ -216,6 +216,9 @@ set termguicolors
 " Set theme
 colorscheme slate
 
+" Source NERDTree filetype highlighting
+source ~/Dotfiles/.config/nvim/plugin/nerdtree.vim
+
 " Set list characters
 set list
 set listchars=
@@ -245,12 +248,12 @@ let g:ale_sign_style_warning = "•"
 
 " NERDTree settings
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrows = 0
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
+let g:NERDTreeCascadeSingleChildDir = 0
 let g:NERDTreeDirArrowExpandable = "•"
 let g:NERDTreeDirArrowCollapsible = "•"
-let g:NERDTreeWinSize = 35
+let g:NERDTreeWinSize = 41
 
 "#########################"
 "###### KEYBINDINGS ######"
