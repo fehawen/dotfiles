@@ -7,7 +7,7 @@ confirm() {
 		echo "Now exiting."
 		exit
 	else
-		./$1_$2.sh
+		./$1.sh
 	fi
 }
 
@@ -27,19 +27,19 @@ select opt in "${options[@]}"
 do
 	case $opt in
 		"Packages for Arch Linux")
-			confirm "arch" "packages"
+			confirm "packages"
 			break
 			;;
 		"Configuration for Arch Linux")
-			confirm "arch" "configuration"
+			confirm "configuration"
 			break
 			;;
 		"Dotfiles for Arch Linux")
-			confirm "arch" "dotfiles"
+			confirm "dotfiles"
 			break
 			;;
 		"Dotfiles for macOS")
-			confirm "macos" "dotfiles"
+			confirm "macos"
 			break
 			;;
 		"Quit")
