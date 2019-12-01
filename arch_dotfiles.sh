@@ -78,6 +78,7 @@ setup_dotfiles() {
 	echo "Setting up Arch Linux config ..."
 
 	declare -a folders=(
+		".config/alacritty"
 		".config/conky"
 		".config/i3"
 		".config/kitty"
