@@ -13,31 +13,31 @@ declare THEME="base_prompt"
 if [ -x /usr/bin/tput ] && tput setaf 1 &> /dev/null; then
 	tput sgr0 # Reset colors
 
-	bold="\001$(tput bold)\002"
-	italic="\001$(tput sitm)\002"
-	reset="\001$(tput sgr0)\002"
+	declare bold="\001$(tput bold)\002"
+	declare italic="\001$(tput sitm)\002"
+	declare reset="\001$(tput sgr0)\002"
 
-	black="\001$(tput setaf 0)\002"
-	red="\001$(tput setaf 1)\002"
-	green="\001$(tput setaf 2)\002"
-	yellow="\001$(tput setaf 3)\002"
-	blue="\001$(tput setaf 4)\002"
-	magenta="\001$(tput setaf 5)\002"
-	cyan="\001$(tput setaf 6)\002"
-	white="\001$(tput setaf 7)\002"
+	declare black="\001$(tput setaf 0)\002"
+	declare red="\001$(tput setaf 1)\002"
+	declare green="\001$(tput setaf 2)\002"
+	declare yellow="\001$(tput setaf 3)\002"
+	declare blue="\001$(tput setaf 4)\002"
+	declare magenta="\001$(tput setaf 5)\002"
+	declare cyan="\001$(tput setaf 6)\002"
+	declare white="\001$(tput setaf 7)\002"
 else
-	bold="\e[1m"
-	italic="\e[3m"
-	reset="\e[0m"
+	declare bold="\e[1m"
+	declare italic="\e[3m"
+	declare reset="\e[0m"
 
-	black="\e[1;30m"
-	red="\e[1;31m"
-	green="\e[1;32m"
-	yellow="\e[1;33m"
-	blue="\e[1;34m"
-	magenta="\e[1;35m"
-	cyan="\e[1;36m"
-	white="\e[1;97m"
+	declare black="\e[1;30m"
+	declare red="\e[1;31m"
+	declare green="\e[1;32m"
+	declare yellow="\e[1;33m"
+	declare blue="\e[1;34m"
+	declare magenta="\e[1;35m"
+	declare cyan="\e[1;36m"
+	declare white="\e[1;97m"
 fi
 
 ###################
@@ -66,6 +66,15 @@ export VISUAL="nvim"
 export TERMINAL="kitty"
 export BROWSER="chromium"
 export LC_ALL=en_US.UTF-8
+
+# Colored man pages
+export LESS_TERMCAP_mb=$'\e[0;32m'
+export LESS_TERMCAP_md=$'\e[1;34m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[0;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[0;35m'
 
 # Start X if i3 isn't running, and if on Linux (Arch)
 if [[ "$OSTYPE" =~ "linux" ]]; then
