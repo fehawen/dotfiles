@@ -40,19 +40,19 @@ draw_bold_text_with_bright_colors: true
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Roboto Mono
+    family: SF Mono
     style: Medium
 
   bold:
-    family: Roboto Mono
+    family: SF Mono
     style: Bold
 
   italic:
-    family: Roboto Mono
+    family: SF Mono
     style: Medium Italic
 
   bold_italic:
-    family: Roboto Mono
+    family: SF Mono
     style: Bold Italic
 
   size: 4.5

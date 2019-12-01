@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # Font
-font pango:Roboto Mono 13
+font pango:SF Mono 13
 
 # Gaps
 gaps inner 12
@@ -142,7 +142,7 @@ bindsym $mod+d exec dmenu_run -i -b -p "Launch:" -nb "#0D202F" -nf "#41515C" -sb
 bar {
 	id bar-1
 	tray_output none
-	font pango:Roboto Mono Bold Italic 13
+	font pango:SF Mono Bold Italic 13
 	height 65
 	position top
 	workspace_buttons no

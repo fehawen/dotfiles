@@ -1,7 +1,7 @@
 ! Sourced by .Xresources
 
 ! Font
-*font: xft:Roboto Mono:pixelsize=13
+*font: xft:SF Mono:pixelsize=13
 
 ! Colors
 
