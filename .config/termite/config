@@ -46,7 +46,7 @@ scrollbar = off
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
 
-#foreground = #dcdccc
+foreground = #B2BEBF
 #foreground_bold = #ffffff
 background = #132635
 
@@ -58,33 +58,33 @@ background = #132635
 
 # Colors from color0 to color254 can be set
 # Black
-color0 = #3f3f3f
-color8 = #709080
+color0 = #41515C
+color8 = #41515C
 
 # Red
-color1 = #705050
-color9 = #dca3a3
+color1 = #AE5151
+color9 = #AE5151
 
 # Green
-color2 = #60b48a
-color10 = #c3bf9f
+color2 = #779687
+color10 = #779687
 
-color3 = #dfaf8f
-color11 = #f0dfaf
+color3 = #B98675
+color11 = #B98675
 
-color4 = #506070
-color12 = #94bff3
+color4 = #5E828F
+color12 = #5E828F
 
-color5 = #dc8cc3
-color13 = #ec93d3
+color5 = #B48291
+color13 = #B48291
 
-color7 = #dcdccc
-color14 = #93e0e3
+color7 = #7AB1B3
+color14 = #7AB1B3
 
-color6 = #8cd0d3
-color15 = #ffffff
+color6 = #B2BEBF
+color15 = #B2BEBF
 
-[hints]
+# [hints]
 # font = Monospace 9
 # foreground = #dcdccc
 # background = #263238
