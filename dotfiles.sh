@@ -78,6 +78,7 @@ setup_dotfiles() {
 	echo "Setting up Arch Linux config ..."
 
 	declare -a folders=(
+		".colors"
 		".config/alacritty"
 		".config/conky"
 		".config/i3"
@@ -88,6 +89,7 @@ setup_dotfiles() {
 		".config/nvim/plugin"
 		".config/prompt"
 		".config/ranger"
+		".config/termite"
 		".config/zathura"
 		".newsboat"
 		".surf/styles"
