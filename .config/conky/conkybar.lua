@@ -31,8 +31,8 @@ conky.text = [[
 	},
 
 	{
-		"full_text":\
-"<span fgcolor='\#7AB1B3'> ${execi 60 docker ps -q | wc -l}   </span>\
+		"full_text": "\
+<span fgcolor='\#7AB1B3'> ${execi 60 docker ps -q | wc -l}   </span>\
 <span fgcolor='\#B48291'> ${execi 3600 ~/.config/conky/bar_pacman.sh}   </span>\
 <span fgcolor='${if_match "${exec pamixer --get-mute}"=="true"}\#41515C${else}\#5E828F${endif}'> ${exec pamixer --get-volume-human}   </span>\
 <span fgcolor='\#B98675'> ${exec printf %.0f $(xbacklight -get)}%</span>",
@@ -52,8 +52,8 @@ conky.text = [[
 	},
 
 	{
-		"full_text":\
-"<span fgcolor='\#B48291'> ${cpu cpu0}%   </span>\
+		"full_text": "\
+<span fgcolor='\#B48291'> ${cpu cpu0}%   </span>\
 <span fgcolor='\#B98675'> ${memperc}%   </span>\
 <span fgcolor='\#5E828F'> ${swapperc}%   </span>\
 <span fgcolor='\#7AB1B3'> ${fs_used_perc /}%</span>",
@@ -73,8 +73,8 @@ conky.text = [[
 	},
 
 	{
-		"full_text":\
-"<span fgcolor='${if_match ${battery_percent}>20}\#779687${else}\#AE5151${endif}'>${if_match "${battery_status}"=="discharging"} ${else} ${endif}${battery_percent}%   </span>\
+		"full_text": "\
+<span fgcolor='${if_match ${battery_percent}>20}\#779687${else}\#AE5151${endif}'>${if_match "${battery_status}"=="discharging"} ${else} ${endif}${battery_percent}%   </span>\
 <span fgcolor='${if_match "${wireless_essid wlp2s0}"=="off/any"}\#41515C${else}\#B48291${endif}'> ${wireless_essid wlp2s0}   </span>\
 <span fgcolor='\#B2BEBF'> ${time %H:%M}</span>",
 		"name": "conky-center",
