@@ -7,6 +7,10 @@ install_packages() {
 	# as me way not really need it:
 	# "xf86-video-intel"
 
+	# Include if needed
+	# alacritty
+	# kitty
+
 	declare -a packages=(
 		"xorg-server"
 		"xorg-xinit"
