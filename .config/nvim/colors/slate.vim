@@ -89,12 +89,12 @@ call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.background,    "none"
 
 "call"
 " NERDTREE COLORS
-call s:hi("NERDTreeOpenable",   s:gui.yellow,        s:gui.none,          "bold")
-call s:hi("NERDTreeClosable",   s:gui.yellow,        s:gui.none,          "bold")
-call s:hi("NERDTreeCWD",        s:gui.yellow,        s:gui.none,          "italic")
-call s:hi("NERDTreeDir",        s:gui.blue,          s:gui.none,          "bold,italic")
+call s:hi("NERDTreeOpenable",   s:gui.comment,       s:gui.none,          "")
+call s:hi("NERDTreeClosable",   s:gui.comment,       s:gui.none,          "")
+call s:hi("NERDTreeCWD",        s:gui.magenta,       s:gui.none,          "italic")
+call s:hi("NERDTreeDir",        s:gui.comment,       s:gui.none,          "bold")
 call s:hi("NERDTreeDirSlash",   s:gui.background,    s:gui.none,          "")
-call s:hi("NERDTreeExecFile",   s:gui.red,           s:gui.none,          "")
+call s:hi("NERDTreeExecFile",   s:gui.blue,          s:gui.none,          "")
 
 " ALE COLORS
 call s:hi("ALEInfoSign",         s:gui.yellow,    s:gui.cursorline, "")
@@ -136,7 +136,7 @@ call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
 
 call s:hi("NonText",      s:gui.specialkey, "",               "none")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
-call s:hi("MatchParen",   s:gui.background, s:gui.selection,  "")
+" call s:hi("MatchParen",   s:gui.background, s:gui.selection,  "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "italic")
 call s:hi("String",       s:gui.green,      "",               "")

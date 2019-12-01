@@ -5,7 +5,7 @@ declare popup_height=$(($(xrandr --listmonitors | grep \+ | awk '{print $3}' | c
 
 
 if [[ ! $(i3-msg -t get_tree | grep -o "popup") ]]; then
-	i3-msg "exec --no-startup-id kitty --name popup"
+	i3-msg "exec --no-startup-id termite --name popup"
 	sleep 1
 	$(test)
 else

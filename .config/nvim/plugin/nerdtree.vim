@@ -27,7 +27,8 @@ endfunction
 " NERDTREE FILE HIGHLIGHTING
 call NERDTreeHighlightFile("ts",               s:gui.cyan,        s:gui.none)
 call NERDTreeHighlightFile("tsx",              s:gui.cyan,        s:gui.none)
-call NERDTreeHighlightFile("php",              s:gui.cyan,        s:gui.none)
+call NERDTreeHighlightFile("conf",             s:gui.cyan,        s:gui.none)
+call NERDTreeHighlightFile("config",           s:gui.cyan,        s:gui.none)
 
 call NERDTreeHighlightFile("js",               s:gui.yellow,      s:gui.none)
 call NERDTreeHighlightFile("jsx",              s:gui.yellow,      s:gui.none)
@@ -43,13 +44,14 @@ call NERDTreeHighlightFile("xml",              s:gui.green,       s:gui.none)
 call NERDTreeHighlightFile("md",               s:gui.green,       s:gui.none)
 call NERDTreeHighlightFile("vim",              s:gui.green,       s:gui.none)
 
-call NERDTreeHighlightFile("lua",              s:gui.magenta,     s:gui.none)
-call NERDTreeHighlightFile("yml",              s:gui.magenta,     s:gui.none)
-call NERDTreeHighlightFile("json",             s:gui.magenta,     s:gui.none)
-call NERDTreeHighlightFile("conf",             s:gui.magenta,     s:gui.none)
-call NERDTreeHighlightFile("config",           s:gui.magenta,     s:gui.none)
+call NERDTreeHighlightFile("yml",              s:gui.red,         s:gui.none)
+call NERDTreeHighlightFile("json",             s:gui.red,         s:gui.none)
 
-call NERDTreeHighlightFile("dockerignore",     s:gui.black,       s:gui.none)
-call NERDTreeHighlightFile("gitignore",        s:gui.black,       s:gui.none)
+call NERDTreeHighlightFile("dockerignore",     s:gui.magenta,     s:gui.none)
+call NERDTreeHighlightFile("gitignore",        s:gui.magenta,     s:gui.none)
+call NERDTreeHighlightFile("eslint",           s:gui.magenta,     s:gui.none)
+call NERDTreeHighlightFile("babelrc",          s:gui.magenta,     s:gui.none)
 
-call NERDTreeHighlightFile("sh",               s:gui.red,         s:gui.none)
+call NERDTreeHighlightFile("sh",               s:gui.blue,        s:gui.none)
+call NERDTreeHighlightFile("lua",              s:gui.blue,        s:gui.none)
+call NERDTreeHighlightFile("php",              s:gui.blue,        s:gui.none)

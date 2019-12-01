@@ -40,22 +40,22 @@ draw_bold_text_with_bright_colors: true
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Operator Mono
+    family: Roboto Mono
     style: Medium
 
   bold:
-    family: Operator Mono
+    family: Roboto Mono
     style: Bold
 
   italic:
-    family: Operator Mono
+    family: Roboto Mono
     style: Medium Italic
 
   bold_italic:
-    family: Operator Mono
+    family: Roboto Mono
     style: Bold Italic
 
-  size: 5
+  size: 4.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.

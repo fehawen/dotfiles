@@ -1,7 +1,7 @@
 ! Sourced by .Xresources
 
 ! Font
-*font: xft:Operator Mono Medium:pixelsize=11,xft:Operator Mono Medium Italic:pixelsize=11,xft:Operator Mono Bold:pixelsize=11,xft:Operator Mono Bold Italic:pixelsize=11
+*font: xft:Roboto Mono:pixelsize=13
 
 ! Colors
 

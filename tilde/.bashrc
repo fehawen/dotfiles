@@ -63,7 +63,7 @@ declare ALIAS_FILE="$THEMES_DIR/aliasrc"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="kitty"
+export TERMINAL="termite"
 export BROWSER="chromium"
 export LC_ALL=en_US.UTF-8
 

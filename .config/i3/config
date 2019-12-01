@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # Font
-font pango:Operator Mono Medium 13
+font pango:Roboto Mono 13
 
 # Gaps
 gaps inner 12
@@ -58,7 +58,7 @@ floating_modifier $mod
 # Launch popup terminal on i3 startup
 for_window [instance="popup"] floating enable
 for_window [instance="popup"] move scratchpad
-exec --no-startup-id kitty --name popup
+exec --no-startup-id termite --name popup
 
 ############
 #### i3 ####
@@ -78,7 +78,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ##################
 
 # Launch new terminal window
-bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Return exec --no-startup-id termite
 
 # Toggle popup terminal
 bindsym $mod+p exec $HOME/.config/i3/i3popup.sh
@@ -142,7 +142,7 @@ bindsym $mod+d exec dmenu_run -i -b -p "Launch:" -nb "#0D202F" -nf "#41515C" -sb
 bar {
 	id bar-1
 	tray_output none
-	font pango:Operator Mono Medium Italic 13
+	font pango:Roboto Mono Bold Italic 13
 	height 60
 	position top
 	workspace_buttons no

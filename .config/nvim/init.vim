@@ -225,6 +225,7 @@ set listchars=
 " set listchars+=tab:→\ ,
 " set listchars+=tab:❯\ ,
 " set listchars+=tab:│\ ,
+" set listchars+=tab:\ ,
 set listchars+=tab:›\ ,
 set listchars+=trail:•,
 "set listchars+=space:·,
@@ -251,8 +252,10 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
 let g:NERDTreeCascadeSingleChildDir = 0
-let g:NERDTreeDirArrowExpandable = "•"
-let g:NERDTreeDirArrowCollapsible = "•"
+" let g:NERDTreeDirArrowExpandable = "•"
+" let g:NERDTreeDirArrowCollapsible = "•"
+let g:NERDTreeDirArrowExpandable = " "
+let g:NERDTreeDirArrowCollapsible = " "
 let g:NERDTreeWinSize = 41
 
 "#########################"
