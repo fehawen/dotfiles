@@ -1,7 +1,7 @@
 #!/bin/sh
 
 confirm() {
-	read -r -p "Proceed with $2 setup for $1? [y/N] " answer
+	read -r -p "Proceed with $1 setup for $2? [y/N] " answer
 	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
 		echo "Setup declined..."
 		echo "Now exiting."
@@ -16,33 +16,43 @@ COLUMNS=12
 PS3="Please select an option: "
 
 declare -a options=(
-	"Packages for Arch Linux"
-	"Configuration for Arch Linux"
-	"Dotfiles for Arch Linux"
-	"Dotfiles for macOS"
+	"Arch Linux - Dotfiles"
+	"Arch Linux - Packages"
+	"Arch Linux - Config"
+	"Arch Linux - Fonts"
+	"MacOS - Dotfiles"
 	"Quit"
 )
 
 select opt in "${options[@]}"
 do
 	case $opt in
-		"Packages for Arch Linux")
-			confirm "packages"
+		"Arch Linux - Dotfiles")
+			confirm "dotfiles" "Arch Linux"
 			break
 			;;
-		"Configuration for Arch Linux")
-			confirm "configuration"
+		"Arch Linux - Packages")
+			confirm "packages" "Arch Linux"
 			break
 			;;
-		"Dotfiles for Arch Linux")
-			confirm "dotfiles"
+		"Arch Linux - Config")
+			confirm "config" "Arch Linux"
 			break
 			;;
-		"Dotfiles for macOS")
-			confirm "macos"
+		"Arch Linux - Config")
+			confirm "config" "Arch Linux"
+			break
+			;;
+		"Arch Linux - Fonts")
+			confirm "fonts" "Arch Linux"
+			break
+			;;
+		"MacOS - Dotfiles")
+			confirm "macos" "MacOS"
 			break
 			;;
 		"Quit")
+			echo "Quitting..."
 			break
 			;;
 		*) echo "Invalid option: $REPLY";;

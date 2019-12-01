@@ -81,6 +81,7 @@ setup_dotfiles() {
 		".colors"
 		".config/alacritty"
 		".config/conky"
+		".config/gtk-3.0"
 		".config/i3"
 		".config/kitty"
 		".config/neofetch"
@@ -106,6 +107,8 @@ setup_dotfiles() {
 			symlink_tilde_files
 		else
 			if [[ ! -d "${HOME}/$FOLDER" ]]; then
+				echo -e "\nDirectory $FOLDER does not exist."
+				echo -e "\nCreating it..."
 				mkdir -pv "${HOME}/$FOLDER"
 			fi
 
