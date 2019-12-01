@@ -6,41 +6,4 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-*font: xft:Operator Mono Medium:pixelsize=11,xft:Operator Mono Medium Italic:pixelsize=11,xft:Operator Mono Bold:pixelsize=11,xft:Operator Mono Bold Italic:pixelsize=11
-
-*background: #132635
-*foreground: #B2BEBF
-
-*cursorColor: #B2BEBF
-
-! black
-*color0:  #41515C
-*color8:  #41515C
-
-! red
-*color1:  #AE5151
-*color9:  #AE5151
-
-! green
-*color2:  #779687
-*color10: #779687
-
-! yellow
-*color3:  #B98675
-*color11: #B98675
-
-! blue
-*color4:  #5E828F
-*color12: #5E828F
-
-! magenta
-*color5:  #B48291
-*color13: #B48291
-
-! cyan
-*color6:  #7AB1B3
-*color14: #7AB1B3
-
-! White
-*color7:  #B2BEBF
-*color15: #B2BEBF
+#include ".colors/color"
