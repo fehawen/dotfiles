@@ -56,7 +56,7 @@ conky.text = [[
 <span fgcolor='\#B48291'> ${cpu cpu0}%   </span>\
 <span fgcolor='\#B98675'> ${memperc}%   </span>\
 <span fgcolor='\#5E828F'> ${swapperc}%   </span>\
-<span fgcolor='\#7AB1B3'> ${fs_used_perc /}%</span>",
+<span fgcolor='\#7AB1B3'> ${fs_used_perc /}%</span>",
 		"name": "conky-center",
 		"markup": "pango",
 		"background": "\#132635",
