@@ -164,6 +164,17 @@ form {
 	border: none !important;
 }
 
+pre {
+	border: none !important;
+	border-radius: 8px !important;
+}
+
+pre,
+code {
+	background: #0D202F !important;
+	color: #5E828F !important;
+}
+
 [class*="cookie"],
 [class^="cookie-"],
 [class$="-cookie"],
