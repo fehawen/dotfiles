@@ -72,14 +72,14 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.background,    s:gui.background,    "bold,italic")
-call s:hi("User2",              s:gui.red,           s:gui.statusline,    "bold,italic")
-call s:hi("User3",              s:gui.green,         s:gui.statusline,    "bold,italic")
-call s:hi("User4",              s:gui.yellow,        s:gui.statusline,    "bold,italic")
-call s:hi("User5",              s:gui.blue,          s:gui.statusline,    "bold,italic")
-call s:hi("User6",              s:gui.magenta,       s:gui.statusline,    "bold,italic")
-call s:hi("User7",              s:gui.cyan,          s:gui.statusline,    "bold,italic")
-call s:hi("User8",              s:gui.comment,       s:gui.statusline,    "bold,italic")
+call s:hi("User1",              s:gui.background,    s:gui.background,    "italic")
+call s:hi("User2",              s:gui.red,           s:gui.statusline,    "italic")
+call s:hi("User3",              s:gui.green,         s:gui.statusline,    "italic")
+call s:hi("User4",              s:gui.yellow,        s:gui.statusline,    "italic")
+call s:hi("User5",              s:gui.blue,          s:gui.statusline,    "italic")
+call s:hi("User6",              s:gui.magenta,       s:gui.statusline,    "italic")
+call s:hi("User7",              s:gui.cyan,          s:gui.statusline,    "italic")
+call s:hi("User8",              s:gui.comment,       s:gui.statusline,    "italic")
 
 " STATUSLINE COLORS (basic/fallback as we have a separate statusline in ./plugin)
 call s:hi("StatusLine",         s:gui.foreground,    s:gui.background,    "none")
