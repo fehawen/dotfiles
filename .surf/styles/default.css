@@ -166,9 +166,16 @@ form {
 
 pre,
 code {
+	color: #B98675 !important;
 	background: #0D202F !important;
 	border: none !important;
 	border-radius: 4px !important;
+}
+
+pre span,
+code span {
+	color: #7AB1B3 !important;
+	background: #0D202F !important;
 }
 
 [class*="cookie"],
