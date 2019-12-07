@@ -28,6 +28,7 @@ install_packages() {
 		"i3-gaps"
 		"i3lock"
 		"conky"
+		"dunst"
 		"termite"
 		"w3m"
 		"surf"
