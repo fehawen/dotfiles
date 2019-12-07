@@ -23,6 +23,11 @@ gaps top -12
 for_window [class=".*"] border none
 for_window [instance="popup"] border pixel 12
 
+# Floating
+#floating_minimum_size 600 x 250
+#floating_maximum_size 600 x 250
+#for_window [class=".*"] floating enable
+
 # Colors
 set_from_resource $darkBlack     color0
 set_from_resource $black         color8
@@ -194,7 +199,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
 # bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+space floating toggle
