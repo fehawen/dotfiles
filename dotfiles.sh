@@ -84,6 +84,8 @@ setup_dotfiles() {
 	declare -a folders=(
 		".colors"
 		".config/conky"
+		".config/dunst"
+		".config/fontconfig"
 		".config/gtk-3.0"
 		".config/i3"
 		".config/neofetch"
