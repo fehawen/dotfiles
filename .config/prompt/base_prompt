@@ -121,6 +121,8 @@ git_status_module() {
 exec_time_module() {
 	(( timer < 3 )) && return
 
+	declare output
+
 	days=$(( timer / 86400 ))
 	hours=$(( timer / 3600 % 24 ))
 	minutes=$(( timer / 60 % 60 ))
