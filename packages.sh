@@ -19,6 +19,8 @@ install_packages() {
 		"xf86-video-intel"
 		"xf86-input-libinput"
 		"mesa"
+		"man-db"
+		"man-pages"
 		"imagemagick"
 		"alsa-utils"
 		"alsa-lib"
