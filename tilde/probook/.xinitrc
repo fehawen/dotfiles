@@ -6,6 +6,6 @@ xrandr --dpi 55
 
 xsetroot -solid "#0D202F"
 
-setxkbmap se
+setxkbmap -layout se
 
 exec i3
