@@ -33,6 +33,8 @@ install_packages() {
 		"dunst"
 		"termite"
 		"w3m"
+		"picom"
+		"feh"
 		"surf"
 		"firefox"
 		"chromium"

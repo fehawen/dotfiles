@@ -92,6 +92,7 @@ setup_dotfiles() {
 		".config/nvim"
 		".config/nvim/colors"
 		".config/nvim/plugin"
+		".config/picom"
 		".config/prompt"
 		".config/ranger"
 		".config/termite"
