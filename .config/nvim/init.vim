@@ -214,7 +214,7 @@ augroup END
 set termguicolors
 
 " Set theme
-colorscheme slate
+colorscheme debris
 
 " Source NERDTree filetype highlighting
 source ~/Dotfiles/.config/nvim/plugin/nerdtree.vim

@@ -43,12 +43,12 @@ scrollbar = off
 [colors]
 # If both of these are unset, cursor falls back to the foreground color,
 # and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
+cursor = #D4D4D9
+cursor_foreground = #12181D
 
-foreground = #B2BEBF
+foreground = #DCDCE1
 #foreground_bold = #ffffff
-background = #132635
+background = #12181D
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
@@ -58,31 +58,36 @@ background = #132635
 
 # Colors from color0 to color254 can be set
 # Black
-color0 = #41515C
-color8 = #41515C
+color0 = #3E444A
+color8 = #3E444A
 
 # Red
-color1 = #AE5151
-color9 = #AE5151
+color1 = #9A6D6D
+color9 = #9A6D6D
 
 # Green
-color2 = #779687
-color10 = #779687
+color2 = #798183
+color10 = #798183
 
-color3 = #B98675
-color11 = #B98675
+# Yellow
+color3 = #777882
+color11 = #777882
 
-color4 = #5E828F
-color12 = #5E828F
+# BLue
+color4 = #6D6E75
+color12 = #6D6E75
 
-color5 = #B48291
-color13 = #B48291
+# Magenta
+color5 = #96858D
+color13 = #96858D
 
-color6 = #7AB1B3
-color14 = #7AB1B3
+# Cyan
+color6 = #949AA9
+color14 = #949AA9
 
-color7 = #B2BEBF
-color15 = #B2BEBF
+# White
+color7 = #DCDCE1
+color15 = #DCDCE1
 
 # [hints]
 # font = Monospace 9

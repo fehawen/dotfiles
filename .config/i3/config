@@ -15,13 +15,13 @@ set $mod Mod4
 font pango:SF Mono 13
 
 # Gaps
-gaps inner 12
-gaps outer 0
-gaps top -12
+gaps inner 24
+gaps outer 36
+#gaps top -12
 
 # Borders
-for_window [class=".*"] border none
-for_window [instance="popup"] border pixel 12
+for_window [class=".*"] border pixel 4
+# for_window [instance="popup"] border pixel 12
 
 # Floating
 #floating_minimum_size 600 x 250
@@ -46,8 +46,8 @@ set_from_resource $cyan          color14
 set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
-set $borderFocused #0D202F
-set $borderUnfocused #0D202F
+set $borderFocused #3E444A
+set $borderUnfocused #3E444A
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -150,26 +150,26 @@ bindsym $mod+d exec dmenu_run -i -b -p "Launch:" -nb "#0D202F" -nf "#7AB1B3" -sb
 #############
 
 # Conky bar
-bar {
-	id bar-1
-	tray_output none
-	font pango:SF Mono Bold Italic 13
-	height 65
-	position top
-	workspace_buttons no
-	strip_workspace_numbers yes
-	colors {
-		background #0D202F
-		statusline #0D202F
-		separator #0D202F
-
-		focused_workspace  #0D202F #0D202F #B2BEBF
-		active_workspace   #0D202F #0D202F #B2BEBF
-		inactive_workspace #0D202F #0D202F #4C575B
-		urgent_workspace   #0D202F #0D202F #AE5151
-	}
-	status_command $HOME/.config/i3/i3conkybar.sh
-}
+# bar {
+# 	id bar-1
+# 	tray_output none
+# 	font pango:SF Mono Bold Italic 13
+# 	height 65
+# 	position top
+# 	workspace_buttons no
+# 	strip_workspace_numbers yes
+# 	colors {
+# 		background #0D202F
+# 		statusline #0D202F
+# 		separator #0D202F
+#
+# 		focused_workspace  #0D202F #0D202F #B2BEBF
+# 		active_workspace   #0D202F #0D202F #B2BEBF
+# 		inactive_workspace #0D202F #0D202F #4C575B
+# 		urgent_workspace   #0D202F #0D202F #AE5151
+# 	}
+# 	status_command $HOME/.config/i3/i3conkybar.sh
+# }
 
 #################################
 #### WORKSPACES & NAVIGATION ####

@@ -1,14 +1,13 @@
 let s:gui = {}
 
-" Desaturated nuances of slate theme colors
-let s:gui.white      = { "default": "#B2BEBF" }
-let s:gui.black      = { "default": "#41515C" }
-let s:gui.red        = { "default": "#AE5151" }
-let s:gui.green      = { "default": "#779687" }
-let s:gui.yellow     = { "default": "#B98675" }
-let s:gui.blue       = { "default": "#5E828F" }
-let s:gui.magenta    = { "default": "#B48291" }
-let s:gui.cyan       = { "default": "#7AB1B3" }
+let s:gui.white      = { "default": "#12181D" }
+let s:gui.black      = { "default": "#3E444A" }
+let s:gui.red        = { "default": "#9A6D6D" }
+let s:gui.green      = { "default": "#798183" }
+let s:gui.yellow     = { "default": "#777882" }
+let s:gui.blue       = { "default": "#6D6E75" }
+let s:gui.magenta    = { "default": "#96858D" }
+let s:gui.cyan       = { "default": "#949AA9" }
 let s:gui.none       = { "default": "NONE" }
 
 function! s:gui(color)
