@@ -92,7 +92,7 @@ endfunction
 " NERDTREE STATUSLINE: " {{{
 " -------------------------------------------------------------------------
 
-let NERDTreeStatusline="%4*\ \ \ NERDTree\ %1*"
+let NERDTreeStatusline="%4*\ NERDTree\ %1*"
 
 " }}}
 
@@ -115,32 +115,32 @@ function! ActiveStatusLine()
 		let l:statusline.="%3*"
 	endif
 	" Mode
-	let l:statusline.="\ \ \ %{ModeCurrent()}\ "
+	let l:statusline.="\ %{ModeCurrent()}\ "
 	" Separator
 	let l:statusline.="%1*\ "
 	" Current line number, total line numbers
-	let l:statusline.="%6*\ \ \ %l:%L\ "
+	let l:statusline.="%6*\ %l:%L\ "
 	" Separator
 	let l:statusline.="%1*\ "
 	" ALE lint errors, if any
 	if LinterStatus() != ""
-		let l:statusline.="%2*\ \ \ %{LinterStatus()}\ "
+		let l:statusline.="%2*\ %{LinterStatus()}\ "
 		" Separator
 		let l:statusline.="%1*\ "
 	endif
 	" Filename
-	let l:statusline.="%7*\ \ \ %t\ "
+	let l:statusline.="%7*\ %t\ "
 	" Separator
 	let l:statusline.="%1*\ "
 	" Show if file is readonly
 	if ReadOnly() != ""
-		let l:statusline.="%4*\ \ \ %{ReadOnly()}\ "
+		let l:statusline.="%4*\ %{ReadOnly()}\ "
 		" Separator
 		let l:statusline.="%1*\ "
 	endif
 	" Show if file has been modified
 	if Modified() != ""
-		let l:statusline.="%8*\ \ \ %{Modified()}\ "
+		let l:statusline.="%8*\ %{Modified()}\ "
 		" Separator
 		let l:statusline.="%1*\ "
 	endif
@@ -148,16 +148,16 @@ function! ActiveStatusLine()
 	let l:statusline.="%1*%="
 	" Show syntax identifier, if any
 	if SyntaxItem() != ""
-		let l:statusline.="%4*\ \ \ %{SyntaxItem()}\ "
+		let l:statusline.="%4*\ %{SyntaxItem()}\ "
 		" Separator
 		let l:statusline.="%1*\ "
 	endif
 	" File encoding
-	let l:statusline.="%7*\ \ \ %{(&fenc!=''?&fenc:&enc)}\ "
+	let l:statusline.="%7*\ %{(&fenc!=''?&fenc:&enc)}\ "
 	" Separator
 	let l:statusline.="%1*\ "
 	" File format
-	let l:statusline.="%5*\ \ \ %{&ff}\ "
+	let l:statusline.="%5*\ %{&ff}\ "
 	" Done
 	return l:statusline
 endfunction
@@ -167,15 +167,15 @@ function! InactiveStatusLine()
 	" Reset statusline
 	let l:statusline=""
 	" Filename
-	let l:statusline.="%8*\ \ \ %t\ "
+	let l:statusline.="%8*\ %t\ "
 	" Spacer
 	let l:statusline.="%1*%="
 	" File encoding
-	let l:statusline.="%8*\ \ \ %{(&fenc!=''?&fenc:&enc)}\ "
+	let l:statusline.="%8*\ %{(&fenc!=''?&fenc:&enc)}\ "
 	" Separator
 	let l:statusline.="%1*\ "
 	" File format
-	let l:statusline.="%8*\ \ \ %{&ff}\ "
+	let l:statusline.="%8*\ %{&ff}\ "
 	" Done
 	return l:statusline
 endfunction

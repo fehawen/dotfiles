@@ -172,7 +172,7 @@ compose_prompt() {
 
 	PS1=""
 
-	PS1+="${bold}${italic}"
+	PS1+="${bold}"
 
 	for MODULE in "${!prompt_modules[@]}"; do
 		${prompt_modules[$MODULE]}
