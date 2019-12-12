@@ -47,7 +47,7 @@ set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
 set $borderFocused #BEBEC3
-set $borderUnfocused #798183
+set $borderUnfocused #6D6E75
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -60,13 +60,14 @@ focus_follows_mouse no
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+###################
+#### AUTOSTART ####
+###################
+
 # Launch popup terminal on i3 startup
 for_window [instance="popup"] floating enable
 for_window [instance="popup"] move scratchpad
 exec --no-startup-id termite --name popup
-
-# Keybord language
-exec --no-startup-id "setxkbmap -layout se"
 
 # Start dunst (notifications)
 exec --no-startup-id dunst

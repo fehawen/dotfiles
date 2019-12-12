@@ -2,8 +2,7 @@
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# xsetroot -solid "#0D202F"
-xsetroot -solid "#3E444A"
+feh --bg-fill ~/.wallpapers/stairway.jpg
 
 setxkbmap -layout se
 
