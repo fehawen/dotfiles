@@ -29,15 +29,16 @@
 	cyan = ${xrdb:color6}
 
 [bar/middle]
+	dpi = ${xrdb:Xft.dpi:-1}
 	override-redirect = true
 	wm-restack = i3
 	monitor = ${env:MONITOR:eDP1}
 	monitor-fallback = ${env:MONITOR:DP1}
 	bottom = false
 	width = 30%
-	height = 45
+	height = 3%
 	offset-x = 35%
-	offset-y = 15
+	offset-y = 2%
 	fixed-center = false
 	background = ${colors.background}
 	foreground = ${colors.foreground}
@@ -49,8 +50,8 @@
 	padding-right = 0
 	module-margin-left = 0
 	module-margin-right = 0
-	font-0 = "Roboto Mono:size=12:weight=bold;3"
-	font-1 = "Font Awesome 5 Free:size=14:weight=bold;3"
+	font-0 = "Roboto Mono:size=12:weight=bold;2"
+	font-1 = "Font Awesome 5 Free:size=14:weight=bold;2"
 	modules-center = i3
 
 	[module/i3]
@@ -83,15 +84,16 @@
 		label-urgent-padding = 2
 
 [bar/right]
+	dpi = ${xrdb:Xft.dpi:-1}
 	override-redirect = true
 	wm-restack = i3
 	monitor = ${env:MONITOR:eDP1}
 	monitor-fallback = ${env:MONITOR:DP1}
 	bottom = false
-	width = 10%
-	height = 45
+	width = 15%
+	height = 3%
 	offset-x = 70%
-	offset-y = 15
+	offset-y = 2%
 	fixed-center = false
 	background = ${colors.background}
 	foreground = ${colors.foreground}
@@ -103,8 +105,8 @@
 	padding-right = 0
 	module-margin-left = 0
 	module-margin-right = 0
-	font-0 = "Roboto Mono:size=12:weight=bold;3"
-	font-1 = "Font Awesome 5 Free:size=14:weight=bold;3"
+	font-0 = "Roboto Mono:size=12:weight=bold;2"
+	font-1 = "Font Awesome 5 Free:size=14:weight=bold;2"
 	modules-center = battery date
 
 	[module/battery]
