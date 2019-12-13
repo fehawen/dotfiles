@@ -1,0 +1,142 @@
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+
+
+[global/wm]
+	margin-top = 0
+	margin-bottom = 0
+
+[settings]
+	throttle-output = 5
+	throttle-output-for = 10
+	throttle-input-for = 30
+
+[colors]
+	foreground = ${xrdb:foreground}
+	background = ${xrdb:background}
+	black = ${xrdb:color0}
+	red = ${xrdb:color1}
+	green = ${xrdb:color2}
+	yellow = ${xrdb:color3}
+	blue = ${xrdb:color4}
+	magenta = ${xrdb:color5}
+	cyan = ${xrdb:color6}
+
+[bar/middle]
+	override-redirect = true
+	wm-restack = i3
+	monitor = ${env:MONITOR:eDP1}
+	monitor-fallback = ${env:MONITOR:DP1}
+	bottom = false
+	width = 30%
+	height = 45
+	offset-x = 35%
+	offset-y = 15
+	fixed-center = false
+	background = ${colors.background}
+	foreground = ${colors.foreground}
+	line-size = 2
+	line-color = ${colors.foreground}
+	border-size = 1
+	border-color = ${colors.foreground}
+	padding-left = 0
+	padding-right = 0
+	module-margin-left = 0
+	module-margin-right = 0
+	font-0 = "Roboto Mono:size=12:weight=bold;3"
+	font-1 = "Font Awesome 5 Free:size=14:weight=bold;3"
+	modules-center = i3
+
+	[module/i3]
+		type = internal/i3
+		format = <label-state> <label-mode>
+		index-sort = true
+		wrapping-scroll = false
+		enable-click = true
+
+		; Only show workspaces on the same output as the bar
+		; pin-workspaces = true
+
+		label-focused = 
+		label-focused-padding = 2
+		label-focused-background = ${colors.background}
+		label-focused-foreground = ${colors.foreground}
+		label-focused-underline = ${colors.background}
+
+		label-unfocused = 
+		label-unfocused-padding = 2
+		label-unfocused-background = ${colors.background}
+		label-unfocused-foreground = ${colors.black}
+		; label-unfocused-underline = ${colors.black}
+
+		label-visible-background = ${self.label-focused-background}
+		label-visible-underline = ${self.label-focused-underline}
+		label-visible-padding = ${self.label-focused-padding}
+
+		label-urgent-foreground = ${colors.red}
+		label-urgent-padding = 2
+
+[bar/right]
+	override-redirect = true
+	wm-restack = i3
+	monitor = ${env:MONITOR:eDP1}
+	monitor-fallback = ${env:MONITOR:DP1}
+	bottom = false
+	width = 10%
+	height = 45
+	offset-x = 70%
+	offset-y = 15
+	fixed-center = false
+	background = ${colors.background}
+	foreground = ${colors.foreground}
+	line-size = 2
+	line-color = ${colors.foreground}
+	border-size = 1
+	border-color = ${colors.foreground}
+	padding-left = 0
+	padding-right = 0
+	module-margin-left = 0
+	module-margin-right = 0
+	font-0 = "Roboto Mono:size=12:weight=bold;3"
+	font-1 = "Font Awesome 5 Free:size=14:weight=bold;3"
+	modules-center = battery date
+
+	[module/battery]
+		type = internal/battery
+		battery = BAT0
+		adapter = AC
+		full-at = 98
+
+		format-charging-prefix = 
+		format-charging = <label-charging>
+		format-charging-foreground = ${colors.green}
+		format-charging-underline = ${colors.background}
+		label-charging-padding = 2
+
+		format-discharging-prefix = 
+		format-discharging = <label-discharging>
+		format-discharging-foreground = ${colors.red}
+		format-discharging-underline = ${colors.background}
+		label-discharging-padding = 2
+
+		format-full-prefix = 
+		format-full = <label-full>
+		format-full-foreground = ${colors.green}
+		format-full-underline = ${colors.background}
+		label-full-padding = 2
+
+	[module/date]
+		type = internal/date
+		interval = 10.0
+		time = %H:%M
+
+		format-prefix = 
+		format-prefix-padding = 2
+		format-foreground = ${colors.foreground}
+		label = %time%
