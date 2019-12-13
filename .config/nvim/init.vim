@@ -188,8 +188,8 @@ autocmd BufWinEnter *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 
 " Set es6 unused import plugin colors
-let g:es6_imports_gui_fg_color="#BEBEC3"
-let g:es6_imports_gui_bg_color="#3E444A"
+let g:es6_imports_gui_fg_color="#475763"
+let g:es6_imports_gui_bg_color="#192C3B"
 
 "augroup filespecific
 "	autocmd!
@@ -214,7 +214,7 @@ augroup END
 set termguicolors
 
 " Set theme
-colorscheme debris
+colorscheme slate
 
 " Source NERDTree filetype highlighting
 source ~/Dotfiles/.config/nvim/plugin/nerdtree.vim

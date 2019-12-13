@@ -18,8 +18,10 @@
 	throttle-input-for = 30
 
 [colors]
+	transparent = #00ffffff
 	foreground = ${xrdb:foreground}
 	background = ${xrdb:background}
+	border = ${xrdb:color16}
 	black = ${xrdb:color0}
 	red = ${xrdb:color1}
 	green = ${xrdb:color2}
@@ -28,31 +30,34 @@
 	magenta = ${xrdb:color5}
 	cyan = ${xrdb:color6}
 
-[bar/middle]
+[bar/top]
 	dpi = ${xrdb:Xft.dpi:-1}
 	override-redirect = true
 	wm-restack = i3
 	monitor = ${env:MONITOR:eDP1}
 	monitor-fallback = ${env:MONITOR:DP1}
 	bottom = false
-	width = 30%
+	width = 60%
 	height = 3%
-	offset-x = 35%
+	offset-x = 20%
 	offset-y = 2%
 	fixed-center = false
-	background = ${colors.background}
-	foreground = ${colors.foreground}
-	line-size = 2
-	line-color = ${colors.foreground}
-	border-size = 1
-	border-color = ${colors.foreground}
+	background = ${colors.transparent}
+	foreground = ${colors.transparent}
+	;background = ${colors.background}
+	;foreground = ${colors.foreground}
+	line-size = 0
+	line-color = ${colors.background}
+	border-size = 0
+	border-color = ${colors.border}
 	padding-left = 0
 	padding-right = 0
 	module-margin-left = 0
 	module-margin-right = 0
 	font-0 = "Roboto Mono:size=12:weight=bold;2"
-	font-1 = "Font Awesome 5 Free:size=14:weight=bold;2"
-	modules-center = i3
+	font-1 = "Font Awesome 5 Free:size=12:weight=bold;2"
+	modules-left = i3
+	modules-right = battery wifi date time
 
 	[module/i3]
 		type = internal/i3
@@ -64,50 +69,32 @@
 		; Only show workspaces on the same output as the bar
 		; pin-workspaces = true
 
-		label-focused = 
-		label-focused-padding = 2
-		label-focused-background = ${colors.background}
-		label-focused-foreground = ${colors.foreground}
+		label-focused = %icon%
+		label-focused-padding = 3
+		label-focused-background = ${colors.foreground}
+		label-focused-foreground = ${colors.background}
 		label-focused-underline = ${colors.background}
 
-		label-unfocused = 
-		label-unfocused-padding = 2
+		label-unfocused = %icon%
+		label-unfocused-padding = 3
 		label-unfocused-background = ${colors.background}
-		label-unfocused-foreground = ${colors.black}
+		label-unfocused-foreground = ${colors.foreground}
 		; label-unfocused-underline = ${colors.black}
 
 		label-visible-background = ${self.label-focused-background}
 		label-visible-underline = ${self.label-focused-underline}
 		label-visible-padding = ${self.label-focused-padding}
 
-		label-urgent-foreground = ${colors.red}
-		label-urgent-padding = 2
+		label-urgent-background = ${colors.red}
+		label-urgent-foreground = ${colors.background}
+		label-urgent-padding = 3
 
-[bar/right]
-	dpi = ${xrdb:Xft.dpi:-1}
-	override-redirect = true
-	wm-restack = i3
-	monitor = ${env:MONITOR:eDP1}
-	monitor-fallback = ${env:MONITOR:DP1}
-	bottom = false
-	width = 15%
-	height = 3%
-	offset-x = 70%
-	offset-y = 2%
-	fixed-center = false
-	background = ${colors.background}
-	foreground = ${colors.foreground}
-	line-size = 2
-	line-color = ${colors.foreground}
-	border-size = 1
-	border-color = ${colors.foreground}
-	padding-left = 0
-	padding-right = 0
-	module-margin-left = 0
-	module-margin-right = 0
-	font-0 = "Roboto Mono:size=12:weight=bold;2"
-	font-1 = "Font Awesome 5 Free:size=14:weight=bold;2"
-	modules-center = battery date
+		ws-icon-0 = 1;
+		ws-icon-1 = 2;
+		ws-icon-2 = 3;
+		ws-icon-3 = 4;
+		ws-icon-4 = 5;
+		ws-icon-5 = 6;
 
 	[module/battery]
 		type = internal/battery
@@ -116,29 +103,84 @@
 		full-at = 98
 
 		format-charging-prefix = 
+		format-charging-prefix-padding-left = 3
 		format-charging = <label-charging>
-		format-charging-foreground = ${colors.green}
+		format-charging-foreground = ${colors.background}
+		format-charging-background = ${colors.green}
 		format-charging-underline = ${colors.background}
-		label-charging-padding = 2
+		label-charging-padding-left = 2
+		label-charging-padding-right = 3
 
 		format-discharging-prefix = 
+		format-discharging-prefix-padding-left = 3
 		format-discharging = <label-discharging>
-		format-discharging-foreground = ${colors.red}
+		format-discharging-foreground = ${colors.background}
+		format-discharging-background = ${colors.red}
 		format-discharging-underline = ${colors.background}
-		label-discharging-padding = 2
+		label-discharging-padding-left = 2
+		label-discharging-padding-right = 3
 
 		format-full-prefix = 
+		format-full-prefix-padding-left = 3
 		format-full = <label-full>
-		format-full-foreground = ${colors.green}
+		format-full-foreground = ${colors.background}
+		format-full-background = ${colors.green}
 		format-full-underline = ${colors.background}
-		label-full-padding = 2
+		label-full-padding-left = 2
+		label-full-padding-right = 3
+
+	[module/wifi]
+		type = internal/network
+		interface = wlp2s0
+		ping-interval = 10
+		unknown-as-up = true
+
+		format-connected-prefix = 
+		format-connected-prefix-padding-left = 3
+		format-connected-foreground = ${colors.green}
+		format-connected-background = ${colors.background}
+		label-connected = %essid%
+		label-connected-padding-left = 2
+		label-connected-padding-right = 3
+
+		format-packetloss-prefix = 
+		format-packetloss-prefix-padding-left = 3
+		format-packetloss-foreground = ${colors.red}
+		format-packetloss-background = ${colors.background}
+		label-packetloss = packetloss
+		label-packetloss-padding-left = 2
+		label-packetloss-padding-right = 3
+
+		format-disconnected-prefix = 
+		format-disconnected-prefix-padding-left = 3
+		format-disconnected-foreground = ${colors.red}
+		format-disconnected-background = ${colors.background}
+		label-disconnected = disconnected
+		label-disconnected-padding-left = 2
+		label-disconnected-padding-right = 3
 
 	[module/date]
+		type = internal/date
+		interval = 10.0
+		date = %A %d %b
+
+		format-prefix = 
+		format-prefix-padding-left = 3
+		format-foreground = ${colors.background}
+		format-background = ${colors.blue}
+		label = %date%
+		label-padding-left = 2
+		label-padding-right = 3
+
+	[module/time]
 		type = internal/date
 		interval = 10.0
 		time = %H:%M
 
 		format-prefix = 
-		format-prefix-padding = 2
-		format-foreground = ${colors.foreground}
+		format-prefix-padding-left = 3
+		format-foreground = ${colors.blue}
+		format-background = ${colors.background}
 		label = %time%
+		label-padding-left = 2
+		label-padding-right = 3

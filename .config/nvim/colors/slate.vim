@@ -44,7 +44,7 @@ function! s:hi(group, guifg, guibg, attr)
 endfunction
 
 function! s:gui(color)
-	if exists("g:slate_style")
+	if exists("g:debris_style")
 		return a:color[s:style]
 	else
 		return a:color["default"]
@@ -72,7 +72,7 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.background,    s:gui.background,    "italic")
+call s:hi("User1",              s:gui.none,          s:gui.none,          "italic")
 call s:hi("User2",              s:gui.red,           s:gui.statusline,    "italic")
 call s:hi("User3",              s:gui.green,         s:gui.statusline,    "italic")
 call s:hi("User4",              s:gui.yellow,        s:gui.statusline,    "italic")
@@ -82,10 +82,10 @@ call s:hi("User7",              s:gui.cyan,          s:gui.statusline,    "itali
 call s:hi("User8",              s:gui.comment,       s:gui.statusline,    "italic")
 
 " STATUSLINE COLORS (basic/fallback as we have a separate statusline in ./plugin)
-call s:hi("StatusLine",         s:gui.foreground,    s:gui.background,    "none")
-call s:hi("StatusLineNC",       s:gui.comment,       s:gui.background,    "none")
-call s:hi("StatusLineTerm",     s:gui.foreground,    s:gui.background,    "none")
-call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.background,    "none")
+call s:hi("StatusLine",         s:gui.foreground,    s:gui.none,    "none")
+call s:hi("StatusLineNC",       s:gui.comment,       s:gui.none,    "none")
+call s:hi("StatusLineTerm",     s:gui.foreground,    s:gui.none,    "none")
+call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.none,    "none")
 
 "call"
 " NERDTREE COLORS
@@ -102,9 +102,9 @@ call s:hi("ALEErrorSign",        s:gui.red,       s:gui.cursorline, "")
 call s:hi("ALEWarningSign",      s:gui.yellow,    s:gui.cursorline, "")
 call s:hi("ALEStyleErrorSign",   s:gui.red,       s:gui.cursorline, "")
 call s:hi("ALEStyleWarningSign", s:gui.yellow,    s:gui.cursorline, "")
-call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none, "")
-call s:hi("ALEErrorLine",        s:gui.red,       s:gui.none, "")
-call s:hi("ALEWarningLine",      s:gui.yellow,    s:gui.none, "")
+call s:hi("ALEInfoLine",         s:gui.comment,   s:gui.none,       "bold")
+call s:hi("ALEErrorLine",        s:gui.red,       s:gui.none,       "bold")
+call s:hi("ALEWarningLine",      s:gui.yellow,    s:gui.none,       "bold")
 
 call s:hi("EndOfBuffer",  s:gui.background, "",               "")
 call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
@@ -112,7 +112,7 @@ call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
 call s:hi("LineNr",       s:gui.listchars,  "",               "")
-call s:hi("CursorLine",   s:gui.none,       s:gui.cursorline, "")
+call s:hi("CursorLine",   s:gui.none,       s:gui.none, "")
 call s:hi("CursorLineNr", s:gui.foreground, s:gui.cursorline, "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
@@ -323,3 +323,4 @@ call s:hi("shSetList",     s:gui.green,      "", "")
 call s:hi("shTestOpr",     s:gui.blue,       "", "")
 call s:hi("shNumber",      s:gui.yellow,     "", "")
 call s:hi("shConditional", s:gui.cyan,       "", "")
+

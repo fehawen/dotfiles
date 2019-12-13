@@ -4,16 +4,16 @@
 ### VARIABLES ###
 #################
 
-# arrow_symbol="›"
-arrow_symbol=""
+# arrow_symbol=""
+arrow_symbol="›"
 exit_symbol="$arrow_symbol"
 
 newline="\n"
 
 ahead_symbol="A"
 behind_symbol="B"
-# branch_symbol=""
-branch_symbol=""
+# branch_symbol=""
+branch_symbol=""
 conflicts_symbol="C"
 deleted_symbol="D"
 modified_symbol="M"

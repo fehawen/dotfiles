@@ -1,12 +1,12 @@
 #
-#  $$$$$$\  $$$$$$\         $$$$$$\   $$$$$$\  $$$$$$$\   $$$$$$\
-#  \_$$  _|$$ ___$$\       $$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\
-#    $$ |  \_/   $$ |      $$ /  \__|$$ /  $$ |$$ |  $$ |$$ /  \__|
-#    $$ |    $$$$$ /       $$ |$$$$\ $$$$$$$$ |$$$$$$$  |\$$$$$$\
-#    $$ |    \___$$\       $$ |\_$$ |$$  __$$ |$$  ____/  \____$$\
-#    $$ |  $$\   $$ |      $$ |  $$ |$$ |  $$ |$$ |      $$\   $$ |
-#  $$$$$$\ \$$$$$$  |      \$$$$$$  |$$ |  $$ |$$ |      \$$$$$$  |
-#  \______| \______/        \______/ \__|  \__|\__|       \______/
+#  $$$$$$\	$$$$$$\					$$$$$$\		$$$$$$\  $$$$$$$\		$$$$$$\
+#  \_$$  _|$$ ___$$\			 $$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\
+#		 $$ |  \_/	 $$ |			 $$ /  \__|$$ /  $$ |$$ |  $$ |$$ /  \__|
+#		 $$ |		 $$$$$ /			 $$ |$$$$\ $$$$$$$$ |$$$$$$$	|\$$$$$$\
+#		 $$ |		 \___$$\			 $$ |\_$$ |$$  __$$ |$$  ____/	\____$$\
+#		 $$ |  $$\	 $$ |			 $$ |  $$ |$$ |  $$ |$$ |			 $$\	 $$ |
+#  $$$$$$\ \$$$$$$	|			 \$$$$$$	|$$ |  $$ |$$ |			 \$$$$$$	|
+#  \______| \______/				\______/ \__|  \__|\__|				\______/
 #
 
 set $mod Mod4
@@ -15,43 +15,43 @@ set $mod Mod4
 font pango:Roboto Mono 12
 
 # Gaps
-gaps inner 16
-gaps outer 24
-gaps top 64
+gaps inner 12
+gaps outer 0
+gaps top 62
 
 # Borders
-for_window [class=".*"] border pixel 1
-#for_window [instance="popup"] border pixel 1
+for_window [class=".*"] border pixel 0
+for_window [instance="popup"] border pixel 3
 
 # Floating
-#floating_minimum_size 600 x 250
-#floating_maximum_size 600 x 250
+#floating_minimum_size 800 x 450
+#floating_maximum_size 800 x 450
 #for_window [class=".*"] floating enable
 
 # Colors
-set_from_resource $darkBlack     color0
-set_from_resource $black         color8
-set_from_resource $darkRed       color1
-set_from_resource $red           color9
-set_from_resource $darkGreen     color2
-set_from_resource $green         color10
-set_from_resource $darkYellow    color3
-set_from_resource $yellow        color11
-set_from_resource $darkBlue      color4
-set_from_resource $blue          color12
-set_from_resource $darkMagenta   color5
-set_from_resource $magenta       color13
-set_from_resource $darkCyan      color6
-set_from_resource $cyan          color14
-set_from_resource $darkWhite     color7
-set_from_resource $white         color15
+set_from_resource $darkBlack		 color0
+set_from_resource $black				 color8
+set_from_resource $darkRed			 color1
+set_from_resource $red					 color9
+set_from_resource $darkGreen		 color2
+set_from_resource $green				 color10
+set_from_resource $darkYellow		 color3
+set_from_resource $yellow				 color11
+set_from_resource $darkBlue			 color4
+set_from_resource $blue					 color12
+set_from_resource $darkMagenta	 color5
+set_from_resource $magenta			 color13
+set_from_resource $darkCyan			 color6
+set_from_resource $cyan					 color14
+set_from_resource $darkWhite		 color7
+set_from_resource $white				 color15
 
-set $borderFocused #BEBEC3
-set $borderUnfocused #BEBEC3
+set $borderFocused #0D202F
+set $borderUnfocused #0D202F
 
-#                        Border            Background        Foreground        Indicator         Child Border
-client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
-client.unfocused         $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused
+#												 Border						 Background				 Foreground				 Indicator				 Child Border
+client.focused					 $borderFocused		 $borderFocused		 $borderFocused		 $borderFocused		 $borderFocused
+client.unfocused				 $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused
 client.focused_inactive  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused
 
 # Focus
@@ -67,7 +67,7 @@ floating_modifier $mod
 # Launch popup terminal on i3 startup
 for_window [instance="popup"] floating enable
 for_window [instance="popup"] move scratchpad
-exec --no-startup-id termite --name popup
+exec --no-startup-id kitty --name popup
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -96,7 +96,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ##################
 
 # Launch new terminal window
-bindsym $mod+Return exec --no-startup-id termite
+bindsym $mod+Return exec --no-startup-id kitty
 
 # Toggle popup terminal
 bindsym $mod+p exec $HOME/.config/i3/i3popup.sh
@@ -152,32 +152,6 @@ bindsym $mod+d exec dmenu_run -i -b -p "Launch:" -nb "#0D202F" -nf "#7AB1B3" -sb
 # Launch i3-dmenu-desktop
 # bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
-#############
-#### BAR ####
-#############
-
-# Conky bar
-# bar {
-# 	id bar-1
-# 	tray_output none
-# 	font pango:SF Mono Bold Italic 13
-# 	height 65
-# 	position top
-# 	workspace_buttons no
-# 	strip_workspace_numbers yes
-# 	colors {
-# 		background #0D202F
-# 		statusline #0D202F
-# 		separator #0D202F
-#
-# 		focused_workspace  #0D202F #0D202F #B2BEBF
-# 		active_workspace   #0D202F #0D202F #B2BEBF
-# 		inactive_workspace #0D202F #0D202F #4C575B
-# 		urgent_workspace   #0D202F #0D202F #AE5151
-# 	}
-# 	status_command $HOME/.config/i3/i3conkybar.sh
-# }
-
 #################################
 #### WORKSPACES & NAVIGATION ####
 #################################
@@ -220,6 +194,32 @@ bindsym $mod+Shift+space focus mode_toggle
 # focus the child container
 # bindsym $mod+d focus child
 
+# resize window (you can also use the mouse for that)
+mode "resize" {
+	# These bindings trigger as soon as you enter the resize mode
+
+	# Pressing left will shrink the window’s width.
+	# Pressing right will grow the window’s width.
+	# Pressing up will shrink the window’s height.
+	# Pressing down will grow the window’s height.
+	bindsym j resize shrink width 10 px or 10 ppt
+	bindsym k resize grow height 10 px or 10 ppt
+	bindsym l resize shrink height 10 px or 10 ppt
+	bindsym semicolon resize grow width 10 px or 10 ppt
+
+	# same bindings, but for the arrow keys
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+
+	# back to normal: Enter or Escape
+	bindsym Return mode "default" notify-send "Exit resize mode"
+	bindsym Escape mode "default" notify-send "Exit resize mode"
+}
+
+bindsym $mod+r mode "resize" notify-send "Enter resize mode"
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -228,34 +228,22 @@ set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-# set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-# bindsym $mod+0 workspace $ws10
+bindsym $mod+8 workspace $ws4
+bindsym $mod+9 workspace $ws5
+bindsym $mod+0 workspace $ws6
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-# bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+8 move container to workspace $ws4
+bindsym $mod+Shift+9 move container to workspace $ws5
+bindsym $mod+Shift+0 move container to workspace $ws6
 
 ############################
 #### ACTION KEYBINDINGS ####
