@@ -80,10 +80,10 @@ setup_dotfiles() {
 	# Include if needed
 	# ".config/alacritty"
 	# ".config/kitty"
+	#".config/conky"
 
 	declare -a folders=(
 		".colors"
-		".config/conky"
 		".config/dunst"
 		".config/fontconfig"
 		".config/gtk-3.0"
@@ -93,6 +93,7 @@ setup_dotfiles() {
 		".config/nvim/colors"
 		".config/nvim/plugin"
 		".config/picom"
+		".config/polybar"
 		".config/prompt"
 		".config/ranger"
 		".config/termite"

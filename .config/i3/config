@@ -12,15 +12,15 @@
 set $mod Mod4
 
 # Font
-font pango:SF Mono 13
+font pango:Roboto Mono 12
 
 # Gaps
-gaps inner 12
+gaps inner 16
 gaps outer 24
-#gaps top 48
+gaps top 64
 
 # Borders
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 1
 #for_window [instance="popup"] border pixel 1
 
 # Floating
@@ -47,7 +47,7 @@ set_from_resource $darkWhite     color7
 set_from_resource $white         color15
 
 set $borderFocused #BEBEC3
-set $borderUnfocused #6D6E75
+set $borderUnfocused #BEBEC3
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -68,6 +68,9 @@ floating_modifier $mod
 for_window [instance="popup"] floating enable
 for_window [instance="popup"] move scratchpad
 exec --no-startup-id termite --name popup
+
+# Start polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Start dunst (notifications)
 exec --no-startup-id dunst
