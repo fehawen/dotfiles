@@ -1,6 +1,6 @@
 * {
-	font-family: "SF Mono" !important;
-	background-color: #132635 !important;
+	font-family: "Roboto Mono" !important;
+	background-color: #12181D !important;
 	color: #B2BEBF !important;
 	border: none !important;
 	border-top: none !important;
@@ -19,26 +19,26 @@ body,
 td,
 tr,
 p {
-	font-family: "SF Mono" !important;
-	background-color: #132635 !important;
+	font-family: "Roboto Mono" !important;
+	background-color: #12181D !important;
 	color: #B2BEBF !important;
 }
 
 div {
-	font-family: "SF Mono" !important;
-	background-color: #132635 !important;
+	font-family: "Roboto Mono" !important;
+	background-color: #12181D !important;
 	color: #B2BEBF !important;
 }
 
 h1 {
-	font-family: "SF Mono" !important;
-	background-color: #132635 !important;
+	font-family: "Roboto Mono" !important;
+	background-color: #12181D !important;
 	color: #B2BEBF !important;
 }
 
 a h1 {
-	font-family: "SF Mono" !important;
-	color: #5E828F !important;
+	font-family: "Roboto Mono" !important;
+	color: #6D6E75 !important;
 }
 
 h2,
@@ -46,8 +46,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "SF Mono" !important;
-	background-color: #132635 !important;
+	font-family: "Roboto Mono" !important;
+	background-color: #12181D !important;
 	color: #B2BEBF !important;
 }
 
@@ -56,33 +56,33 @@ a h3,
 a h4,
 a h5,
 a h6 {
-	font-family: "SF Mono" !important;
-	color: #5E828F !important;
+	font-family: "Roboto Mono" !important;
+	color: #6D6E75 !important;
 }
 
 a p {
-	font-family: "SF Mono" !important;
+	font-family: "Roboto Mono" !important;
 	color: #566166 !important;
 }
 
 a {
-	font-family: "SF Mono" !important;
-	color: #B48291 !important;
-	background-color: #132635 !important;
+	font-family: "Roboto Mono" !important;
+	color: #96858D !important;
+	background-color: #12181D !important;
 	border: none !important;
 }
 
 button {
-	font-family: "SF Mono" !important;
-	background-color: #132635 !important;
-	color: #B48291 !important;
+	font-family: "Roboto Mono" !important;
+	background-color: #12181D !important;
+	color: #96858D !important;
 	border: none !important;
 	border-radius: 0 !important;
 }
 
 summary {
-	font-family: "SF Mono" !important;
-	background-color: #132635 !important;
+	font-family: "Roboto Mono" !important;
+	background-color: #12181D !important;
 	color: #B2BEBF !important;
 	border: none !important;
 	border-radius: 0 !important;
@@ -103,9 +103,9 @@ a svg,
 a i,
 a span,
 a div {
-	font-family: "SF Mono" !important;
-	background-color: #132635 !important;
-	color: #B48291 !important;
+	font-family: "Roboto Mono" !important;
+	background-color: #12181D !important;
+	color: #96858D !important;
 }
 
 summary svg,
@@ -120,20 +120,20 @@ summary h4,
 summary h5,
 summary h6,
 button svg {
-	background-color: #132635 !important;
-	color: #B48291 !important;
+	background-color: #12181D !important;
+	color: #96858D !important;
 }
 
 a svg {
-	fill: #B48291 !important;
+	fill: #96858D !important;
 }
 
 summary svg {
-	fill: #B48291 !important;
+	fill: #96858D !important;
 }
 
 svg {
-	fill: #B48291 !important;
+	fill: #96858D !important;
 }
 
 hr {
@@ -141,15 +141,15 @@ hr {
 }
 
 input, form {
-	font-family: "SF Mono" !important;
-	background-color: #132635 !important;
-	color: #B48291 !important;
+	font-family: "Roboto Mono" !important;
+	background-color: #12181D !important;
+	color: #96858D !important;
 	border-radius: 0 !important;
 }
 
 input {
-	font-family: "SF Mono" !important;
-	border: 1px solid #B48291 !important;
+	font-family: "Roboto Mono" !important;
+	border: 1px solid #96858D !important;
 	padding-left: 16px !important;
 	padding-right: 16px !important;
 	height: 32px !important;
@@ -160,7 +160,7 @@ label svg {
 }
 
 form {
-	font-family: "SF Mono" !important;
+	font-family: "Roboto Mono" !important;
 	border: none !important;
 }
 
@@ -174,7 +174,7 @@ code {
 
 pre span,
 code span {
-	color: #7AB1B3 !important;
+	color: #949AA9 !important;
 	background: #0D202F !important;
 }
 

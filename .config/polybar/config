@@ -21,7 +21,7 @@
 	transparent = #00ffffff
 	foreground = ${xrdb:foreground}
 	background = ${xrdb:background}
-	border = ${xrdb:color16}
+	border = ${xrdb:foreground}
 	black = ${xrdb:color0}
 	red = ${xrdb:color1}
 	green = ${xrdb:color2}
@@ -38,9 +38,9 @@
 	monitor-fallback = ${env:MONITOR:DP1}
 	bottom = false
 	width = 60%
-	height = 3%
+	height = 50
 	offset-x = 20%
-	offset-y = 2%
+	offset-y = 12
 	fixed-center = false
 	background = ${colors.transparent}
 	foreground = ${colors.transparent}

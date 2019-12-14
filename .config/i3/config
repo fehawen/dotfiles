@@ -28,26 +28,8 @@ for_window [instance="popup"] border pixel 3
 #floating_maximum_size 800 x 450
 #for_window [class=".*"] floating enable
 
-# Colors
-set_from_resource $darkBlack		 color0
-set_from_resource $black				 color8
-set_from_resource $darkRed			 color1
-set_from_resource $red					 color9
-set_from_resource $darkGreen		 color2
-set_from_resource $green				 color10
-set_from_resource $darkYellow		 color3
-set_from_resource $yellow				 color11
-set_from_resource $darkBlue			 color4
-set_from_resource $blue					 color12
-set_from_resource $darkMagenta	 color5
-set_from_resource $magenta			 color13
-set_from_resource $darkCyan			 color6
-set_from_resource $cyan					 color14
-set_from_resource $darkWhite		 color7
-set_from_resource $white				 color15
-
-set $borderFocused #0D202F
-set $borderUnfocused #0D202F
+set $borderFocused #D4D4D4
+set $borderUnfocused #D4D4D4
 
 #												 Border						 Background				 Foreground				 Indicator				 Child Border
 client.focused					 $borderFocused		 $borderFocused		 $borderFocused		 $borderFocused		 $borderFocused

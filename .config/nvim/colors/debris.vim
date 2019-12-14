@@ -11,20 +11,18 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { "default": "NONE" }
-let s:gui.foreground = { "default": "#DCDCE1" }
+let s:gui.foreground = { "default": "#D4D4D4" }
 let s:gui.background = { "default": "#12181D" }
 
 let s:gui.line       = { "default": "#3E444A" }
 let s:gui.cursorline = { "default": "#171D22" }
 let s:gui.statusline = { "default": "#0B1218" }
-let s:gui.selection  = { "default": "#CDCDD2" }
 let s:gui.comment    = { "default": "#3E444A" }
 let s:gui.listchars  = { "default": "#3E444A" }
 let s:gui.specialkey = { "default": "#3E444A" }
-let s:gui.search     = { "default": "#BEBEC3" }
 
 let s:gui.black      = { "default": "#3E444A" }
-let s:gui.red        = { "default": "#9A6D6D" }
+let s:gui.red        = { "default": "#917070" }
 let s:gui.green      = { "default": "#798183" }
 let s:gui.yellow     = { "default": "#777882" }
 let s:gui.blue       = { "default": "#6D6E75" }
@@ -53,7 +51,7 @@ endfunction
 
 " NEOVIM TERMINAL COLORS
 if has("nvim")
-	let g:terminal_color_0  = s:gui(s:gui.background)
+	let g:terminal_color_0  = s:gui(s:gui.black)
 	let g:terminal_color_1  = s:gui(s:gui.red)
 	let g:terminal_color_2  = s:gui(s:gui.green)
 	let g:terminal_color_3  = s:gui(s:gui.yellow)
@@ -61,7 +59,7 @@ if has("nvim")
 	let g:terminal_color_5  = s:gui(s:gui.magenta)
 	let g:terminal_color_6  = s:gui(s:gui.cyan)
 	let g:terminal_color_7  = s:gui(s:gui.foreground)
-	let g:terminal_color_8  = s:gui(s:gui.selection)
+	let g:terminal_color_8  = s:gui(s:gui.black)
 	let g:terminal_color_9  = s:gui(s:gui.red)
 	let g:terminal_color_10 = s:gui(s:gui.green)
 	let g:terminal_color_11 = s:gui(s:gui.yellow)
@@ -132,16 +130,16 @@ call s:hi("DiffRemoved",  s:gui.red,        "", "")
 call s:hi("DiffAdd",      "",               s:gui.cyan,       "")
 call s:hi("DiffChange",   "",               s:gui.cyan,       "")
 call s:hi("DiffDelete",   s:gui.red,        s:gui.black,      "")
-call s:hi("DiffText",     s:gui.background, s:gui.selection,  "")
+call s:hi("DiffText",     s:gui.background, s:gui.black,      "")
 
 call s:hi("NonText",      s:gui.specialkey, "",               "none")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
-" call s:hi("MatchParen",   s:gui.background, s:gui.selection,  "")
+" call s:hi("MatchParen",   s:gui.background, s:gui.black,    "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "italic")
 call s:hi("String",       s:gui.green,      "",               "")
 call s:hi("Normal",       s:gui.foreground, s:gui.none,       "")
-call s:hi("Visual",       s:gui.background, s:gui.selection,  "")
+call s:hi("Visual",       s:gui.background, s:gui.blue,       "")
 call s:hi("Constant",     s:gui.blue,       "",               "")
 call s:hi("Type",         s:gui.blue,       "",               "")
 call s:hi("Define",       s:gui.cyan,       "",               "")
@@ -154,8 +152,8 @@ call s:hi("Number",       s:gui.yellow,     "",               "")
 call s:hi("Identifier",   s:gui.blue,       "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
-call s:hi("Search",       s:gui.background, s:gui.search,     "")
-call s:hi("InSearch",     s:gui.background, s:gui.search,     "")
+call s:hi("Search",       s:gui.background, s:gui.yellow,     "")
+call s:hi("InSearch",     s:gui.background, s:gui.yellow,     "")
 call s:hi("Todo",         s:gui.comment,    "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "") " @observable etc...
 
