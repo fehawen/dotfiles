@@ -79,8 +79,8 @@ setup_dotfiles() {
 
 	# Include if needed
 	# ".config/alacritty"
-	# ".config/kitty"
-	#".config/conky"
+	# ".config/termite"
+	# ".config/conky"
 
 	declare -a folders=(
 		".colors"
@@ -88,6 +88,7 @@ setup_dotfiles() {
 		".config/fontconfig"
 		".config/gtk-3.0"
 		".config/i3"
+		".config/kitty"
 		".config/neofetch"
 		".config/nvim"
 		".config/nvim/colors"
@@ -96,7 +97,6 @@ setup_dotfiles() {
 		".config/polybar"
 		".config/prompt"
 		".config/ranger"
-		".config/termite"
 		".config/zathura"
 		".newsboat"
 		".surf/styles"
