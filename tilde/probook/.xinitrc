@@ -4,7 +4,7 @@
 
 xrandr --dpi 55
 
-feh --bg-fill ~/.wallpapers/stairway.jpg
+feh --bg-fill ~/.wallpapers/mist.jpg
 
 setxkbmap -layout se
 

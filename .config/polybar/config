@@ -40,7 +40,7 @@
 	width = 60%
 	height = 50
 	offset-x = 20%
-	offset-y = 12
+	offset-y = 24
 	fixed-center = false
 	background = ${colors.transparent}
 	foreground = ${colors.transparent}
@@ -52,8 +52,8 @@
 	border-color = ${colors.border}
 	padding-left = 0
 	padding-right = 0
-	module-margin-left = 0
-	module-margin-right = 0
+	module-margin-left = 1
+	module-margin-right = 1
 	font-0 = "Roboto Mono:size=12:weight=bold;2"
 	font-1 = "Font Awesome 5 Free:size=12:weight=bold;2"
 	modules-left = i3
@@ -71,22 +71,21 @@
 
 		label-focused = %icon%
 		label-focused-padding = 3
-		label-focused-background = ${colors.foreground}
 		label-focused-foreground = ${colors.background}
-		label-focused-underline = ${colors.background}
+		label-focused-background = ${colors.foreground}
+		label-focused-underline = ${colors.foreground}
 
 		label-unfocused = %icon%
 		label-unfocused-padding = 3
-		label-unfocused-background = ${colors.background}
 		label-unfocused-foreground = ${colors.foreground}
-		; label-unfocused-underline = ${colors.black}
+		label-unfocused-background = ${colors.background}
 
 		label-visible-background = ${self.label-focused-background}
 		label-visible-underline = ${self.label-focused-underline}
 		label-visible-padding = ${self.label-focused-padding}
 
-		label-urgent-background = ${colors.red}
 		label-urgent-foreground = ${colors.background}
+		label-urgent-background = ${colors.red}
 		label-urgent-padding = 3
 
 		ws-icon-0 = 1;
@@ -137,24 +136,24 @@
 
 		format-connected-prefix = 
 		format-connected-prefix-padding-left = 3
-		format-connected-foreground = ${colors.green}
-		format-connected-background = ${colors.background}
+		format-connected-foreground = ${colors.background}
+		format-connected-background = ${colors.green}
 		label-connected = %essid%
 		label-connected-padding-left = 2
 		label-connected-padding-right = 3
 
 		format-packetloss-prefix = 
 		format-packetloss-prefix-padding-left = 3
-		format-packetloss-foreground = ${colors.red}
-		format-packetloss-background = ${colors.background}
+		format-packetloss-foreground = ${colors.background}
+		format-packetloss-background = ${colors.yellow}
 		label-packetloss = packetloss
 		label-packetloss-padding-left = 2
 		label-packetloss-padding-right = 3
 
 		format-disconnected-prefix = 
 		format-disconnected-prefix-padding-left = 3
-		format-disconnected-foreground = ${colors.red}
-		format-disconnected-background = ${colors.background}
+		format-disconnected-foreground = ${colors.background}
+		format-disconnected-background = ${colors.red}
 		label-disconnected = disconnected
 		label-disconnected-padding-left = 2
 		label-disconnected-padding-right = 3
@@ -167,7 +166,7 @@
 		format-prefix = 
 		format-prefix-padding-left = 3
 		format-foreground = ${colors.background}
-		format-background = ${colors.blue}
+		format-background = ${colors.foreground}
 		label = %date%
 		label-padding-left = 2
 		label-padding-right = 3
@@ -179,8 +178,8 @@
 
 		format-prefix = 
 		format-prefix-padding-left = 3
-		format-foreground = ${colors.blue}
-		format-background = ${colors.background}
+		format-foreground = ${colors.background}
+		format-background = ${colors.foreground}
 		label = %time%
 		label-padding-left = 2
 		label-padding-right = 3

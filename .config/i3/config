@@ -15,9 +15,9 @@ set $mod Mod4
 font pango:Roboto Mono 12
 
 # Gaps
-gaps inner 12
-gaps outer 0
-gaps top 62
+gaps inner 24
+gaps outer 24
+gaps top 72
 
 # Borders
 for_window [class=".*"] border pixel 0
@@ -31,9 +31,9 @@ for_window [instance="popup"] border pixel 3
 set $borderFocused #D4D4D4
 set $borderUnfocused #D4D4D4
 
-#												 Border						 Background				 Foreground				 Indicator				 Child Border
-client.focused					 $borderFocused		 $borderFocused		 $borderFocused		 $borderFocused		 $borderFocused
-client.unfocused				 $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused
+#                        Border            Background        Foreground        Indicator         Child Border
+client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
+client.unfocused         $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused
 client.focused_inactive  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused
 
 # Focus
