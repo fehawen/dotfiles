@@ -2,7 +2,7 @@
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-feh --bg-fill ~/.wallpapers/mist.jpg
+feh --bg-fill ~/.wallpapers/mist.png
 
 setxkbmap -layout se
 
