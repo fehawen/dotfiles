@@ -14,17 +14,13 @@ let s:gui.none       = { "default": "NONE" }
 let s:gui.foreground = { "default": "#D4D4D4" }
 let s:gui.background = { "default": "#12181D" }
 
-let s:gui.line       = { "default": "#3E444A" }
 let s:gui.cursorline = { "default": "#171D22" }
-let s:gui.statusline = { "default": "#0B1218" }
 let s:gui.comment    = { "default": "#3E444A" }
-let s:gui.listchars  = { "default": "#3E444A" }
-let s:gui.specialkey = { "default": "#3E444A" }
 
 let s:gui.black      = { "default": "#3E444A" }
 let s:gui.red        = { "default": "#917070" }
 let s:gui.green      = { "default": "#798183" }
-let s:gui.yellow     = { "default": "#777882" }
+let s:gui.yellow     = { "default": "#82817E" }
 let s:gui.blue       = { "default": "#6D6E75" }
 let s:gui.magenta    = { "default": "#96858D" }
 let s:gui.cyan       = { "default": "#949AA9" }
@@ -70,20 +66,20 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.none,          s:gui.none,          "italic")
-call s:hi("User2",              s:gui.red,           s:gui.statusline,    "italic")
-call s:hi("User3",              s:gui.green,         s:gui.statusline,    "italic")
-call s:hi("User4",              s:gui.yellow,        s:gui.statusline,    "italic")
-call s:hi("User5",              s:gui.blue,          s:gui.statusline,    "italic")
-call s:hi("User6",              s:gui.magenta,       s:gui.statusline,    "italic")
-call s:hi("User7",              s:gui.cyan,          s:gui.statusline,    "italic")
-call s:hi("User8",              s:gui.comment,       s:gui.statusline,    "italic")
+call s:hi("User1",              s:gui.none,          s:gui.none,          "bold,italic")
+call s:hi("User2",              s:gui.background,    s:gui.red,           "bold,italic")
+call s:hi("User3",              s:gui.background,    s:gui.green,         "bold,italic")
+call s:hi("User4",              s:gui.background,    s:gui.yellow,        "bold,italic")
+call s:hi("User5",              s:gui.background,    s:gui.blue,          "bold,italic")
+call s:hi("User6",              s:gui.background,    s:gui.magenta,       "bold,italic")
+call s:hi("User7",              s:gui.background,    s:gui.cyan,          "bold,italic")
+call s:hi("User8",              s:gui.background,    s:gui.comment,       "bold,italic")
 
 " STATUSLINE COLORS (basic/fallback as we have a separate statusline in ./plugin)
-call s:hi("StatusLine",         s:gui.foreground,    s:gui.none,    "none")
-call s:hi("StatusLineNC",       s:gui.comment,       s:gui.none,    "none")
-call s:hi("StatusLineTerm",     s:gui.foreground,    s:gui.none,    "none")
-call s:hi("StatusLineTemrNC",   s:gui.comment,       s:gui.none,    "none")
+call s:hi("StatusLine",         s:gui.background,    s:gui.none,    "none")
+call s:hi("StatusLineNC",       s:gui.foreground,    s:gui.none,    "none")
+call s:hi("StatusLineTerm",     s:gui.background,    s:gui.none,    "none")
+call s:hi("StatusLineTemrNC",   s:gui.foreground,    s:gui.none,    "none")
 
 "call"
 " NERDTREE COLORS
@@ -105,23 +101,23 @@ call s:hi("ALEErrorLine",        s:gui.red,       s:gui.none,       "bold")
 call s:hi("ALEWarningLine",      s:gui.yellow,    s:gui.none,       "bold")
 
 call s:hi("EndOfBuffer",  s:gui.background, "",               "")
-call s:hi("ColorColumn",  s:gui.none,       s:gui.line,       "")
+call s:hi("ColorColumn",  s:gui.none,       s:gui.black,      "")
 call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
-call s:hi("LineNr",       s:gui.listchars,  "",               "")
+call s:hi("LineNr",       s:gui.black,      "",               "")
 call s:hi("CursorLine",   s:gui.none,       s:gui.none, "")
 call s:hi("CursorLineNr", s:gui.foreground, s:gui.cursorline, "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
-call s:hi("Folded",       s:gui.background, s:gui.line,       "")
+call s:hi("Folded",       s:gui.background, s:gui.black,      "")
 call s:hi("PMenu",        s:gui.blue,       s:gui.cursorline, "")
 call s:hi("PMenuSel",     s:gui.cursorline, s:gui.blue,       "")
 call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.yellow,     "",               "")
 call s:hi("SpellBad",     s:gui.red,        s:gui.none,       "none")
-call s:hi("VertSplit",    s:gui.line,       s:gui.none,       "none")
+call s:hi("VertSplit",    s:gui.black,      s:gui.none,       "none")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "")
 
 call s:hi("DiffAdded",    s:gui.green,      "", "")
@@ -132,7 +128,7 @@ call s:hi("DiffChange",   "",               s:gui.cyan,       "")
 call s:hi("DiffDelete",   s:gui.red,        s:gui.black,      "")
 call s:hi("DiffText",     s:gui.background, s:gui.black,      "")
 
-call s:hi("NonText",      s:gui.specialkey, "",               "none")
+call s:hi("NonText",      s:gui.black,      "",               "none")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
 " call s:hi("MatchParen",   s:gui.background, s:gui.black,    "")
 call s:hi("Title",        s:gui.cyan,       "",               "")

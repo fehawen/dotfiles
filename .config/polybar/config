@@ -7,7 +7,6 @@
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
 
-
 [global/wm]
 	margin-top = 0
 	margin-bottom = 0
@@ -18,10 +17,12 @@
 	throttle-input-for = 30
 
 [colors]
+	border = #171D22
 	transparent = #00ffffff
+
 	foreground = ${xrdb:foreground}
 	background = ${xrdb:background}
-	border = ${xrdb:foreground}
+
 	black = ${xrdb:color0}
 	red = ${xrdb:color1}
 	green = ${xrdb:color2}
@@ -31,31 +32,37 @@
 	cyan = ${xrdb:color6}
 
 [bar/top]
-	dpi = ${xrdb:Xft.dpi:-1}
-	override-redirect = true
-	wm-restack = i3
 	monitor = ${env:MONITOR:eDP1}
 	monitor-fallback = ${env:MONITOR:DP1}
+
 	bottom = false
-	width = 60%
-	height = 50
-	offset-x = 20%
-	offset-y = 24
 	fixed-center = false
+
+	dpi-x = 0
+	dpi-y = 0
+
+	width = 100%
+	height = 3%
+
 	background = ${colors.transparent}
 	foreground = ${colors.transparent}
-	;background = ${colors.background}
-	;foreground = ${colors.foreground}
+
+	border-top-size = 36
+	border-left-size = 36
+	border-right-size = 36
+
 	line-size = 0
 	line-color = ${colors.background}
-	border-size = 0
-	border-color = ${colors.border}
+
 	padding-left = 0
 	padding-right = 0
+
 	module-margin-left = 1
 	module-margin-right = 1
-	font-0 = "Roboto Mono:size=12:weight=bold;2"
-	font-1 = "Font Awesome 5 Free:size=12:weight=bold;2"
+
+	font-0 = "Operator Mono:size=13:weight=medium;2"
+	font-1 = "Font Awesome 5 Free:size=13:weight=bold;2"
+
 	modules-left = i3
 	modules-right = battery wifi date time
 
@@ -66,9 +73,6 @@
 		wrapping-scroll = false
 		enable-click = true
 
-		; Only show workspaces on the same output as the bar
-		; pin-workspaces = true
-
 		label-focused = %icon%
 		label-focused-padding = 3
 		label-focused-foreground = ${colors.background}
@@ -77,8 +81,8 @@
 
 		label-unfocused = %icon%
 		label-unfocused-padding = 3
-		label-unfocused-foreground = ${colors.foreground}
-		label-unfocused-background = ${colors.background}
+		label-unfocused-foreground = ${colors.background}
+		label-unfocused-background = ${colors.yellow}
 
 		label-visible-background = ${self.label-focused-background}
 		label-visible-underline = ${self.label-focused-underline}
@@ -93,7 +97,7 @@
 		ws-icon-2 = 3;
 		ws-icon-3 = 4;
 		ws-icon-4 = 5;
-		ws-icon-5 = 6;
+		ws-icon-5 = 6;
 
 	[module/battery]
 		type = internal/battery
@@ -161,9 +165,9 @@
 	[module/date]
 		type = internal/date
 		interval = 10.0
-		date = %A %d %b
+		date = %a, %d %b
 
-		format-prefix = 
+		format-prefix = 
 		format-prefix-padding-left = 3
 		format-foreground = ${colors.background}
 		format-background = ${colors.foreground}

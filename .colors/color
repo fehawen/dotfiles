@@ -1,7 +1,7 @@
 ! Sourced by .Xresources
 
 ! Font
-*font: xft:Roboto Mono:pixelsize=12
+*font: xft:Operator Mono:pixelsize=13
 
 ! Colors
 
@@ -22,8 +22,8 @@
 *color10: #798183
 
 ! yellow
-*color3:  #777882
-*color11: #777882
+*color3:  #82817E
+*color11: #82817E
 
 ! blue
 *color4:  #6D6E75

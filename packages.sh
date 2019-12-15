@@ -5,10 +5,7 @@ install_packages() {
 
 	# Terminal alternatives, if needed
 	# alacritty
-	# kitty
-
-	# Required by kitty for viewing images
-	# "python-pillow"
+	# termite
 
 	declare -a packages=(
 		"xorg-server"
@@ -55,6 +52,7 @@ install_packages() {
 		"poppler"
 		"zathura-pdf-poppler"
 		"python-pip"
+		"python-pillow"
 		"jshon"
 		"noto-fonts-emoji"
 	)

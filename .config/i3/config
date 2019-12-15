@@ -12,24 +12,24 @@
 set $mod Mod4
 
 # Font
-font pango:Roboto Mono 12
+font pango:Operator Mono 13
 
 # Gaps
-gaps inner 24
-gaps outer 24
-gaps top 72
+gaps inner 18
+gaps outer 18
+#gaps top 72
 
 # Borders
-for_window [class=".*"] border pixel 0
-for_window [instance="popup"] border pixel 3
+for_window [class=".*"] border pixel 4
+# for_window [instance="popup"] border pixel 4
 
 # Floating
 #floating_minimum_size 800 x 450
 #floating_maximum_size 800 x 450
 #for_window [class=".*"] floating enable
 
-set $borderFocused #D4D4D4
-set $borderUnfocused #D4D4D4
+set $borderFocused #171D22
+set $borderUnfocused #171D22
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -129,7 +129,7 @@ bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-scree
 bindsym $mod+Shift+Control+d exec $HOME/.config/i3/i3monitor.sh
 
 # Launch dmenu
-bindsym $mod+d exec dmenu_run -i -b -p "Launch:" -nb "#0D202F" -nf "#7AB1B3" -sb "#132635" -sf "#B48291" -fn "sfmono-13"
+bindsym $mod+d exec dmenu_run -i -b -p "Launch:" -nb "#12181D" -nf "#82817E" -sb "#171D22" -sf "#D4D4D4" -fn "operatormono-13"
 
 # Launch i3-dmenu-desktop
 # bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop

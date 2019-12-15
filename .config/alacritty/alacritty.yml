@@ -40,19 +40,19 @@ draw_bold_text_with_bright_colors: true
 # Font configuration (changes require restart)
 font:
   normal:
-    family: SF Mono
-    style: Medium
+    family: Operator Mono
+    style: Book
 
   bold:
-    family: SF Mono
+    family: Operator Mono
     style: Bold
 
   italic:
-    family: SF Mono
-    style: Medium Italic
+    family: Operator Mono
+    style: Book Italic
 
   bold_italic:
-    family: SF Mono
+    family: Operator Mono
     style: Bold Italic
 
   size: 4.5
@@ -77,36 +77,36 @@ debug.render_timer: false
 colors:
   # Default colors
   primary:
-    background: '0x132635'
+    background: '0x12181D'
     # Standard light gray
-    foreground: '0xB2BEBF'
+    foreground: '0xD4D4D4'
     # This is the green foreground color that we sometimes like to use.
     # foreground: '0x00FF00'
   selection:
-    text: '0x132635'
-    background: '0x788388'
+    text: '0x12181D'
+    background: '0xD4D4D4'
 
   # Normal colors
   normal:
-    black:   '0x41515C'
-    red:     '0xAE5151'
-    green:   '0x779687'
-    yellow:  '0xB98675'
-    blue:    '0x5E828F'
-    magenta: '0xB48291'
-    cyan:    '0x7AB1B3'
-    white:   '0xB2BEBF'
+    black:   '0x3E444A'
+    red:     '0x917070'
+    green:   '0x798183'
+    yellow:  '0x82817E'
+    blue:    '0x6D6E75'
+    magenta: '0x96858D'
+    cyan:    '0x949AA9'
+    white:   '0xD4D4D4'
 
   # Bright colors
   bright:
-    black:   '0x41515C'
-    red:     '0xAE5151'
-    green:   '0x779687'
-    yellow:  '0xB98675'
-    blue:    '0x5E828F'
-    magenta: '0xB48291'
-    cyan:    '0x7AB1B3'
-    white:   '0xB2BEBF'
+    black:   '0x3E444A'
+    red:     '0x917070'
+    green:   '0x798183'
+    yellow:  '0x82817E'
+    blue:    '0x6D6E75'
+    magenta: '0x96858D'
+    cyan:    '0x949AA9'
+    white:   '0xD4D4D4'
 
 # Visual Bell
 #

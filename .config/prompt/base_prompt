@@ -79,7 +79,7 @@ git_branch_module() {
 
 	branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
 
-	PS1+=" ${prefix_color}${git_prefix} ${reset}${git_branch_color}${branch_symbol}${bold} ${branch}"
+	PS1+=" ${prefix_color}${git_prefix} ${git_branch_color}${branch_symbol} ${branch}"
 }
 
 # -----------------------------------------------------------------------------
@@ -173,6 +173,7 @@ compose_prompt() {
 	PS1=""
 
 	PS1+="${bold}"
+	PS1+="${italic}"
 
 	for MODULE in "${!prompt_modules[@]}"; do
 		${prompt_modules[$MODULE]}

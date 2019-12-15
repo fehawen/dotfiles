@@ -6,7 +6,7 @@ cell_height_scale = 1.4
 #cell_width_scale = 1.0
 clickable_url = true
 #dynamic_title = true
-font = Roboto Mono 12
+font = Operator Mono 13
 #fullscreen = true
 #icon_name = terminal
 mouse_autohide = true
@@ -43,10 +43,10 @@ scrollbar = off
 [colors]
 # If both of these are unset, cursor falls back to the foreground color,
 # and cursor_foreground falls back to the background color.
-cursor = #D4D4D9
+cursor = #D4D4D4
 cursor_foreground = #12181D
 
-foreground = #DCDCE1
+foreground = #D4D4D4
 #foreground_bold = #ffffff
 background = #12181D
 
@@ -62,16 +62,16 @@ color0 = #3E444A
 color8 = #3E444A
 
 # Red
-color1 = #9A6D6D
-color9 = #9A6D6D
+color1 = #917070
+color9 = #917070
 
 # Green
 color2 = #798183
 color10 = #798183
 
 # Yellow
-color3 = #777882
-color11 = #777882
+color3 = #82817E
+color11 = #82817E
 
 # BLue
 color4 = #6D6E75
@@ -86,8 +86,8 @@ color6 = #949AA9
 color14 = #949AA9
 
 # White
-color7 = #DCDCE1
-color15 = #DCDCE1
+color7 = #D4D4D4
+color15 = #D4D4D4
 
 # [hints]
 # font = Monospace 9

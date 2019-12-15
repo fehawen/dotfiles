@@ -19,7 +19,6 @@ declare -a options=(
 	"Arch Linux - Dotfiles"
 	"Arch Linux - Packages"
 	"Arch Linux - Config"
-	"Arch Linux - Fonts"
 	"MacOS - Dotfiles"
 	"Quit"
 )
@@ -41,10 +40,6 @@ do
 			;;
 		"Arch Linux - Config")
 			confirm "config" "Arch Linux"
-			break
-			;;
-		"Arch Linux - Fonts")
-			confirm "fonts" "Arch Linux"
 			break
 			;;
 		"MacOS - Dotfiles")
