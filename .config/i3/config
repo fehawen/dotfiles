@@ -20,16 +20,16 @@ gaps outer 18
 #gaps top 72
 
 # Borders
-for_window [class=".*"] border pixel 4
-# for_window [instance="popup"] border pixel 4
+for_window [class=".*"] border pixel 0
+for_window [instance="popup"] border pixel 4
 
 # Floating
 #floating_minimum_size 800 x 450
 #floating_maximum_size 800 x 450
 #for_window [class=".*"] floating enable
 
-set $borderFocused #171D22
-set $borderUnfocused #171D22
+set $borderFocused #D4D4D4
+set $borderUnfocused #D4D4D4
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -91,7 +91,7 @@ bindsym $mod+p exec $HOME/.config/i3/i3popup.sh
 bindsym $mod+Shift+q kill
 
 # Lock screen
-bindsym $mod+Shift+x exec $HOME/.config/i3/i3screenlock.sh
+bindsym $mod+Shift+x exec i3lock -i ~/.wallpapers/mist.png
 
 ######################
 #### APPLICATIONS ####
