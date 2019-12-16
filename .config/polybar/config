@@ -36,12 +36,12 @@
 
 	fixed-center = true
 	override-redirect = true
-	wm-restack = i3
+	restack-window = true
 
 	dpi-x = 0
 	dpi-y = 0
 
-	offset-y = 36
+	offset-y = 24
 
 	width = 40%
 	height = 60
