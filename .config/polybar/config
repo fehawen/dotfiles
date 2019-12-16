@@ -136,7 +136,7 @@
 
 	[module/cpu]
 		type = internal/cpu
-		interval = 3
+		interval = 1
 
 		format = <label>
 		format-prefix = 
@@ -152,7 +152,7 @@
 
 	[module/ram]
 		type = internal/memory
-		interval = 3
+		interval = 1
 
 		format = <label>
 		format-prefix = 
@@ -168,7 +168,7 @@
 
 	[module/swap]
 		type = internal/memory
-		interval = 3
+		interval = 10
 
 		format = <label>
 		format-prefix = 
@@ -352,7 +352,7 @@
 
 	[module/date]
 		type = internal/date
-		interval = 10.0
+		interval = 5.0
 		date = %a %d %b
 		time = %H:%M
 
