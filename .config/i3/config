@@ -58,9 +58,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Start dunst (notifications)
 exec --no-startup-id dunst
 
-# Start picom (compton)
-exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
-
 ############
 #### i3 ####
 ############
