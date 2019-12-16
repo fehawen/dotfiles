@@ -254,7 +254,7 @@ let g:NERDTreeShowLineNumbers = 0
 let g:NERDTreeCascadeSingleChildDir = 0
 let g:NERDTreeDirArrowExpandable = "•"
 let g:NERDTreeDirArrowCollapsible = "•"
-let g:NERDTreeWinSize = 41
+let g:NERDTreeWinSize = 31
 
 "#########################"
 "###### KEYBINDINGS ######"
