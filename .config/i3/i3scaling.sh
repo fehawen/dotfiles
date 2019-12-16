@@ -51,6 +51,8 @@ scale() {
 		declare config="xrandr --output ${external_output} --scale ${scale} --panning $panning"
 		confirm "${config}"
 	fi
+
+	feh --bg-fill ~/.wallpapers/mist.png
 }
 
 customize() {
