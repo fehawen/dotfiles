@@ -95,6 +95,7 @@ setup_dotfiles() {
 		".config/nvim/plugin"
 		".config/picom"
 		".config/polybar"
+		".config/polybar/scripts"
 		".config/prompt"
 		".config/ranger"
 		".config/zathura"

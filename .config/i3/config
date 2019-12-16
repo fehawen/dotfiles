@@ -15,8 +15,8 @@ set $mod Mod4
 font pango:Operator Mono 13
 
 # Gaps
-gaps inner 18
-gaps outer 18
+gaps inner 12
+gaps outer 6
 #gaps top 72
 
 # Borders
