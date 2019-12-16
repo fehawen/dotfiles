@@ -21,7 +21,7 @@ confirm() {
 		exit
 	else
 		echo "Executing..."
-		$1 && i3-msg "restart" &> /dev/null
+		$1 && i3-msg "restart" &> /dev/null && feh --bg-fill ~/.wallpapers/mist.png
 		echo "Restarting i3-wm..."
 		echo "Done."
 	fi
@@ -51,8 +51,6 @@ scale() {
 		declare config="xrandr --output ${external_output} --scale ${scale} --panning $panning"
 		confirm "${config}"
 	fi
-
-	feh --bg-fill ~/.wallpapers/mist.png
 }
 
 customize() {

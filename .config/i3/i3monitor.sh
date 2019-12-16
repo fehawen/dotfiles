@@ -21,3 +21,4 @@ fi
 # fi
 
 i3-msg "restart"
+feh --bg-fill ~/.wallpapers/mist.png
