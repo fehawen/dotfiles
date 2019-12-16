@@ -17,8 +17,7 @@
 	throttle-input-for = 30
 
 [colors]
-	border = #171D22
-	transparent = #00ffffff
+	border = #0B1218
 
 	foreground = ${xrdb:foreground}
 	background = ${xrdb:background}
@@ -36,18 +35,22 @@
 	monitor-fallback = ${env:MONITOR:DP1}
 
 	fixed-center = true
+	override-redirect = true
+	wm-restack = i3
 
 	dpi-x = 0
 	dpi-y = 0
 
-	width = 100%
-	height = 3%
+	offset-y = 36
 
-	background = ${colors.transparent}
-	foreground = ${colors.transparent}
+	width = 40%
+	height = 60
 
-	border-left-size = 18
-	border-right-size = 18
+	background = ${colors.background}
+	foreground = ${colors.foreground}
+
+	border-size = 3
+	border-color = ${colors.border}
 
 	line-size = 0
 	line-color = ${colors.background}
@@ -55,8 +58,8 @@
 	padding-left = 0
 	padding-right = 0
 
-	module-margin-left = 1
-	module-margin-right = 1
+	module-margin-left = 0
+	module-margin-right = 0
 
 	font-0 = "Operator Mono:size=13:weight=medium;3"
 	font-1 = "Font Awesome 5 Free:size=13:weight=bold;4"
@@ -66,20 +69,21 @@
 	inherit = bar/base
 	bottom = false
 
-	border-top-size = 18
+	offset-x = 30%
 
-	modules-left = i3 title
-	modules-right = backlight pulseaudio wifi battery
+	modules-left = wifi backlight
+	modules-center = i3
+	modules-right = pulseaudio battery
 
 [bar/bottom]
 	inherit = bar/base
 	bottom = true
 
-	border-bottom-size = 18
+	offset-x = 30%
 
-	modules-left = cpu ram swap filesystem
-	modules-right = docker pacupdate date
-
+	modules-left = pacupdate docker
+	modules-center = cpu ram swap
+	modules-right = filesystem date
 
 	[module/i3]
 		type = internal/i3
@@ -89,22 +93,22 @@
 		enable-click = true
 
 		label-focused = %icon%
-		label-focused-foreground = ${colors.background}
-		label-focused-background = ${colors.foreground}
-		label-focused-underline = ${colors.foreground}
+		label-focused-foreground = ${colors.green}
+		label-focused-background = ${colors.background}
+		label-focused-underline = ${colors.background}
 		label-focused-padding = 3
 
 		label-unfocused = %icon%
-		label-unfocused-foreground = ${colors.background}
-		label-unfocused-background = ${colors.yellow}
+		label-unfocused-foreground = ${colors.black}
+		label-unfocused-background = ${colors.background}
 		label-unfocused-padding = 3
 
 		label-visible-background = ${self.label-focused-background}
 		label-visible-underline = ${self.label-focused-underline}
 		label-visible-padding = ${self.label-focused-padding}
 
-		label-urgent-foreground = ${colors.background}
-		label-urgent-background = ${colors.red}
+		label-urgent-foreground = ${colors.red}
+		label-urgent-background = ${colors.background}
 		label-urgent-padding = 3
 
 		ws-icon-0 = 1;
@@ -141,12 +145,12 @@
 		format = <label>
 		format-prefix = 
 		format-prefix-padding-left = 3
-		format-prefix-foreground = ${colors.background}
-		format-prefix-background = ${colors.magenta}
+		format-prefix-foreground = ${colors.magenta}
+		format-prefix-background = ${colors.background}
 
 		label = %percentage%%
-		label-foreground = ${colors.background}
-		label-background = ${colors.magenta}
+		label-foreground = ${colors.magenta}
+		label-background = ${colors.background}
 		label-padding-left = 2
 		label-padding-right = 3
 
@@ -157,12 +161,12 @@
 		format = <label>
 		format-prefix = 
 		format-prefix-padding-left = 3
-		format-prefix-foreground = ${colors.background}
-		format-prefix-background = ${colors.yellow}
+		format-prefix-foreground = ${colors.yellow}
+		format-prefix-background = ${colors.background}
 
 		label = %percentage_used%%
-		label-foreground = ${colors.background}
-		label-background = ${colors.yellow}
+		label-foreground = ${colors.yellow}
+		label-background = ${colors.background}
 		label-padding-left = 2
 		label-padding-right = 3
 
@@ -173,12 +177,12 @@
 		format = <label>
 		format-prefix = 
 		format-prefix-padding-left = 3
-		format-prefix-foreground = ${colors.background}
-		format-prefix-background = ${colors.blue}
+		format-prefix-foreground = ${colors.blue}
+		format-prefix-background = ${colors.background}
 
 		label = %percentage_swap_used%%
-		label-foreground = ${colors.background}
-		label-background = ${colors.blue}
+		label-foreground = ${colors.blue}
+		label-background = ${colors.background}
 		label-padding-left = 2
 		label-padding-right = 3
 
@@ -192,24 +196,24 @@
 		format-mounted = <label-mounted>
 		format-mounted-prefix = 
 		format-mounted-prefix-padding-left = 3
-		format-mounted-prefix-foreground = ${colors.background}
-		format-mounted-prefix-background = ${colors.cyan}
+		format-mounted-prefix-foreground = ${colors.blue}
+		format-mounted-prefix-background = ${colors.background}
 
 		label-mounted = %percentage_used%%
-		label-mounted-foreground = ${colors.background}
-		label-mounted-background = ${colors.cyan}
+		label-mounted-foreground = ${colors.blue}
+		label-mounted-background = ${colors.background}
 		label-mounted-padding-left = 2
 		label-mounted-padding-right = 3
 
 		format-unmounted = <label-unmounted>
 		format-unmounted-prefix = 
 		format-unmounted-prefix-padding-left = 3
-		format-unmounted-prefix-foreground = ${colors.background}
-		format-unmounted-prefix-background = ${colors.cyan}
+		format-unmounted-prefix-foreground = ${colors.blue}
+		format-unmounted-prefix-background = ${colors.background}
 
 		label-unmounted = not mounted
-		label-unmounted-foreground = ${colors.background}
-		label-unmounted-background = ${colors.cyan}
+		label-unmounted-foreground = ${colors.blue}
+		label-unmounted-background = ${colors.background}
 		label-unmounted-padding-left = 2
 		label-unmounted-padding-right = 3
 
@@ -223,23 +227,23 @@
 
 		format-volume-prefix = 
 		format-volume-prefix-padding-left = 3
-		format-volume-prefix-foreground = ${colors.background}
-		format-volume-prefix-background = ${colors.blue}
+		format-volume-prefix-foreground = ${colors.blue}
+		format-volume-prefix-background = ${colors.background}
 
 		label-volume = %percentage%%
-		label-volume-foreground = ${colors.background}
-		label-volume-background = ${colors.blue}
+		label-volume-foreground = ${colors.blue}
+		label-volume-background = ${colors.background}
 		label-volume-padding-left = 2
 		label-volume-padding-right = 3
 
 		format-muted-prefix = 
 		format-muted-prefix-padding-left = 3
-		format-muted-prefix-foreground = ${colors.background}
-		format-muted-prefix-background = ${colors.blue}
+		format-muted-prefix-foreground = ${colors.black}
+		format-muted-prefix-background = ${colors.background}
 
 		label-muted = muted
-		label-muted-foreground = ${colors.background}
-		label-muted-background = ${colors.blue}
+		label-muted-foreground = ${colors.black}
+		label-muted-background = ${colors.background}
 		label-muted-padding-left = 2
 		label-muted-padding-right = 3
 
@@ -250,8 +254,8 @@
 
 		format-prefix = 
 		format-prefix-padding-left = 3
-		format-foreground = ${colors.background}
-		format-background = ${colors.yellow}
+		format-foreground = ${colors.yellow}
+		format-background = ${colors.background}
 
 		label = %percentage%%
 		label-padding-left = 2
@@ -328,8 +332,8 @@
 		format = <label>
 		format-prefix = 
 		format-prefix-padding-left = 3
-		format-foreground = ${colors.background}
-		format-background = ${colors.cyan}
+		format-foreground = ${colors.cyan}
+		format-background = ${colors.background}
 
 		label = %output%
 		label-padding-left = 2
@@ -353,13 +357,13 @@
 	[module/date]
 		type = internal/date
 		interval = 5.0
-		date = %a %d %b
 		time = %H:%M
+		date = %a %d %b
 
 		format-prefix = 
 		format-prefix-padding-left = 3
 		format-foreground = ${colors.background}
-		format-background = ${colors.foreground}
+		format-background = ${colors.magenta}
 
 		label = %date% %time%
 		label-padding-left = 2

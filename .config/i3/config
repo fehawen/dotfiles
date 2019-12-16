@@ -15,21 +15,22 @@ set $mod Mod4
 font pango:Operator Mono 13
 
 # Gaps
-gaps inner 12
-gaps outer 6
-#gaps top 72
+gaps inner 24
+gaps outer 36
+gaps top 114
+gaps bottom 114
 
 # Borders
-for_window [class=".*"] border pixel 0
-for_window [instance="popup"] border pixel 4
+for_window [class=".*"] border pixel 3
+# for_window [instance="popup"] border pixel 3
 
 # Floating
 #floating_minimum_size 800 x 450
 #floating_maximum_size 800 x 450
 #for_window [class=".*"] floating enable
 
-set $borderFocused #D4D4D4
-set $borderUnfocused #D4D4D4
+set $borderFocused #0B1218
+set $borderUnfocused #0B1218
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
