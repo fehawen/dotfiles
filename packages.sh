@@ -36,6 +36,8 @@ install_packages() {
 		"surf"
 		"firefox"
 		"chromium"
+		"gimp"
+		"inkscape"
 		"gtop"
 		"ranger"
 		"neofetch"
