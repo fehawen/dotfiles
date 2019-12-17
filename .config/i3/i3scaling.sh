@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -r external_output="$(xrandr | grep -w "connected" | awk '{if(NR>1)print $1}')"
+external_output="$(xrandr | grep -w "connected" | awk '{if(NR>1)print $1}')"
 
 if [[ -z "$external_output" ]]; then
 	echo "No external monitors found."
@@ -8,11 +8,11 @@ if [[ -z "$external_output" ]]; then
 	exit 0
 fi
 
-declare -r default_width="$(xrandr | grep \* | awk '{print $1}' | cut -dx -f1)"
-declare -r default_height="$(xrandr | grep \* | awk '{print $1}' | cut -dx -f2)"
+default_width="$(xrandr | grep "\*" | awk '{print $1}' | cut -dx -f1)"
+default_height="$(xrandr | grep "\*" | awk '{print $1}' | cut -dx -f2)"
 
 confirm() {
-	printf "\nCALCULATED CONFIGURATION:\n${1}\n\n"
+	echo -e "\nCALCULATED CONFIGURATION:\n${1}\n\n"
 
 	read -r -p "Execute xrandr scaling? [y/N] " answer
 	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
@@ -31,8 +31,8 @@ resolution() {
 	if [[ "$1" == "default" ]]; then
 		echo "${default_width}x${default_height}"
 	else
-		declare width="$((${default_width} / 10 * ${1}))"
-		declare height="$((${default_height} / 10 * ${1}))"
+		width="$((default_width * $1 / 10))"
+		height="$((default_height * $1 / 10))"
 
 		echo "${width}x${height}"
 	fi
@@ -40,15 +40,15 @@ resolution() {
 
 scale() {
 	if [[ "$1" == "default" ]]; then
-		declare config="xrandr --output ${external_output} --scale 1x1 --panning ${default_width}x${default_height}"
+		config="xrandr --output ${external_output} --scale 1x1 --panning ${default_width}x${default_height}"
 		confirm "${config}"
 	else
-		declare float="$(printf %.1f "${1}e-1")"
-		declare scale="${float}x${float}"
+		float="$(printf %.1f "${1}e-1")"
+		scale="${float}x${float}"
 
-		declare panning="$(resolution ${1})"
+		panning="$(resolution "${1}")"
 
-		declare config="xrandr --output ${external_output} --scale ${scale} --panning $panning"
+		config="xrandr --output ${external_output} --scale ${scale} --panning $panning"
 		confirm "${config}"
 	fi
 }
@@ -77,7 +77,7 @@ customize() {
 		echo -e "Try again.\n"
 		customize
 	else
-		scale $sanitized
+		scale "$sanitized"
 	fi
 }
 
@@ -113,7 +113,7 @@ do
 			break
 			;;
 		*)
-			scale ${actions[$(($REPLY - 1))]}
+			scale "${actions[$((REPLY - 1))]}"
 			break
 			;;
 	esac
