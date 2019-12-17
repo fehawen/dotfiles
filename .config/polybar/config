@@ -36,7 +36,7 @@
 
 	fixed-center = true
 	override-redirect = true
-	restack-window = true
+	wm-restack = i3
 
 	dpi-x = 0
 	dpi-y = 0
