@@ -67,7 +67,9 @@ pull_todos() {
 find_string_in_file() {
 	grep \
 		--exclude-dir=node_modules \
+		--exclude-dir=coverage \
 		--exclude-dir=.fusebox \
+		--exclude-dir=.next \
 		--exclude-dir=dist \
 		--exclude-dir=.git \
 		-wroni "${1}" . | sort -u | grep -iv "^${1}" | sed "/^$/d" | grep -i --color=always "${1}"
@@ -77,8 +79,10 @@ find_string_in_file() {
 find_matching_file_or_subdir() {
 	find . \
 		-not -path "*node_modules*" \
-		-not -path "*.git*" \
+		-not -path "*.fusebox*" \
+		-not -path "*.next*" \
 		-not -path "*dist*" \
+		-not -path "*.git*" \
 		-iname "*${1}*" | sort -u | grep -i --color=always "${1}"
 }
 
