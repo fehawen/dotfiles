@@ -130,7 +130,7 @@ call s:hi("DiffText",     s:gui.background, s:gui.black,      "")
 
 call s:hi("NonText",      s:gui.black,      "",               "none")
 call s:hi("helpExample",  s:gui.blue,       "",               "")
-" call s:hi("MatchParen",   s:gui.background, s:gui.black,    "")
+call s:hi("MatchParen",   s:gui.background, s:gui.black,      "")
 call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "italic")
 call s:hi("String",       s:gui.green,      "",               "")
