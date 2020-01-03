@@ -17,11 +17,8 @@ alias gp="git push"
 alias gs="git status"
 alias gss="git status -s"
 alias giff="git diff"
-alias gslog="git shortlog"
-alias glog="git log --pretty=format:'%n%ar %n%Cred%h %Cblue%an <%ae> %n%Cgreen%s%n' --name-only"
-alias glogme="glog --author='\(Felix\)\|\(fehawen\)'"
-alias gcount="git shortlog -s -n -e --all"
-alias gscount="git rev-list --all --count"
+alias glog="git log --graph"
+alias glogc=git_log_commit_count
 alias code="open -a 'Visual Studio Code'"
 alias gh="cd ~/Github/"
 alias repos="cd ~/Github/"
@@ -49,6 +46,15 @@ alias clone=clone_repo
 ### UTILS ###
 #############
 
+git_log_commit_count() {
+	total="$(git rev-list --all --count)"
+	each="$(git shortlog -s -n -e --all)"
+
+	printf "${bold}Total: ${total}${reset}${newline}${each}${newline}"
+}
+
+# -----------------------------------------------------------------------------
+
 push_todos() {
 	pushd "$HOME/Github/todo/" && \
 	git add . && \
@@ -57,11 +63,15 @@ push_todos() {
 	cd "$(dirs -l -0)" && dirs -c
 }
 
+# -----------------------------------------------------------------------------
+
 pull_todos() {
 	pushd "$HOME/Github/todo/" && \
 	git pull && \
 	cd "$(dirs -l -0)" && dirs -c
 }
+
+# -----------------------------------------------------------------------------
 
 # Find all files in dirs/subdirs containing search query
 find_string_in_file() {
@@ -75,6 +85,8 @@ find_string_in_file() {
 		-wroni "${1}" . | sort -u | grep -iv "^${1}" | sed "/^$/d" | grep -i --color=always "${1}"
 }
 
+# -----------------------------------------------------------------------------
+
 # Find all sbudirs/filenames in dirs/subdirs matching query
 find_matching_file_or_subdir() {
 	find . \
@@ -86,20 +98,34 @@ find_matching_file_or_subdir() {
 		-iname "*${1}*" | sort -u | grep -i --color=always "${1}"
 }
 
+# -----------------------------------------------------------------------------
+
 # Window manager helper for starting, stopping or restarting either chunkwm or skhd
 wm() {
 	brew services "${1}" koekeishiya/formulae/"${2}"
 }
 
+# -----------------------------------------------------------------------------
+
 # Change X screen brightness, when backlight keys increments aren't precise enough
 set_xbacklight() {
+	[[ "$1" -gt 100 ]] && xbacklight -set 100
+	[[ "$1" -lt 5 ]] && xbacklight -set 5
+
 	xbacklight -set "${1}"
 }
 
+# -----------------------------------------------------------------------------
+
 # Change volume through pamixer, when colume keys increments aren't precise enough
 set_volume() {
+	[[ "$1" -gt 100 ]] && pamixer --set-volume 100
+	[[ "$1" -lt 5 ]] && pamixer --set-volume 5
+
 	pamixer --set-volume "${1}"
 }
+
+# -----------------------------------------------------------------------------
 
 # Get weather report for specified location
 # if second argument (optional) is "-f", get 3-day forecast for morning, nnon, evening, night
@@ -111,6 +137,8 @@ get_weather() {
 		curl "http://wttr.in/${1}?0&M"
 	fi
 }
+
+# -----------------------------------------------------------------------------
 
 # Clone a Github by providing arguments:
 # 1: username
