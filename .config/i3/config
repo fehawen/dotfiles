@@ -37,6 +37,7 @@ set $borderUnfocused #0B1218
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
 client.unfocused         $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused
 client.focused_inactive  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused  $borderUnfocused
+client.urgent            $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
 
 # Focus
 focus_follows_mouse no
