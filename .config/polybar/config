@@ -42,8 +42,9 @@
 	dpi-y = 0
 
 	offset-y = 24
+	offset-x = 25%
 
-	width = 40%
+	width = 50%
 	height = 60
 
 	background = ${colors.background}
@@ -69,8 +70,6 @@
 	inherit = bar/base
 	bottom = false
 
-	offset-x = 30%
-
 	modules-left = wifi backlight
 	modules-center = i3
 	modules-right = pulseaudio battery
@@ -78,8 +77,6 @@
 [bar/bottom]
 	inherit = bar/base
 	bottom = true
-
-	offset-x = 30%
 
 	modules-left = pacupdate docker
 	modules-center = cpu ram swap
