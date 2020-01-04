@@ -42,9 +42,9 @@
 	dpi-y = 0
 
 	offset-y = 24
-	offset-x = 25%
+	offset-x = 20%
 
-	width = 50%
+	width = 60%
 	height = 60
 
 	background = ${colors.background}
@@ -70,17 +70,15 @@
 	inherit = bar/base
 	bottom = false
 
-	modules-left = wifi backlight
-	modules-center = i3
-	modules-right = pulseaudio battery
+	modules-left = i3
+	modules-right = pulseaudio backlight wifi battery
 
 [bar/bottom]
 	inherit = bar/base
 	bottom = true
 
-	modules-left = pacupdate docker
-	modules-center = cpu ram swap
-	modules-right = filesystem date
+	modules-left = cpu ram swap filesystem
+	modules-right = docker pacupdate date
 
 	[module/i3]
 		type = internal/i3
@@ -125,8 +123,8 @@
 		format = <label>
 		format-prefix = 
 		format-prefix-padding-left = 3
-		format-foreground = ${colors.background}
-		format-background = ${colors.foreground}
+		format-foreground = ${colors.foreground}
+		format-background = ${colors.background}
 
 		label = %title%
 		label-maxlen = 50
@@ -134,8 +132,8 @@
 		label-padding-right = 3
 
 		label-empty = Empty
-		label-empty-foreground = ${colors.background}
-		label-empty-background = ${colors.foreground}
+		label-empty-foreground = ${colors.foreground}
+		label-empty-background = ${colors.background}
 		label-empty-padding-left = 2
 		label-empty-padding-right = 3
 
@@ -271,8 +269,8 @@
 		format-charging-prefix = 
 		format-charging-prefix-padding-left = 3
 		format-charging = <label-charging>
-		format-charging-foreground = ${colors.background}
-		format-charging-background = ${colors.green}
+		format-charging-foreground = ${colors.green}
+		format-charging-background = ${colors.background}
 		format-charging-underline = ${colors.background}
 		label-charging-padding-left = 2
 		label-charging-padding-right = 3
@@ -280,8 +278,8 @@
 		format-discharging-prefix = 
 		format-discharging-prefix-padding-left = 3
 		format-discharging = <label-discharging>
-		format-discharging-foreground = ${colors.background}
-		format-discharging-background = ${colors.red}
+		format-discharging-foreground = ${colors.red}
+		format-discharging-background = ${colors.background}
 		format-discharging-underline = ${colors.background}
 		label-discharging-padding-left = 2
 		label-discharging-padding-right = 3
@@ -289,8 +287,8 @@
 		format-full-prefix = 
 		format-full-prefix-padding-left = 3
 		format-full = <label-full>
-		format-full-foreground = ${colors.background}
-		format-full-background = ${colors.green}
+		format-full-foreground = ${colors.green}
+		format-full-background = ${colors.background}
 		format-full-underline = ${colors.background}
 		label-full-padding-left = 2
 		label-full-padding-right = 3
@@ -303,24 +301,24 @@
 
 		format-connected-prefix = 
 		format-connected-prefix-padding-left = 3
-		format-connected-foreground = ${colors.background}
-		format-connected-background = ${colors.green}
+		format-connected-foreground = ${colors.cyan}
+		format-connected-background = ${colors.background}
 		label-connected = %essid%
 		label-connected-padding-left = 2
 		label-connected-padding-right = 3
 
 		format-packetloss-prefix = 
 		format-packetloss-prefix-padding-left = 3
-		format-packetloss-foreground = ${colors.background}
-		format-packetloss-background = ${colors.yellow}
+		format-packetloss-foreground = ${colors.yellow}
+		format-packetloss-background = ${colors.background}
 		label-packetloss = packetloss
 		label-packetloss-padding-left = 2
 		label-packetloss-padding-right = 3
 
 		format-disconnected-prefix = 
 		format-disconnected-prefix-padding-left = 3
-		format-disconnected-foreground = ${colors.background}
-		format-disconnected-background = ${colors.red}
+		format-disconnected-foreground = ${colors.red}
+		format-disconnected-background = ${colors.background}
 		label-disconnected = disconnected
 		label-disconnected-padding-left = 2
 		label-disconnected-padding-right = 3
@@ -348,8 +346,8 @@
 		format = <label>
 		format-prefix = 
 		format-prefix-padding-left = 3
-		format-foreground = ${colors.background}
-		format-background = ${colors.magenta}
+		format-foreground = ${colors.magenta}
+		format-background = ${colors.background}
 
 		label = %output%
 		label-padding-left = 2
@@ -363,8 +361,8 @@
 
 		format-prefix = 
 		format-prefix-padding-left = 3
-		format-foreground = ${colors.background}
-		format-background = ${colors.magenta}
+		format-foreground = ${colors.blue}
+		format-background = ${colors.background}
 
 		label = %date% %time%
 		label-padding-left = 2
