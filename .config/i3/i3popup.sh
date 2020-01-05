@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare popup_width=$(($(xrandr --listmonitors | grep \+ | awk '{print $3}' | cut -d/ -f1) / 100 * 75))
+declare popup_width=$(($(xrandr --listmonitors | grep \+ | awk '{print $3}' | cut -d/ -f1) / 100 * 85))
 declare popup_height=$(($(xrandr --listmonitors | grep \+ | awk '{print $3}' | cut -dx -f2 | cut -d/ -f1) / 100 * 75))
 
 
