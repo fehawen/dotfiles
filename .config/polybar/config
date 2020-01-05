@@ -17,10 +17,10 @@
 	throttle-input-for = 30
 
 [colors]
-	border = #0B1218
-
 	foreground = ${xrdb:foreground}
 	background = ${xrdb:background}
+	background_light = #171D22
+	background_dark = #0B1218
 
 	black = ${xrdb:color0}
 	red = ${xrdb:color1}
@@ -47,11 +47,11 @@
 	width = 60%
 	height = 60
 
-	background = ${colors.background}
+	background = ${colors.background_light}
 	foreground = ${colors.foreground}
 
 	border-size = 3
-	border-color = ${colors.border}
+	border-color = ${colors.background_dark}
 
 	line-size = 0
 	line-color = ${colors.background}
@@ -70,300 +70,311 @@
 	inherit = bar/base
 	bottom = false
 
-	modules-left = i3
-	modules-right = pulseaudio backlight wifi battery
+	modules-left = wifi i3
+	modules-right = pulseaudio backlight battery date
 
 [bar/bottom]
 	inherit = bar/base
 	bottom = true
 
-	modules-left = cpu ram swap filesystem
-	modules-right = docker pacupdate date
+	modules-left = kernel cpu ram swap
+	modules-right = docker filesystem pacupdate
 
-	[module/i3]
-		type = internal/i3
-		format = <label-state>
-		index-sort = true
-		wrapping-scroll = false
-		enable-click = true
+[module/i3]
+	type = internal/i3
+	format = <label-state>
+	index-sort = true
+	wrapping-scroll = false
+	enable-click = true
 
-		label-focused = %icon%
-		label-focused-foreground = ${colors.green}
-		label-focused-background = ${colors.background}
-		label-focused-underline = ${colors.background}
-		label-focused-padding = 3
+	label-focused = %icon%
+	label-focused-foreground = ${colors.green}
+	label-focused-background = ${colors.background}
+	label-focused-padding = 3
 
-		label-unfocused = %icon%
-		label-unfocused-foreground = ${colors.black}
-		label-unfocused-background = ${colors.background}
-		label-unfocused-padding = 3
+	label-unfocused = %icon%
+	label-unfocused-foreground = ${colors.black}
+	label-unfocused-background = ${colors.background}
+	label-unfocused-padding = 3
 
-		label-visible-background = ${self.label-focused-background}
-		label-visible-underline = ${self.label-focused-underline}
-		label-visible-padding = ${self.label-focused-padding}
+	label-visible-background = ${self.label-focused-background}
+	label-visible-padding = ${self.label-focused-padding}
 
-		label-urgent-foreground = ${colors.red}
-		label-urgent-background = ${colors.background}
-		label-urgent-padding = 3
+	label-urgent-foreground = ${colors.red}
+	label-urgent-background = ${colors.background}
+	label-urgent-padding = 3
 
-		ws-icon-0 = 1;
-		ws-icon-1 = 2;
-		ws-icon-2 = 3;
-		ws-icon-3 = 4;
-		ws-icon-4 = 5;
-		ws-icon-5 = 6;
-		ws-icon-6 = 7;
-		ws-icon-7 = 8;
-		ws-icon-8 = 9;
-		ws-icon-9 = 10;
+	ws-icon-0 = 1;
+	ws-icon-1 = 2;
+	ws-icon-2 = 3;
+	ws-icon-3 = 4;
+	ws-icon-4 = 5;
+	ws-icon-5 = 6;
+	ws-icon-6 = 7;
+	ws-icon-7 = 8;
+	ws-icon-8 = 9;
+	ws-icon-9 = 10;
 
-	[module/title]
-		type = internal/xwindow
+[module/title]
+	type = internal/xwindow
 
-		format = <label>
-		format-prefix = 
-		format-prefix-padding-left = 3
-		format-foreground = ${colors.foreground}
-		format-background = ${colors.background}
+	format = <label>
+	format-prefix = 
+	format-prefix-padding-left = 3
+	format-foreground = ${colors.foreground}
+	format-background = ${colors.background}
 
-		label = %title%
-		label-maxlen = 50
-		label-padding-left = 2
-		label-padding-right = 3
+	label = %title%
+	label-maxlen = 50
+	label-padding-left = 2
+	label-padding-right = 3
 
-		label-empty = Empty
-		label-empty-foreground = ${colors.foreground}
-		label-empty-background = ${colors.background}
-		label-empty-padding-left = 2
-		label-empty-padding-right = 3
+	label-empty = Empty
+	label-empty-foreground = ${colors.foreground}
+	label-empty-background = ${colors.background}
+	label-empty-padding-left = 2
+	label-empty-padding-right = 3
 
-	[module/cpu]
-		type = internal/cpu
-		interval = 1
+[module/cpu]
+	type = internal/cpu
+	interval = 1
 
-		format = <label>
-		format-prefix = 
-		format-prefix-padding-left = 3
-		format-prefix-foreground = ${colors.magenta}
-		format-prefix-background = ${colors.background}
+	format = <label>
+	format-prefix = 
+	format-prefix-padding-left = 3
+	format-prefix-foreground = ${colors.magenta}
+	format-prefix-background = ${colors.background}
 
-		label = %percentage%%
-		label-foreground = ${colors.magenta}
-		label-background = ${colors.background}
-		label-padding-left = 2
-		label-padding-right = 3
+	label = %percentage%%
+	label-foreground = ${colors.magenta}
+	label-background = ${colors.background}
+	label-padding-left = 2
+	label-padding-right = 3
 
-	[module/ram]
-		type = internal/memory
-		interval = 1
+[module/ram]
+	type = internal/memory
+	interval = 1
 
-		format = <label>
-		format-prefix = 
-		format-prefix-padding-left = 3
-		format-prefix-foreground = ${colors.yellow}
-		format-prefix-background = ${colors.background}
+	format = <label>
+	format-prefix = 
+	format-prefix-padding-left = 3
+	format-prefix-foreground = ${colors.yellow}
+	format-prefix-background = ${colors.background}
 
-		label = %percentage_used%%
-		label-foreground = ${colors.yellow}
-		label-background = ${colors.background}
-		label-padding-left = 2
-		label-padding-right = 3
+	label = %percentage_used%%
+	label-foreground = ${colors.yellow}
+	label-background = ${colors.background}
+	label-padding-left = 2
+	label-padding-right = 3
 
-	[module/swap]
-		type = internal/memory
-		interval = 10
+[module/swap]
+	type = internal/memory
+	interval = 10
 
-		format = <label>
-		format-prefix = 
-		format-prefix-padding-left = 3
-		format-prefix-foreground = ${colors.blue}
-		format-prefix-background = ${colors.background}
+	format = <label>
+	format-prefix = 
+	format-prefix-padding-left = 3
+	format-prefix-foreground = ${colors.blue}
+	format-prefix-background = ${colors.background}
 
-		label = %percentage_swap_used%%
-		label-foreground = ${colors.blue}
-		label-background = ${colors.background}
-		label-padding-left = 2
-		label-padding-right = 3
+	label = %percentage_swap_used%%
+	label-foreground = ${colors.blue}
+	label-background = ${colors.background}
+	label-padding-left = 2
+	label-padding-right = 3
 
-	[module/filesystem]
-		type = internal/fs
-		interval = 30
-		fixed-values = true
+[module/filesystem]
+	type = internal/fs
+	interval = 30
+	fixed-values = true
 
-		mount-0 = /
+	mount-0 = /
 
-		format-mounted = <label-mounted>
-		format-mounted-prefix = 
-		format-mounted-prefix-padding-left = 3
-		format-mounted-prefix-foreground = ${colors.blue}
-		format-mounted-prefix-background = ${colors.background}
+	format-mounted = <label-mounted>
+	format-mounted-prefix = 
+	format-mounted-prefix-padding-left = 3
+	format-mounted-prefix-foreground = ${colors.blue}
+	format-mounted-prefix-background = ${colors.background}
 
-		label-mounted = %percentage_used%%
-		label-mounted-foreground = ${colors.blue}
-		label-mounted-background = ${colors.background}
-		label-mounted-padding-left = 2
-		label-mounted-padding-right = 3
+	label-mounted = %percentage_used%%
+	label-mounted-foreground = ${colors.blue}
+	label-mounted-background = ${colors.background}
+	label-mounted-padding-left = 2
+	label-mounted-padding-right = 3
 
-		format-unmounted = <label-unmounted>
-		format-unmounted-prefix = 
-		format-unmounted-prefix-padding-left = 3
-		format-unmounted-prefix-foreground = ${colors.blue}
-		format-unmounted-prefix-background = ${colors.background}
+	format-unmounted = <label-unmounted>
+	format-unmounted-prefix = 
+	format-unmounted-prefix-padding-left = 3
+	format-unmounted-prefix-foreground = ${colors.blue}
+	format-unmounted-prefix-background = ${colors.background}
 
-		label-unmounted = not mounted
-		label-unmounted-foreground = ${colors.blue}
-		label-unmounted-background = ${colors.background}
-		label-unmounted-padding-left = 2
-		label-unmounted-padding-right = 3
+	label-unmounted = UNMOUNTED
+	label-unmounted-foreground = ${colors.blue}
+	label-unmounted-background = ${colors.background}
+	label-unmounted-padding-left = 2
+	label-unmounted-padding-right = 3
 
-	[module/pulseaudio]
-		type = internal/pulseaudio
-		use-ui-max = false
-		interval = 5
+[module/pulseaudio]
+	type = internal/pulseaudio
+	use-ui-max = false
+	interval = 5
 
-		format-volume = <label-volume>
-		format-muted = <label-muted>
+	format-volume = <label-volume>
+	format-muted = <label-muted>
 
-		format-volume-prefix = 
-		format-volume-prefix-padding-left = 3
-		format-volume-prefix-foreground = ${colors.blue}
-		format-volume-prefix-background = ${colors.background}
+	format-volume-prefix = 
+	format-volume-prefix-padding-left = 3
+	format-volume-prefix-foreground = ${colors.blue}
+	format-volume-prefix-background = ${colors.background}
 
-		label-volume = %percentage%%
-		label-volume-foreground = ${colors.blue}
-		label-volume-background = ${colors.background}
-		label-volume-padding-left = 2
-		label-volume-padding-right = 3
+	label-volume = %percentage%%
+	label-volume-foreground = ${colors.blue}
+	label-volume-background = ${colors.background}
+	label-volume-padding-left = 2
+	label-volume-padding-right = 3
 
-		format-muted-prefix = 
-		format-muted-prefix-padding-left = 3
-		format-muted-prefix-foreground = ${colors.black}
-		format-muted-prefix-background = ${colors.background}
+	format-muted-prefix = 
+	format-muted-prefix-padding-left = 3
+	format-muted-prefix-foreground = ${colors.black}
+	format-muted-prefix-background = ${colors.background}
 
-		label-muted = muted
-		label-muted-foreground = ${colors.black}
-		label-muted-background = ${colors.background}
-		label-muted-padding-left = 2
-		label-muted-padding-right = 3
+	label-muted = OFF
+	label-muted-foreground = ${colors.black}
+	label-muted-background = ${colors.background}
+	label-muted-padding-left = 2
+	label-muted-padding-right = 3
 
-	[module/backlight]
-		type = internal/xbacklight
-		output = eDP1
-		format = <label>
+[module/backlight]
+	type = internal/xbacklight
+	output = eDP1
+	format = <label>
 
-		format-prefix = 
-		format-prefix-padding-left = 3
-		format-foreground = ${colors.yellow}
-		format-background = ${colors.background}
+	format-prefix = 
+	format-prefix-padding-left = 3
+	format-foreground = ${colors.yellow}
+	format-background = ${colors.background}
 
-		label = %percentage%%
-		label-padding-left = 2
-		label-padding-right = 3
+	label = %percentage%%
+	label-padding-left = 2
+	label-padding-right = 3
 
-	[module/battery]
-		type = internal/battery
-		battery = BAT0
-		adapter = AC
-		full-at = 98
+[module/battery]
+	type = internal/battery
+	battery = BAT0
+	adapter = AC
+	full-at = 98
 
-		format-charging-prefix = 
-		format-charging-prefix-padding-left = 3
-		format-charging = <label-charging>
-		format-charging-foreground = ${colors.green}
-		format-charging-background = ${colors.background}
-		format-charging-underline = ${colors.background}
-		label-charging-padding-left = 2
-		label-charging-padding-right = 3
+	format-charging-prefix = 
+	format-charging-prefix-padding-left = 3
+	format-charging = <label-charging>
+	format-charging-foreground = ${colors.green}
+	format-charging-background = ${colors.background}
+	label-charging-padding-left = 2
+	label-charging-padding-right = 3
 
-		format-discharging-prefix = 
-		format-discharging-prefix-padding-left = 3
-		format-discharging = <label-discharging>
-		format-discharging-foreground = ${colors.red}
-		format-discharging-background = ${colors.background}
-		format-discharging-underline = ${colors.background}
-		label-discharging-padding-left = 2
-		label-discharging-padding-right = 3
+	format-discharging-prefix = 
+	format-discharging-prefix-padding-left = 3
+	format-discharging = <label-discharging>
+	format-discharging-foreground = ${colors.red}
+	format-discharging-background = ${colors.background}
+	label-discharging-padding-left = 2
+	label-discharging-padding-right = 3
 
-		format-full-prefix = 
-		format-full-prefix-padding-left = 3
-		format-full = <label-full>
-		format-full-foreground = ${colors.green}
-		format-full-background = ${colors.background}
-		format-full-underline = ${colors.background}
-		label-full-padding-left = 2
-		label-full-padding-right = 3
+	format-full-prefix = 
+	format-full-prefix-padding-left = 3
+	format-full = <label-full>
+	format-full-foreground = ${colors.green}
+	format-full-background = ${colors.background}
+	label-full-padding-left = 2
+	label-full-padding-right = 3
 
-	[module/wifi]
-		type = internal/network
-		interface = wlp2s0
-		ping-interval = 10
-		unknown-as-up = true
+[module/wifi]
+	type = internal/network
+	interface = wlp2s0
+	ping-interval = 10
+	unknown-as-up = true
 
-		format-connected-prefix = 
-		format-connected-prefix-padding-left = 3
-		format-connected-foreground = ${colors.cyan}
-		format-connected-background = ${colors.background}
-		label-connected = %essid%
-		label-connected-padding-left = 2
-		label-connected-padding-right = 3
+	format-connected-prefix = 
+	format-connected-prefix-padding-left = 3
+	format-connected-foreground = ${colors.green}
+	format-connected-background = ${colors.background_dark}
+	label-connected = %essid%
+	label-connected-padding-left = 2
+	label-connected-padding-right = 3
 
-		format-packetloss-prefix = 
-		format-packetloss-prefix-padding-left = 3
-		format-packetloss-foreground = ${colors.yellow}
-		format-packetloss-background = ${colors.background}
-		label-packetloss = packetloss
-		label-packetloss-padding-left = 2
-		label-packetloss-padding-right = 3
+	format-packetloss-prefix = 
+	format-packetloss-prefix-padding-left = 3
+	format-packetloss-foreground = ${colors.yellow}
+	format-packetloss-background = ${colors.background_dark}
+	label-packetloss = PACKETLOSS
+	label-packetloss-padding-left = 2
+	label-packetloss-padding-right = 3
 
-		format-disconnected-prefix = 
-		format-disconnected-prefix-padding-left = 3
-		format-disconnected-foreground = ${colors.red}
-		format-disconnected-background = ${colors.background}
-		label-disconnected = disconnected
-		label-disconnected-padding-left = 2
-		label-disconnected-padding-right = 3
+	format-disconnected-prefix = 
+	format-disconnected-prefix-padding-left = 3
+	format-disconnected-foreground = ${colors.red}
+	format-disconnected-background = ${colors.background_dark}
+	label-disconnected = DISCONNECTED
+	label-disconnected-padding-left = 2
+	label-disconnected-padding-right = 3
 
-	[module/docker]
-		type = custom/script
-		exec = docker ps -q | wc -l
-		interval = 3
+[module/kernel]
+	type = custom/script
+	exec = uname -r
+	interval = 3600
 
-		format = <label>
-		format-prefix = 
-		format-prefix-padding-left = 3
-		format-foreground = ${colors.cyan}
-		format-background = ${colors.background}
+	format = <label>
+	format-prefix = 
+	format-prefix-padding-left = 3
+	format-foreground = ${colors.cyan}
+	format-background = ${colors.background_dark}
 
-		label = %output%
-		label-padding-left = 2
-		label-padding-right = 3
+	label = %output%
+	label-padding-left = 2
+	label-padding-right = 3
 
-	[module/pacupdate]
-		type = custom/script
-		exec = ~/.config/polybar/scripts/pacupdate.sh
-		interval = 3600
+[module/docker]
+	type = custom/script
+	exec = docker ps -q | wc -l
+	interval = 5
 
-		format = <label>
-		format-prefix = 
-		format-prefix-padding-left = 3
-		format-foreground = ${colors.magenta}
-		format-background = ${colors.background}
+	format = <label>
+	format-prefix = 
+	format-prefix-padding-left = 3
+	format-foreground = ${colors.blue}
+	format-background = ${colors.background}
 
-		label = %output%
-		label-padding-left = 2
-		label-padding-right = 3
+	label = %output%
+	label-padding-left = 2
+	label-padding-right = 3
 
-	[module/date]
-		type = internal/date
-		interval = 5.0
-		time = %H:%M
-		date = %a %d %b
+[module/pacupdate]
+	type = custom/script
+	exec = ~/.config/polybar/scripts/pacupdate.sh
+	interval = 3600
 
-		format-prefix = 
-		format-prefix-padding-left = 3
-		format-foreground = ${colors.blue}
-		format-background = ${colors.background}
+	format = <label>
+	format-prefix = 
+	format-prefix-padding-left = 3
+	format-foreground = ${colors.magenta}
+	format-background = ${colors.background_dark}
 
-		label = %date% %time%
-		label-padding-left = 2
-		label-padding-right = 3
+	label = %output%
+	label-padding-left = 2
+	label-padding-right = 3
+
+[module/date]
+	type = internal/date
+	interval = 5.0
+	time = %H:%M
+	date = %a %d %b
+
+	format-prefix = 
+	format-prefix-padding-left = 3
+	format-foreground = ${colors.green}
+	format-background = ${colors.background_dark}
+
+	label = %date% %time%
+	label-padding-left = 2
+	label-padding-right = 3
+
