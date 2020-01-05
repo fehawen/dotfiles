@@ -140,15 +140,8 @@ function! ActiveStatusLine()
 	endif
 	" Show if file has been modified
 	if Modified() != ""
+		" Syntax identifier
 		let l:statusline.="%8*\ %{Modified()}\ "
-		" Separator
-		let l:statusline.="%1*\ "
-	endif
-	" Spacer
-	let l:statusline.="%1*%="
-	" Show syntax identifier, if any
-	if SyntaxItem() != ""
-		let l:statusline.="%4*\ %{SyntaxItem()}\ "
 		" Separator
 		let l:statusline.="%1*\ "
 	endif
@@ -158,6 +151,15 @@ function! ActiveStatusLine()
 	let l:statusline.="%1*\ "
 	" File format
 	let l:statusline.="%5*\ %{&ff}\ "
+	" Show syntax identifier, if any
+	if SyntaxItem() != ""
+		" Separator
+		let l:statusline.="%1*\ "
+		" Syntax identifier
+		let l:statusline.="%4*\ %{SyntaxItem()}\ "
+	endif
+	" Blank
+	let l:statusline.="%1*"
 	" Done
 	return l:statusline
 endfunction
@@ -168,14 +170,8 @@ function! InactiveStatusLine()
 	let l:statusline=""
 	" Filename
 	let l:statusline.="%8*\ %t\ "
-	" Spacer
-	let l:statusline.="%1*%="
-	" File encoding
-	let l:statusline.="%8*\ %{(&fenc!=''?&fenc:&enc)}\ "
-	" Separator
-	let l:statusline.="%1*\ "
-	" File format
-	let l:statusline.="%8*\ %{&ff}\ "
+	" Blank
+	let l:statusline.="%1*"
 	" Done
 	return l:statusline
 endfunction
