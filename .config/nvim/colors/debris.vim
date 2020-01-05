@@ -13,6 +13,7 @@ let s:cterm = {}
 let s:gui.none       = { "default": "NONE" }
 let s:gui.foreground = { "default": "#D4D4D4" }
 let s:gui.background = { "default": "#12181D" }
+let s:gui.dark       = { "default": "#0B1218" }
 
 let s:gui.cursorline = { "default": "#171D22" }
 let s:gui.comment    = { "default": "#3E444A" }
@@ -66,7 +67,7 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.none,          s:gui.none,          "bold,italic")
+call s:hi("User1",              s:gui.cursorline,    s:gui.cursorline,    "bold,italic")
 call s:hi("User2",              s:gui.background,    s:gui.red,           "bold,italic")
 call s:hi("User3",              s:gui.background,    s:gui.green,         "bold,italic")
 call s:hi("User4",              s:gui.background,    s:gui.yellow,        "bold,italic")
@@ -75,17 +76,22 @@ call s:hi("User6",              s:gui.background,    s:gui.magenta,       "bold,
 call s:hi("User7",              s:gui.background,    s:gui.cyan,          "bold,italic")
 call s:hi("User8",              s:gui.background,    s:gui.comment,       "bold,italic")
 
+" WINDOW BACKGROUND
+" call s:hi("ActiveWindow",       "",                  s:gui.dark,          "")
+" call s:hi("InactiveWindow",     "",                  s:gui.dark,          "")
+" set winhighlight=Normal:ActiveWindow,NormalNC:ActiveWindow
+
 " STATUSLINE COLORS (basic/fallback as we have a separate statusline in ./plugin)
-call s:hi("StatusLine",         s:gui.background,    s:gui.none,    "none")
-call s:hi("StatusLineNC",       s:gui.foreground,    s:gui.none,    "none")
-call s:hi("StatusLineTerm",     s:gui.background,    s:gui.none,    "none")
-call s:hi("StatusLineTemrNC",   s:gui.foreground,    s:gui.none,    "none")
+call s:hi("StatusLine",         s:gui.background,    s:gui.cursorline,    "none")
+call s:hi("StatusLineNC",       s:gui.cursorline,    s:gui.cursorline,    "none")
+call s:hi("StatusLineTerm",     s:gui.background,    s:gui.cursorline,    "none")
+call s:hi("StatusLineTemrNC",   s:gui.cursorline,    s:gui.cursorline,    "none")
 
 "call"
 " NERDTREE COLORS
 call s:hi("NERDTreeOpenable",   s:gui.comment,       s:gui.none,          "")
 call s:hi("NERDTreeClosable",   s:gui.comment,       s:gui.none,          "")
-call s:hi("NERDTreeCWD",        s:gui.magenta,       s:gui.none,          "italic")
+call s:hi("NERDTreeCWD",        s:gui.black,         s:gui.none,          "italic")
 call s:hi("NERDTreeDir",        s:gui.comment,       s:gui.none,          "bold")
 call s:hi("NERDTreeDirSlash",   s:gui.background,    s:gui.none,          "")
 call s:hi("NERDTreeExecFile",   s:gui.blue,          s:gui.none,          "")
@@ -105,9 +111,9 @@ call s:hi("ColorColumn",  s:gui.none,       s:gui.black,      "")
 call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
-call s:hi("LineNr",       s:gui.black,      "",               "")
+call s:hi("LineNr",       s:gui.background, s:gui.background,               "")
 call s:hi("CursorLine",   s:gui.none,       s:gui.none, "")
-call s:hi("CursorLineNr", s:gui.foreground, s:gui.cursorline, "")
+call s:hi("CursorLineNr", s:gui.background, s:gui.background, "")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.background, s:gui.black,      "")
@@ -117,7 +123,7 @@ call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.yellow,     "",               "")
 call s:hi("SpellBad",     s:gui.red,        s:gui.none,       "none")
-call s:hi("VertSplit",    s:gui.black,      s:gui.none,       "none")
+call s:hi("VertSplit",    s:gui.cursorline, s:gui.cursorline, "")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "")
 
 call s:hi("DiffAdded",    s:gui.green,      "", "")
