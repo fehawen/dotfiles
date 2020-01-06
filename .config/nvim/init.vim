@@ -93,10 +93,10 @@ set shiftwidth=2
 set autoindent
 
 " Add line numbers
-set relativenumber number
+" set relativenumber number
 
 " Disable line number
-" set nonumber
+set nonumber
 
 " Prevent cursor to jump around too much on scroll
 set lazyredraw

@@ -13,7 +13,6 @@ let s:cterm = {}
 let s:gui.none       = { "default": "NONE" }
 let s:gui.foreground = { "default": "#D4D4D4" }
 let s:gui.background = { "default": "#12181D" }
-let s:gui.dark       = { "default": "#0B1218" }
 
 let s:gui.cursorline = { "default": "#171D22" }
 let s:gui.comment    = { "default": "#3E444A" }
@@ -67,7 +66,7 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.cursorline,    s:gui.cursorline,    "bold,italic")
+call s:hi("User1",              s:gui.background,    s:gui.background,    "bold,italic")
 call s:hi("User2",              s:gui.background,    s:gui.red,           "bold,italic")
 call s:hi("User3",              s:gui.background,    s:gui.green,         "bold,italic")
 call s:hi("User4",              s:gui.background,    s:gui.yellow,        "bold,italic")
@@ -76,16 +75,11 @@ call s:hi("User6",              s:gui.background,    s:gui.magenta,       "bold,
 call s:hi("User7",              s:gui.background,    s:gui.cyan,          "bold,italic")
 call s:hi("User8",              s:gui.background,    s:gui.comment,       "bold,italic")
 
-" WINDOW BACKGROUND
-" call s:hi("ActiveWindow",       "",                  s:gui.dark,          "")
-" call s:hi("InactiveWindow",     "",                  s:gui.dark,          "")
-" set winhighlight=Normal:ActiveWindow,NormalNC:ActiveWindow
-
 " STATUSLINE COLORS (basic/fallback as we have a separate statusline in ./plugin)
-call s:hi("StatusLine",         s:gui.background,    s:gui.cursorline,    "none")
-call s:hi("StatusLineNC",       s:gui.cursorline,    s:gui.cursorline,    "none")
-call s:hi("StatusLineTerm",     s:gui.background,    s:gui.cursorline,    "none")
-call s:hi("StatusLineTemrNC",   s:gui.cursorline,    s:gui.cursorline,    "none")
+call s:hi("StatusLine",         s:gui.background,    s:gui.background,    "none")
+call s:hi("StatusLineNC",       s:gui.cursorline,    s:gui.background,    "none")
+call s:hi("StatusLineTerm",     s:gui.background,    s:gui.background,    "none")
+call s:hi("StatusLineTemrNC",   s:gui.cursorline,    s:gui.background,    "none")
 
 "call"
 " NERDTREE COLORS
@@ -123,7 +117,7 @@ call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.yellow,     "",               "")
 call s:hi("SpellBad",     s:gui.red,        s:gui.none,       "none")
-call s:hi("VertSplit",    s:gui.cursorline, s:gui.cursorline, "")
+call s:hi("VertSplit",    s:gui.black,      s:gui.none,       "none")
 call s:hi("Conceal",      s:gui.comment,    s:gui.none,       "")
 
 call s:hi("DiffAdded",    s:gui.green,      "", "")
