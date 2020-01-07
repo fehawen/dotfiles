@@ -19,8 +19,7 @@
 [colors]
 	foreground = ${xrdb:foreground}
 	background = ${xrdb:background}
-	background_light = #171D22
-	background_dark = #0B1218
+	border = #0B1218
 
 	black = ${xrdb:color0}
 	red = ${xrdb:color1}
@@ -42,16 +41,16 @@
 	dpi-y = 0
 
 	offset-y = 24
-	offset-x = 20%
+	offset-x = 15%
 
-	width = 60%
+	width = 70%
 	height = 60
 
-	background = ${colors.background_light}
+	background = ${colors.background}
 	foreground = ${colors.foreground}
 
 	border-size = 3
-	border-color = ${colors.background_dark}
+	border-color = ${colors.border}
 
 	line-size = 0
 	line-color = ${colors.background}
@@ -70,15 +69,17 @@
 	inherit = bar/base
 	bottom = false
 
-	modules-left = wifi i3
-	modules-right = pulseaudio backlight battery date
+	modules-left = wifi pulseaudio backlight
+	modules-center = i3
+	modules-right = battery date
 
 [bar/bottom]
 	inherit = bar/base
 	bottom = true
 
-	modules-left = kernel cpu ram swap
-	modules-right = docker filesystem pacupdate
+	modules-left = kernel docker
+	modules-center = cpu ram swap
+	modules-right = filesystem pacupdate
 
 [module/i3]
 	type = internal/i3
@@ -297,7 +298,7 @@
 	format-connected-prefix = 
 	format-connected-prefix-padding-left = 3
 	format-connected-foreground = ${colors.green}
-	format-connected-background = ${colors.background_dark}
+	format-connected-background = ${colors.background}
 	label-connected = %essid%
 	label-connected-padding-left = 2
 	label-connected-padding-right = 3
@@ -305,7 +306,7 @@
 	format-packetloss-prefix = 
 	format-packetloss-prefix-padding-left = 3
 	format-packetloss-foreground = ${colors.yellow}
-	format-packetloss-background = ${colors.background_dark}
+	format-packetloss-background = ${colors.background}
 	label-packetloss = PACKETLOSS
 	label-packetloss-padding-left = 2
 	label-packetloss-padding-right = 3
@@ -313,7 +314,7 @@
 	format-disconnected-prefix = 
 	format-disconnected-prefix-padding-left = 3
 	format-disconnected-foreground = ${colors.red}
-	format-disconnected-background = ${colors.background_dark}
+	format-disconnected-background = ${colors.background}
 	label-disconnected = DISCONNECTED
 	label-disconnected-padding-left = 2
 	label-disconnected-padding-right = 3
@@ -327,7 +328,7 @@
 	format-prefix = 
 	format-prefix-padding-left = 3
 	format-foreground = ${colors.cyan}
-	format-background = ${colors.background_dark}
+	format-background = ${colors.background}
 
 	label = %output%
 	label-padding-left = 2
@@ -357,7 +358,7 @@
 	format-prefix = 
 	format-prefix-padding-left = 3
 	format-foreground = ${colors.magenta}
-	format-background = ${colors.background_dark}
+	format-background = ${colors.background}
 
 	label = %output%
 	label-padding-left = 2
@@ -372,7 +373,7 @@
 	format-prefix = 
 	format-prefix-padding-left = 3
 	format-foreground = ${colors.green}
-	format-background = ${colors.background_dark}
+	format-background = ${colors.background}
 
 	label = %date% %time%
 	label-padding-left = 2
