@@ -41,9 +41,9 @@
 	dpi-y = 0
 
 	offset-y = 24
-	offset-x = 15%
+	offset-x = 20%
 
-	width = 70%
+	width = 60%
 	height = 60
 
 	background = ${colors.background}
@@ -77,9 +77,9 @@
 	inherit = bar/base
 	bottom = true
 
-	modules-left = kernel docker
+	modules-left = pacupdate
 	modules-center = cpu ram swap
-	modules-right = filesystem pacupdate
+	modules-right = docker filesystem
 
 [module/i3]
 	type = internal/i3
@@ -318,21 +318,6 @@
 	label-disconnected = DISCONNECTED
 	label-disconnected-padding-left = 2
 	label-disconnected-padding-right = 3
-
-[module/kernel]
-	type = custom/script
-	exec = uname -r
-	interval = 3600
-
-	format = <label>
-	format-prefix = 
-	format-prefix-padding-left = 3
-	format-foreground = ${colors.cyan}
-	format-background = ${colors.background}
-
-	label = %output%
-	label-padding-left = 2
-	label-padding-right = 3
 
 [module/docker]
 	type = custom/script
