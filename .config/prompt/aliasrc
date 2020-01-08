@@ -4,6 +4,11 @@
 ### ALIASES ###
 ###############
 
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 alias clr="clear"
 alias la="ls -AFGghl"
 alias las="stat -c '%A %a %n' *" # Show octal permissions
