@@ -15,11 +15,8 @@ set $mod Mod4
 font pango:Operator Mono 13
 
 # Gaps
-gaps inner 24
+gaps inner 20
 gaps outer 90
-# gaps outer 24
-# gaps top 90
-# gaps bottom 90
 
 # Borders
 for_window [class=".*"] border pixel 3
