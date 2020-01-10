@@ -40,19 +40,19 @@ draw_bold_text_with_bright_colors: true
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Operator Mono
-    style: Book
+    family: Roboto Mono
+    style: Regular
 
   bold:
-    family: Operator Mono
-    style: Bold
+    family: Roboto Mono
+    style: Regular
 
   italic:
-    family: Operator Mono
-    style: Book Italic
+    family: Roboto Mono
+    style: Regular Italic
 
   bold_italic:
-    family: Operator Mono
+    family: Roboto Mono
     style: Bold Italic
 
   size: 4.5

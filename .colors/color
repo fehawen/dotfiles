@@ -1,42 +1,42 @@
 ! Sourced by .Xresources
 
 ! Font
-*font: xft:Operator Mono:pixelsize=13
+*font: xft:Roboto Mono:pixelsize=12
 
 ! Colors
 
-*background: #12181D
-*foreground: #D4D4D4
-*cursorColor: #D4D4D4
+*background: #2E3440
+*foreground: #D8DEE9
+*cursorColor: #D8DEE9
 
 ! black
-*color0:  #3E444A
-*color8:  #3E444A
+*color0:  #4C566A
+*color8:  #4C566A
 
 ! red
-*color1:  #917070
-*color9:  #917070
+*color1:  #BF616A
+*color9:  #BF616A
 
 ! green
-*color2:  #798183
-*color10: #798183
+*color2:  #A1BC8A
+*color10: #A1BC8A
 
 ! yellow
-*color3:  #82817E
-*color11: #82817E
+*color3:  #EBCB8B
+*color11: #EBCB8B
 
 ! blue
-*color4:  #6D6E75
-*color12: #6D6E75
+*color4:  #81A1C1
+*color12: #81A1C1
 
 ! magenta
-*color5:  #96858D
-*color13: #96858D
+*color5:  #B48EAD
+*color13: #B48EAD
 
 ! cyan
-*color6:  #949AA9
-*color14: #949AA9
+*color6:  #88C0D0
+*color14: #88C0D0
 
 ! White
-*color7:  #D4D4D4
-*color15: #D4D4D4
+*color7:  #D8DEE9
+*color15: #D8DEE9

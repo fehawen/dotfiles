@@ -94,9 +94,10 @@ set autoindent
 
 " Add line numbers
 " set relativenumber number
+set number
 
 " Disable line number
-set nonumber
+" set nonumber
 
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
@@ -214,7 +215,7 @@ augroup END
 set termguicolors
 
 " Set theme
-colorscheme debris
+colorscheme akiro
 
 " Source NERDTree filetype highlighting
 source ~/Dotfiles/.config/nvim/plugin/nerdtree.vim

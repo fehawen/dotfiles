@@ -32,7 +32,6 @@ install_packages() {
 		"kitty"
 		"w3m"
 		"hsetroot"
-		"feh"
 		"surf"
 		"firefox"
 		"chromium"

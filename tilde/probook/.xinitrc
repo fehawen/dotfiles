@@ -4,7 +4,7 @@
 
 # xrandr --dpi 55
 
-feh --bg-fill ~/.wallpapers/mist.png
+hsetroot -solid "#3B4252"
 
 setxkbmap -layout se
 

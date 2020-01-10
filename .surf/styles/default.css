@@ -1,5 +1,5 @@
 * {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	background-color: #12181D !important;
 	color: #B2BEBF !important;
 	border: none !important;
@@ -19,25 +19,25 @@ body,
 td,
 tr,
 p {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	background-color: #12181D !important;
 	color: #B2BEBF !important;
 }
 
 div {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	background-color: #12181D !important;
 	color: #B2BEBF !important;
 }
 
 h1 {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	background-color: #12181D !important;
 	color: #B2BEBF !important;
 }
 
 a h1 {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	color: #6D6E75 !important;
 }
 
@@ -46,7 +46,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	background-color: #12181D !important;
 	color: #B2BEBF !important;
 }
@@ -56,24 +56,24 @@ a h3,
 a h4,
 a h5,
 a h6 {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	color: #6D6E75 !important;
 }
 
 a p {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	color: #566166 !important;
 }
 
 a {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	color: #96858D !important;
 	background-color: #12181D !important;
 	border: none !important;
 }
 
 button {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	background-color: #12181D !important;
 	color: #96858D !important;
 	border: none !important;
@@ -81,7 +81,7 @@ button {
 }
 
 summary {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	background-color: #12181D !important;
 	color: #B2BEBF !important;
 	border: none !important;
@@ -103,7 +103,7 @@ a svg,
 a i,
 a span,
 a div {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	background-color: #12181D !important;
 	color: #96858D !important;
 }
@@ -141,14 +141,14 @@ hr {
 }
 
 input, form {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	background-color: #12181D !important;
 	color: #96858D !important;
 	border-radius: 0 !important;
 }
 
 input {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	border: 1px solid #96858D !important;
 	padding-left: 16px !important;
 	padding-right: 16px !important;
@@ -160,7 +160,7 @@ label svg {
 }
 
 form {
-	font-family: "Operator Mono" !important;
+	font-family: "Roboto Mono" !important;
 	border: none !important;
 }
 

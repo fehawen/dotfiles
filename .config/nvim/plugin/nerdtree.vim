@@ -1,14 +1,14 @@
 let s:gui = {}
 
-let s:gui.white      = { "default": "#D4D4D4" }
-let s:gui.black      = { "default": "#3E444A" }
-let s:gui.red        = { "default": "#917070" }
-let s:gui.green      = { "default": "#798183" }
-let s:gui.yellow     = { "default": "#82817E" }
-let s:gui.blue       = { "default": "#6D6E75" }
-let s:gui.magenta    = { "default": "#96858D" }
-let s:gui.cyan       = { "default": "#949AA9" }
-let s:gui.none       = { "default": "NONE" }
+let s:gui.white      = { 'default': '#D8DEE9' }
+let s:gui.black      = { "default": "#4C566A" }
+let s:gui.red        = { "default": "#BF616A" }
+let s:gui.green      = { "default": "#A1BC8A" }
+let s:gui.yellow     = { "default": "#EBCB8B" }
+let s:gui.blue       = { "default": "#81A1C1" }
+let s:gui.magenta    = { "default": "#B48EAD" }
+let s:gui.cyan       = { "default": "#88C0D0" }
+let s:gui.none       = { 'default': 'NONE' }
 
 function! s:gui(color)
 	if exists("g:slate_style")
