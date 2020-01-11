@@ -70,7 +70,7 @@
 	bottom = false
 
 	offset-x = 1%
-	width = 40%
+	width = 35%
 
 	modules-left = i3
 	modules-right = wifi battery
@@ -79,7 +79,7 @@
 	inherit = bar/base
 	bottom = true
 
-	width = 30%
+	width = 25%
 
 	modules-left = pulseaudio backlight pacupdate
 	modules-right = date
@@ -231,14 +231,14 @@
 	format-charging-prefix = 
 	format-charging-prefix-padding-left = 1
 	format-charging = <label-charging>
-	format-charging-foreground = ${colors.green}
+	format-charging-foreground = ${colors.yellow}
 	format-charging-background = ${colors.background}
 	label-charging-padding = 1
 
 	format-full-prefix = 
 	format-full-prefix-padding-left = 1
 	format-full = <label-full>
-	format-full-foreground = ${colors.black}
+	format-full-foreground = ${colors.green}
 	format-full-background = ${colors.background}
 	label-full-padding = 1
 

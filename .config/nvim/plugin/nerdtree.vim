@@ -5,6 +5,7 @@ let s:gui.black      = { "default": "#4C566A" }
 let s:gui.red        = { "default": "#BF616A" }
 let s:gui.green      = { "default": "#A1BC8A" }
 let s:gui.yellow     = { "default": "#EBCB8B" }
+let s:gui.orange     = { "default": "#D2937C" }
 let s:gui.blue       = { "default": "#81A1C1" }
 let s:gui.magenta    = { "default": "#B48EAD" }
 let s:gui.cyan       = { "default": "#88C0D0" }
@@ -30,8 +31,9 @@ call NERDTreeHighlightFile("conf",             s:gui.cyan,        s:gui.none)
 call NERDTreeHighlightFile("config",           s:gui.cyan,        s:gui.none)
 call NERDTreeHighlightFile("yml",              s:gui.cyan,        s:gui.none)
 
-call NERDTreeHighlightFile("js",               s:gui.yellow,      s:gui.none)
-call NERDTreeHighlightFile("jsx",              s:gui.yellow,      s:gui.none)
+call NERDTreeHighlightFile("js",               s:gui.orange,      s:gui.none)
+call NERDTreeHighlightFile("jsx",              s:gui.orange,      s:gui.none)
+
 call NERDTreeHighlightFile("json",             s:gui.yellow,      s:gui.none)
 
 call NERDTreeHighlightFile("css",              s:gui.green,       s:gui.none)

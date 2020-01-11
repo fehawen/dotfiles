@@ -92,9 +92,8 @@ set shiftwidth=2
 " Indent a new line the same amount as the line just typed
 set autoindent
 
-" Add line numbers
-" set relativenumber number
-set number
+" Set line numbers
+set relativenumber number
 
 " Disable line number
 " set nonumber
