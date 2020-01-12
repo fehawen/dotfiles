@@ -21,13 +21,12 @@ let s:gui.search     = { "default": "#82858C" }
 let s:gui.selection  = { "default": "#AAAEB7" }
 
 let s:gui.black      = { "default": "#4C566A" }
-let s:gui.red        = { "default": "#BF616A" }
-let s:gui.green      = { "default": "#A1BC8A" }
-let s:gui.yellow     = { "default": "#EBCB8B" }
-let s:gui.orange     = { "default": "#D2937C" }
-let s:gui.blue       = { "default": "#81A1C1" }
-let s:gui.magenta    = { "default": "#B48EAD" }
-let s:gui.cyan       = { "default": "#88C0D0" }
+let s:gui.red        = { "default": "#E88388" }
+let s:gui.green      = { "default": "#A7CC8C" }
+let s:gui.yellow     = { "default": "#DBAA79" }
+let s:gui.blue       = { "default": "#72BEF2" }
+let s:gui.magenta    = { "default": "#D291E4" }
+let s:gui.cyan       = { "default": "#65C2CD" }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -148,7 +147,7 @@ call s:hi("Function",     s:gui.magenta,    "",               "")
 call s:hi("Conditional",  s:gui.cyan,       "",               "")
 call s:hi("Float",        s:gui.green,      "",               "")
 call s:hi("Noise",        s:gui.cyan,       "",               "")
-call s:hi("Number",       s:gui.orange,     "",               "")
+call s:hi("Number",       s:gui.yellow,     "",               "")
 call s:hi("Identifier",   s:gui.blue,       "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
@@ -177,7 +176,7 @@ call s:hi("typescriptStringD",                   s:gui.green,        "", "")
 call s:hi("typescriptStringS",                   s:gui.green,        "", "")
 call s:hi("typescriptStringB",                   s:gui.green,        "", "")
 call s:hi("typescriptInterpolation",             s:gui.green,        "", "")
-call s:hi("typescriptNumber",                    s:gui.orange,       "", "")
+call s:hi("typescriptNumber",                    s:gui.yellow,       "", "")
 call s:hi("typescriptRegexpString",              s:gui.cyan,         "", "")
 call s:hi("typescriptPrototype",                 s:gui.magenta,      "", "")
 call s:hi("typescriptBrowserObjects",            s:gui.magenta,      "", "")
@@ -192,8 +191,8 @@ call s:hi("typescriptSource",                    s:gui.blue,         "", "") " i
 call s:hi("typescriptIdentifier",                s:gui.green,        "", "bold") " arguments this void
 call s:hi("typescriptStorageClass",              s:gui.magenta,      "", "bold") " let var const
 call s:hi("typescriptOperator",                  s:gui.yellow,       "", "bold") " delete new instanceof typeof
-call s:hi("typescriptBoolean",                   s:gui.orange,       "", "bold") " true false
-call s:hi("typescriptNull",                      s:gui.orange,       "", "bold") " null undefined
+call s:hi("typescriptBoolean",                   s:gui.yellow,       "", "bold") " true false
+call s:hi("typescriptNull",                      s:gui.yellow,       "", "bold") " null undefined
 call s:hi("typescriptMessage",                   s:gui.green,        "", "") " alert confirm prompt status
 
 call s:hi("typescriptConditional",               s:gui.cyan,         "", "bold") " if else switch
@@ -222,7 +221,7 @@ call s:hi("typescriptFunction",                  s:gui.magenta,      "", "")
 
 call s:hi("typescriptBraces",                    s:gui.blue,         "", "")
 call s:hi("typescriptParens",                    s:gui.blue,         "", "")
-call s:hi("typescriptOpSymbols",                 s:gui.orange,       "", "")
+call s:hi("typescriptOpSymbols",                 s:gui.yellow,       "", "")
 call s:hi("typescriptEndColons",                 s:gui.cyan,         "", "")
 call s:hi("typescriptLogicSymbols",              s:gui.magenta,      "", "")
 call s:hi("typescriptDotNotation",               s:gui.magenta,      "", "")
@@ -251,8 +250,8 @@ call s:hi("typescriptDotNotation",               s:gui.magenta,      "", "")
 " vim-javascript
 call s:hi("jsArrowFuncArgs",   s:gui.green,       "", "")
 call s:hi("jsArrowFunction",   s:gui.magenta,     "", "")
-call s:hi("jsBooleanFalse",    s:gui.orange,      "", "")
-call s:hi("jsBooleanTrue",     s:gui.orange,      "", "")
+call s:hi("jsBooleanFalse",    s:gui.yellow,      "", "")
+call s:hi("jsBooleanTrue",     s:gui.yellow,      "", "")
 call s:hi("jsClassBraces",     s:gui.cyan,        "", "")
 call s:hi("jsClassDefinition", s:gui.yellow,      "", "")
 call s:hi("jsClassKeyword",    s:gui.cyan,        "", "")
@@ -268,7 +267,7 @@ call s:hi("jsGlobalObjects",   s:gui.yellow,      "", "")
 call s:hi("jsNoise",           s:gui.magenta,     "", "")
 call s:hi("jsObjectKey",       s:gui.foreground,  "", "")
 call s:hi("jsOperator",        s:gui.magenta,     "", "")
-call s:hi("jsNumber",          s:gui.orange,      "", "")
+call s:hi("jsNumber",          s:gui.yellow,      "", "")
 call s:hi("jsParens",          s:gui.cyan,        "", "")
 call s:hi("jsReturn",          s:gui.green,       "", "")
 call s:hi("jsStorageClass",    s:gui.magenta,     "", "")
@@ -314,10 +313,10 @@ call s:hi("xmlAttrib",  s:gui.yellow,  "", "")
 call s:hi("VimVar",     s:gui.yellow,  "", "")
 call s:hi("VimString",  s:gui.blue,    "", "")
 call s:hi("VimFuncVar", s:gui.green,   "", "")
-call s:hi("VimNumber",  s:gui.orange,  "", "")
+call s:hi("VimNumber",  s:gui.yellow,  "", "")
 
 " Shell
 call s:hi("shSetList",     s:gui.green,      "", "")
 call s:hi("shTestOpr",     s:gui.blue,       "", "")
-call s:hi("shNumber",      s:gui.orange,     "", "")
+call s:hi("shNumber",      s:gui.yellow,     "", "")
 call s:hi("shConditional", s:gui.cyan,       "", "")
