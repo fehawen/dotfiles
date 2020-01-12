@@ -1,9 +1,11 @@
 let s:gui = {}
 
 let s:gui.white      = { 'default': '#D8DEE9' }
+let s:gui.grey       = { "default": "#8690A6" }
 let s:gui.red        = { "default": "#E88388" }
 let s:gui.green      = { "default": "#A7CC8C" }
 let s:gui.yellow     = { "default": "#DBAA79" }
+let s:gui.orange     = { "default": "#E89C83" }
 let s:gui.blue       = { "default": "#72BEF2" }
 let s:gui.magenta    = { "default": "#D291E4" }
 let s:gui.cyan       = { "default": "#65C2CD" }
@@ -31,7 +33,7 @@ call NERDTreeHighlightFile("yml",              s:gui.cyan,        s:gui.none)
 
 call NERDTreeHighlightFile("js",               s:gui.yellow,      s:gui.none)
 call NERDTreeHighlightFile("jsx",              s:gui.yellow,      s:gui.none)
-call NERDTreeHighlightFile("json",             s:gui.yellow,      s:gui.none)
+call NERDTreeHighlightFile("json",             s:gui.orange,      s:gui.none)
 
 call NERDTreeHighlightFile("css",              s:gui.green,       s:gui.none)
 call NERDTreeHighlightFile("scss",             s:gui.green,       s:gui.none)
@@ -42,10 +44,10 @@ call NERDTreeHighlightFile("md",               s:gui.green,       s:gui.none)
 call NERDTreeHighlightFile("vim",              s:gui.green,       s:gui.none)
 
 
-call NERDTreeHighlightFile("dockerignore",     s:gui.magenta,     s:gui.none)
-call NERDTreeHighlightFile("gitignore",        s:gui.magenta,     s:gui.none)
-call NERDTreeHighlightFile("eslint",           s:gui.magenta,     s:gui.none)
-call NERDTreeHighlightFile("babelrc",          s:gui.magenta,     s:gui.none)
+call NERDTreeHighlightFile("dockerignore",     s:gui.grey,        s:gui.none)
+call NERDTreeHighlightFile("gitignore",        s:gui.grey,        s:gui.none)
+call NERDTreeHighlightFile("eslint",           s:gui.grey,        s:gui.none)
+call NERDTreeHighlightFile("babelrc",          s:gui.grey,        s:gui.none)
 
 call NERDTreeHighlightFile("sh",               s:gui.blue,        s:gui.none)
 call NERDTreeHighlightFile("lua",              s:gui.blue,        s:gui.none)

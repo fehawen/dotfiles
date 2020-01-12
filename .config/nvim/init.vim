@@ -27,10 +27,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'davidyorr/vim-es6-unused-imports'
 
@@ -187,9 +184,12 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd BufWinEnter *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 
+" Set typescript filetype
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
 " Set es6 unused import plugin colors
-let g:es6_imports_gui_fg_color="#12181D"
-let g:es6_imports_gui_bg_color="#3E444A"
+let g:es6_imports_gui_fg_color="#8690A6"
+let g:es6_imports_gui_bg_color="#2E3440"
 
 "augroup filespecific
 "	autocmd!
@@ -200,11 +200,11 @@ let g:es6_imports_gui_bg_color="#3E444A"
 "	au FileType rust setl sw=0 sts=0
 "augroup END
 
-augroup cursorline
-	autocmd!
-	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-	autocmd WinLeave * setlocal nocursorline
-augroup END
+" augroup cursorline
+" 	autocmd!
+" 	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+" 	autocmd WinLeave * setlocal nocursorline
+" augroup END
 
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
