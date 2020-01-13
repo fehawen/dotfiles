@@ -1,14 +1,14 @@
 let s:gui = {}
 
-let s:gui.white      = { 'default': '#D8DEE9' }
-let s:gui.grey       = { "default": "#8690A6" }
-let s:gui.red        = { "default": "#E88388" }
-let s:gui.green      = { "default": "#A7CC8C" }
-let s:gui.yellow     = { "default": "#DBAA79" }
-let s:gui.orange     = { "default": "#E89C83" }
-let s:gui.blue       = { "default": "#72BEF2" }
-let s:gui.magenta    = { "default": "#D291E4" }
-let s:gui.cyan       = { "default": "#65C2CD" }
+let s:gui.white      = { 'default': '#C9CFDA' }
+let s:gui.grey       = { "default": "#8A909A" }
+let s:gui.red        = { "default": "#AA7B7B" }
+let s:gui.green      = { "default": "#8CAA7B" }
+let s:gui.yellow     = { "default": "#AA9F7B" }
+let s:gui.orange     = { "default": "#AA897A" }
+let s:gui.blue       = { "default": "#7B93AA" }
+let s:gui.magenta    = { "default": "#AA7B98" }
+let s:gui.cyan       = { "default": "#7BA6AA" }
 let s:gui.none       = { 'default': 'NONE' }
 
 function! s:gui(color)

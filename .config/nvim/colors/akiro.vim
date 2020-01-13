@@ -11,7 +11,7 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { "default": "NONE" }
-let s:gui.foreground = { "default": "#D8DEE9" }
+let s:gui.foreground = { "default": "#C9CFDA" }
 let s:gui.background = { "default": "#2E3440" }
 
 let s:gui.cursorline = { "default": "#3B4252" }
@@ -21,14 +21,14 @@ let s:gui.search     = { "default": "#82858C" }
 let s:gui.selection  = { "default": "#AAAEB7" }
 
 let s:gui.black      = { "default": "#4C566A" }
-let s:gui.grey       = { "default": "#8690A6" }
-let s:gui.red        = { "default": "#E88388" }
-let s:gui.green      = { "default": "#A7CC8C" }
-let s:gui.yellow     = { "default": "#DBAA79" }
-let s:gui.orange     = { "default": "#E89C83" }
-let s:gui.blue       = { "default": "#72BEF2" }
-let s:gui.magenta    = { "default": "#D291E4" }
-let s:gui.cyan       = { "default": "#65C2CD" }
+let s:gui.grey       = { "default": "#8A909A" }
+let s:gui.red        = { "default": "#AA7B7B" }
+let s:gui.green      = { "default": "#8CAA7B" }
+let s:gui.yellow     = { "default": "#AA9F7B" }
+let s:gui.orange     = { "default": "#AA897A" }
+let s:gui.blue       = { "default": "#7B93AA" }
+let s:gui.magenta    = { "default": "#AA7B98" }
+let s:gui.cyan       = { "default": "#7BA6AA" }
 
 function! s:hi(group, guifg, guibg, attr)
 	if s:gui(a:guifg) != ""
@@ -71,14 +71,14 @@ if has("nvim")
 endif
 
 " EDITOR COLORS
-call s:hi("User1",              s:gui.background,    s:gui.background,    "bold")
-call s:hi("User2",              s:gui.background,    s:gui.red,           "bold")
-call s:hi("User3",              s:gui.background,    s:gui.green,         "bold")
-call s:hi("User4",              s:gui.background,    s:gui.yellow,        "bold")
-call s:hi("User5",              s:gui.background,    s:gui.blue,          "bold")
-call s:hi("User6",              s:gui.background,    s:gui.magenta,       "bold")
-call s:hi("User7",              s:gui.background,    s:gui.cyan,          "bold")
-call s:hi("User8",              s:gui.background,    s:gui.comment,       "bold")
+call s:hi("User1",              s:gui.background,    s:gui.background,    "")
+call s:hi("User2",              s:gui.red,           s:gui.background,    "bold")
+call s:hi("User3",              s:gui.green,         s:gui.background,    "bold")
+call s:hi("User4",              s:gui.yellow,        s:gui.background,    "bold")
+call s:hi("User5",              s:gui.blue,          s:gui.background,    "bold")
+call s:hi("User6",              s:gui.magenta,       s:gui.background,    "bold")
+call s:hi("User7",              s:gui.cyan,          s:gui.background,    "bold")
+call s:hi("User8",              s:gui.comment,       s:gui.background,    "bold")
 
 " STATUSLINE COLORS (basic/fallback as we have a separate statusline in ./plugin)
 call s:hi("StatusLine",         s:gui.background,    s:gui.background,    "none")
@@ -191,6 +191,7 @@ call s:hi("typescriptBoolean",              s:gui.orange,      "", "")
 call s:hi("typescriptNull",                 s:gui.orange,      "", "")
 call s:hi("typescriptObjectLabel",          s:gui.foreground,  "", "")
 call s:hi("typescriptObjectLiteral",        s:gui.cyan,        "", "")
+call s:hi("typescriptObjectSpread",         s:gui.magenta,     "", "")
 call s:hi("typescriptInterfaceKeyword",     s:gui.magenta,     "", "")
 call s:hi("typescriptAliasKeyword",         s:gui.magenta,     "", "")
 call s:hi("typescriptInterfaceName",        s:gui.yellow,      "", "")
@@ -202,13 +203,17 @@ call s:hi("typescriptParamImpl",            s:gui.cyan,        "", "")
 call s:hi("typescriptTemplate",             s:gui.green,       "", "")
 call s:hi("typescriptTemplateSB",           s:gui.cyan,        "", "")
 call s:hi("typescriptTemplateSubstitution", s:gui.foreground,  "", "")
+call s:hi("typescriptTernaryOp",            s:gui.cyan,        "", "")
+call s:hi("typescriptBinaryOp",             s:gui.cyan,        "", "")
 
 " TSX / JSX
 call s:hi("jsxOpenPunct",                   s:gui.cyan,        "", "")
 call s:hi("jsxClosePunct",                  s:gui.cyan,        "", "")
+call s:hi("jsxCloseString",                 s:gui.cyan,        "", "")
 call s:hi("jsxTagName",                     s:gui.red,         "", "")
 call s:hi("jsxComponentName",               s:gui.yellow,      "", "")
 call s:hi("jsxAttrib",                      s:gui.magenta,     "", "")
+call s:hi("jsxElement",                     s:gui.magenta,     "", "")
 call s:hi("jsxString",                      s:gui.green,       "", "")
 call s:hi("jsxBraces",                      s:gui.cyan,        "", "")
 

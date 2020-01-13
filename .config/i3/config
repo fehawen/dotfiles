@@ -19,16 +19,16 @@ gaps inner 24
 gaps outer 80
 
 # Borders
-for_window [class=".*"] border pixel 3
-# for_window [instance="popup"] border pixel 3
+for_window [class=".*"] border pixel 0
+for_window [instance="popup"] border pixel 3
 
 # Floating
 #floating_minimum_size 800 x 450
 #floating_maximum_size 800 x 450
 #for_window [class=".*"] floating enable
 
-set $borderFocused #D8DEE9
-set $borderUnfocused #4C566A
+set $borderFocused #8A909A
+set $borderUnfocused #8A909A
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -56,9 +56,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Start dunst (notifications)
 exec --no-startup-id dunst
-
-# Start picom (compton)
-exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
 ################
 #### ASSIGN ####

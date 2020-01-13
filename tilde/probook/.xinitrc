@@ -2,9 +2,7 @@
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# xrandr --dpi 55
-
-hsetroot -solid "#3B4252"
+feh --bg-fill ~/.wallpapers/wall.jpg
 
 setxkbmap -layout se
 

@@ -6,37 +6,37 @@
 ! Colors
 
 *background: #2E3440
-*foreground: #D8DEE9
-*cursorColor: #D8DEE9
+*foreground: #C9CFDA
+*cursorColor: #C9CFDA
 
 ! black
 *color0:  #4C566A
 *color8:  #4C566A
 
 ! red
-*color1:  #E88388
-*color9:  #E88388
+*color1:  #AA7B7B
+*color9:  #AA7B7B
 
 ! green
-*color2:  #A7CC8C
-*color10: #A7CC8C
+*color2:  #8CAA7B
+*color10: #8CAA7B
 
 ! yellow
-*color3:  #DBAA79
-*color11: #DBAA79
+*color3:  #AA9F7B
+*color11: #AA9F7B
 
 ! blue
-*color4:  #72BEF2
-*color12: #72BEF2
+*color4:  #7B93AA
+*color12: #7B93AA
 
 ! magenta
-*color5:  #D291E4
-*color13: #D291E4
+*color5:  #AA7B98
+*color13: #AA7B98
 
 ! cyan
-*color6:  #65C2CD
-*color14: #65C2CD
+*color6:  #7BA6AA
+*color14: #7BA6AA
 
 ! White
-*color7:  #D8DEE9
-*color15: #D8DEE9
+*color7:  #C9CFDA
+*color15: #C9CFDA
