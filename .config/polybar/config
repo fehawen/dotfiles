@@ -44,7 +44,7 @@
 	offset-y = 20
 	offset-x = 20
 
-	height = 44
+	height = 60
 
 	background = ${colors.background}
 	foreground = ${colors.foreground}

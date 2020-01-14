@@ -15,8 +15,8 @@ set $mod Mod4
 font pango:Roboto Mono 12
 
 # Gaps
-gaps inner 24
-gaps outer 80
+gaps inner 30
+gaps outer 90
 
 # Borders
 for_window [class=".*"] border pixel 0
