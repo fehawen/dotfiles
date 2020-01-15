@@ -1,18 +1,18 @@
 let s:gui = {}
 
-let s:gui.white      = { 'default': '#C9CFDA' }
-let s:gui.grey       = { "default": "#8A909A" }
-let s:gui.red        = { "default": "#AA7B7B" }
-let s:gui.green      = { "default": "#8CAA7B" }
-let s:gui.yellow     = { "default": "#AA9F7B" }
-let s:gui.orange     = { "default": "#AA897A" }
-let s:gui.blue       = { "default": "#7B93AA" }
-let s:gui.magenta    = { "default": "#AA7B98" }
-let s:gui.cyan       = { "default": "#7BA6AA" }
-let s:gui.none       = { 'default': 'NONE' }
+let s:gui.white      = { "default": "#C1D5DA" }
+let s:gui.grey       = { "default": "#A8BCC1" }
+let s:gui.red        = { "default": "#855959" }
+let s:gui.green      = { "default": "#4C626A" }
+let s:gui.yellow     = { "default": "#81877B" }
+let s:gui.orange     = { "default": "#87807B" }
+let s:gui.blue       = { "default": "#3E5661" }
+let s:gui.magenta    = { "default": "#5E7A85" }
+let s:gui.cyan       = { "default": "#72949F" }
+let s:gui.none       = { "default": "NONE"    }
 
 function! s:gui(color)
-	if exists("g:slate_style")
+	if exists("g:nerdtree_theme_style")
 		return a:color[s:style]
 	else
 		return a:color["default"]

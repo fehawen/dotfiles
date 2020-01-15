@@ -94,6 +94,7 @@ setup_dotfiles() {
 		".config/nvim"
 		".config/nvim/colors"
 		".config/nvim/plugin"
+		".config/picom"
 		".config/polybar"
 		".config/polybar/scripts"
 		".config/prompt"

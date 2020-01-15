@@ -214,7 +214,7 @@ let g:es6_imports_gui_bg_color="#2E3440"
 set termguicolors
 
 " Set theme
-colorscheme akiro
+colorscheme splinter
 
 " Source NERDTree filetype highlighting
 source ~/Dotfiles/.config/nvim/plugin/nerdtree.vim

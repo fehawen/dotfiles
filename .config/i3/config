@@ -16,19 +16,20 @@ font pango:Roboto Mono 12
 
 # Gaps
 gaps inner 30
-gaps outer 90
+gaps outer 100
 
 # Borders
-for_window [class=".*"] border pixel 0
-for_window [instance="popup"] border pixel 3
+
+for_window [class=".*"] border pixel 3
+# for_window [instance="popup"] border pixel 3
 
 # Floating
 #floating_minimum_size 800 x 450
 #floating_maximum_size 800 x 450
 #for_window [class=".*"] floating enable
 
-set $borderFocused #4C566A
-set $borderUnfocused #4C566A
+set $borderFocused #3E5661
+set $borderUnfocused #3E5661
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused
@@ -51,11 +52,14 @@ for_window [instance="popup"] floating enable
 for_window [instance="popup"] move scratchpad
 exec --no-startup-id kitty --name popup
 
+# Start dunst (notifications)
+exec --no-startup-id dunst
+
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# Start dunst (notifications)
-exec --no-startup-id dunst
+# Start picom
+exec_always --no-startup-id $HOME/.config/picom/launch.sh
 
 ################
 #### ASSIGN ####
