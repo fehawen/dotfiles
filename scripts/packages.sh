@@ -3,11 +3,6 @@
 install_packages() {
 	echo -e "\nInstalling packages for Arch Linux...\n"
 
-	# Excluded packages, include as needed
-	# "alacritty"
-	# "termite"
-	# "picom"
-
 	declare -a packages=(
 		"xorg-server"
 		"xorg-xinit"
@@ -31,6 +26,7 @@ install_packages() {
 		"dunst"
 		"kitty"
 		"w3m"
+		"picom"
 		"hsetroot"
 		"surf"
 		"firefox"

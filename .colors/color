@@ -1,7 +1,7 @@
 ! Sourced by .Xresources
 
 ! Font
-*font: xft:Roboto Mono:pixelsize=12
+*font: xft:Iosevka Term SS10:pixelsize=13
 
 ! Colors
 

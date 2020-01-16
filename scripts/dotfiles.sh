@@ -77,17 +77,10 @@ symlink_files() {
 setup_dotfiles() {
 	echo "Setting up Arch Linux config ..."
 
-	# Excluded configs, include as needed
-	# ".config/alacritty"
-	# ".config/termite"
-	# ".config/conky"
-	# ".config/picom"
-
 	declare -a folders=(
 		".colors"
 		".config/dunst"
 		".config/fontconfig"
-		".config/gtk-3.0"
 		".config/i3"
 		".config/kitty"
 		".config/neofetch"
