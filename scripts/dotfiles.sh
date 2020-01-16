@@ -99,7 +99,6 @@ setup_dotfiles() {
 		".config/polybar/scripts"
 		".config/prompt"
 		".config/ranger"
-		".config/zathura"
 		".newsboat"
 		".surf/styles"
 		"tilde"
