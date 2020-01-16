@@ -1,4 +1,4 @@
 .SILENT:
 
 install:
-	./scripts/setup.sh
+	cd scripts && ./setup.sh

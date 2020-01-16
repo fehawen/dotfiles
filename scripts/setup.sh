@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 confirm() {
 	read -r -p "Proceed with $1 setup for $2? [y/N] " answer
@@ -7,7 +7,7 @@ confirm() {
 		echo "Now exiting."
 		exit
 	else
-		./$1.sh
+		./"$1".sh
 	fi
 }
 
@@ -19,6 +19,7 @@ declare -a options=(
 	"Arch Linux - Dotfiles"
 	"Arch Linux - Packages"
 	"Arch Linux - Config"
+	"Arch Linux - Fonts"
 	"MacOS - Dotfiles"
 	"Quit"
 )
@@ -38,8 +39,8 @@ do
 			confirm "config" "Arch Linux"
 			break
 			;;
-		"Arch Linux - Config")
-			confirm "config" "Arch Linux"
+		"Arch Linux - Fonts")
+			confirm "fonts" "Arch Linux"
 			break
 			;;
 		"MacOS - Dotfiles")
