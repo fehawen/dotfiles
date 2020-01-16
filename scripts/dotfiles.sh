@@ -93,7 +93,6 @@ setup_dotfiles() {
 		".config/prompt"
 		".config/ranger"
 		".newsboat"
-		".surf/styles"
 		"tilde"
 		".wallpapers"
 	)
