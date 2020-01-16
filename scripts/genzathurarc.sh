@@ -3,7 +3,7 @@
 # Generates zathura configuration file
 
 DEST_DIR="${HOME}/.config/zathura"
-DEST_FILE="${HOME}/.config/zathura/zathurarc"
+DEST_FILE="zathurarc"
 
 if [ ! -d "${DEST_DIR}" ]; then
 	mkdir -pv "${DEST_DIR}"
@@ -54,4 +54,6 @@ set selection-clipboard clipboard
 CONF
 )"
 
-printf '%s' "$OUTPUT" > "${DEST_FILE}"
+printf '%s' "$OUTPUT" > "${DEST_DIR}/${DEST_FILE}"
+
+echo "Generated ${DEST_FILE} in ${DEST_DIR}"
