@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # Font
-font pango:Iosevka Term SS10 13
+font pango:Iosevka Term SS02 13
 
 # Gaps
 gaps inner 30
