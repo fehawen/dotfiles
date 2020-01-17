@@ -16,11 +16,11 @@ font pango:Iosevka Term SS02 13
 
 # Gaps
 gaps inner 30
-gaps outer 100
+gaps outer 90
 
 # Borders
 
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 2
 # for_window [instance="popup"] border pixel 3
 
 # Floating

@@ -42,12 +42,12 @@
 
 	offset-y = 20
 
-	height = 60
+	height = 4%
 
 	background = ${colors.background}
 	foreground = ${colors.foreground}
 
-	border-size = 3
+	border-size = 2
 	border-color = ${colors.border}
 
 	line-size = 0
