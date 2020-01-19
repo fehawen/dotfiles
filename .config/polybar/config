@@ -59,7 +59,7 @@
 	module-margin-left = 1
 	module-margin-right = 1
 
-	font-0 = "Iosevka Term SS02:size=13:weight=bold;3"
+	font-0 = "Share Tech Mono:size=13:weight=bold;3"
 	font-1 = "Font Awesome 5 Free:size=10:weight=bold;2"
 	font-2 = "Font Awesome 5 Brands:size=10;2"
 
@@ -293,7 +293,7 @@
 
 [module/pacupdate]
 	type = custom/script
-	exec = ~/.config/polybar/scripts/pacupdate.sh
+	exec = ~/.local/bin/pacupdate
 	interval = 3600
 
 	format = <label>

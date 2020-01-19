@@ -12,15 +12,17 @@
 set $mod Mod4
 
 # Font
-font pango:Iosevka Term SS02 13
+font pango:Share Tech Mono 14
 
 # Gaps
-gaps inner 30
-gaps outer 90
+gaps inner 25
+gaps outer 25
+gaps left 425
+gaps right 425
 
 # Borders
 
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 # for_window [instance="popup"] border pixel 3
 
 # Floating
@@ -55,11 +57,8 @@ exec --no-startup-id kitty --name popup
 # Start dunst (notifications)
 exec --no-startup-id dunst
 
-# Start polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# Start picom
-exec_always --no-startup-id $HOME/.config/picom/launch.sh
+# Start conky
+exec_always --no-startup-id $HOME/.config/conky/launch.sh
 
 ################
 #### ASSIGN ####

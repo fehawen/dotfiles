@@ -79,6 +79,7 @@ setup_dotfiles() {
 
 	declare -a folders=(
 		".colors"
+		".config/conky"
 		".config/dunst"
 		".config/fontconfig"
 		".config/i3"
@@ -92,6 +93,7 @@ setup_dotfiles() {
 		".config/polybar/scripts"
 		".config/prompt"
 		".config/ranger"
+		".local/bin"
 		".newsboat"
 		"tilde"
 		".wallpapers"

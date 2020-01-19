@@ -1,11 +1,11 @@
 ! Sourced by .Xresources
 
 ! Font
-*font: xft:Iosevka Term SS02:pixelsize=13
+*font: xft:Share Tech Mono:pixelsize=14
 
 ! Colors
 
-*background: #0C0F12
+*background: #0E1116
 *foreground: #C1D5DA
 *cursorColor: #C1D5DA
 
