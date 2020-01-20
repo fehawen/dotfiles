@@ -17,8 +17,8 @@ font pango:Share Tech Mono 14
 # Gaps
 gaps inner 25
 gaps outer 25
-gaps left 425
-gaps right 425
+gaps left 375
+gaps right 375
 
 # Borders
 
