@@ -21,7 +21,7 @@ confirm() {
 		exit
 	else
 		echo "Executing..."
-		$1 && i3-msg "restart" &> /dev/null && feh --bg-fill ~/.wallpapers/wall.jpg
+		$1 && i3-msg "restart" &> /dev/null
 		echo "Restarting i3-wm..."
 		echo "Done."
 	fi
