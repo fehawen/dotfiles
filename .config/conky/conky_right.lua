@@ -44,13 +44,13 @@ ${alignr}${color4}${wireless_mode wlp2s0}
 ${color4}ESSID\
 ${alignr}${if_match "${wireless_essid wlp2s0}"=="off/any"}${color1}disconnected${else}${color6}${wireless_essid wlp2s0}${endif}
 ${color4}GATEWAY\
-${alignr}${color4}${gw_iface}
+${alignr}${color5}${gw_iface}
 ${color4}GATEWAY IP\
 ${alignr}${color4}${gw_ip}
 ${color4}LOCAL IP\
 ${alignr}${color2}${addrs wlp2s0}
 ${color4}PUBLIC IP\
-${alignr}${color6}${curl ipinfo.io/ip 1}
+${alignr}${color6}${execi 60 curl ipinfo.io/ip}
 ${color4}ACCESS POINT\
 ${alignr}${color4}${wireless_ap wlp2s0}
 
