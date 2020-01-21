@@ -1,20 +1,30 @@
-#!/bin/sh
+#!/bin/bash
 
 # Generates suckless surf style file
+
+PROGNAME=$(basename "$0")
+
+exit_on_fail() {
+	"$@" 2> /dev/null
+	local code=$?
+	if [[ ${code} -ne 0 ]]; then
+		echo -e "\nERROR: Command [$*] failed with error code ${code}\nFILE: ${PROGNAME}\nLINE: $LINENO\n" 1>&2
+	fi
+}
 
 DEST_DIR="${HOME}/.surf/styles"
 DEST_FILE="default.css"
 
 if [ ! -d "${DEST_DIR}" ]; then
-	mkdir -pv "${DEST_DIR}"
+	exit_on_fail mkdir -pv "${DEST_DIR}"
 fi
 
 get_xres() {
-	xrdb -query | grep "$1" | awk '{print $2}'
+	exit_on_fail xrdb -query | grep "$1" | awk '{print $2}'
 }
 
 get_xfont() {
-	xrdb -query | grep "font" | cut -d: -f3
+	exit_on_fail xrdb -query | grep "font" | cut -d: -f3
 }
 
 # set completion-bg "$(get_xres background:)"
