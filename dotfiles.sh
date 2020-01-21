@@ -1,7 +1,17 @@
 #!/bin/bash
 
+PROGNAME=$(basename "$0")
+
+exit_on_fail() {
+	"$@" 2> /dev/null
+	local code=$?
+	if [[ ${code} -ne 0 ]]; then
+		echo -e "\nERROR: Command [$*] failed with error code ${code}\nFILE: ${PROGNAME}\nLINE: $LINENO\n" 1>&2
+	fi
+}
+
 symlink_tilde_files() {
-	declare -a tildes=(
+	tildes=(
 		".bash_profile"
 		".bashrc"
 		".hushlogin"
@@ -11,21 +21,21 @@ symlink_tilde_files() {
 		".Xresources"
 	)
 
-	pushd "$PWD/tilde" > /dev/null
+	exit_on_fail pushd "$PWD/tilde"
 
 	for FILE in "${tildes[@]}"; do
-		ln -sfv "$PWD/$FILE" "${HOME}/$FILE"
+		exit_on_fail ln -sfv "$PWD/$FILE" "${HOME}/$FILE"
 	done
 
 	cd "$(dirs -l -0)" && dirs -c
 }
 
 symlink_hardware_specific_tilde_files() {
-	pushd "$PWD/tilde/${1}"
+	exit_on_fail pushd "$PWD/tilde/${1}"
 
 	for FILE in *; do
 		if [[ -f "$FILE" ]]; then
-			ln -sfv "$PWD/$FILE" "${HOME}/$FILE"
+			exit_on_fail ln -sfv "$PWD/$FILE" "${HOME}/$FILE"
 		fi
 	done
 
@@ -63,11 +73,11 @@ confirm_hardware() {
 }
 
 symlink_files() {
-	pushd "$PWD/$1" > /dev/null
+	exit_on_fail pushd "$PWD/$1"
 
 	for FILE in *; do
 		if [ -f "$FILE" ]; then
-			ln -sfv "$PWD/$FILE" "${HOME}/$1/$FILE"
+			exit_on_fail ln -sfv "$PWD/$FILE" "${HOME}/$1/$FILE"
 		fi
 	done
 
@@ -77,7 +87,7 @@ symlink_files() {
 setup_dotfiles() {
 	echo "Setting up Arch Linux config ..."
 
-	declare -a folders=(
+	folders=(
 		".colors"
 		".config/conky"
 		".config/dunst"
@@ -110,10 +120,10 @@ setup_dotfiles() {
 			if [[ ! -d "${HOME}/$FOLDER" ]]; then
 				echo -e "\nDirectory $FOLDER does not exist."
 				echo -e "\nCreating it..."
-				mkdir -pv "${HOME}/$FOLDER"
+				exit_on_fail mkdir -pv "${HOME}/$FOLDER"
 			fi
 
-			symlink_files $FOLDER
+			symlink_files "$FOLDER"
 		fi
 	done
 

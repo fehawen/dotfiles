@@ -53,7 +53,7 @@ configure_docker() {
 		sudo groupadd docker
 
 		echo -e "\nAdding user $USER to 'docker' group..."
-		sudo usermod -aG docker $USER
+		sudo usermod -aG docker "$USER"
 
 		echo -e "DONE.\n"
 	fi
@@ -64,17 +64,17 @@ configure_npm() {
 	if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
 		echo -e "\nSkipping NPM non-root configuration...\n"
 	else
-		declare npm_dir="${HOME}/.npm-global"
+		local npm_dir="${HOME}/.npm-global"
 
 		if [[ ! -d "$npm_dir" ]]; then
-			echo -e "\nCreating dir $npm_dir..."
+			echo -e "\nCreating dir ${npm_dir}..."
 			mkdir -p "$npm_dir"
 		else
-			echo -e "\nDirectory $npm_dir already exists..."
+			echo -e "\nDirectory ${npm_dir} already exists..."
 		fi
 
-		echo -e "\nAdding $npm_dir to npm config..."
-		npm config set prefix '~/.npm-global'
+		echo -e "\nAdding ${npm_dir} to npm config..."
+		npm config set prefix "${HOME}/.npm-global"
 		echo -e "DONE.\n"
 	fi
 }
