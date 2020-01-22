@@ -17,6 +17,8 @@ font pango:Share Tech Mono 14
 # Gaps
 gaps inner 28
 gaps outer 0
+gaps top 28
+gaps bottom 28
 gaps left 328
 gaps right 328
 
@@ -54,11 +56,17 @@ for_window [instance="popup"] floating enable
 for_window [instance="popup"] move scratchpad
 exec --no-startup-id kitty --name popup
 
-# Start dunst (notifications)
-exec --no-startup-id dunst
+# Start dunst
+exec_always --no-startup-id dunst
 
 # Start conky
 exec_always --no-startup-id $HOME/.config/conky/launch.sh
+
+# Start polybar
+exec_always --no-startup-id $HOME/.local/bin/polybar_launch
+
+# Listen for workspaces marked urgent and send notification
+exec_always i3-msg -t subscribe -m '[ "workspace" ]' | jq --unbuffered -Mrc '. | select(.change == "urgent" and .current.urgent == true).current.name' | xargs -i -n1 notify-send 'Urgent workspace: {}'
 
 ################
 #### ASSIGN ####
