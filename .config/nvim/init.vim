@@ -124,6 +124,9 @@ set maxmempattern=20000
 " Don't show preview [sratch] window
 set completeopt-=preview
 
+" Update term title
+set title
+
 "###########################"
 "###### FINDING FILES ######"
 "###########################"
