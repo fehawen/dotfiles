@@ -10,30 +10,22 @@ exit_symbol="$arrow_symbol"
 
 newline="\n"
 
-ahead_symbol="A"
-behind_symbol="B"
 # branch_symbol=""
 branch_symbol=""
-conflicts_symbol="C"
-deleted_symbol="D"
-modified_symbol="M"
-staged_symbol="S"
-stashed_symbol="T"
-untracked_symbol="U"
 
 prefix_color="$white"
 root_color="$red"
 dir_color="$cyan"
 git_branch_color="$magenta"
-git_status_color="$red"
+git_dirty_color="$red"
 exec_time_color="$yellow"
 exit_ok_color="$green"
 exit_bad_color="$red"
 
 dir_prefix="in"
 git_prefix="on"
-git_status_prefix="("
-git_status_suffix=")"
+git_dirty_prefix="is"
+git_dirty_text="dirty"
 exec_time_prefix="took"
 
 ###############
@@ -59,17 +51,8 @@ trap timer_start DEBUG
 ### MODULES ###
 ###############
 
-user_module() {
-	[[ "$UID" -eq 0 ]] && PS1+="${root_color}$USER ${prefix_color}${dir_prefix} "
-}
-
-# -----------------------------------------------------------------------------
-
 dir_module() {
-	dir="$(pwd | sed -E -e "s|^$HOME|~|")"
-	trim_dir="${dir#"${dir%/*/*}/"}"
-
-	PS1+="${dir_color}${trim_dir}"
+	PS1+="${dir_color}\W"
 }
 
 # -----------------------------------------------------------------------------
@@ -84,36 +67,12 @@ git_branch_module() {
 
 # -----------------------------------------------------------------------------
 
-git_status_module() {
+git_dirty_module() {
 	is_git_repository || return
 
-	status=""
-
-	conflicts="$(git diff --name-only --diff-filter=U 2> /dev/null | wc -l)"
-	[[ "$conflicts" -gt 0 ]] && status+="${conflicts_symbol}"
-
-	deleted="$(git diff --name-only --diff-filter=D 2> /dev/null | wc -l)"
-	[[ "$deleted" -gt 0 ]] && status+="${deleted_symbol}"
-
-	staged="$(git diff --staged --name-only --diff-filter=AM 2> /dev/null | wc -l)"
-	[[ "$staged" -gt 0 ]] && status+="${staged_symbol}"
-
-	modified="$(git diff --name-only --diff-filter=M 2> /dev/null | wc -l)"
-	[[ "$modified" -gt 0 ]] && status+="${modified_symbol}"
-
-	untracked="$(git ls-files --other --exclude-standard | wc -l)"
-	[[ "$untracked" -gt 0 ]] && status+="${untracked_symbol}"
-
-	ahead="$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)"
-	[[ "$ahead" -gt 0 ]] && status+="${ahead_symbol}"
-
-	behind="$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)"
-	[[ "$behind" -gt 0 ]] && status+="${behind_symbol}"
-
-	stashed="$(git stash list 2> /dev/null)"
-	[[ -n "$stashed" ]] && status+="${stashed_symbol}"
-
-	[[ "$status" != "" ]] && PS1+=" ${git_status_color}${git_status_prefix}${status}${git_status_suffix}"
+	if [[ "$(git status -s)" != "" ]]; then
+		PS1+=" ${prefix_color}${git_dirty_prefix} ${git_dirty_color}${git_dirty_text}"
+	fi
 }
 
 # -----------------------------------------------------------------------------
@@ -153,10 +112,9 @@ exit_code_module() {
 ####################
 
 declare -a prompt_modules=(
-	"user_module"
 	"dir_module"
 	"git_branch_module"
-	"git_status_module"
+	"git_dirty_module"
 	"exec_time_module"
 	"exit_code_module"
 )
@@ -171,6 +129,10 @@ compose_prompt() {
 	timer_stop
 
 	PS1=""
+
+	# Set window title format:
+	# username@hostname:PWD
+	PS1+="\e]0;\u@\h:\w\a"
 
 	PS1+="${bold}"
 
