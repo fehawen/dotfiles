@@ -12,6 +12,8 @@ newline="\n"
 
 # branch_symbol=""
 branch_symbol=""
+git_dirty_symbol="dirty"
+git_stashed_symbol="stashed"
 
 prefix_color="$white"
 root_color="$red"
@@ -25,7 +27,6 @@ exit_bad_color="$red"
 dir_prefix="in"
 git_prefix="on"
 git_dirty_prefix="is"
-git_dirty_text="dirty"
 exec_time_prefix="took"
 
 ###############
@@ -70,8 +71,19 @@ git_branch_module() {
 git_dirty_module() {
 	is_git_repository || return
 
-	if [[ "$(git status -s)" != "" ]]; then
-		PS1+=" ${prefix_color}${git_dirty_prefix} ${git_dirty_color}${git_dirty_text}"
+	if \
+		[[ "$(git status -s)" != "" ]] || \
+		[[ "$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)" -gt 0 ]] || \
+		[[ "$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)" -gt 0 ]]; then
+		status="${git_dirty_symbol}"
+	elif [[ -n "$(git stash list 2> /dev/null)" ]]; then
+		status="${git_stashed_symbol}"
+	else
+		status=""
+	fi
+
+	if [[ "${status}" != "" ]]; then
+		PS1+=" ${prefix_color}${git_dirty_prefix} ${git_dirty_color}${status}"
 	fi
 }
 
