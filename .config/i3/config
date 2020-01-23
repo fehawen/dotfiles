@@ -139,7 +139,7 @@ bindsym $mod+Control+i exec --no-startup-id inkscape
 ###############
 
 # Take screenshot
-bindsym $mod+Shift+Control+s exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym $mod+Shift+Control+s exec scrot ~/pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 
 # Switch between internal/external display
 bindsym $mod+Shift+Control+d exec $HOME/.config/i3/i3monitor.sh

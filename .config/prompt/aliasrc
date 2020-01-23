@@ -25,17 +25,18 @@ alias giff="git diff"
 alias glog="git log --graph"
 alias glogc=git_log_commit_count
 alias code="open -a 'Visual Studio Code'"
-alias gh="cd ~/Github/"
-alias repos="cd ~/Github/"
-alias dot="cd ~/Dotfiles/"
-alias pro="cd ~/Projects/"
+alias gh="cd ~/github/"
+alias repos="cd ~/github/"
+alias dot="cd ~/dotfiles/"
+alias pro="cd ~/projects/"
+alias aur="cd ~/packages/"
 alias mongorun="mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data"
-alias todoread="cat ~/Github/todo/README.md"
-alias todoedit="nvim ~/Github/todo/README.md"
+alias todoread="cat ~/github/todo/README.md"
+alias todoedit="nvim ~/github/todo/README.md"
 alias rr="ranger"
 alias vm="nvim"
 alias icat="kitty +kitten icat"
-alias screenshot="scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png -d 5"
+alias screenshot="scrot ~/pictures/screenshots/%Y-%m-%d-%T-screenshot.png -d 5"
 alias dspl="~/.config/i3/i3scaling.sh"
 alias wrls="sudo wifi-menu"
 alias todopush=push_todos
@@ -61,7 +62,7 @@ git_log_commit_count() {
 # -----------------------------------------------------------------------------
 
 push_todos() {
-	pushd "$HOME/Github/todo/" && \
+	pushd "$HOME/github/todo/" && \
 	git add . && \
 	git commit -m "Bump @ $(date '+%Y/%m/%d %H:%M')" && \
 	git push && \
@@ -71,7 +72,7 @@ push_todos() {
 # -----------------------------------------------------------------------------
 
 pull_todos() {
-	pushd "$HOME/Github/todo/" && \
+	pushd "$HOME/github/todo/" && \
 	git pull && \
 	cd "$(dirs -l -0)" && dirs -c
 }

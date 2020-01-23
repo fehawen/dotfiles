@@ -217,7 +217,7 @@ set termguicolors
 colorscheme splinter
 
 " Source NERDTree filetype highlighting
-source ~/Dotfiles/.config/nvim/plugin/nerdtree.vim
+source ~/dotfiles/.config/nvim/plugin/nerdtree.vim
 
 " Set list characters
 set list

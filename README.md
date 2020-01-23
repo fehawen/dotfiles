@@ -18,13 +18,13 @@ Arch Rice
 1. Clone repo
 
 ```bash
-$ git clone https://github.com/fehawen/dotfiles ~/Dotfiles
+$ git clone https://github.com/fehawen/dotfiles ~/dotfiles
 ```
 
 2. Run
 
 ```bash
-$ cd ~/Dotfiles && make
+$ cd ~/dotfiles && make
 ```
 
 3. Easy now...
