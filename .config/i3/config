@@ -106,7 +106,7 @@ bindsym $mod+p exec $HOME/.config/i3/i3popup.sh
 bindsym $mod+Shift+q kill
 
 # Lock screen
-bindsym $mod+Shift+x exec i3lock -i ~/.wallpapers/mist.png
+bindsym $mod+Shift+x exec i3lock -c "#0E1116"
 
 ######################
 #### APPLICATIONS ####
