@@ -11,7 +11,7 @@ let s:gui = {}
 let s:cterm = {}
 
 let s:gui.none       = { "default": "NONE" }
-let s:gui.foreground = { "default": "#C1D5DA" }
+let s:gui.foreground = { "default": "#BBBEC4" }
 let s:gui.background = { "default": "#0E1116" }
 
 let s:gui.cursorline = { "default": "#242C33" }
@@ -21,7 +21,7 @@ let s:gui.search     = { "default": "#4C626A" }
 let s:gui.selection  = { "default": "#A8BCC1" }
 
 let s:gui.black      = { "default": "#30383F" }
-let s:gui.grey       = { "default": "#A8BCC1" }
+let s:gui.grey       = { "default": "#A3A6AB" }
 let s:gui.red        = { "default": "#855959" }
 let s:gui.green      = { "default": "#4C626A" }
 let s:gui.yellow     = { "default": "#81877B" }
@@ -184,7 +184,7 @@ call s:hi("typescriptAliasKeyword",         s:gui.magenta,     "", "")
 call s:hi("typescriptEndColons",            s:gui.cyan,        "", "")
 call s:hi("typescriptMember",               s:gui.foreground,  "", "")
 call s:hi("typescriptMemberOptionality",    s:gui.magenta,     "", "")
-call s:hi("typescriptPredefinedType",       s:gui.grey,        "", "")
+call s:hi("typescriptPredefinedType",       s:gui.yellow,      "", "")
 call s:hi("typescriptArrayMethod",          s:gui.blue,        "", "")
 call s:hi("typescriptNumber",               s:gui.orange,      "", "")
 call s:hi("typescriptBoolean",              s:gui.orange,      "", "")

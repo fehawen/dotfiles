@@ -12,7 +12,7 @@ let s:cterm = {}
 
 let s:gui.none       = { "default": "NONE" }
 let s:gui.foreground = { "default": "#B2BEBF" }
-let s:gui.background = { "default": "#041E28" }
+let s:gui.background = { "default": "#001B24" }
 
 let s:gui.cursorline = { "default": "#192C3B" }
 let s:gui.listchars  = { "default": "#41515C" }

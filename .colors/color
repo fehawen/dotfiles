@@ -1,42 +1,42 @@
 ! Sourced by .Xresources
 
 ! Font
-*font: xft:Roboto Mono:pixelsize=12
+*font: xft:Share Tech Mono:pixelsize=14
 
 ! Colors
 
-*background: #041E28
-*foreground: #B2BEBF
-*cursorColor: #B2BEBF
+*background: #0E1116
+*foreground: #BBBEC4
+*cursorColor: #BBBEC4
 
 ! black
-*color0:  #041E28
-*color8:  #41515C
+*color0:  #0C0F12
+*color8:  #30383F
 
 ! red
-*color1:  #AE5151
-*color9:  #AE5151
+*color1:  #855959
+*color9:  #855959
 
 ! green
-*color2:  #779687
-*color10: #779687
+*color2:  #4C626A
+*color10: #4C626A
 
 ! yellow
-*color3:  #B98675
-*color11: #B98675
+*color3:  #81877B
+*color11: #81877B
 
 ! blue
-*color4:  #5E828F
-*color12: #5E828F
+*color4:  #3E5661
+*color12: #3E5661
 
 ! magenta
-*color5:  #B48291
-*color13: #B48291
+*color5:  #5E7A85
+*color13: #5E7A85
 
 ! cyan
-*color6:  #7AB1B3
-*color14: #7AB1B3
+*color6:  #72949F
+*color14: #72949F
 
 ! White
-*color7:  #B2BEBF
-*color15: #B2BEBF
+*color7:  #BBBEC4
+*color15: #BBBEC4

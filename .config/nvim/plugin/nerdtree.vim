@@ -1,28 +1,28 @@
 let s:gui = {}
 
 " SLATE
-let s:gui.white      = { "default": "#41515C" }
-let s:gui.grey       = { "default": "#8E9A9B" }
-let s:gui.red        = { "default": "#AE5151" }
-let s:gui.green      = { "default": "#779687" }
-let s:gui.yellow     = { "default": "#B98675" }
-let s:gui.orange     = { "default": "#B98675" }
-let s:gui.blue       = { "default": "#5E828F" }
-let s:gui.magenta    = { "default": "#B48291" }
-let s:gui.cyan       = { "default": "#7AB1B3" }
-let s:gui.none       = { "default": "NONE"    }
+" let s:gui.white      = { "default": "#41515C" }
+" let s:gui.grey       = { "default": "#8E9A9B" }
+" let s:gui.red        = { "default": "#AE5151" }
+" let s:gui.green      = { "default": "#779687" }
+" let s:gui.yellow     = { "default": "#B98675" }
+" let s:gui.orange     = { "default": "#B98675" }
+" let s:gui.blue       = { "default": "#5E828F" }
+" let s:gui.magenta    = { "default": "#B48291" }
+" let s:gui.cyan       = { "default": "#7AB1B3" }
+" let s:gui.none       = { "default": "NONE"    }
 
 " SPLINTER
-" let s:gui.white      = { "default": "#C1D5DA" }
-" let s:gui.grey       = { "default": "#A8BCC1" }
-" let s:gui.red        = { "default": "#855959" }
-" let s:gui.green      = { "default": "#4C626A" }
-" let s:gui.yellow     = { "default": "#81877B" }
-" let s:gui.orange     = { "default": "#87807B" }
-" let s:gui.blue       = { "default": "#3E5661" }
-" let s:gui.magenta    = { "default": "#5E7A85" }
-" let s:gui.cyan       = { "default": "#72949F" }
-" let s:gui.none       = { "default": "NONE"    }
+let s:gui.white      = { "default": "#BBBEC4" }
+let s:gui.grey       = { "default": "#A3A6AB" }
+let s:gui.red        = { "default": "#855959" }
+let s:gui.green      = { "default": "#4C626A" }
+let s:gui.yellow     = { "default": "#81877B" }
+let s:gui.orange     = { "default": "#87807B" }
+let s:gui.blue       = { "default": "#3E5661" }
+let s:gui.magenta    = { "default": "#5E7A85" }
+let s:gui.cyan       = { "default": "#72949F" }
+let s:gui.none       = { "default": "NONE"    }
 
 function! s:gui(color)
 	if exists("g:nerdtree_theme_style")

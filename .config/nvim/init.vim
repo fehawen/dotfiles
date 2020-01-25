@@ -217,7 +217,7 @@ let g:es6_imports_gui_bg_color="#2E3440"
 set termguicolors
 
 " Set theme
-colorscheme slate
+colorscheme splinter
 
 " Source NERDTree filetype highlighting
 source ~/dotfiles/.config/nvim/plugin/nerdtree.vim

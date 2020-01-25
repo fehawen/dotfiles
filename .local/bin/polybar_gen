@@ -28,7 +28,7 @@ get_xfont() {
 	exit_on_fail xrdb -query | grep "font" | cut -d: -f3
 }
 
-WM_PADDING_X=356
+WM_PADDING_X=448
 SCREEN_WIDTH="$(xrandr --listmonitors | grep \+ | awk '{print $3}' | cut -d/ -f1)"
 POLYBAR_WIDTH="$(($SCREEN_WIDTH - $WM_PADDING_X * 2))"
 ACTIVE_MONITOR="$(xrandr --listmonitors | grep \+ | awk '{print $NF}')"
@@ -65,7 +65,7 @@ OUTPUT="$(cat << CONF
 
 	offset-y = 14
 
-	height = 28
+	height = 40
 
 	background = $(get_xres background:)
 	foreground = $(get_xres foreground:)
@@ -82,7 +82,7 @@ OUTPUT="$(cat << CONF
 	module-margin-left = 1
 	module-margin-right = 1
 
-	font-0 = "$(get_xfont):size=12:weight=bold;2"
+	font-0 = "$(get_xfont):size=14;3"
 
 [bar/slim-top]
 	inherit = bar/slim
@@ -104,13 +104,13 @@ OUTPUT="$(cat << CONF
 	strip-wsnumbers = false
 
 	label-focused = %name%
-	label-focused-foreground = $(get_xres foreground:)
+	label-focused-foreground = $(get_xres color4:)
 	label-focused-background = $(get_xres background:)
 	label-focused-underline = $(get_xres color4:)
 	label-focused-padding = 2
 
 	label-unfocused = %name%
-	label-unfocused-foreground = $(get_xres foreground:)
+	label-unfocused-foreground = $(get_xres color4:)
 	label-unfocused-background = $(get_xres background:)
 	label-unfocused-padding = 2
 
@@ -126,13 +126,13 @@ OUTPUT="$(cat << CONF
 
 	label = %title%
 	label-maxlen = 100
-	label-foreground = $(get_xres foreground:)
+	label-foreground = $(get_xres color4:)
 	label-background = $(get_xres background:)
 	label-underline = $(get_xres color4:)
 	label-padding = 2
 
 	label-empty = Empty
-	label-empty-foreground = $(get_xres foreground:)
+	label-empty-foreground = $(get_xres color4:)
 	label-empty-background = $(get_xres background:)
 	label-empty-underline = $(get_xres color4:)
 	label-empty-padding = 2
