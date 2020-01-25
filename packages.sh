@@ -51,6 +51,7 @@ install_packages() {
 		"python-pip"
 		"python-pillow"
 		"jshon"
+		"jq"
 		"noto-fonts-emoji"
 	)
 
