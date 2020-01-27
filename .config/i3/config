@@ -12,14 +12,13 @@
 set $mod Mod4
 
 # Font
-font pango:Share Tech Mono 14
+font pango:Roboto Mono 12
 
 # Gaps
-gaps inner 14
-gaps top 60
-gaps bottom 14
-gaps left 434
-gaps right 434
+gaps inner 12
+gaps outer 44
+gaps left 336
+gaps right 336
 
 # Borders
 
@@ -31,8 +30,8 @@ for_window [class=".*"] border pixel 1
 #floating_maximum_size 800 x 450
 #for_window [class=".*"] floating enable
 
-set $borderFocused   #5E828F
-set $borderUnfocused #5E828F
+set $borderFocused   #41515C
+set $borderUnfocused #41515C
 
 #                        Border            Background        Foreground        Indicator         Child Border
 client.focused           $borderFocused    $borderFocused    $borderFocused    $borderFocused    $borderFocused

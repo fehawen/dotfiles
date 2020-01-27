@@ -5,38 +5,38 @@
 
 ! Colors
 
-*background: #0E1116
-*foreground: #BBBEC4
-*cursorColor: #BBBEC4
+*background: #001B24
+*foreground: #B2BEBF
+*cursorColor: #B2BEBF
 
 ! black
-*color0:  #0C0F12
-*color8:  #30383F
+*color0:  #001B24
+*color8:  #41515C
 
 ! red
-*color1:  #855959
-*color9:  #855959
+*color1:  #AE5151
+*color9:  #AE5151
 
 ! green
-*color2:  #4C626A
-*color10: #4C626A
+*color2:  #779687
+*color10: #779687
 
 ! yellow
-*color3:  #81877B
-*color11: #81877B
+*color3:  #B98675
+*color11: #B98675
 
 ! blue
-*color4:  #3E5661
-*color12: #3E5661
+*color4:  #5E828F
+*color12: #5E828F
 
 ! magenta
-*color5:  #5E7A85
-*color13: #5E7A85
+*color5:  #B48291
+*color13: #B48291
 
 ! cyan
-*color6:  #72949F
-*color14: #72949F
+*color6:  #7AB1B3
+*color14: #7AB1B3
 
 ! White
-*color7:  #BBBEC4
-*color15: #BBBEC4
+*color7:  #B2BEBF
+*color15: #B2BEBF

@@ -72,13 +72,13 @@ endif
 
 " EDITOR COLORS
 call s:hi("User1",              s:gui.background,    s:gui.background,    "")
-call s:hi("User2",              s:gui.red,           s:gui.background,    "bold")
-call s:hi("User3",              s:gui.green,         s:gui.background,    "bold")
-call s:hi("User4",              s:gui.yellow,        s:gui.background,    "bold")
-call s:hi("User5",              s:gui.blue,          s:gui.background,    "bold")
-call s:hi("User6",              s:gui.magenta,       s:gui.background,    "bold")
-call s:hi("User7",              s:gui.cyan,          s:gui.background,    "bold")
-call s:hi("User8",              s:gui.comment,       s:gui.background,    "bold")
+call s:hi("User2",              s:gui.background,    s:gui.red,           "bold")
+call s:hi("User3",              s:gui.background,    s:gui.green,         "bold")
+call s:hi("User4",              s:gui.background,    s:gui.yellow,        "bold")
+call s:hi("User5",              s:gui.background,    s:gui.blue,          "bold")
+call s:hi("User6",              s:gui.background,    s:gui.magenta,       "bold")
+call s:hi("User7",              s:gui.background,    s:gui.cyan,          "bold")
+call s:hi("User8",              s:gui.background,    s:gui.comment,       "bold")
 
 " STATUSLINE COLORS (basic/fallback as we have a separate statusline in ./plugin)
 call s:hi("StatusLine",         s:gui.background,    s:gui.background,    "none")

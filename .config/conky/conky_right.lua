@@ -1,18 +1,19 @@
 conky.config = {
 	alignment = 'top_right',
 	background = true,
-	default_color = '3E5661',
-	color0 = '30383F',
-	color1 = '855959',
-	color2 = '4C626A',
-	color3 = '81877B',
-	color4 = '3E5661',
-	color5 = '5E7A85',
-	color6 = '72949F',
+	default_color = '8E9A9B',
+	color0 = '41515C',
+	color1 = 'AE5151',
+	color2 = '779687',
+	color3 = 'B98675',
+	color4 = '5E828F',
+	color5 = 'B48291',
+	color6 = '7AB1B3',
 	cpu_avg_samples = 2,
 	diskio_avg_samples = 2,
 	double_buffer = true,
-	font = 'Share Tech Mono:size=14:style=regular',
+	font = 'Roboto Mono:size=12:style=regular',
+	font2 = 'Roboto Mono:size=12:style=bold',
 	draw_shades = false,
 	draw_outline = false,
 	draw_borders = false,
@@ -24,8 +25,8 @@ conky.config = {
 	pad_percents = 0,
 	gap_x = 24,
 	gap_y = 0,
-	maximum_width = 400,
-	minimum_width = 400,
+	maximum_width = 300,
+	minimum_width = 300,
 	no_buffers = true,
 	out_to_console = false,
 	out_to_ncurses = false,
@@ -42,13 +43,12 @@ conky.config = {
 conky.text = [[
 
 # TIME
-${color}${alignc}${font Share Tech Mono:size=34}${time %H:%M:%S}${font}
+${color}${alignc}${font Roboto Mono:size=24}${time %H:%M:%S}${font}
 
 ${color0}${hr}
 
 # NETWORK
-${color1}NETWORK STATUS
-
+${font2}${color1}NETWORK STATUS${font}
 ${color}GATEWAY\
 ${alignr}${color6}${gw_iface}
 ${color}GATEWAY IP\
@@ -68,8 +68,7 @@ ${alignr}${color4}${addrs wlp2s0}
 
 ${color0}${hr}
 
-${color1}NETWORK TRAFFIC
-
+${font2}${color1}NETWORK TRAFFIC${font}
 ${color}DOWN\
 ${alignr}${color6}${downspeedf wlp2s0} KiB/s (${totaldown wlp2s0})
 ${color}UP\
@@ -78,8 +77,7 @@ ${alignr}${color6}${upspeedf wlp2s0} KiB/s (${totalup wlp2s0})
 ${color0}${hr}
 
 # CPU USAGE
-${color1}CPU USAGE
-
+${font2}${color1}CPU USAGE${font}
 ${color}PERCENTAGE\
 ${alignr}${color3}${cpu}%
 ${color}PROCESSES\
@@ -88,42 +86,41 @@ ${alignr}${color4}${processes}
 ${color0}${hr}
 
 # CPU GRAPHS
-${color1}LOAD\
-${alignr}FREQUENCY
+${font2}${color1}LOAD\
+${alignr}FREQUENCY${font}
 
 ${color6}CPU \#1\
 ${alignr}${freq_g 1}GHz
-${cpugraph cpu1 70,400}
+${cpugraph cpu1 50,300}
 
 ${color4}CPU \#2\
 ${alignr}${freq_g 2}GHz
-${cpugraph cpu2 70,400}
+${cpugraph cpu2 50,300}
 
 ${color5}CPU \#3\
 ${alignr}${freq_g 3}GHz
-${cpugraph cpu3 70,400}
+${cpugraph cpu3 50,300}
 
 ${color3}CPU \#4\
 ${alignr}${freq_g 4}GHz
-${cpugraph cpu4 70,400}
+${cpugraph cpu4 50,300}
 
 # LOAD GRAPH
 ${color1}SYSTEM LOAD AVERAGE
-${loadgraph 70,400}
+${loadgraph 60,400}
 
 # TOP CPU
-${color1}TOP CPU\
-${alignr}${color0}PID | NAME | CPU
-
-${color}${top pid 1}${goto 65}${color5}${top name 1}${alignr}${color2}${top cpu 1}%
-${color}${top pid 2}${goto 65}${color5}${top name 2}${alignr}${color2}${top cpu 2}%
-${color}${top pid 3}${goto 65}${color5}${top name 3}${alignr}${color2}${top cpu 3}%
-${color}${top pid 4}${goto 65}${color5}${top name 4}${alignr}${color2}${top cpu 4}%
-${color}${top pid 5}${goto 65}${color5}${top name 5}${alignr}${color2}${top cpu 5}%
-${color}${top pid 6}${goto 65}${color5}${top name 6}${alignr}${color2}${top cpu 6}%
-${color}${top pid 7}${goto 65}${color5}${top name 7}${alignr}${color2}${top cpu 7}%
-${color}${top pid 8}${goto 65}${color5}${top name 8}${alignr}${color2}${top cpu 8}%
-${color}${top pid 9}${goto 65}${color5}${top name 9}${alignr}${color2}${top cpu 9}%
-${color}${top pid 10}${goto 65}${color5}${top name 10}${alignr}${color2}${top cpu 10}%
+${font2}${color1}TOP CPU\
+${alignr}${color0}PID | NAME | CPU${font}
+${color}${top pid 1}${goto 65}${color4}${top name 1}${alignr}${color5}${top cpu 1}%
+${color}${top pid 2}${goto 65}${color4}${top name 2}${alignr}${color5}${top cpu 2}%
+${color}${top pid 3}${goto 65}${color4}${top name 3}${alignr}${color5}${top cpu 3}%
+${color}${top pid 4}${goto 65}${color4}${top name 4}${alignr}${color5}${top cpu 4}%
+${color}${top pid 5}${goto 65}${color4}${top name 5}${alignr}${color5}${top cpu 5}%
+${color}${top pid 6}${goto 65}${color4}${top name 6}${alignr}${color5}${top cpu 6}%
+${color}${top pid 7}${goto 65}${color4}${top name 7}${alignr}${color5}${top cpu 7}%
+${color}${top pid 8}${goto 65}${color4}${top name 8}${alignr}${color5}${top cpu 8}%
+${color}${top pid 9}${goto 65}${color4}${top name 9}${alignr}${color5}${top cpu 9}%
+${color}${top pid 10}${goto 65}${color4}${top name 10}${alignr}${color5}${top cpu 10}%
 
 ]];
