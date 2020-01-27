@@ -5,12 +5,12 @@
 
 ! Colors
 
-*background: #041E28
+*background: #001B24
 *foreground: #B2BEBF
 *cursorColor: #B2BEBF
 
 ! black
-*color0:  #041E28
+*color0:  #001B24
 *color8:  #41515C
 
 ! red

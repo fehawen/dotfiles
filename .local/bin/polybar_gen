@@ -28,7 +28,7 @@ get_xfont() {
 	exit_on_fail xrdb -query | grep "font" | cut -d: -f3
 }
 
-WM_PADDING_X=356
+WM_PADDING_X=348
 SCREEN_WIDTH="$(xrandr --listmonitors | grep \+ | awk '{print $3}' | cut -d/ -f1)"
 POLYBAR_WIDTH="$(($SCREEN_WIDTH - $WM_PADDING_X * 2))"
 ACTIVE_MONITOR="$(xrandr --listmonitors | grep \+ | awk '{print $NF}')"

@@ -43,7 +43,7 @@ conky.config = {
 conky.text = [[
 
 # TIME
-${color}${alignc}${font Roboto Mono:size=40}${time %H:%M:%S}${font}
+${color}${alignc}${font Roboto Mono:size=30}${time %H:%M:%S}${font}
 
 ${color0}${hr}
 
