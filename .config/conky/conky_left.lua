@@ -25,8 +25,8 @@ conky.config = {
 	pad_percents = 0,
 	gap_x = 24,
 	gap_y = 0,
-	maximum_width = 300,
-	minimum_width = 300,
+	maximum_width = 350,
+	minimum_width = 350,
 	no_buffers = true,
 	out_to_console = false,
 	out_to_ncurses = false,
@@ -104,11 +104,11 @@ ${alignr}SIZE${font}
 
 ${color6}READ\
 ${alignr}${diskio_read}
-${diskiograph_read 60,300}
+${diskiograph_read 80,350}
 
 ${color5}WRITE\
 ${alignr}${diskio_write}
-${diskiograph_write 60,300}
+${diskiograph_write 80,350}
 
 # MEMORY
 ${font2}${color1}MEMORY USAGE${font}
@@ -122,7 +122,7 @@ ${color}RAM\
 ${alignr}${color2}${mem} of ${memmax}
 
 # RAM BAR
-${color2}${memgraph 60,300}
+${color2}${memgraph 80,350}
 
 # TOP RAM
 ${font2}${color1}TOP RAM\

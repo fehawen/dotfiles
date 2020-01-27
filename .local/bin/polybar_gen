@@ -28,7 +28,7 @@ get_xfont() {
 	exit_on_fail xrdb -query | grep "font" | cut -d: -f3
 }
 
-WM_PADDING_X=348
+WM_PADDING_X=398
 SCREEN_WIDTH="$(xrandr --listmonitors | grep \+ | awk '{print $3}' | cut -d/ -f1)"
 POLYBAR_WIDTH="$(($SCREEN_WIDTH - $WM_PADDING_X * 2))"
 ACTIVE_MONITOR="$(xrandr --listmonitors | grep \+ | awk '{print $NF}')"
@@ -63,9 +63,9 @@ OUTPUT="$(cat << CONF
 	dpi-x = 0
 	dpi-y = 0
 
-	offset-y = 14
+	offset-y = 24
 
-	height = 28
+	height = 48
 
 	background = $(get_xres background:)
 	foreground = $(get_xres foreground:)

@@ -25,8 +25,8 @@ conky.config = {
 	pad_percents = 0,
 	gap_x = 24,
 	gap_y = 0,
-	maximum_width = 300,
-	minimum_width = 300,
+	maximum_width = 350,
+	minimum_width = 350,
 	no_buffers = true,
 	out_to_console = false,
 	out_to_ncurses = false,
@@ -91,23 +91,23 @@ ${alignr}FREQUENCY${font}
 
 ${color6}CPU \#1\
 ${alignr}${freq_g 1}GHz
-${cpugraph cpu1 50,300}
+${cpugraph cpu1 70,350}
 
 ${color4}CPU \#2\
 ${alignr}${freq_g 2}GHz
-${cpugraph cpu2 50,300}
+${cpugraph cpu2 70,350}
 
 ${color5}CPU \#3\
 ${alignr}${freq_g 3}GHz
-${cpugraph cpu3 50,300}
+${cpugraph cpu3 70,350}
 
 ${color3}CPU \#4\
 ${alignr}${freq_g 4}GHz
-${cpugraph cpu4 50,300}
+${cpugraph cpu4 70,350}
 
 # LOAD GRAPH
 ${color1}SYSTEM LOAD AVERAGE
-${loadgraph 60,400}
+${loadgraph 70,400}
 
 # TOP CPU
 ${font2}${color1}TOP CPU\

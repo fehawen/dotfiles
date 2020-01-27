@@ -15,10 +15,10 @@ set $mod Mod4
 font pango:Roboto Mono 12
 
 # Gaps
-gaps inner 12
-gaps outer 44
-gaps left 336
-gaps right 336
+gaps inner 24
+gaps outer 72
+gaps left 374
+gaps right 374
 
 # Borders
 
