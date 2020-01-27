@@ -2,7 +2,7 @@
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-xsetroot -solid "#0E1116"
+xsetroot -solid "#001B24"
 
 setxkbmap -layout se
 
