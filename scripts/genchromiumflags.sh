@@ -34,7 +34,7 @@ select OPT in "${options[@]}"
 do
 	case $OPT in
 		"Dell XPS 13 9343")
-			OUTPUT="--force-device-scale-factor=1.30"
+			OUTPUT="--force-device-scale-factor=1.20"
 			break
 			;;
 		"HP ProBook 650 G3")
