@@ -1,85 +1,18 @@
-highlight clear
-
-if exists("syntax_on")
-	syntax reset
-endif
-
-let s:style = get(g:, "theme_style", "default")
-let g:colors_name = "base"
-
-let s:gui = {}
-let s:cterm = {}
-
-let s:gui.none       = { "default": "NONE" }
-let s:gui.foreground = { "default": "#FCFCFC" }
-let s:gui.background = { "default": "#232323" }
-
-let s:gui.listchars  = { "default": "#404040" }
-let s:gui.comment    = { "default": "#808080" }
-
-let s:gui.black      = { "default": "#808080" }
-let s:gui.red        = { "default": "#C7AA9C" }
-let s:gui.green      = { "default": "#C7B9AC" }
-let s:gui.yellow     = { "default": "#D4BAAD" }
-let s:gui.blue       = { "default": "#C6BABA" }
-let s:gui.magenta    = { "default": "#D4BCBC" }
-let s:gui.cyan       = { "default": "#B9B9B9" }
-
-function! s:hi(group, guifg, guibg, attr)
-	if s:gui(a:guifg) != ""
-		exec "hi " . a:group . " guifg=" . s:gui(a:guifg)
-	endif
-	if s:gui(a:guibg) != ""
-		exec "hi " . a:group . " guibg=" . s:gui(a:guibg)
-	endif
-	if a:attr != ""
-		exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
-	endif
-endfunction
-
-function! s:gui(color)
-	if exists("g:theme_style")
-		return a:color[s:style]
-	else
-		return a:color["default"]
-	endif
-endfunction
-
-" NEOVIM TERMINAL COLORS
-if has("nvim")
-	let g:terminal_color_0  = s:gui(s:gui.black)
-	let g:terminal_color_1  = s:gui(s:gui.red)
-	let g:terminal_color_2  = s:gui(s:gui.green)
-	let g:terminal_color_3  = s:gui(s:gui.yellow)
-	let g:terminal_color_4  = s:gui(s:gui.blue)
-	let g:terminal_color_5  = s:gui(s:gui.magenta)
-	let g:terminal_color_6  = s:gui(s:gui.cyan)
-	let g:terminal_color_7  = s:gui(s:gui.foreground)
-	let g:terminal_color_8  = s:gui(s:gui.black)
-	let g:terminal_color_9  = s:gui(s:gui.red)
-	let g:terminal_color_10 = s:gui(s:gui.green)
-	let g:terminal_color_11 = s:gui(s:gui.yellow)
-	let g:terminal_color_12 = s:gui(s:gui.blue)
-	let g:terminal_color_13 = s:gui(s:gui.magenta)
-	let g:terminal_color_14 = s:gui(s:gui.cyan)
-	let g:terminal_color_15 = s:gui(s:gui.foreground)
-endif
-
 " EDITOR COLORS
 call s:hi("User1",              s:gui.background,    s:gui.background,    "")
-call s:hi("User2",              s:gui.red,           s:gui.background,    "bold")
-call s:hi("User3",              s:gui.green,         s:gui.background,    "bold")
-call s:hi("User4",              s:gui.yellow,        s:gui.background,    "bold")
-call s:hi("User5",              s:gui.blue,          s:gui.background,    "bold")
-call s:hi("User6",              s:gui.magenta,       s:gui.background,    "bold")
-call s:hi("User7",              s:gui.cyan,          s:gui.background,    "bold")
-call s:hi("User8",              s:gui.comment,       s:gui.background,    "bold")
+call s:hi("User2",              s:gui.background,    s:gui.red,           "bold")
+call s:hi("User3",              s:gui.background,    s:gui.green,         "bold")
+call s:hi("User4",              s:gui.background,    s:gui.yellow,        "bold")
+call s:hi("User5",              s:gui.background,    s:gui.blue,          "bold")
+call s:hi("User6",              s:gui.background,    s:gui.magenta,       "bold")
+call s:hi("User7",              s:gui.background,    s:gui.cyan,          "bold")
+call s:hi("User8",              s:gui.background,    s:gui.comment,       "bold")
 
 " STATUSLINE COLORS (basic/fallback as we have a separate statusline in ./plugin)
 call s:hi("StatusLine",         s:gui.background,    s:gui.background,    "none")
-call s:hi("StatusLineNC",       s:gui.black,         s:gui.background,    "none")
+call s:hi("StatusLineNC",       s:gui.cursorline,    s:gui.background,    "none")
 call s:hi("StatusLineTerm",     s:gui.background,    s:gui.background,    "none")
-call s:hi("StatusLineTemrNC",   s:gui.black,         s:gui.background,    "none")
+call s:hi("StatusLineTemrNC",   s:gui.cursorline,    s:gui.background,    "none")
 
 " ALE COLORS
 call s:hi("ALEInfoSign",         s:gui.yellow,       s:gui.none,          "italic")
@@ -96,14 +29,14 @@ call s:hi("ColorColumn",  s:gui.none,       s:gui.black,      "")
 call s:hi("Cursor",       s:gui.foreground, "",               "")
 call s:hi("CursorColumn", s:gui.none,       s:gui.none,       "")
 call s:hi("SignColumn",   s:gui.red,        s:gui.none,       "")
-call s:hi("LineNr",       s:gui.black,      s:gui.background, "")
+call s:hi("LineNr",       s:gui.cursorline, s:gui.background, "")
 call s:hi("CursorLine",   s:gui.none,       s:gui.none,       "")
-call s:hi("CursorLineNr", s:gui.black,      s:gui.background, "bold")
+call s:hi("CursorLineNr", s:gui.cursorline, s:gui.background, "bold")
 call s:hi("Directory",    s:gui.blue,       "",               "")
 call s:hi("FoldColumn",   "",               s:gui.none,       "")
 call s:hi("Folded",       s:gui.background, s:gui.black,      "")
-call s:hi("PMenu",        s:gui.black,      s:gui.foreground, "")
-call s:hi("PMenuSel",     s:gui.background, s:gui.foreground, "")
+call s:hi("PMenu",        s:gui.cyan,       s:gui.cursorline, "")
+call s:hi("PMenuSel",     s:gui.foreground, s:gui.cursorline, "")
 call s:hi("ErrorMsg",     s:gui.red,        s:gui.none,       "")
 call s:hi("Error",        s:gui.red,        s:gui.none,       "")
 call s:hi("WarningMsg",   s:gui.yellow,     "",               "")
@@ -126,7 +59,7 @@ call s:hi("Title",        s:gui.cyan,       "",               "")
 call s:hi("Comment",      s:gui.comment,    "",               "bold")
 call s:hi("String",       s:gui.green,      "",               "")
 call s:hi("Normal",       s:gui.foreground, s:gui.none,       "")
-call s:hi("Visual",       s:gui.background, s:gui.foreground, "")
+call s:hi("Visual",       s:gui.background, s:gui.selection,  "")
 call s:hi("Constant",     s:gui.blue,       "",               "")
 call s:hi("Type",         s:gui.blue,       "",               "")
 call s:hi("Define",       s:gui.cyan,       "",               "")
@@ -139,8 +72,8 @@ call s:hi("Number",       s:gui.yellow,     "",               "")
 call s:hi("Identifier",   s:gui.blue,       "",               "")
 call s:hi("Operator",     s:gui.cyan,       "",               "")
 call s:hi("PreProc",      s:gui.blue,       "",               "")
-call s:hi("Search",       s:gui.background, s:gui.yellow,     "")
-call s:hi("InSearch",     s:gui.background, s:gui.yellow,     "")
+call s:hi("Search",       s:gui.background, s:gui.search,     "")
+call s:hi("InSearch",     s:gui.background, s:gui.search,     "")
 call s:hi("Todo",         s:gui.background, "",               "")
 call s:hi("Special",      s:gui.magenta,    "",               "")
 
@@ -171,9 +104,9 @@ call s:hi("typescriptMember",               s:gui.foreground,  "", "")
 call s:hi("typescriptMemberOptionality",    s:gui.magenta,     "", "")
 call s:hi("typescriptPredefinedType",       s:gui.yellow,      "", "")
 call s:hi("typescriptArrayMethod",          s:gui.blue,        "", "")
-call s:hi("typescriptNumber",               s:gui.yellow,      "", "")
-call s:hi("typescriptBoolean",              s:gui.yellow,      "", "")
-call s:hi("typescriptNull",                 s:gui.yellow,      "", "")
+call s:hi("typescriptNumber",               s:gui.orange,      "", "")
+call s:hi("typescriptBoolean",              s:gui.orange,      "", "")
+call s:hi("typescriptNull",                 s:gui.orange,      "", "")
 call s:hi("typescriptObjectLabel",          s:gui.foreground,  "", "")
 call s:hi("typescriptObjectLiteral",        s:gui.cyan,        "", "")
 call s:hi("typescriptObjectSpread",         s:gui.magenta,     "", "")

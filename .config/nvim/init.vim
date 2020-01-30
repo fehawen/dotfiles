@@ -217,10 +217,7 @@ let g:es6_imports_gui_bg_color="#2E3440"
 set termguicolors
 
 " Set theme
-colorscheme skylight
-
-" Source NERDTree filetype highlighting
-source ~/dotfiles/.config/nvim/plugin/nerdtree.vim
+colorscheme base
 
 " Set list characters
 set list

@@ -4,8 +4,9 @@
 
 xrandr --dpi 55
 
-xsetroot -solid "#000000"
+feh --bg-fill ~/.wallpapers/wall.jpg
 
 setxkbmap -layout se
 
-exec i3
+# exec i3
+exec sowm
