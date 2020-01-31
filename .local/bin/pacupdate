@@ -11,6 +11,6 @@ output=""
 
 duration=$(( difference / 86400 ))
 
-(( duration == 1 )) && output="${duration} day ago" || output="${duration} days ago"
+(( duration == 1 )) && output="${duration} day" || output="${duration} days"
 
 echo "${output}"
