@@ -2,8 +2,9 @@
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-xsetroot -solid "#000000"
+feh --bg-fill ~/.wallpapers/wall.jpg
 
 setxkbmap -layout se
 
-exec i3
+exec sowm
+exec ~/.config/conky/launch.sh
