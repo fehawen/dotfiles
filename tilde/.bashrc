@@ -17,7 +17,7 @@ if [ -x /usr/bin/tput ] && tput setaf 1 &> /dev/null; then
 	declare italic="\001$(tput sitm)\002"
 	declare reset="\001$(tput sgr0)\002"
 
-	declare black="\001$(tput setaf 0)\002"
+	declare black="\001$(tput setaf 8)\002"
 	declare red="\001$(tput setaf 1)\002"
 	declare green="\001$(tput setaf 2)\002"
 	declare yellow="\001$(tput setaf 3)\002"
@@ -30,7 +30,7 @@ else
 	declare italic="\e[3m"
 	declare reset="\e[0m"
 
-	declare black="\e[1;30m"
+	declare black="\e[1;90m"
 	declare red="\e[1;31m"
 	declare green="\e[1;32m"
 	declare yellow="\e[1;33m"

@@ -19,7 +19,6 @@
 [colors]
 	foreground = ${xrdb:foreground}
 	background = ${xrdb:background}
-	border = #3E5661
 
 	black = ${xrdb:color8}
 	red = ${xrdb:color1}
@@ -34,14 +33,14 @@
 	monitor-fallback = ${env:MONITOR:DP1}
 
 	fixed-center = true
-	override-redirect = false
+	override-redirect = true
 
 	dpi-x = 0
 	dpi-y = 0
 
-	offset-y = 20
+	offset-y = 2%
 
-	height = 3.5%
+	height = 24
 
 	radius = 12
 
@@ -49,7 +48,7 @@
 	foreground = ${colors.foreground}
 
 	border-size = 0
-	border-color = ${colors.border}
+	border-color = ${colors.background}
 
 	line-size = 0
 	line-color = ${colors.background}
@@ -57,21 +56,21 @@
 	padding-left = 0
 	padding-right = 0
 
-	module-margin-left = 2
-	module-margin-right = 2
+	module-margin-left = 1
+	module-margin-right = 1
 
-	font-0 = "Roboto Mono:size=12:weight=regular;3"
-	font-1 = "Font Awesome 5 Free:size=10:weight=bold;2"
-	font-2 = "Font Awesome 5 Brands:size=10;2"
+	font-0 = "Roboto Mono:size=12:weight=regular;1"
+	font-1 = "Font Awesome 5 Free:size=12:weight=bold;1"
+	font-2 = "Font Awesome 5 Brands:size=12;1"
 
 [bar/top]
 	inherit = bar/base
 	bottom = false
 
-	offset-x = 75%
-	width = 20%
+	offset-x = 81%
+	width = 18%
 
-	modules-center = pulseaudio wifi battery time
+	modules-center = pulseaudio battery wifi time
 
 [module/i3]
 	type = internal/i3
@@ -179,24 +178,16 @@
 	interval = 5
 
 	format-volume = <label-volume>
+	format-volume-padding = 1
+
+	format-muted-padding = 1
 	format-muted = <label-muted>
 
-	format-volume-prefix = 
-	format-volume-prefix-foreground = ${colors.blue}
-	format-volume-prefix-background = ${colors.background}
-
-	label-volume = %percentage%%
+	label-volume =  %percentage%%
 	label-volume-foreground = ${colors.blue}
-	label-volume-background = ${colors.background}
-	label-volume-padding-left = 1
 
-	format-muted-prefix = 
-	format-muted-prefix-foreground = ${colors.black}
-
-	label-muted = off
+	label-muted =  off
 	label-muted-foreground = ${colors.black}
-	label-muted-background = ${colors.background}
-	label-muted-padding-left = 1
 
 [module/backlight]
 	type = internal/xbacklight
@@ -215,23 +206,17 @@
 	battery = BAT0
 	adapter = AC
 
-	format-charging-prefix = 
-	format-charging = <label-charging>
+	format-charging-padding = 1
+	format-charging =  <label-charging>
 	format-charging-foreground = ${colors.yellow}
-	format-charging-background = ${colors.background}
-	label-charging-padding-left = 1
 
-	format-full-prefix = 
-	format-full = <label-full>
+	format-full-padding = 1
+	format-full =  <label-full>
 	format-full-foreground = ${colors.green}
-	format-full-background = ${colors.background}
-	label-full-padding-left = 1
 
-	format-discharging-prefix = 
-	format-discharging = <label-discharging>
+	format-discharging-padding = 1
+	format-discharging =  <label-discharging>
 	format-discharging-foreground = ${colors.red}
-	format-discharging-background = ${colors.background}
-	label-discharging-padding-left = 1
 
 [module/wifi]
 	type = internal/network
@@ -239,23 +224,17 @@
 	ping-interval = 10
 	unknown-as-up = true
 
-	format-connected-prefix = 
+	format-connected-padding = 1
+	label-connected =  %essid%
 	format-connected-foreground = ${colors.magenta}
-	format-connected-background = ${colors.background}
-	label-connected = %essid%
-	label-connected-padding-left = 1
 
-	format-packetloss-prefix = 
+	format-packetloss-padding = 1
+	label-packetloss =  packetloss
 	format-packetloss-foreground = ${colors.yellow}
-	format-packetloss-background = ${colors.background}
-	label-packetloss = PACKETLOSS
-	label-packetloss-padding-left = 1
 
-	format-disconnected-prefix = 
+	format-disconnected-padding = 1
+	label-disconnected =  disconnected
 	format-disconnected-foreground = ${colors.red}
-	format-disconnected-background = ${colors.background}
-	label-disconnected = DISCONNECTED
-	label-disconnected-padding-left = 1
 
 [module/docker]
 	type = custom/script
@@ -290,9 +269,6 @@
 	interval = 5.0
 	time = %H:%M
 
-	format-prefix = 
+	format-padding = 1
+	label =  %time%
 	format-foreground = ${colors.foreground}
-	format-background = ${colors.background}
-
-	label = %time%
-	label-padding-left = 1

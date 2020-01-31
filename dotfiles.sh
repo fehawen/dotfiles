@@ -89,7 +89,6 @@ setup_dotfiles() {
 
 	folders=(
 		".colors"
-		".config/conky"
 		".config/dunst"
 		".config/fontconfig"
 		".config/i3"
@@ -98,6 +97,8 @@ setup_dotfiles() {
 		".config/nvim"
 		".config/nvim/colors"
 		".config/nvim/plugin"
+		".config/polybar"
+		".config/picom"
 		".config/prompt"
 		".config/ranger"
 		".local/bin"
