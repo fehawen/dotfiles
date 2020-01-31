@@ -13,7 +13,6 @@ conky.config = {
 	diskio_avg_samples = 2,
 	double_buffer = true,
 	font = 'Roboto Mono:size=12:style=regular',
-	font2 = 'Font Awesome 5 Free:size=12:weight=bold',
 	draw_shades = false,
 	draw_outline = false,
 	draw_borders = false,
@@ -23,17 +22,17 @@ conky.config = {
 	border_width = 0,
 	stippled_borders = 0,
 	pad_percents = 0,
-	gap_x = 400,
-	gap_y = 400,
-	maximum_width = 350,
-	minimum_width = 350,
+	gap_x = 80,
+	gap_y = 80,
+	maximum_width = 130,
+	minimum_width = 130,
 	no_buffers = true,
 	out_to_console = false,
 	out_to_ncurses = false,
 	out_to_stderr = false,
 	out_to_x = true,
 	own_window = true,
-	own_window_type = 'normal',
+	own_window_type = 'desktop',
 	own_window_transparent = false,
 	own_window_colour = '232323',
 	update_interval = 1,
@@ -42,31 +41,30 @@ conky.config = {
 }
 
 conky.text = [[
-# TIME
-${color}${font2} ${font}${time %H:%M:%S}
+# CLOCK
+${color0}clk${color} ${time %H:%M}
 
 # LAST UPDATED
-${color5}${font2} ${font}${execi 3600 ~/.local/bin/pacupdate}
-
-# BACKLIGHT
-${color3}${font2} ${font}${exec xbacklight -get | cut -d. -f1}%
-
-# VOLUME
-${color4}${font2} ${font}${exec pamixer --get-volume-human}
+${color0}syu${color} ${execi 3600 ~/.local/bin/pacupdate}
 
 # BATTERY
-${if_match ${battery_percent}>20}${color2}${else}${color1}${endif}${if_match "${battery_status}"=="discharging"}${font2} ${font}${else}${font2} ${font}${endif}${battery_percent}%
+${color0}bat${color}${if_match ${battery_percent}>20}${color}${else}${color2}${endif} ${battery_percent}%
+
+# BACKLIGHT
+${color0}bri${color} ${exec xbacklight -get | cut -d. -f1}%
+
+# VOLUME
+${color0}vol${color} ${exec pamixer --get-volume-human}
 
 # CPU
-${color5}${font2} ${font}${cpu cpu0}%
+${color0}cpu${color} ${cpu cpu0}%
 
 # RAM
-${color3}${font2} ${font}${memperc}%
+${color0}ram${color} ${memperc}%
 
 # SWAP
-${color6}${font2} ${font}${swapperc}%
+${color0}swp${color} ${swapperc}%
 
 # STORAGE
-${color4}${font2} ${font}${fs_used_perc /}%
-
+${color0}ssd${color} ${fs_used_perc /}%
 ]];

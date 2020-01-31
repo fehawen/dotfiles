@@ -7,5 +7,4 @@ killall -q conky
 while pgrep -u $UID -x conky >/dev/null; do sleep 1; done
 
 # Launch conky
-conky -c ~/.config/conky/conky_left.lua -d
-conky -c ~/.config/conky/conky_right.lua -d
+conky -c ~/.config/conky/conky.lua -d
