@@ -68,8 +68,8 @@
 	inherit = bar/base
 	bottom = false
 
-	offset-x = 65%
-	width = 30%
+	offset-x = 75%
+	width = 20%
 
 	modules-center = pulseaudio wifi battery time
 

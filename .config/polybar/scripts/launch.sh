@@ -6,8 +6,5 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# Generae config
-~/.local/bin/polybar_gen
-
-# Launch polybar
-polybar slim-top &
+# Launch bar
+polybar top
