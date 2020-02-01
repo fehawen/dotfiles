@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 INTERNAL_OUTPUT="$(xrandr | grep "primary" | awk '{print $1}')"
 EXTERNAL_OUTPUT_1="$(xrandr | grep -w "connected" | awk '{if(NR>1)print $1}' | head -1)"

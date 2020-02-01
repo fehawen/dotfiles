@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 external_output="$(xrandr | grep -w "connected" | awk '{if(NR>1)print $1}')"
 

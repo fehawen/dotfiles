@@ -1,65 +1,33 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-##############
-### THEMES ###
-##############
+##########
+# COLORS #
+##########
 
-declare THEME="base_prompt"
+export newline="\n"
 
-##############
-### COLORS ###
-##############
+export bold="\[\e[1m\]"
+export italic="\[\e[3m\]"
+export reset="\[\e[0m\]"
 
-if [ -x /usr/bin/tput ] && tput setaf 1 &> /dev/null; then
-	tput sgr0 # Reset colors
+export black="\[\e[1;90m\]"
+export red="\[\e[1;31m\]"
+export green="\[\e[1;32m\]"
+export yellow="\[\e[1;33m\]"
+export blue="\[\e[1;34m\]"
+export magenta="\[\e[1;35m\]"
+export cyan="\[\e[1;36m\]"
+export white="\[\e[1;97m\]"
 
-	declare bold="\001$(tput bold)\002"
-	declare italic="\001$(tput sitm)\002"
-	declare reset="\001$(tput sgr0)\002"
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
-	declare black="\001$(tput setaf 8)\002"
-	declare red="\001$(tput setaf 1)\002"
-	declare green="\001$(tput setaf 2)\002"
-	declare yellow="\001$(tput setaf 3)\002"
-	declare blue="\001$(tput setaf 4)\002"
-	declare magenta="\001$(tput setaf 5)\002"
-	declare cyan="\001$(tput setaf 6)\002"
-	declare white="\001$(tput setaf 7)\002"
-else
-	declare bold="\e[1m"
-	declare italic="\e[3m"
-	declare reset="\e[0m"
+###########
+# EXPORTS #
+###########
 
-	declare black="\e[1;90m"
-	declare red="\e[1;31m"
-	declare green="\e[1;32m"
-	declare yellow="\e[1;33m"
-	declare blue="\e[1;34m"
-	declare magenta="\e[1;35m"
-	declare cyan="\e[1;36m"
-	declare white="\e[1;97m"
-fi
-
-###################
-### THEME SETUP ###
-###################
-
-declare THEMES_DIR="$HOME/.config/prompt"
-declare PROMPT_THEME="$THEMES_DIR/$THEME"
-
-[[ -f "$PROMPT_THEME" ]] && source "$PROMPT_THEME"
-
-##################
-### ALIAS FILE ###
-##################
-
-declare ALIAS_FILE="$THEMES_DIR/aliasrc"
-
-[[ -f "$ALIAS_FILE" ]] && source "$ALIAS_FILE"
-
-###############
-### EXPORTS ###
-###############
+# GLOBALS
 
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -67,7 +35,10 @@ export TERMINAL="kitty"
 export BROWSER="chromium"
 export LC_ALL=en_US.UTF-8
 
-# Colored man pages
+# -----------------------------------------------------------------------------
+
+# COLORED MAN PAGES
+
 export LESS_TERMCAP_mb=$'\e[0;32m'
 export LESS_TERMCAP_md=$'\e[1;34m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -76,45 +47,299 @@ export LESS_TERMCAP_so=$'\e[0;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[0;35m'
 
-# Start X if i3 isn't running, and if on Linux (Arch)
-if [[ "$OSTYPE" =~ "linux" ]]; then
-	[[ "$(tty)" = "/dev/tty1" ]] && ! pgrep -x i3 >/dev/null && exec startx
-fi
+# -----------------------------------------------------------------------------
 
-compose_path() {
-	declare -a paths=($@)
-	# Include desired paths in PATH and export, leaving default PATH still intact and preventing duplicates
-	for p in "${paths[@]}"
-	do
-		case ":$PATH:" in
-			*":$p:"*) :;; # already there
-			*) PATH="$p:$PATH";;
-		esac
-	done
+# SET PATH
 
-	export PATH="${PATH}"
+paths=(
+	"$HOME/.yarn/bin"
+	"$HOME/.npm-global/bin"
+	"$HOME/.local/bin"
+)
+
+# Include desired paths in PATH and export, leaving default PATH still intact and preventing duplicates
+for p in "${paths[@]}"
+do
+	case ":$PATH:" in
+		*":$p:"*) :;; # already there
+		*) PATH="$p:$PATH";;
+	esac
+done
+
+export PATH="${PATH}"
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+###########
+# ALIASES #
+###########
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias clr="clear"
+alias la="ls -AFGghl"
+alias las="stat -c '%A %a %n' *" # Show octal permissions
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gpuom="git push -u origin master"
+alias gpom="git push origin master"
+alias gpuo="git push -u origin"
+alias gpo="git push origin"
+alias gp="git push"
+alias gs="git status"
+alias gss="git status -s"
+alias giff="git diff"
+alias glog="git log --graph"
+alias glogc=git_log_commit_count
+alias code="open -a 'Visual Studio Code'"
+alias gh="cd ~/github/"
+alias repos="cd ~/github/"
+alias dot="cd ~/dotfiles/"
+alias pro="cd ~/projects/"
+alias aur="cd ~/packages/"
+alias mongorun="mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data"
+alias todoread="cat ~/github/todo/README.md"
+alias todoedit="nvim ~/github/todo/README.md"
+alias rr="ranger"
+alias vm="nvim"
+alias icat="kitty +kitten icat"
+alias screenshot="scrot ~/pictures/screenshots/%Y-%m-%d-%T-screenshot.png -d 5"
+alias dspl="~/.config/i3/i3scaling.sh"
+alias wrls="sudo wifi-menu"
+alias todopush=push_todos
+alias todopull=pull_todos
+alias hunt=find_string_in_file
+alias mark=find_matching_file_or_subdir
+alias bklt=set_xbacklight
+alias vlme=set_volume
+alias wthr=get_weather
+alias clone=clone_repo
+
+# -----------------------------------------------------------------------------
+
+git_log_commit_count() {
+	total="$(git rev-list --all --count)"
+	each="$(git shortlog -s -n -e --all)"
+
+	printf "%s\n" "${bold}Total: ${total}${reset}${newline}${each}"
 }
 
-# Set PATH for macOS
-if [[ "$OSTYPE" =~ "darwin" ]]; then
-	declare -a paths=(
-		"${HOME}/.yarn/bin"
-		"${HOME}/.local/bin/"
-		"${HOME}/.npm-global/bin"
-		"${HOME}/Library/Python/3.7/bin"
-		"${HOME}/paths/mongodb-osx-x86_64-4.0.3/bin"
-	)
+# -----------------------------------------------------------------------------
 
-	compose_path ${paths[@]}
-fi
+push_todos() {
+	pushd "$HOME/github/todo/" && \
+	git add . && \
+	git commit -m "Bump @ $(date '+%Y/%m/%d %H:%M')" && \
+	git push && \
+	cd "$(dirs -l -0)" && dirs -c
+}
 
-# Set PATH for Linux
-if [[ "$OSTYPE" =~ "linux" ]]; then
-	declare -a paths=(
-		"${HOME}/.yarn/bin"
-		"${HOME}/.npm-global/bin"
-		"${HOME}/.local/bin"
-	)
+# -----------------------------------------------------------------------------
 
-	compose_path ${paths[@]}
-fi
+pull_todos() {
+	pushd "$HOME/github/todo/" && \
+	git pull && \
+	cd "$(dirs -l -0)" && dirs -c
+}
+
+# -----------------------------------------------------------------------------
+
+# Find all files in dirs/subdirs containing search query
+find_string_in_file() {
+	grep \
+		--exclude-dir=node_modules \
+		--exclude-dir=coverage \
+		--exclude-dir=.fusebox \
+		--exclude-dir=.next \
+		--exclude-dir=dist \
+		--exclude-dir=.git \
+		-wroni "${1}" . | sort -u | grep -iv "^${1}" | sed "/^$/d" | grep -i --color=always "${1}"
+}
+
+# -----------------------------------------------------------------------------
+
+# Find all sbudirs/filenames in dirs/subdirs matching query
+find_matching_file_or_subdir() {
+	find . \
+		-not -path "*node_modules*" \
+		-not -path "*.fusebox*" \
+		-not -path "*.next*" \
+		-not -path "*dist*" \
+		-not -path "*.git*" \
+		-iname "*${1}*" | sort -u | grep -i --color=always "${1}"
+}
+
+# -----------------------------------------------------------------------------
+
+# Window manager helper for starting, stopping or restarting either chunkwm or skhd
+wm() {
+	brew services "${1}" koekeishiya/formulae/"${2}"
+}
+
+# -----------------------------------------------------------------------------
+
+# Change X screen brightness, when backlight keys increments aren't precise enough
+set_xbacklight() {
+	if [[ -z "$1" ]]; then
+		xbacklight -get
+	elif [[ "$1" -gt 100 ]]; then
+		xbacklight -set 100
+	elif [[ "$1" -lt 5 ]]; then
+		xbacklight -set 5
+	else
+		xbacklight -set "${1}"
+	fi
+}
+
+# -----------------------------------------------------------------------------
+
+# Change volume through pamixer, when colume keys increments aren't precise enough
+set_volume() {
+	[[ "$1" -gt 100 ]] && pamixer --set-volume 100
+	[[ "$1" -lt 5 ]] && pamixer --set-volume 5
+
+	pamixer --set-volume "${1}"
+}
+
+# -----------------------------------------------------------------------------
+
+# Get weather report for specified location
+# if second argument (optional) is "-f", get 3-day forecast for morning, nnon, evening, night
+# else if first argument is only location, get current weather only
+get_weather() {
+	if [[ "$2" == "-f" ]]; then
+		curl "http://wttr.in/${1}?M"
+	else
+		curl "http://wttr.in/${1}?0&M"
+	fi
+}
+
+# -----------------------------------------------------------------------------
+
+# Clone a Github by providing arguments:
+# 1: username
+# 2: repository
+clone_repo() {
+	if [ $# -lt 2 ]; then
+		echo "Too few arguments provided"
+		echo "Please provide:"
+		echo "ARG 1: username"
+		echo "ARG 2: repository"
+		exit 1
+	fi
+
+	git clone https://github.com/"$1"/"$2".git
+}
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+##########
+# PROMPT #
+##########
+
+# VARIABLES
+
+git_dirty_symbol="?"
+git_stashed_symbol="!"
+prompt_symbol="$"
+
+dir_color="$cyan"
+git_branch_color="$magenta"
+git_dirty_color="$red"
+exit_ok_color="$white"
+exit_bad_color="$black"
+
+# -----------------------------------------------------------------------------
+
+# HELPERS
+
+is_git_repository() {
+	git rev-parse --is-inside-work-tree &> /dev/null
+}
+
+# -----------------------------------------------------------------------------
+
+# MODULES
+
+dir_module() {
+	PS1+="${dir_color}\W"
+}
+
+# -----------------------------------------------------------------------------
+
+git_branch_module() {
+	is_git_repository || return
+
+	branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+
+	PS1+=" ${git_branch_color}${branch}"
+}
+
+# -----------------------------------------------------------------------------
+
+git_dirty_module() {
+	is_git_repository || return
+
+	if \
+		[[ "$(git status -s)" != "" ]] || \
+		[[ "$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)" -gt 0 ]] || \
+		[[ "$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)" -gt 0 ]]; then
+		status="${git_dirty_symbol}"
+	elif [[ -n "$(git stash list 2> /dev/null)" ]]; then
+		status="${git_stashed_symbol}"
+	else
+		status=""
+	fi
+
+	if [[ "${status}" != "" ]]; then
+		PS1+=" ${git_dirty_color}${status}"
+	fi
+}
+
+# -----------------------------------------------------------------------------
+
+exit_code_module() {
+	if [[ "$RETVAL" -eq 0 ]]; then
+		exit_status="${exit_ok_color}"
+	else
+		exit_status="${exit_bad_color}"
+	fi
+
+	PS1+=" ${exit_status}${prompt_symbol}${reset} "
+}
+
+# -----------------------------------------------------------------------------
+
+# PROMPT ORDER
+
+prompt_modules=(
+	"dir_module"
+	"git_branch_module"
+	"git_dirty_module"
+	"exit_code_module"
+)
+
+# -----------------------------------------------------------------------------
+
+# POINT OF ENTRY
+
+compose_prompt() {
+	RETVAL=$?
+
+	PS1=""
+
+	PS1+="${bold}"
+
+	for MODULE in "${!prompt_modules[@]}"; do
+		${prompt_modules[$MODULE]}
+	done
+}
+
+PROMPT_COMMAND="compose_prompt"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 configure_touchpad() {
 	read -r -p "Configure touchpad? [y/N] " answer

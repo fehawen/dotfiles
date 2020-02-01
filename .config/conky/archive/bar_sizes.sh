@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This works, but does not take into consideration possible xrandr scaling,
 # it only uses the monitor's highest listed internal resolution

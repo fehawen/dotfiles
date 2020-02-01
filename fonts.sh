@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 copy_fonts() {
 	src="${1}"
@@ -11,7 +11,7 @@ copy_fonts() {
 		sudo mkdir -pv "${dest}"
 	fi
 
-	pushd "${workdir}" > /dev/null
+	pushd "${workdir}" > /dev/null || echo "Cannot push to dir ${workdir}" && exit
 
 	for FONT_DIR in *; do
 		if [[ -d ${FONT_DIR} ]]; then
@@ -30,8 +30,8 @@ setup_fonts() {
 	global_dest="/usr/share/fonts"
 	local_dest="${HOME}/.local/share/fonts"
 
-	copy_fonts ${base_dir} ${global_dest}
-	copy_fonts ${base_dir} ${local_dest}
+	copy_fonts "${base_dir}" "${global_dest}"
+	copy_fonts "${base_dir}" "${local_dest}"
 
 	echo -e "\nDONE.\n"
 }

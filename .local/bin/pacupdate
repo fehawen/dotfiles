@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 last_update=$(grep Running\ \'pacman\ -Syu /var/log/pacman.log | tail -1 | awk '{print $1, $2}' | sed 's/[][]//g' | cut -dT -f1)
 

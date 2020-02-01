@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Show the terminal colourscheme as blocks
 # Inspired by u/dkeg

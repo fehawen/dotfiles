@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 install_packages() {
 	echo -e "\nInstalling packages for Arch Linux...\n"
 
-	declare -a packages=(
+	packages=(
 		"xorg-server"
 		"xorg-xinit"
 		"xorg-xrandr"
@@ -55,7 +55,7 @@ install_packages() {
 		"noto-fonts-emoji"
 	)
 
-	sudo pacman -Syu ${packages[@]}
+	sudo pacman -Syu "${packages[@]}"
 
 	echo -e "DONE.\n"
 }

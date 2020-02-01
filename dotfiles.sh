@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PROGNAME=$(basename "$0")
 
@@ -99,7 +99,6 @@ setup_dotfiles() {
 		".config/nvim/plugin"
 		".config/polybar"
 		".config/picom"
-		".config/prompt"
 		".config/ranger"
 		".local/bin"
 		".newsboat"

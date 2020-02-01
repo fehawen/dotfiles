@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 confirm() {
 	read -r -p "Proceed with $1 setup for $2? [y/N] " answer
@@ -20,7 +20,6 @@ declare -a options=(
 	"Arch Linux - Packages"
 	"Arch Linux - Config"
 	"Arch Linux - Fonts"
-	"MacOS - Dotfiles"
 	"Quit"
 )
 
@@ -41,10 +40,6 @@ do
 			;;
 		"Arch Linux - Fonts")
 			confirm "fonts" "Arch Linux"
-			break
-			;;
-		"MacOS - Dotfiles")
-			confirm "macos" "MacOS"
 			break
 			;;
 		"Quit")
