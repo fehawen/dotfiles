@@ -1,11 +1,12 @@
 #!/bin/sh
 
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+[ -f "$HOME/.Xresources" ] && xrdb -merge "$HOME/.Xresources"
 
 feh --bg-fill ~/.wallpapers/wall.jpg
 
 setxkbmap -layout se
 
-dunst -config "$HOME/.config/dunst/dunstrc" &
+picom -b --config "$HOME/.config/picom/picom.conf"
+polybar -c "$HOME/.config/polybar/config" top &
 
 exec sowm
