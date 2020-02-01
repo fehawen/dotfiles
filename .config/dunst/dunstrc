@@ -22,7 +22,7 @@ plain_text = no
 #   %I  iconname (without its path)
 #   %p  progress value if set ([  0%] to [100%]) or nothing
 # Markup is allowed
-format = "<b>%s</b>"
+format = "<b>%b</b>"
 
 # Sort messages by urgency.
 sort = yes
@@ -69,7 +69,7 @@ hide_duplicates_count = yes
 # The width can be negative.  In this case the actual width is the
 # screen width minus the width defined in within the geometry option.
 #geometry = "250x50-40+40"
-geometry = "300x50-24+79"
+geometry = "400x75-24+24"
 
 # Shrink window if it's smaller than the width.  Will be ignored if
 # width is 0.
@@ -78,7 +78,7 @@ shrink = no
 # The transparency of the window.  Range: [0; 100].
 # This option will only work if a compositing windowmanager is
 # present (e.g. xcompmgr, compiz, etc.).
-transparency = 5
+transparency = 0
 
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
@@ -138,7 +138,7 @@ separator_color = frame
 # Print a notification on startup.
 # This is mainly for error detection, since dbus (re-)starts dunst
 # automatically after a crash.
-startup_notification = false
+startup_notification = true
 
 # dmenu path.
 #dmenu = /usr/bin/dmenu -p dunst:
@@ -151,10 +151,10 @@ icon_position = off
 max_icon_size = 80
 
 # Paths to default icons.
-#icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
+icon_path = /usr/share/icons/Adwaita/16x16/mimetypes/:/usr/share/icons/Adwaita/48x48/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/48x48/notifications/:/usr/share/icons/Adwaita/48x48/emblems/
 
 frame_width = 3
-frame_color = "#8EC07C"
+frame_color = "#232323"
 
 [shortcuts]
 
@@ -180,21 +180,21 @@ close_all = ctrl+shift+space
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#0D202F"
-foreground = "#B2BEBF"
-background = "#192C3B"
+frame_color = "#232323"
+foreground = "#FCFCFC"
+background = "#232323"
 timeout = 10
 
 [urgency_normal]
-frame_color = "#0D202F"
-foreground = "#B2BEBF"
-background = "#192C3B"
+frame_color = "#232323"
+foreground = "#FCFCFC"
+background = "#232323"
 timeout = 10
 
 [urgency_critical]
-frame_color = "#0D202F"
-foreground = "#AE5151"
-background = "#192C3B"
+frame_color = "#232323"
+foreground = "#C7AA9C"
+background = "#232323"
 timeout = 10
 
 

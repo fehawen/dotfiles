@@ -40,7 +40,7 @@
 
 	offset-y = 2%
 
-	height = 24
+	height = 3%
 
 	radius = 12
 
@@ -59,164 +59,17 @@
 	module-margin-left = 1
 	module-margin-right = 1
 
-	font-0 = "Roboto Mono:size=12:weight=regular;1"
-	font-1 = "Font Awesome 5 Free:size=12:weight=bold;1"
-	font-2 = "Font Awesome 5 Brands:size=12;1"
+	font-0 = "Roboto Mono:size=12:weight=regular;3"
+	font-1 = "Font Awesome 5 Free:size=12:weight=bold;2"
 
 [bar/top]
 	inherit = bar/base
 	bottom = false
 
-	offset-x = 81%
-	width = 18%
+	offset-x = 91%
+	width = 8%
 
-	modules-center = pulseaudio battery wifi time
-
-[module/i3]
-	type = internal/i3
-	format = <label-state>
-	index-sort = true
-	wrapping-scroll = false
-	enable-click = true
-	pin-workspaces = true
-	strip-wsnumbers = true
-
-	ws-icon-default = 
-
-	label-focused = %icon%
-	label-focused-foreground = ${colors.foreground}
-	label-focused-background = ${colors.background}
-	label-focused-padding = 1
-
-	label-unfocused = %icon%
-	label-unfocused-foreground = ${colors.black}
-	label-unfocused-background = ${colors.background}
-	label-unfocused-padding = 1
-
-	label-urgent = %icon%
-	label-urgent-foreground = ${colors.red}
-	label-urgent-background = ${colors.background}
-	label-urgent-padding = 1
-
-[module/cpu]
-	type = internal/cpu
-	interval = 1
-
-	format = <label>
-	format-prefix = 
-	format-prefix-padding-left = 1
-	format-prefix-foreground = ${colors.magenta}
-	format-prefix-background = ${colors.background}
-
-	label = %percentage%%
-	label-foreground = ${colors.magenta}
-	label-background = ${colors.background}
-	label-padding = 1
-
-[module/ram]
-	type = internal/memory
-	interval = 1
-
-	format = <label>
-	format-prefix = 
-	format-prefix-padding-left = 1
-	format-prefix-foreground = ${colors.yellow}
-	format-prefix-background = ${colors.background}
-
-	label = %percentage_used%%
-	label-foreground = ${colors.yellow}
-	label-background = ${colors.background}
-	label-padding = 1
-
-[module/swap]
-	type = internal/memory
-	interval = 10
-
-	format = <label>
-	format-prefix = 
-	format-prefix-padding-left = 1
-	format-prefix-foreground = ${colors.blue}
-	format-prefix-background = ${colors.background}
-
-	label = %percentage_swap_used%%
-	label-foreground = ${colors.blue}
-	label-background = ${colors.background}
-	label-padding = 1
-
-[module/filesystem]
-	type = internal/fs
-	interval = 30
-	fixed-values = true
-
-	mount-0 = /
-
-	format-mounted = <label-mounted>
-	format-mounted-prefix = 
-	format-mounted-prefix-padding-left = 1
-	format-mounted-prefix-foreground = ${colors.green}
-	format-mounted-prefix-background = ${colors.background}
-
-	label-mounted = %percentage_used%%
-	label-mounted-foreground = ${colors.green}
-	label-mounted-background = ${colors.background}
-	label-mounted-padding = 1
-
-	format-unmounted = <label-unmounted>
-	format-unmounted-prefix = 
-	format-unmounted-prefix-padding-left = 1
-	format-unmounted-prefix-foreground = ${colors.green}
-	format-unmounted-prefix-background = ${colors.background}
-
-	label-unmounted = UNMOUNTED
-	label-unmounted-foreground = ${colors.background}
-	label-unmounted-background = ${colors.blue}
-	label-unmounted-padding = 1
-
-[module/pulseaudio]
-	type = internal/pulseaudio
-	use-ui-max = false
-	interval = 5
-
-	format-volume = <label-volume>
-	format-volume-padding = 1
-
-	format-muted-padding = 1
-	format-muted = <label-muted>
-
-	label-volume =  %percentage%%
-	label-volume-foreground = ${colors.blue}
-
-	label-muted =  off
-	label-muted-foreground = ${colors.black}
-
-[module/backlight]
-	type = internal/xbacklight
-	output = eDP1
-	format = <label>
-
-	format-prefix = 
-	format-foreground = ${colors.yellow}
-	format-background = ${colors.background}
-
-	label = %percentage%%
-	label-padding-left = 1
-
-[module/battery]
-	type = internal/battery
-	battery = BAT0
-	adapter = AC
-
-	format-charging-padding = 1
-	format-charging =  <label-charging>
-	format-charging-foreground = ${colors.yellow}
-
-	format-full-padding = 1
-	format-full =  <label-full>
-	format-full-foreground = ${colors.green}
-
-	format-discharging-padding = 1
-	format-discharging =  <label-discharging>
-	format-discharging-foreground = ${colors.red}
+	modules-center = time wifi battery
 
 [module/wifi]
 	type = internal/network
@@ -224,51 +77,34 @@
 	ping-interval = 10
 	unknown-as-up = true
 
-	format-connected-padding = 1
-	label-connected =  %essid%
-	format-connected-foreground = ${colors.magenta}
+	label-connected = 
+	format-connected-foreground = ${colors.foreground}
 
-	format-packetloss-padding = 1
-	label-packetloss =  packetloss
-	format-packetloss-foreground = ${colors.yellow}
+	label-packetloss = 
+	format-packetloss-foreground = ${colors.black}
 
-	format-disconnected-padding = 1
-	label-disconnected =  disconnected
-	format-disconnected-foreground = ${colors.red}
-
-[module/docker]
-	type = custom/script
-	exec = docker ps -q | wc -l
-	interval = 5
-
-	format = <label>
-	format-prefix = 
-	format-prefix-padding-left = 1
-	format-foreground = ${colors.cyan}
-	format-background = ${colors.background}
-
-	label = %output%
-	label-padding = 1
-
-[module/pacupdate]
-	type = custom/script
-	exec = ~/.local/bin/pacupdate
-	interval = 3600
-
-	format = <label>
-	format-prefix = 
-	format-prefix-padding-left = 1
-	format-foreground = ${colors.foreground}
-	format-background = ${colors.background}
-
-	label = %output%
-	label-padding = 1
+	label-disconnected = 
+	format-disconnected-format = ${colors.black}
 
 [module/time]
 	type = internal/date
 	interval = 5.0
-	time = %H:%M
+	time = %a %H:%M
 
-	format-padding = 1
-	label =  %time%
+	label = %time%
 	format-foreground = ${colors.foreground}
+
+[module/battery]
+	type = internal/battery
+	battery = BAT0
+	adapter = AC
+
+	format-charging = <label-charging>
+	format-charging-foreground = ${colors.foreground}
+
+	format-full = <label-full>
+	format-full-foreground = ${colors.foreground}
+
+	format-discharging = <label-discharging>
+	format-discharging-foreground = ${colors.foreground}
+
