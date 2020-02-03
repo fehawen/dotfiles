@@ -14,6 +14,7 @@ install_packages() {
 		"mesa"
 		"man-db"
 		"man-pages"
+		"texinfo"
 		"imagemagick"
 		"alsa-utils"
 		"alsa-lib"
