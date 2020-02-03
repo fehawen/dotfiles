@@ -59,7 +59,7 @@
 	module-margin-left = 1
 	module-margin-right = 1
 
-	font-0 = "Roboto Mono:size=12:weight=regular;3"
+	font-0 = "Roboto Mono:size=12:weight=bold;3"
 	font-1 = "Font Awesome 5 Free:size=12:weight=bold;2"
 
 [bar/top]
