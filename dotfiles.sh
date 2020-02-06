@@ -97,8 +97,6 @@ setup_dotfiles() {
 		".config/nvim"
 		".config/nvim/colors"
 		".config/nvim/plugin"
-		".config/polybar"
-		".config/picom"
 		".config/ranger"
 		".local/bin"
 		".newsboat"
