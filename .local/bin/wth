@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Get weather report for provided location.
+#
+# Usage: vol [location]
+
+curl "http://wttr.in/${1}?M"
+
+

@@ -1,0 +1,12 @@
+#!/bin/sh -e
+#
+# Author: https://github.com/dylanaraps
+#
+# Get battery capacity and status.
+
+bat_dir=/sys/class/power_supply/BAT0
+
+read -r capacity < "$bat_dir/capacity"
+read -r status   < "$bat_dir/status"
+
+printf '%s%% [%s]\n' "$capacity" "$status"

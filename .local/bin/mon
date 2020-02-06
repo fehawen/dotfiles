@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Set output to external monitor(s).
+#
+# Usage: mon, mon [auto]
+
+[[ "$1" == "auto" ]] && xrandr --auto
+
+internal_output="$(xrandr | grep "primary" | awk '{print $1}')"
+external_output_1="$(xrandr | grep -w "connected" | awk '{if(NR>1)print $1}' | head -1)"
+external_output_2="$(xrandr | grep -w "connected" | awk '{if(NR>2)print $1}')"
+
+if [[ -n ${external_output_1} ]] && [[ -n ${external_output_2} ]]; then
+	xrandr \
+		--output "$internal_output" --off \
+		--output "$external_output_1" --auto \
+		--output "$external_output_2" --auto --right-of "$external_output_1"
+elif [[ -n ${external_output_1} ]] && [[ -z ${external_output_2} ]]; then
+	xrandr \
+		--output "$internal_output" --off \
+		--output "$external_output_1" --auto
+else
+	xrandr --auto
+fi
