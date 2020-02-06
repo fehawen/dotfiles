@@ -111,15 +111,10 @@ alias rr="ranger"
 alias vm="nvim"
 alias icat="kitty +kitten icat"
 alias screenshot="scrot ~/pictures/screenshots/%Y-%m-%d-%T-screenshot.png -d 5"
-alias dspl="~/.config/i3/i3scaling.sh"
-alias wrls="sudo wifi-menu"
 alias todopush=push_todos
 alias todopull=pull_todos
 alias hunt=find_string_in_file
 alias mark=find_matching_file_or_subdir
-alias bklt=set_xbacklight
-alias vlme=set_volume
-alias wthr=get_weather
 alias clone=clone_repo
 
 # -----------------------------------------------------------------------------
@@ -165,7 +160,7 @@ find_string_in_file() {
 
 # -----------------------------------------------------------------------------
 
-# Find all sbudirs/filenames in dirs/subdirs matching query
+# Find all subdirs/filenames in dirs/subdirs matching query
 find_matching_file_or_subdir() {
 	find . \
 		-not -path "*node_modules*" \
@@ -174,51 +169,6 @@ find_matching_file_or_subdir() {
 		-not -path "*dist*" \
 		-not -path "*.git*" \
 		-iname "*${1}*" | sort -u | grep -i --color=always "${1}"
-}
-
-# -----------------------------------------------------------------------------
-
-# Window manager helper for starting, stopping or restarting either chunkwm or skhd
-wm() {
-	brew services "${1}" koekeishiya/formulae/"${2}"
-}
-
-# -----------------------------------------------------------------------------
-
-# Change X screen brightness, when backlight keys increments aren't precise enough
-set_xbacklight() {
-	if [[ -z "$1" ]]; then
-		xbacklight -get
-	elif [[ "$1" -gt 100 ]]; then
-		xbacklight -set 100
-	elif [[ "$1" -lt 5 ]]; then
-		xbacklight -set 5
-	else
-		xbacklight -set "${1}"
-	fi
-}
-
-# -----------------------------------------------------------------------------
-
-# Change volume through pamixer, when colume keys increments aren't precise enough
-set_volume() {
-	[[ "$1" -gt 100 ]] && pamixer --set-volume 100
-	[[ "$1" -lt 5 ]] && pamixer --set-volume 5
-
-	pamixer --set-volume "${1}"
-}
-
-# -----------------------------------------------------------------------------
-
-# Get weather report for specified location
-# if second argument (optional) is "-f", get 3-day forecast for morning, nnon, evening, night
-# else if first argument is only location, get current weather only
-get_weather() {
-	if [[ "$2" == "-f" ]]; then
-		curl "http://wttr.in/${1}?M"
-	else
-		curl "http://wttr.in/${1}?0&M"
-	fi
 }
 
 # -----------------------------------------------------------------------------
