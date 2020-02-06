@@ -80,8 +80,8 @@ set tabstop=2
 " See multiple spaces as tabstops so <BS> does the right thing
 set softtabstop=2
 
-" Softtabstop == tabstop, noexpandtab && always force use of tabs
-set noexpandtab
+" Spaces = expandtab, Tabs = noexpandtab
+set expandtab
 
 " Width for autoindents
 set shiftwidth=2
