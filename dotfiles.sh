@@ -91,7 +91,6 @@ setup_dotfiles() {
 		".colors"
 		".config/dunst"
 		".config/fontconfig"
-		".config/i3"
 		".config/kitty"
 		".config/neofetch"
 		".config/nvim"
