@@ -54,6 +54,7 @@ export LESS_TERMCAP_us=$'\e[0;35m'
 # SET PATH
 
 paths=(
+	"$HOME/.cargo/bin"
 	"$HOME/.yarn/bin"
 	"$HOME/.npm-global/bin"
 	"$HOME/.local/bin"
