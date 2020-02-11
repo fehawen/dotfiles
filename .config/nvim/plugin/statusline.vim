@@ -85,8 +85,8 @@ function! ActiveStatusLine()
 		let l:statusline.="%1*\ \ "
 	endif
 
-	" Current line number, total line numbers
-	let l:statusline.="%6*%l/%L"
+	" Current column, line number, total line numbers
+	let l:statusline.="%6*%c:%l/%L"
 
 	" Separator
 	let l:statusline.="%1*\ \ "
