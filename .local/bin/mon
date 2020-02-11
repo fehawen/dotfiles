@@ -14,7 +14,7 @@ if [[ -n ${external_output_1} ]] && [[ -n ${external_output_2} ]]; then
 	xrandr \
 		--output "$internal_output" --off \
 		--output "$external_output_1" --auto \
-		--output "$external_output_2" --auto --right-of "$external_output_1"
+		--output "$external_output_2" --auto --left-of "$external_output_1"
 elif [[ -n ${external_output_1} ]] && [[ -z ${external_output_2} ]]; then
 	xrandr \
 		--output "$internal_output" --off \
