@@ -30,6 +30,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'davidyorr/vim-es6-unused-imports'
+Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
 call plug#end()
