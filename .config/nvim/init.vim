@@ -48,8 +48,9 @@ filetype indent on
 " Set encoding
 set encoding=utf8
 
-" Set colors
-set termguicolors
+"set t_Co=16
+"set background=dark
+"set t_Co=16
 
 " Hide mode (shown in status line)
 set noshowmode
@@ -100,7 +101,7 @@ set nonumber
 set lazyredraw
 
 " Enable cursor line, disable cursor column
-set cursorline
+set nocursorline
 set nocursorcolumn
 
 " Sets unix as standard filetype
@@ -213,9 +214,6 @@ let g:es6_imports_gui_bg_color="#2E3440"
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
 "#####################################"
-
-" Set colors to gui
-set termguicolors
 
 " Set theme
 colorscheme base
