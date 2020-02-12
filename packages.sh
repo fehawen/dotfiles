@@ -54,6 +54,8 @@ install_packages() {
 		"jshon"
 		"jq"
 		"noto-fonts-emoji"
+		"gnu-netcat"
+		"tree"
 	)
 
 	sudo pacman -Syu "${packages[@]}"
