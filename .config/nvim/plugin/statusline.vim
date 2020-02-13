@@ -94,7 +94,7 @@ function! ActiveStatusLine()
 	" Show if file has been modified
 	if Modified() != ""
 		" Modified
-		let l:statusline.="%8*%{Modified()}"
+		let l:statusline.="%5*%{Modified()}"
 		" Separator
 		let l:statusline.="%1*\ \ "
 	endif
@@ -102,7 +102,7 @@ function! ActiveStatusLine()
 	" ALE lint errors, if any
 	if LinterStatus() != ""
 		" Lint errors
-		let l:statusline.="%2*%{LinterStatus()}"
+		let l:statusline.="%8*%{LinterStatus()}"
 		" Separator
 		let l:statusline.="%1*\ \ "
 	endif

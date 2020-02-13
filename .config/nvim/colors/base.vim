@@ -1,4 +1,5 @@
 highlight clear
+set background=dark
 
 if exists("syntax_on")
 	syntax reset
@@ -71,21 +72,23 @@ call s:hi("User6",              s:cterm.magenta,       s:cterm.background,    "B
 call s:hi("User7",              s:cterm.cyan,          s:cterm.background,    "BOLD")
 call s:hi("User8",              s:cterm.black,         s:cterm.background,    "BOLD")
 
-" STATUSLINE COLORS (basic/fallback as we have a separate statusline in ./plugin)
+" STATUSLINE COLORS
+" Note though that we have a separate statusline in ./plugin
+" and User1-8 colors are set
 call s:hi("StatusLine",         s:cterm.background,    s:cterm.background,    "NONE")
 call s:hi("StatusLineNC",       s:cterm.black,         s:cterm.background,    "NONE")
 call s:hi("StatusLineTerm",     s:cterm.background,    s:cterm.background,    "NONE")
 call s:hi("StatusLineTemrNC",   s:cterm.black,         s:cterm.background,    "NONE")
 
 " ALE COLORS
-call s:hi("ALEInfoSign",         s:cterm.yellow,       s:cterm.none,          "ITALIC")
-call s:hi("ALEErrorSign",        s:cterm.red,          s:cterm.none,          "ITALIC")
-call s:hi("ALEWarningSign",      s:cterm.yellow,       s:cterm.none,          "ITALIC")
-call s:hi("ALEStyleErrorSign",   s:cterm.red,          s:cterm.none,          "ITALIC")
-call s:hi("ALEStyleWarningSign", s:cterm.yellow,       s:cterm.none,          "ITALIC")
-call s:hi("ALEInfoLine",         s:cterm.yellow,       s:cterm.none,          "ITALIC")
-call s:hi("ALEErrorLine",        s:cterm.red,          s:cterm.none,          "ITALIC")
-call s:hi("ALEWarningLine",      s:cterm.yellow,       s:cterm.none,          "ITALIC")
+call s:hi("ALEInfoSign",         s:cterm.black,       s:cterm.none,          "ITALIC")
+call s:hi("ALEErrorSign",        s:cterm.black,       s:cterm.none,          "ITALIC")
+call s:hi("ALEWarningSign",      s:cterm.black,       s:cterm.none,          "ITALIC")
+call s:hi("ALEStyleErrorSign",   s:cterm.black,       s:cterm.none,          "ITALIC")
+call s:hi("ALEStyleWarningSign", s:cterm.black,       s:cterm.none,          "ITALIC")
+call s:hi("ALEInfoLine",         s:cterm.black,       s:cterm.none,          "ITALIC")
+call s:hi("ALEErrorLine",        s:cterm.black,       s:cterm.none,          "ITALIC")
+call s:hi("ALEWarningLine",      s:cterm.black,       s:cterm.none,          "ITALIC")
 
 call s:hi("EndOfBuffer",    s:cterm.background,   "",                 "")
 call s:hi("ColorColumn",    s:cterm.none,         s:cterm.black,      "")
@@ -301,3 +304,8 @@ call NERDTreeHighlightFile("php",              s:cterm.blue,        s:cterm.none
 call NERDTreeHighlightFile("jpg",              s:cterm.foreground,  s:cterm.none)
 call NERDTreeHighlightFile("png",              s:cterm.foreground,  s:cterm.none)
 call NERDTreeHighlightFile("svg",              s:cterm.foreground,  s:cterm.none)
+
+" Set es6 unused import plugin colors
+let g:es6_imports_cterm_fg_color=s:cterm(s:cterm.background)
+let g:es6_imports_cterm_bg_color=s:cterm(s:cterm.black)
+

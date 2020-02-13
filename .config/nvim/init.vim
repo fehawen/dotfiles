@@ -192,10 +192,6 @@ autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 " Set typescript filetype
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
-" Set es6 unused import plugin colors
-let g:es6_imports_gui_fg_color="#8690A6"
-let g:es6_imports_gui_bg_color="#2E3440"
-
 "augroup filespecific
 "	autocmd!
 "	au BufRead,BufNewFile *.json set ft=typescript
