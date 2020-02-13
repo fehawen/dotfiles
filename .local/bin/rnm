@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Rename file to 6 random characters
+#
+# Usage: rnm [file]
+
+[[ -f $1 ]] || exit 1
+
+chars=( {a..z} {A..Z} {0..9} )
+
+for ((i=6; i>0; i--)); do
+    str+=${chars[RANDOM%${#chars[@]}]}
+done
+
+for existing in *; do
+  [[ "$str" == "${existing%%\.*}" ]] && str+="-copy"
+done
+
+mv -fv "$1" "$str.${1##*\.}"
