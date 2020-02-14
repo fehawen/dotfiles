@@ -306,6 +306,6 @@ call NERDTreeHighlightFile("png",              s:cterm.foreground,  s:cterm.none
 call NERDTreeHighlightFile("svg",              s:cterm.foreground,  s:cterm.none)
 
 " Set es6 unused import plugin colors
-let g:es6_imports_cterm_fg_color=s:cterm(s:cterm.background)
-let g:es6_imports_cterm_bg_color=s:cterm(s:cterm.black)
+let g:es6_imports_cterm_fg_color=s:cterm(s:cterm.black)
+let g:es6_imports_cterm_bg_color=s:cterm(s:cterm.none)
 
