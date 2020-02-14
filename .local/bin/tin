@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ -f "$1" ] || exit 1
+
+nc termbin.com 9999 < "$1"
