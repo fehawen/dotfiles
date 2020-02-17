@@ -57,7 +57,6 @@ set index-active-fg "$(get_xres background:)"
 set render-loading-bg "$(get_xres background:)"
 set render-loading-fg "$(get_xres foreground:)"
 
-set smooth-scroll true
 set window-title-home-tilde true
 set statusbar-basename true
 set selection-clipboard clipboard
