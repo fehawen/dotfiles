@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Read logs from #kisslinux irc channel with colorized output.
+#
+# Usage: irc, irc [YYYYMMDD]
+
+esc=$(printf '\033')
+date="$(date -d '2 hours ago' '+%Y%m%d')"
+
+[ "$1" ] && date="$1"
+
+curl "https://freenode.logbot.info/kisslinux/$date/raw" | \
+  sed -r -e "s/^/${esc}[1;90m/" \
+  -e "s/ / ${esc}[1;35m/1" \
+  -e "s/<//1" \
+  -e "s/>//1" \
+  -e "s/ / ${esc}[m/2" \
+  -e '/.*/s/$/\n/'
