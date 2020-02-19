@@ -4,7 +4,7 @@
 
 xrandr --dpi 55
 
-feh --bg-fill ~/.wallpapers/wall.jpg
+~/.local/bin/luv
 
 setxkbmap -layout se
 

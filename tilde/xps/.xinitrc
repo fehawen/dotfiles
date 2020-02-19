@@ -2,7 +2,7 @@
 
 [ -f "$HOME/.Xresources" ] && xrdb -merge "$HOME/.Xresources"
 
-feh --bg-fill ~/.wallpapers/wall.jpg
+~/.local/bin/luv
 
 setxkbmap -layout se
 
