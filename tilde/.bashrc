@@ -54,22 +54,25 @@ export LESS_TERMCAP_us=$'\e[0;35m'
 # SET PATH
 
 paths=(
-	"$HOME/.cargo/bin"
-	"$HOME/.yarn/bin"
-	"$HOME/.npm-global/bin"
-	"$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/.yarn/bin"
+  "$HOME/.npm-global/bin"
+  "$HOME/.local/bin"
 )
 
 # Include desired paths in PATH and export, leaving default PATH still intact and preventing duplicates
 for p in "${paths[@]}"
 do
-	case ":$PATH:" in
-		*":$p:"*) :;; # already there
-		*) PATH="$p:$PATH";;
-	esac
+  case ":$PATH:" in
+    *":$p:"*) :;; # already there
+    *) PATH="$p:$PATH";;
+  esac
 done
 
 export PATH="${PATH}"
+
+# Or just keep it simple
+# export PATH=~/some/path/bin:~/some/path/bin:$PATH
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -121,55 +124,55 @@ alias clone=clone_repo
 # -----------------------------------------------------------------------------
 
 git_log_commit_count() {
-	total="$(git rev-list --all --count)"
-	each="$(git shortlog -s -n -e --all)"
+  total="$(git rev-list --all --count)"
+  each="$(git shortlog -s -n -e --all)"
 
-	printf "%s\n" "${bold}Total: ${total}${reset}${newline}${each}"
+  printf "%s\n" "${bold}Total: ${total}${reset}${newline}${each}"
 }
 
 # -----------------------------------------------------------------------------
 
 push_todos() {
-	pushd "$HOME/github/todo/" && \
-	git add . && \
-	git commit -m "Bump @ $(date '+%Y/%m/%d %H:%M')" && \
-	git push && \
-	cd "$(dirs -l -0)" && dirs -c
+  pushd "$HOME/github/todo/" && \
+  git add . && \
+  git commit -m "Bump @ $(date '+%Y/%m/%d %H:%M')" && \
+  git push && \
+  cd "$(dirs -l -0)" && dirs -c
 }
 
 # -----------------------------------------------------------------------------
 
 pull_todos() {
-	pushd "$HOME/github/todo/" && \
-	git pull && \
-	cd "$(dirs -l -0)" && dirs -c
+  pushd "$HOME/github/todo/" && \
+  git pull && \
+  cd "$(dirs -l -0)" && dirs -c
 }
 
 # -----------------------------------------------------------------------------
 
 # Find all files in dirs/subdirs containing search query
 find_string_in_file() {
-	grep \
-		--exclude-dir=node_modules \
-		--exclude-dir=coverage \
-		--exclude-dir=.fusebox \
-		--exclude-dir=.next \
-		--exclude-dir=dist \
-		--exclude-dir=.git \
-		-wroni "${1}" . | sort -u | grep -iv "^${1}" | sed "/^$/d" | grep -i --color=always "${1}"
+  grep \
+    --exclude-dir=node_modules \
+    --exclude-dir=coverage \
+    --exclude-dir=.fusebox \
+    --exclude-dir=.next \
+    --exclude-dir=dist \
+    --exclude-dir=.git \
+    -wroni "${1}" . | sort -u | grep -iv "^${1}" | sed "/^$/d" | grep -i --color=always "${1}"
 }
 
 # -----------------------------------------------------------------------------
 
 # Find all subdirs/filenames in dirs/subdirs matching query
 find_matching_file_or_subdir() {
-	find . \
-		-not -path "*node_modules*" \
-		-not -path "*.fusebox*" \
-		-not -path "*.next*" \
-		-not -path "*dist*" \
-		-not -path "*.git*" \
-		-iname "*${1}*" | sort -u | grep -i --color=always "${1}"
+  find . \
+    -not -path "*node_modules*" \
+    -not -path "*.fusebox*" \
+    -not -path "*.next*" \
+    -not -path "*dist*" \
+    -not -path "*.git*" \
+    -iname "*${1}*" | sort -u | grep -i --color=always "${1}"
 }
 
 # -----------------------------------------------------------------------------
@@ -178,15 +181,15 @@ find_matching_file_or_subdir() {
 # 1: username
 # 2: repository
 clone_repo() {
-	if [ $# -lt 2 ]; then
-		echo "Too few arguments provided"
-		echo "Please provide:"
-		echo "ARG 1: username"
-		echo "ARG 2: repository"
-		exit 1
-	fi
+  if [ $# -lt 2 ]; then
+    echo "Too few arguments provided"
+    echo "Please provide:"
+    echo "ARG 1: username"
+    echo "ARG 2: repository"
+    exit 1
+  fi
 
-	git clone https://github.com/"$1"/"$2".git
+  git clone https://github.com/"$1"/"$2".git
 }
 
 # -----------------------------------------------------------------------------
@@ -214,7 +217,7 @@ exit_bad_color="$black"
 # HELPERS
 
 is_git_repository() {
-	git rev-parse --is-inside-work-tree &> /dev/null
+  git rev-parse --is-inside-work-tree &> /dev/null
 }
 
 # -----------------------------------------------------------------------------
@@ -222,50 +225,50 @@ is_git_repository() {
 # MODULES
 
 dir_module() {
-	PS1+="${dir_color}\W"
+  PS1+="${dir_color}\W"
 }
 
 # -----------------------------------------------------------------------------
 
 git_branch_module() {
-	is_git_repository || return
+  is_git_repository || return
 
-	branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+  branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
 
-	PS1+=" ${git_branch_color}${branch}"
+  PS1+=" ${git_branch_color}${branch}"
 }
 
 # -----------------------------------------------------------------------------
 
 git_dirty_module() {
-	is_git_repository || return
+  is_git_repository || return
 
-	if \
-		[[ "$(git status -s)" != "" ]] || \
-		[[ "$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)" -gt 0 ]] || \
-		[[ "$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)" -gt 0 ]]; then
-		status="${git_dirty_symbol}"
-	elif [[ -n "$(git stash list 2> /dev/null)" ]]; then
-		status="${git_stashed_symbol}"
-	else
-		status=""
-	fi
+  if \
+    [[ "$(git status -s)" != "" ]] || \
+    [[ "$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)" -gt 0 ]] || \
+    [[ "$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)" -gt 0 ]]; then
+    status="${git_dirty_symbol}"
+  elif [[ -n "$(git stash list 2> /dev/null)" ]]; then
+    status="${git_stashed_symbol}"
+  else
+    status=""
+  fi
 
-	if [[ "${status}" != "" ]]; then
-		PS1+=" ${git_dirty_color}${status}"
-	fi
+  if [[ "${status}" != "" ]]; then
+    PS1+=" ${git_dirty_color}${status}"
+  fi
 }
 
 # -----------------------------------------------------------------------------
 
 exit_code_module() {
-	if [[ "$RETVAL" -eq 0 ]]; then
-		exit_status="${exit_ok_color}"
-	else
-		exit_status="${exit_bad_color}"
-	fi
+  if [[ "$RETVAL" -eq 0 ]]; then
+    exit_status="${exit_ok_color}"
+  else
+    exit_status="${exit_bad_color}"
+  fi
 
-	PS1+=" ${exit_status}${prompt_symbol}${reset} "
+  PS1+=" ${exit_status}${prompt_symbol}${reset} "
 }
 
 # -----------------------------------------------------------------------------
@@ -273,10 +276,10 @@ exit_code_module() {
 # PROMPT ORDER
 
 prompt_modules=(
-	"dir_module"
-	"git_branch_module"
-	"git_dirty_module"
-	"exit_code_module"
+  "dir_module"
+  "git_branch_module"
+  "git_dirty_module"
+  "exit_code_module"
 )
 
 # -----------------------------------------------------------------------------
@@ -284,15 +287,15 @@ prompt_modules=(
 # POINT OF ENTRY
 
 compose_prompt() {
-	RETVAL=$?
+  RETVAL=$?
 
-	PS1=""
+  PS1=""
 
-	PS1+="${bold}"
+  PS1+="${bold}"
 
-	for MODULE in "${!prompt_modules[@]}"; do
-		${prompt_modules[$MODULE]}
-	done
+  for MODULE in "${!prompt_modules[@]}"; do
+    ${prompt_modules[$MODULE]}
+  done
 }
 
 PROMPT_COMMAND="compose_prompt"
