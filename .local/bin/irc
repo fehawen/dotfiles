@@ -15,4 +15,5 @@ curl "https://freenode.logbot.info/kisslinux/$date/raw" | \
   -e "s/<//1" \
   -e "s/>//1" \
   -e "s/ / ${esc}[m/2" \
-  -e '/.*/s/$/\n/'
+  -e "/.*/s/$/\n/" | \
+  grep "\S"
