@@ -111,38 +111,33 @@ alias gs="git status"
 alias gss="git status -s"
 alias giff="git diff"
 alias glog="git log --graph"
-alias glogc=git_log_commit_count
 alias code="open -a 'Visual Studio Code'"
 alias gh="cd ~/github/"
 alias repos="cd ~/github/"
 alias dot="cd ~/dotfiles/"
 alias pro="cd ~/projects/"
 alias aur="cd ~/packages/"
-alias mongorun="mongod --dbpath ~/paths/mongodb-osx-x86_64-4.0.3/data"
 alias todoread="cat ~/github/todo/README.md"
 alias todoedit="nvim ~/github/todo/README.md"
 alias rr="ranger"
 alias vm="nvim"
 alias icat="kitty +kitten icat"
 alias screenshot="scrot ~/pictures/screenshots/%Y-%m-%d-%T-screenshot.png -d 5"
-alias todopush=push_todos
-alias todopull=pull_todos
-alias hunt=find_string_in_file
-alias mark=find_matching_file_or_subdir
-alias clone=clone_repo
 
 # -----------------------------------------------------------------------------
 
-git_log_commit_count() {
+glogc() {
+  is_git_repository || return
+
   total="$(git rev-list --all --count)"
   each="$(git shortlog -s -n -e --all)"
 
-  printf "%s\n" "${bold}Total: ${total}${reset}${newline}${each}"
+  printf '%s\n%s\n' " Total  ${total}" "${each}"
 }
 
 # -----------------------------------------------------------------------------
 
-push_todos() {
+todopush() {
   pushd "$HOME/github/todo/" && \
   git add . && \
   git commit -m "Bump @ $(date '+%Y/%m/%d %H:%M')" && \
@@ -152,7 +147,7 @@ push_todos() {
 
 # -----------------------------------------------------------------------------
 
-pull_todos() {
+todopull() {
   pushd "$HOME/github/todo/" && \
   git pull && \
   cd "$(dirs -l -0)" && dirs -c
@@ -161,7 +156,7 @@ pull_todos() {
 # -----------------------------------------------------------------------------
 
 # Find all files in dirs/subdirs containing search query
-find_string_in_file() {
+hunt() {
   grep \
     --exclude-dir=node_modules \
     --exclude-dir=coverage \
@@ -175,7 +170,7 @@ find_string_in_file() {
 # -----------------------------------------------------------------------------
 
 # Find all subdirs/filenames in dirs/subdirs matching query
-find_matching_file_or_subdir() {
+mark() {
   find . \
     -not -path "*node_modules*" \
     -not -path "*.fusebox*" \
@@ -190,16 +185,15 @@ find_matching_file_or_subdir() {
 # Clone a Github by providing arguments:
 # 1: username
 # 2: repository
-clone_repo() {
+clone() {
   if [ $# -lt 2 ]; then
     echo "Too few arguments provided"
     echo "Please provide:"
     echo "ARG 1: username"
     echo "ARG 2: repository"
-    exit 1
   fi
 
-  git clone https://github.com/"$1"/"$2".git
+  #git clone https://github.com/"$1"/"$2".git
 }
 
 # -----------------------------------------------------------------------------
