@@ -1,17 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 #
-# Read logs from #kisslinux irc channel with colorized output.
+# Start birch and connect to #kisslinux irc channel.
 #
-# Usage: irc, irc [YYYYMMDD]
+# Usage: irc [password], irc [password] [username]
 
-curl "https://freenode.logbot.info/kisslinux/$(date +%Y%m%d)/raw" |
+[ "$1" ] || exit 1
 
-while read -r _ n m; do
-    n=${n%>}
-    n=${n#<}
-
-    printf '\033[3%s;1m%10s\033[m %s\n' \
-        "$((${#n} % 6 + 1))" "$n" "$m"
-done
-
-printf '\n'
+birch -u "${2:=$USER}" -c "#kisslinux" -x "/m nickserv identify $1"
