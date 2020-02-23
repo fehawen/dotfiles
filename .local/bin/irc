@@ -4,7 +4,7 @@
 #
 # Usage: irc, irc [YYYYMMDD]
 
-curl "https://freenode.logbot.info/kisslinux/$(date +%Y%m%d)/raw" |
+curl "https://freenode.logbot.info/kisslinux/${1:=$(date +%Y%m%d)}/raw" |
 
 while read -r _ n m; do
     n=${n%>}
