@@ -187,13 +187,10 @@ mark() {
 # 2: repository
 clone() {
   if [ $# -lt 2 ]; then
-    echo "Too few arguments provided"
-    echo "Please provide:"
-    echo "ARG 1: username"
-    echo "ARG 2: repository"
+    echo "Usage: clone [username] [repository]"
   fi
 
-  #git clone https://github.com/"$1"/"$2".git
+  git clone https://github.com/"$1"/"$2".git
 }
 
 # -----------------------------------------------------------------------------
