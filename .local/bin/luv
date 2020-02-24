@@ -2,7 +2,7 @@
 #
 # Generate colorscheme with wal and set wallpaper with feh
 #
-# Usage: luv, luv [image directory path, image file path]
+# Usage: luv, luv [image directory path], luv [image file path]
 
 arg=${1:-"$HOME/pictures/wallpapers"}
 

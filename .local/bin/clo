@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Clone github repo. I'm so lazy.
+#
+# Usage: clo [username] [repository]
+
+[ $# -lt 2 ] && printf '%s\n' "Usage: clo [username] [repository]"; exit 1
+
+git clone https://github.com/"$1"/"$2".git

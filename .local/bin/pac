@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 #
 # Get duration in days since last "pacman -Syu".
 
@@ -11,6 +11,6 @@ difference=$((current_timestap - update_timestamp))
 
 duration=$(( difference / 86400 ))
 
-(( duration == 1 )) && output="${duration} day ago" || output="${duration} days ago"
+output="${duration} day(s) ago"
 
 printf '%s\n' "$output"
