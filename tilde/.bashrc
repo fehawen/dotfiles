@@ -10,29 +10,6 @@
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 
-##########
-# COLORS #
-##########
-
-export newline="\n"
-
-export bold="\[\e[1m\]"
-export italic="\[\e[3m\]"
-export reset="\[\e[0m\]"
-
-export black="\[\e[1;90m\]"
-export red="\[\e[1;31m\]"
-export green="\[\e[1;32m\]"
-export yellow="\[\e[1;33m\]"
-export blue="\[\e[1;34m\]"
-export magenta="\[\e[1;35m\]"
-export cyan="\[\e[1;36m\]"
-export white="\[\e[1;97m\]"
-
-# -----------------------------------------------------------------------------
-# -----------------------------------------------------------------------------
-# -----------------------------------------------------------------------------
-
 ###########
 # EXPORTS #
 ###########
@@ -63,26 +40,25 @@ export LESS_TERMCAP_us=$'\e[0;35m'
 
 # SET PATH
 
-paths=(
-  "$HOME/.cargo/bin"
-  "$HOME/.yarn/bin"
-  "$HOME/.npm-global/bin"
-  "$HOME/.local/bin"
-)
+#paths=(
+#  "$HOME/.cargo/bin"
+#  "$HOME/.yarn/bin"
+#  "$HOME/.npm-global/bin"
+#  "$HOME/.local/bin"
+#)
+
+export PATH=~/.cargo/bin:~/.yarn/bin:~/.npm-global/bin:~/.local/bin:$PATH
 
 # Include desired paths in PATH and export, leaving default PATH still intact and preventing duplicates
-for p in "${paths[@]}"
-do
-  case ":$PATH:" in
-    *":$p:"*) :;; # already there
-    *) PATH="$p:$PATH";;
-  esac
-done
-
-export PATH="${PATH}"
-
-# Or just keep it simple
-# export PATH=~/some/path/bin:~/some/path/bin:$PATH
+#for p in "${paths[@]}"
+#do
+#  case ":$PATH:" in
+#    *":$p:"*) :;; # already there
+#    *) PATH="$p:$PATH";;
+#  esac
+#done
+#
+#export PATH="${PATH}"
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -113,21 +89,20 @@ alias giff="git diff"
 alias glog="git log --graph"
 alias code="open -a 'Visual Studio Code'"
 alias gh="cd ~/github/"
-alias repos="cd ~/github/"
 alias dot="cd ~/dotfiles/"
 alias pro="cd ~/projects/"
-alias aur="cd ~/packages/"
+alias pgs="cd ~/packages/"
 alias todoread="cat ~/github/todo/README.md"
 alias todoedit="nvim ~/github/todo/README.md"
 alias rr="ranger"
 alias vm="nvim"
 alias icat="kitty +kitten icat"
-alias screenshot="scrot ~/pictures/screenshots/%Y-%m-%d-%T-screenshot.png -d 5"
 
 # -----------------------------------------------------------------------------
 
 glogc() {
-  is_git_repository || return
+  git rev-parse --is-inside-work-tree &> /dev/null || \
+    printf '%s\n' "Not a git repository"; return
 
   total="$(git rev-list --all --count)"
   each="$(git shortlog -s -n -e --all)"
@@ -182,17 +157,6 @@ mark() {
 
 # -----------------------------------------------------------------------------
 
-# Clone a Github by providing arguments:
-# 1: username
-# 2: repository
-clone() {
-  if [ $# -lt 2 ]; then
-    echo "Usage: clone [username] [repository]"
-  fi
-
-  git clone https://github.com/"$1"/"$2".git
-}
-
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -201,102 +165,4 @@ clone() {
 # PROMPT #
 ##########
 
-# VARIABLES
-
-git_dirty_symbol="?"
-git_stashed_symbol="!"
-prompt_symbol="$"
-
-dir_color="$cyan"
-git_branch_color="$magenta"
-git_dirty_color="$red"
-exit_ok_color="$white"
-exit_bad_color="$black"
-
-# -----------------------------------------------------------------------------
-
-# HELPERS
-
-is_git_repository() {
-  git rev-parse --is-inside-work-tree &> /dev/null
-}
-
-# -----------------------------------------------------------------------------
-
-# MODULES
-
-dir_module() {
-  PS1+="${dir_color}\W"
-}
-
-# -----------------------------------------------------------------------------
-
-git_branch_module() {
-  is_git_repository || return
-
-  branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
-
-  PS1+=" ${git_branch_color}${branch}"
-}
-
-# -----------------------------------------------------------------------------
-
-git_dirty_module() {
-  is_git_repository || return
-
-  if \
-    [[ "$(git status -s)" != "" ]] || \
-    [[ "$(git rev-list --left-only --count HEAD...@"{u}" 2> /dev/null)" -gt 0 ]] || \
-    [[ "$(git rev-list --left-only --count @"{u}"...HEAD 2> /dev/null)" -gt 0 ]]; then
-    status="${git_dirty_symbol}"
-  elif [[ -n "$(git stash list 2> /dev/null)" ]]; then
-    status="${git_stashed_symbol}"
-  else
-    status=""
-  fi
-
-  if [[ "${status}" != "" ]]; then
-    PS1+=" ${git_dirty_color}${status}"
-  fi
-}
-
-# -----------------------------------------------------------------------------
-
-exit_code_module() {
-  if [[ "$RETVAL" -eq 0 ]]; then
-    exit_status="${exit_ok_color}"
-  else
-    exit_status="${exit_bad_color}"
-  fi
-
-  PS1+=" ${exit_status}${prompt_symbol}${reset} "
-}
-
-# -----------------------------------------------------------------------------
-
-# PROMPT ORDER
-
-prompt_modules=(
-  "dir_module"
-  "git_branch_module"
-  "git_dirty_module"
-  "exit_code_module"
-)
-
-# -----------------------------------------------------------------------------
-
-# POINT OF ENTRY
-
-compose_prompt() {
-  RETVAL=$?
-
-  PS1=""
-
-  PS1+="${bold}"
-
-  for MODULE in "${!prompt_modules[@]}"; do
-    ${prompt_modules[$MODULE]}
-  done
-}
-
-PROMPT_COMMAND="compose_prompt"
+export PS1="-> "
