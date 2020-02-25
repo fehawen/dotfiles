@@ -68,11 +68,12 @@ export PATH=~/.cargo/bin:~/.yarn/bin:~/.npm-global/bin:~/.local/bin:$PATH
 # ALIASES #
 ###########
 
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
+alias wd='printf "%s\n" ${PWD/#$HOME/"~"}'
+alias ..="cd .. && wd"
+alias ...="cd ../.. && wd"
+alias ....="cd ../../.. && wd"
+alias .....="cd ../../../.. && wd"
+alias ......="cd ../../../../.. && wd"
 alias clr="clear"
 alias la="ls -AFGhl"
 alias las="stat -c '%A %a %n' *" # Show octal permissions
