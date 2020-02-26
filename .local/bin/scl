@@ -23,7 +23,7 @@ confirm() {
     exit
   else
     echo "Executing..."
-    $1 && feh --bg-fill ~/.wallpapers/wall.jpg
+    $1 && luv
     echo "Done."
   fi
 }
