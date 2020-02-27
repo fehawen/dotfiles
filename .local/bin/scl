@@ -5,9 +5,8 @@
 external_output="$(xrandr | grep -w "connected" | awk '{if(NR>1)print $1}')"
 
 if [[ -z "$external_output" ]]; then
-  echo "No external monitors found."
-  echo "Exiting..."
-  exit 0
+  printf '%s\n' "No external monitors found."
+  exit 1
 fi
 
 default_width="$(xrandr | grep "\*" | awk '{print $1}' | cut -dx -f1)"
