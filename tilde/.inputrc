@@ -51,10 +51,9 @@ set convert-meta off
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 
-
 ############
 ### MISC ###
 ############
 
-# Stay quited, terminal.
+# Stay quiet, terminal.
 set bell-style none
