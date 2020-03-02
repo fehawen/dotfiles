@@ -18,12 +18,6 @@ set expand-tilde off
 # Flip through autocompletion matches with Shift-Tab.
 "\e[Z": menu-complete
 
-# Show all autocomplete results at once.
-set page-completions off
-
-# Immediately show all possible completions.
-set show-all-if-ambiguous on
-
 # Show extra file information when completing, like ls -F does.
 set visible-stats on
 
