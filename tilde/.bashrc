@@ -68,36 +68,25 @@ export PATH=~/.cargo/bin:~/.yarn/bin:~/.npm-global/bin:~/.local/bin:$PATH
 # ALIASES #
 ###########
 
-alias ..="cd .. && wd"
-alias ...="cd ../.. && wd"
-alias ....="cd ../../.. && wd"
-alias .....="cd ../../../.. && wd"
-alias ......="cd ../../../../.. && wd"
-alias clr="clear"
 alias la="ls -AFGhl"
 alias las="stat -c '%A %a %n' *" # Show octal permissions
 alias pwd='printf "%s\n" ${PWD/#$HOME/"~"}'
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gpuom="git push -u origin master"
-alias gpom="git push origin master"
-alias gpuo="git push -u origin"
-alias gpo="git push origin"
 alias gp="git push"
 alias gs="git status"
 alias gss="git status -s"
-alias giff="git diff"
 alias glog="git log --graph"
-alias code="open -a 'Visual Studio Code'"
 alias gh="cd ~/github/"
 alias dot="cd ~/dotfiles/"
+alias doc="cd ~/documents/"
 alias pro="cd ~/projects/"
 alias pgs="cd ~/packages/"
 alias todoread="cat ~/github/todo/README.md"
 alias todoedit="nvim ~/github/todo/README.md"
 alias rr="ranger"
 alias vm="nvim"
-alias icat="kitty +kitten icat"
 
 # -----------------------------------------------------------------------------
 
