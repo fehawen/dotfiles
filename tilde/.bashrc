@@ -68,7 +68,6 @@ export PATH=~/.cargo/bin:~/.yarn/bin:~/.npm-global/bin:~/.local/bin:$PATH
 # ALIASES #
 ###########
 
-alias wd='printf "%s\n" ${PWD/#$HOME/"~"}'
 alias ..="cd .. && wd"
 alias ...="cd ../.. && wd"
 alias ....="cd ../../.. && wd"
@@ -77,6 +76,7 @@ alias ......="cd ../../../../.. && wd"
 alias clr="clear"
 alias la="ls -AFGhl"
 alias las="stat -c '%A %a %n' *" # Show octal permissions
+alias pwd='printf "%s\n" ${PWD/#$HOME/"~"}'
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gpuom="git push -u origin master"
