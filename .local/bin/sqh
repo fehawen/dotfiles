@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# Reset current git branch, specifying [base] for merge-base branch
+#
+# Usage: sqh [base]
+
+[ "$1" ] || exit 1
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+read -r -p "Reset branch '$branch' using merge-base branch '$1'? [y/N] " answer
+
+if [ "$answer" != "y" ]; then
+  printf "%s\n%s\n" "Declined..." "Exiting."
+  exit 0
+else
+  git reset "$(git merge-base "$1" "$branch")"
+fi
