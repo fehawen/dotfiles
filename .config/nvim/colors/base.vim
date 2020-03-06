@@ -143,6 +143,11 @@ call s:hi("InSearch",       s:cterm.background,   s:cterm.yellow,     "")
 call s:hi("Todo",           s:cterm.background,   "",                 "")
 call s:hi("Special",        s:cterm.magenta,      "",                 "")
 
+" javascript
+call s:hi("javaScriptParens",               s:cterm.cyan,        "", "")
+call s:hi("javaScriptBraces",               s:cterm.cyan,        "", "")
+call s:hi("javaScriptNumber",               s:cterm.yellow,      "", "")
+
 " TYPESCRIPT
 call s:hi("typescriptImport",               s:cterm.blue,        "", "BOLD")
 call s:hi("typescriptExport",               s:cterm.blue,        "", "BOLD")
@@ -207,32 +212,6 @@ call s:hi("jsxAttrib",                      s:cterm.magenta,     "", "")
 call s:hi("jsxElement",                     s:cterm.magenta,     "", "")
 call s:hi("jsxString",                      s:cterm.green,       "", "")
 call s:hi("jsxBraces",                      s:cterm.cyan,        "", "")
-
-" vim-javascript
-call s:hi("jsArrowFuncArgs",   s:cterm.green,       "", "")
-call s:hi("jsArrowFunction",   s:cterm.magenta,     "", "")
-call s:hi("jsBooleanFalse",    s:cterm.yellow,      "", "")
-call s:hi("jsBooleanTrue",     s:cterm.yellow,      "", "")
-call s:hi("jsClassBraces",     s:cterm.cyan,        "", "")
-call s:hi("jsClassDefinition", s:cterm.yellow,      "", "")
-call s:hi("jsClassKeyword",    s:cterm.cyan,        "", "")
-call s:hi("jsCommentTodo",     s:cterm.black,       "", "BOLD")
-call s:hi("jsConditional",     s:cterm.cyan,        "", "")
-call s:hi("jsFuncArgs",        s:cterm.green,       "", "")
-call s:hi("jsFuncBraces",      s:cterm.magenta,     "", "")
-call s:hi("jsFuncCall",        s:cterm.cyan,        "", "")
-call s:hi("jsFuncParens",      s:cterm.cyan,        "", "")
-call s:hi("jsFunction",        s:cterm.blue,        "", "")
-call s:hi("jsFunctionKey",     s:cterm.magenta,     "", "")
-call s:hi("jsGlobalObjects",   s:cterm.yellow,      "", "")
-call s:hi("jsNoise",           s:cterm.magenta,     "", "")
-call s:hi("jsObjectKey",       s:cterm.foreground,  "", "")
-call s:hi("jsOperator",        s:cterm.magenta,     "", "")
-call s:hi("jsNumber",          s:cterm.yellow,      "", "")
-call s:hi("jsParens",          s:cterm.cyan,        "", "")
-call s:hi("jsReturn",          s:cterm.green,       "", "")
-call s:hi("jsStorageClass",    s:cterm.magenta,     "", "")
-call s:hi("jsThis",            s:cterm.blue,        "", "")
 
 " HTML colors
 call s:hi("htmlTag",            s:cterm.cyan,    "", "")
@@ -308,4 +287,3 @@ call NERDTreeHighlightFile("svg",              s:cterm.foreground,  s:cterm.none
 " Set es6 unused import plugin colors
 let g:es6_imports_cterm_fg_color=s:cterm(s:cterm.black)
 let g:es6_imports_cterm_bg_color=s:cterm(s:cterm.none)
-
