@@ -147,6 +147,9 @@ call s:hi("Special",        s:cterm.magenta,      "",                 "")
 call s:hi("javaScriptParens",               s:cterm.cyan,        "", "")
 call s:hi("javaScriptBraces",               s:cterm.cyan,        "", "")
 call s:hi("javaScriptNumber",               s:cterm.yellow,      "", "")
+call s:hi("javaScriptReserved",             s:cterm.blue,        "", "BOLD")
+call s:hi("javaScriptLabel",                s:cterm.magenta,     "", "BOLD")
+call s:hi("javaScriptStatement",            s:cterm.cyan,        "", "")
 
 " TYPESCRIPT
 call s:hi("typescriptImport",               s:cterm.blue,        "", "BOLD")
