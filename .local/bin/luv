@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 #
-# Generate colorscheme with wal and set wallpaper with feh
+# Generate colorscheme with wal and set wallpaper
 #
 # Usage: luv, luv [image directory path], luv [image file path]
 
 arg=${1:-"$HOME/pictures/wallpapers"}
 
-wal -n -i "$arg"
-feh --bg-fill "$(< "${HOME}/.cache/wal/wal")"
+wal -i "$arg"
