@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Backup files.
+
+[ "$1" ] || {
+  ls -l /media/seagate/backups
+  exit
+}
+
+s=/media/seagate/backups
+d="$(date +%Y%m%d-%H%M%S)"
+n="$s/$1-$d"
+
+sudo mkdir -v "$n"
+
+bups=(
+  "documents"
+  "Downloads"
+  "pictures"
+)
+
+for b in "${bups[@]}"; do
+  sudo cp -rv "$HOME/$b" "$n/"
+done
+
+printf '\nDone.\n'
