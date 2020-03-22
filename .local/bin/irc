@@ -13,5 +13,3 @@ while read -r _ n m; do
     printf '\033[3%s;1m%10s\033[m %s\n' \
         "$((${#n} % 6 + 1))" "$n" "$m"
 done
-
-printf '\n'
