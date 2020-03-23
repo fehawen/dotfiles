@@ -77,16 +77,16 @@ set signcolumn=no
 set hlsearch
 
 " Number of columns occupied by a tab character
-set tabstop=2
+set tabstop=4
 
 " See multiple spaces as tabstops so <BS> does the right thing
-set softtabstop=2
+set softtabstop=4
 
 " Spaces = expandtab, Tabs = noexpandtab
 set expandtab
 
 " Width for autoindents
-set shiftwidth=2
+set shiftwidth=4
 
 " Indent a new line the same amount as the line just typed
 set autoindent
