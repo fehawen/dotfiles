@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 #
-# Backup files.
+# Simple backup script.
+#
+# Creates tar archives of directories and copies them
+# to a dated folder on external drive. Lists existing
+# backups if no arg is provided.
+#
+# Usage: bup, bup [name]
 
 [ "$1" ] || {
   ls -l /media/seagate/backups
@@ -15,12 +21,22 @@ sudo mkdir -v "$n"
 
 bups=(
   "documents"
+  "dotfiles"
   "Downloads"
+  "github"
   "pictures"
+  "projects"
 )
 
 for b in "${bups[@]}"; do
-  sudo cp -rv "$HOME/$b" "$n/"
+  sudo tar \
+      --exclude-vcs \
+      --exclude="node_modules" \
+      --exclude="target" \
+      --exclude=".next" \
+      --exclude="dist" \
+      --exclude="build" \
+      -zcvf "$n/$b.tar" "$HOME/$b"
 done
 
-printf '\nDone.\n'
+printf '\nDone.\n\n'
