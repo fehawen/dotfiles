@@ -45,6 +45,7 @@ paths=(
   "$HOME/.yarn/bin"
   "$HOME/.npm-global/bin"
   "$HOME/.local/bin"
+  "$HOME/.dotnet/tools"
 )
 
 #export PATH=~/.cargo/bin:~/.yarn/bin:~/.npm-global/bin:~/.local/bin:$PATH
