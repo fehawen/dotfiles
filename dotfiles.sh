@@ -4,7 +4,7 @@ PROGNAME=$(basename "$0")
 
 exit_on_fail() {
   "$@" 2> /dev/null
-  local code=$?
+  code=$?
   if [[ ${code} -ne 0 ]]; then
     echo -e "\nERROR: Command [$*] failed with error code ${code}\nFILE: ${PROGNAME}\nLINE: $LINENO\n" 1>&2
   fi
@@ -97,7 +97,6 @@ setup_dotfiles() {
     ".config/nvim/colors"
     ".config/nvim/plugin"
     ".config/ranger"
-    ".local/bin"
     ".newsboat"
     "tilde"
   )

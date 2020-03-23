@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# Get weather report for provided location.
-#
-# Usage: wth [location]
-
-[ "$1" ] || exit 1
-
-curl "http://wttr.in/${1}?M"
