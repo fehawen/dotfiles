@@ -31,6 +31,8 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'davidyorr/vim-es6-unused-imports'
 Plug 'rust-lang/rust.vim'
+Plug 'fehawen/cs.vim'
+Plug 'fehawen/sl.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -47,10 +49,6 @@ filetype indent on
 
 " Set encoding
 set encoding=utf8
-
-"set t_Co=16
-"set background=dark
-"set t_Co=16
 
 " Hide mode (shown in status line)
 set noshowmode
@@ -113,7 +111,7 @@ set wrap
 " Maximum items in completion suggest popup menu
 set pumheight=10
 
-" Don't make a any backups before overwriting a file
+" Don't make any backups before overwriting a file
 set nobackup
 set nowritebackup
 
@@ -171,10 +169,6 @@ set wildignore+=**/node_modules/**
 "###### AUTOCMDS, ETC ###	###"
 "############################"
 
-" Syntax highlighting for TS/TSX
-" au BufNewFile,BufRead *.ts setlocal filetype=typescript
-" au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
-
 " Auto resize panes
 autocmd VimResized * wincmd =
 
@@ -192,38 +186,18 @@ autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 " Set typescript filetype
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
-"augroup filespecific
-"	autocmd!
-"	au BufRead,BufNewFile *.json set ft=typescript
-"	au BufRead,BufNewFile *.js set ft=typescript
-"	au FileType go set noet nolist
-"	au FileType python setl ts=4
-"	au FileType rust setl sw=0 sts=0
-"augroup END
-
-" augroup cursorline
-" 	autocmd!
-" 	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-" 	autocmd WinLeave * setlocal nocursorline
-" augroup END
-
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
 "#####################################"
 
 " Set theme
-colorscheme base
+colorscheme cs
 
 " Set list characters
 set list
 set listchars=
-" set listchars+=tab:→\ ,
-" set listchars+=tab:❯\ ,
-" set listchars+=tab:│\ ,
-" set listchars+=tab:\ ,
 set listchars+=tab:›\ ,
 set listchars+=trail:•,
-"set listchars+=space:·,
 
 " Set end of buffer and vertsplit to empty
 set fillchars+=eob:\ ,
@@ -266,22 +240,8 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <silent> <C-h> :ALEHover<CR>
 
-" Map § to act as Esc since the MacBook touchbar is... well, crap
-map § <Esc>
-map! § <C-c>
-
 " Map Tab in normal mode to clear search highlight
 map <Tab> :noh<CR>
 
 " Map Esc to exit Terminal
 tnoremap <Esc> <C-\><C-n>
-
-" Disable arrow keys, coz I needs to learn
-" map <Up> <Nop>
-" map! <Up> <Nop>
-" map <Down> <Nop>
-" map! <Down> <Nop>
-" map <Left> <Nop>
-" map! <Left> <Nop>
-" map <Right> <Nop>
-" map! <Right> <Nop>

@@ -40,25 +40,29 @@ export LESS_TERMCAP_us=$'\e[0;35m'
 
 # SET PATH
 
-#paths=(
-#  "$HOME/.cargo/bin"
-#  "$HOME/.yarn/bin"
-#  "$HOME/.npm-global/bin"
-#  "$HOME/.local/bin"
-#)
+paths=(
+  "$HOME/.cargo/bin"
+  "$HOME/.yarn/bin"
+  "$HOME/.npm-global/bin"
+  "$HOME/.local/bin"
+)
 
-export PATH=~/.cargo/bin:~/.yarn/bin:~/.npm-global/bin:~/.local/bin:$PATH
+#export PATH=~/.cargo/bin:~/.yarn/bin:~/.npm-global/bin:~/.local/bin:$PATH
 
-# Include desired paths in PATH and export, leaving default PATH still intact and preventing duplicates
-#for p in "${paths[@]}"
-#do
-#  case ":$PATH:" in
-#    *":$p:"*) :;; # already there
-#    *) PATH="$p:$PATH";;
-#  esac
-#done
-#
-#export PATH="${PATH}"
+# Include desired paths in PATH and export,
+# leaving default PATH still intact and preventing duplicates,
+# because there's something modifying my path,
+# and I can't seem to figure out what...
+
+for p in "${paths[@]}"
+do
+  case ":$PATH:" in
+    *":$p:"*) :;; # already there
+    *) PATH="$p:$PATH";;
+  esac
+done
+
+export PATH="${PATH}"
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -68,10 +72,11 @@ export PATH=~/.cargo/bin:~/.yarn/bin:~/.npm-global/bin:~/.local/bin:$PATH
 # ALIASES #
 ###########
 
+alias d='printf "%s\n" ${PWD/#$HOME/"~"}'
+alias l="ls -Ap --color=always"
 alias la="ls -Ap --width=1 --color=always"
-alias ll="ls -AFGghl --color=always"
 alias las="stat -c '%A %a %n' *" # Show octal permissions
-alias pwd='printf "%s\n" ${PWD/#$HOME/"~"}'
+alias vm="nvim"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gpuom="git push -u origin master"
@@ -83,11 +88,9 @@ alias gh="cd ~/github/"
 alias dot="cd ~/dotfiles/"
 alias doc="cd ~/documents/"
 alias pro="cd ~/projects/"
-alias pgs="cd ~/packages/"
+alias pks="cd ~/packages/"
 alias todoread="cat ~/github/todo/README.md"
 alias todoedit="nvim ~/github/todo/README.md"
-alias rr="ranger"
-alias vm="nvim"
 
 # -----------------------------------------------------------------------------
 
@@ -130,7 +133,11 @@ hunt() {
     --exclude-dir=.next \
     --exclude-dir=dist \
     --exclude-dir=.git \
-    -wroni "${1}" . | sort -u | grep -iv "^${1}" | sed "/^$/d" | grep -i --color=always "${1}"
+    -wroni "${1}" . \
+    | sort -u \
+    | grep -iv "^${1}" \
+    | sed "/^$/d" \
+    | grep -i --color=always "${1}"
 }
 
 # -----------------------------------------------------------------------------
@@ -143,7 +150,9 @@ mark() {
     -not -path "*.next*" \
     -not -path "*dist*" \
     -not -path "*.git*" \
-    -iname "*${1}*" | sort -u | grep -i --color=always "${1}"
+    -iname "*${1}*" \
+    | sort -u \
+    | grep -i --color=always "${1}"
 }
 
 # -----------------------------------------------------------------------------

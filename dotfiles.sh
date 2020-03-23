@@ -89,14 +89,8 @@ setup_dotfiles() {
 
   folders=(
     ".colors"
-    ".config/dunst"
     ".config/fontconfig"
-    ".config/kitty"
-    ".config/neofetch"
     ".config/nvim"
-    ".config/nvim/colors"
-    ".config/nvim/plugin"
-    ".config/ranger"
     ".newsboat"
     "tilde"
   )
