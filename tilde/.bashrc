@@ -22,6 +22,8 @@ export TERMINAL="st"
 export BROWSER="chromium"
 export LC_ALL=en_US.UTF-8
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export FFF_CD_ON_EXIT=1
+export FFF_HIDDEN=1
 
 # -----------------------------------------------------------------------------
 
@@ -157,9 +159,19 @@ mark() {
     | grep -i --color=always "${1}"
 }
 
+# -----------------------------------------------------------------------------
+
 # Change directory to git top level
-gitup() {
+gt() {
     cd "$(git rev-parse --show-toplevel 2> /dev/null)" || return
+}
+
+# -----------------------------------------------------------------------------
+
+# fff and cd on exit
+f() {
+    fff "$@"
+    cd "$(cat "${HOME}/.cache/fff/.fff_d")" || return
 }
 
 # -----------------------------------------------------------------------------
