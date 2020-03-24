@@ -12,6 +12,7 @@ exit_on_fail() {
 
 symlink_tilde_files() {
   tildes=(
+    ".asoundrc"
     ".bash_profile"
     ".bashrc"
     ".hushlogin"
@@ -28,48 +29,6 @@ symlink_tilde_files() {
   done
 
   cd "$(dirs -l -0)" && dirs -c
-}
-
-symlink_hardware_specific_tilde_files() {
-  exit_on_fail pushd "$PWD/tilde/${1}"
-
-  for FILE in *; do
-    if [[ -f "$FILE" ]]; then
-      exit_on_fail ln -sfv "$PWD/$FILE" "${HOME}/$FILE"
-    fi
-  done
-
-  cd "$(dirs -l -0)" && dirs -c
-}
-
-confirm_hardware() {
-  echo -e "\nHardware specific configuration...\n"
-
-  PS3="Please select your computer model: "
-
-  declare -a options=(
-    "Dell XPS 13 9343"
-    "HP ProBook 650 G3"
-    "Quit"
-  )
-
-  select OPT in "${options[@]}"
-  do
-    case $OPT in
-      "Dell XPS 13 9343")
-        symlink_hardware_specific_tilde_files "xps"
-        break
-        ;;
-      "HP ProBook 650 G3")
-        symlink_hardware_specific_tilde_files "probook"
-        break
-        ;;
-      "Quit")
-        break
-        ;;
-      *) echo -e "\nInvalid option: $REPLY\n";;
-    esac
-  done
 }
 
 symlink_files() {
@@ -97,23 +56,22 @@ setup_dotfiles() {
 
   shopt -s dotglob
 
-  for FOLDER in "${folders[@]}"; do
-    echo -e "\nSymlinking files in $FOLDER ..."
+  for folder in "${folders[@]}"; do
+    echo -e "\nSymlinking files in $folder ..."
 
-    if [[ "$FOLDER" == "tilde" ]]; then
+    if [[ "$folder" == "tilde" ]]; then
       symlink_tilde_files
     else
-      if [[ ! -d "${HOME}/$FOLDER" ]]; then
-        echo -e "\nDirectory $FOLDER does not exist."
+      if [[ ! -d "${HOME}/$folder" ]]; then
+        echo -e "\nDirectory $folder does not exist."
         echo -e "\nCreating it..."
-        exit_on_fail mkdir -pv "${HOME}/$FOLDER"
+        exit_on_fail mkdir -pv "${HOME}/$folder"
       fi
 
-      symlink_files "$FOLDER"
+      symlink_files "$folder"
     fi
   done
 
-  confirm_hardware
   shopt -u dotglob
 
   echo -e "DONE.\n"
