@@ -18,9 +18,10 @@
 
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="kitty"
+export TERMINAL="st"
 export BROWSER="chromium"
 export LC_ALL=en_US.UTF-8
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # -----------------------------------------------------------------------------
 
