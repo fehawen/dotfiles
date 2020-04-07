@@ -6,7 +6,7 @@ copy_fonts() {
     work_dir="$PWD/$src"
 
     if [[ ! -d "$dest" ]]; then
-        printf '%s\n%s\n' "Directory $dest does not exist." "Creating it..."
+        printf 'Directory %s does not exist.\nCreating it...\n' "$dest"
         sudo mkdir -pv "$dest"
     fi
 
@@ -14,7 +14,7 @@ copy_fonts() {
 
     for font_dir in *; do
         if [[ -d $font_dir ]]; then
-            printf '%s\n' "Copying $font_dir from $work_dir to $dest ..."
+            printf 'Copying %s from %s to %s...\n' "$font_dir" "$work_dir" "$dest"
             sudo cp -rv "$font_dir" "$dest/"
         fi
     done
@@ -23,7 +23,7 @@ copy_fonts() {
 }
 
 setup_fonts() {
-    printf '%s\n' "Setting up fonts..."
+    printf "Setting up fonts...\n"
 
     base_dir="fonts"
     global_dest="/usr/share/fonts"
