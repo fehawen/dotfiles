@@ -16,8 +16,8 @@
 
 # GLOBALS
 
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="vim"
+export VISUAL="vim"
 export TERMINAL="st"
 export BROWSER="chromium"
 export LC_ALL=en_US.UTF-8
@@ -80,7 +80,6 @@ alias d='printf "%s\n" ${PWD/#$HOME/"~"}'
 alias l="ls -Ap --color=always"
 alias la="ls -Ap --width=1 --color=always"
 alias las="stat -c '%A %a %n' *" # Show octal permissions
-alias vm="nvim"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gpuom="git push -u origin master"
@@ -94,7 +93,7 @@ alias doc="cd ~/documents/"
 alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
 alias todoread="cat ~/github/todo/README.md"
-alias todoedit="nvim ~/github/todo/README.md"
+alias todoedit="vim ~/github/todo/README.md"
 
 # -----------------------------------------------------------------------------
 
