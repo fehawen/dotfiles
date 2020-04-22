@@ -24,12 +24,12 @@ endif
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
-Plug 'Quramy/tsuquyomi'
+Plug 'scrooloose/nerdtree'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'davidyorr/vim-es6-unused-imports'
 Plug 'rust-lang/rust.vim'
+Plug 'Quramy/tsuquyomi'
 Plug 'fehawen/cs.vim'
 Plug 'fehawen/sl.vim'
 
@@ -45,6 +45,9 @@ syntax enable
 filetype on
 filetype plugin on
 filetype indent on
+
+" Enable omni completion
+set omnifunc=syntaxcomplete#Complete
 
 " Set encoding
 scriptencoding utf-8
@@ -89,16 +92,13 @@ set shiftwidth=4
 " Indent a new line the same amount as the line just typed
 set autoindent
 
-" Set line numbers
-" set relativenumber number
-
 " Disable line number
 set nonumber
 
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
-" Enable cursor line, disable cursor column
+" Disable cursor line and cursor column
 set nocursorline
 set nocursorcolumn
 
