@@ -27,9 +27,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'davidyorr/vim-es6-unused-imports'
 Plug 'rust-lang/rust.vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'fehawen/vim-es6-unused-imports'
 Plug 'fehawen/cs.vim'
 Plug 'fehawen/sl.vim'
 
