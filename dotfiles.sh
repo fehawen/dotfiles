@@ -22,6 +22,7 @@ symlink_tilde_files() {
         ".hushlogin"
         ".inputrc"
         ".profile"
+        ".vimrc"
         ".xinitrc"
         ".Xresources"
     )
