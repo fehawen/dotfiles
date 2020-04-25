@@ -44,11 +44,11 @@ export LESS_TERMCAP_us=$'\e[0;35m'
 # SET PATH
 
 paths=(
-  "$HOME/.cargo/bin"
-  "$HOME/.yarn/bin"
-  "$HOME/.npm-global/bin"
-  "$HOME/.local/bin"
-  "$HOME/.dotnet/tools"
+    "$HOME/.cargo/bin"
+    "$HOME/.yarn/bin"
+    "$HOME/.npm-global/bin"
+    "$HOME/.local/bin"
+    "$HOME/.dotnet/tools"
 )
 
 #export PATH=~/.cargo/bin:~/.yarn/bin:~/.npm-global/bin:~/.local/bin:$PATH
@@ -60,10 +60,10 @@ paths=(
 
 for p in "${paths[@]}"
 do
-  case ":$PATH:" in
-    *":$p:"*) :;; # already there
-    *) PATH="$p:$PATH";;
-  esac
+    case ":$PATH:" in
+        *":$p:"*) :;; # already there
+        *) PATH="$p:$PATH";;
+    esac
 done
 
 export PATH="${PATH}"
@@ -98,64 +98,63 @@ alias todoedit="vim ~/github/todo/README.md"
 # -----------------------------------------------------------------------------
 
 glogc() {
-  git rev-parse --is-inside-work-tree &> /dev/null || \
-    printf '%s\n' "Not a git repository"; return
+    git rev-parse --is-inside-work-tree &> /dev/null || \
+        printf '%s\n' "Not a git repository"; return
 
-  total="$(git rev-list --all --count)"
-  each="$(git shortlog -s -n -e --all)"
+    total="$(git rev-list --all --count)"
+    each="$(git shortlog -s -n -e --all)"
 
-  printf '%s\n%s\n' " Total  ${total}" "${each}"
+    printf '%s\n%s\n' " Total  ${total}" "${each}"
 }
 
 # -----------------------------------------------------------------------------
 
 todopush() {
-  pushd "$HOME/github/todo/" && \
-  git add . && \
-  git commit -m "Bump @ $(date '+%Y/%m/%d %H:%M')" && \
-  git push && \
-  cd "$(dirs -l -0)" && dirs -c
+    (
+        cd "$HOME/github/todo/" && \
+        git add . && \
+        git commit -m "Bump @ $(date '+%Y/%m/%d %H:%M')" && \
+        git push
+    )
 }
 
 # -----------------------------------------------------------------------------
 
 todopull() {
-  pushd "$HOME/github/todo/" && \
-  git pull && \
-  cd "$(dirs -l -0)" && dirs -c
+    (cd "$HOME/github/todo/" && git pull)
 }
 
 # -----------------------------------------------------------------------------
 
 # Find all files in dirs/subdirs containing search query
 hunt() {
-  grep \
-    --exclude-dir=node_modules \
-    --exclude-dir=coverage \
-    --exclude-dir=.fusebox \
-    --exclude-dir=.next \
-    --exclude-dir=dist \
-    --exclude-dir=.git \
-    -wroni "${1}" . \
-    | sort -u \
-    | grep -iv "^${1}" \
-    | sed "/^$/d" \
-    | grep -i --color=always "${1}"
+    grep \
+        --exclude-dir=node_modules \
+        --exclude-dir=coverage \
+        --exclude-dir=.fusebox \
+        --exclude-dir=.next \
+        --exclude-dir=dist \
+        --exclude-dir=.git \
+        -wroni "${1}" . \
+        | sort -u \
+        | grep -iv "^${1}" \
+        | sed "/^$/d" \
+        | grep -i --color=always "${1}"
 }
 
 # -----------------------------------------------------------------------------
 
 # Find all subdirs/filenames in dirs/subdirs matching query
 mark() {
-  find . \
-    -not -path "*node_modules*" \
-    -not -path "*.fusebox*" \
-    -not -path "*.next*" \
-    -not -path "*dist*" \
-    -not -path "*.git*" \
-    -iname "*${1}*" \
-    | sort -u \
-    | grep -i --color=always "${1}"
+    find . \
+        -not -path "*node_modules*" \
+        -not -path "*.fusebox*" \
+        -not -path "*.next*" \
+        -not -path "*dist*" \
+        -not -path "*.git*" \
+        -iname "*${1}*" \
+        | sort -u \
+        | grep -i --color=always "${1}"
 }
 
 # -----------------------------------------------------------------------------
