@@ -28,7 +28,7 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'rust-lang/rust.vim'
-Plug 'Quramy/tsuquyomi'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'fehawen/vim-es6-unused-imports'
 Plug 'fehawen/cs.vim'
 Plug 'fehawen/sl.vim'
@@ -225,10 +225,10 @@ let g:NERDTreeWinSize = 31
 "###### KEYBINDINGS ######"
 "#########################"
 
-" Tab to complete
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" Toggle completion menu with Shift-Tab in insert mode
+inoremap <expr><S-TAB> pumvisible() ? "\<Esc>" : "\<C-n>"
 
-" Map nerdtreetoggle to ctrl-n
+" Map nerdtreetoggle to Ctrl-n
 map <C-n> :NERDTreeToggle<CR>
 
 " Navigate between ALE errors
