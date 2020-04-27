@@ -1,8 +1,8 @@
 <h1 align="center">
-	<a href="https://github.com/fehawen/dotfiles">
-		<img alt="scrot" src="https://user-images.githubusercontent.com/36552788/80374510-0a272c00-8897-11ea-8e87-ef8753a8bf9e.png" width="960">
-	</a>
-	<br>
+    <a href="https://github.com/fehawen/dotfiles">
+        <img alt="scrot" src="https://user-images.githubusercontent.com/36552788/80374510-0a272c00-8897-11ea-8e87-ef8753a8bf9e.png" width="960">
+    </a>
+    <br>
 </h1>
 
 <h4 align="center">
@@ -13,7 +13,7 @@ scrot
 
 ## Setup
 
-1. Clone repo
+1. Clone
 
 ```bash
 $ git clone https://github.com/fehawen/dotfiles ~/dotfiles
