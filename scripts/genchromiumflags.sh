@@ -3,11 +3,15 @@
 PROGNAME=$(basename "$0")
 
 exit_on_fail() {
-  "$@" 2> /dev/null
-  local code=$?
-  if [[ ${code} -ne 0 ]]; then
-    echo -e "\nERROR: Command [$*] failed with error code ${code}\nFILE: ${PROGNAME}\nLINE: $LINENO\n" 1>&2
-  fi
+    "$@" &> /dev/null
+    code=$?
+    if [[ $code -ne 0 ]]; then
+      printf 'Error: command [%s] failed with error code %s\nfile: %s\nline: %s\n' \
+          "$*" \
+          "$code" \
+          "$PROGNAME" \
+          "$LINENO" 1>&2
+    fi
 }
 
 # Generate chromium-flags for scaling

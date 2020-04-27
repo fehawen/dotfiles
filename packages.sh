@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 install_packages() {
-    printf "\nInstalling packages for Arch Linux...\n"
+    printf 'Installing packages for Arch Linux...\n'
 
     packages=(
         "xorg-server"
@@ -60,7 +60,7 @@ install_packages() {
 
     sudo pacman -Syu "${packages[@]}"
 
-    printf "DONE.\n"
+    printf "Done.\n"
 }
 
 install_packages

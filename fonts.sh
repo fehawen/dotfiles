@@ -6,16 +6,17 @@ copy_fonts() {
     work_dir="$PWD/$src"
 
     if [[ ! -d "$dest" ]]; then
-        printf 'Directory %s does not exist.\nCreating it...\n' "$dest"
-        sudo mkdir -pv "$dest"
+        printf 'Directory "%s" does not exist.\n' "$dest"
+        printf 'Creating directory "%s"...\n' "$dest"
+        sudo mkdir -p "$dest"
     fi
 
-    pushd "$work_dir" > /dev/null || echo "Cannot push to dir $work_dir" && exit 1
+    pushd "$work_dir" > /dev/null || printf 'Cannot push to dir "%s"\n' "$work_dir" && exit 1
 
     for font_dir in *; do
         if [[ -d $font_dir ]]; then
-            printf 'Copying %s from %s to %s...\n' "$font_dir" "$work_dir" "$dest"
-            sudo cp -rv "$font_dir" "$dest/"
+            printf 'Copying "%s" from "%s" to "%s"...\n' "$font_dir" "$work_dir" "$dest"
+            sudo cp -r "$font_dir" "$dest/"
         fi
     done
 

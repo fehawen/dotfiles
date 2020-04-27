@@ -3,10 +3,10 @@
 PROGNAME=$(basename "$0")
 
 exit_on_fail() {
-    "$@" 2> /dev/null
+    "$@" &> /dev/null
     code=$?
     if [[ $code -ne 0 ]]; then
-      printf 'err: command [%s] failed with error code %s\nfile: %s\nline: %s\n' \
+      printf 'Error: command [%s] failed with error code %s\nfile: %s\nline: %s\n' \
           "$*" \
           "$code" \
           "$PROGNAME" \
@@ -30,7 +30,8 @@ symlink_tilde_files() {
     exit_on_fail pushd "$PWD/tilde"
 
     for FILE in "${tildes[@]}"; do
-        exit_on_fail ln -sfv "$PWD/$FILE" "$HOME/$FILE"
+        printf 'Symlinking %s -> %s\n' "${HOME/#$HOME/"~"}/$FILE" "${PWD/#$HOME/"~"}/$FILE"
+        exit_on_fail ln -sf "$PWD/$FILE" "$HOME/$FILE"
     done
 
     cd "$(dirs -l -0)" && dirs -c
@@ -41,7 +42,8 @@ symlink_files() {
 
     for FILE in *; do
         if [ -f "$FILE" ]; then
-            exit_on_fail ln -sfv "$PWD/$FILE" "$HOME/$1/$FILE"
+            printf 'Symlinking %s -> %s\n' "${HOME/#$HOME/"~"}/$1/$FILE" "${PWD/#$HOME/"~"}/$FILE"
+            exit_on_fail ln -sf "$PWD/$FILE" "$HOME/$1/$FILE"
         fi
     done
 
@@ -49,7 +51,7 @@ symlink_files() {
 }
 
 setup_dotfiles() {
-    echo "Setting up Arch Linux config ..."
+    printf 'Setting up dotfiles...\n'
 
     folders=(
         ".colors"
@@ -62,15 +64,13 @@ setup_dotfiles() {
     shopt -s dotglob
 
     for folder in "${folders[@]}"; do
-        echo -e "\nSymlinking files in $folder ..."
-
         if [[ "$folder" == "tilde" ]]; then
             symlink_tilde_files
         else
             if [[ ! -d "$HOME/$folder" ]]; then
-              echo -e "\nDirectory $folder does not exist."
-              echo -e "\nCreating it..."
-              exit_on_fail mkdir -pv "$HOME/$folder"
+              printf 'Directory "%s" does not exist.' "$folder"
+              printf 'Creating dir "%s"' "$folder"
+              exit_on_fail mkdir -p "$HOME/$folder"
             fi
 
             symlink_files "$folder"
@@ -79,7 +79,7 @@ setup_dotfiles() {
 
     shopt -u dotglob
 
-    printf 'DONE.\n'
+    printf 'Done.\n'
 }
 
 setup_dotfiles

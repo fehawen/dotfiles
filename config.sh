@@ -3,10 +3,10 @@
 configure_touchpad() {
     read -r -p "Configure touchpad? [y/N] " answer
     if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
-        printf "\nSkipping touchpad configuration...\n"
+        printf 'Skipping touchpad configuration...\n'
     else
-        printf "\nConfiguring touchpad..."
-        printf "\nWriting content to '/usr/share/X11/xorg.conf.d/40-libinput.conf'..."
+        printf 'Configuring touchpad...\n'
+        printf 'Writing content to "/usr/share/X11/xorg.conf.d/40-libinput.conf"...'
 
 sudo tee -a /usr/share/X11/xorg.conf.d/40-libinput.conf >> /dev/null << EOT
 
@@ -25,7 +25,7 @@ EndSection
 
 EOT
 
-        printf "DONE.\n"
+        printf "Done.\n"
     fi
 }
 
@@ -47,7 +47,7 @@ enable_docker() {
 configure_docker() {
     read -r -p "Manage Docker as a non-root user? [y/N] " answer
     if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
-        echo -e "\nSkipping Docker non-root configuration...\n"
+        printf 'Skipping Docker non-root configuration...\n'
     else
         printf "\nAdding 'docker' group..."
         sudo groupadd docker

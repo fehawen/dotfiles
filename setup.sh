@@ -3,8 +3,8 @@
 confirm() {
     read -r -p "Proceed with $1 setup for $2? [y/N] " answer
     if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
-        printf "Setup declined...\n"
-        printf "Now exiting.\n"
+        printf 'Setup declined...\n'
+        printf 'Now exiting.\n'
         exit
     else
         ./"$1".sh
@@ -43,7 +43,7 @@ do
             break
             ;;
         "Quit")
-            echo "Quitting..."
+            printf 'Quitting...\n'
             break
             ;;
         *) printf 'Invalid option: %s' "$REPLY";;
