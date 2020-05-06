@@ -231,6 +231,9 @@ inoremap <expr><S-TAB> pumvisible() ? "\<Esc>" : "\<C-n>"
 " Map nerdtreetoggle to Ctrl-n
 map <C-n> :NERDTreeToggle<CR>
 
+" Map Ctrl-Space to :find
+map <C-@> :find<Space>
+
 " Navigate between ALE errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
