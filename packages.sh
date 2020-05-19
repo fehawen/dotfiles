@@ -29,7 +29,6 @@ install_packages() {
         "w3m"
         "picom"
         "hsetroot"
-        "surf"
         "firefox"
         "chromium"
         "gimp"
