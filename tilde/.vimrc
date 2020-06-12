@@ -182,8 +182,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd BufWinEnter *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
 
-" Set typescript filetype
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+" Set js/ts filetype
+" autocmd BufNewFile,BufRead *.js set filetype=js
+" autocmd BufNewFile,BufRead *.jsx set filetype=jsx
+" autocmd BufNewFile,BufRead *.ts set filetype=ts
+" autocmd BufNewFile,BufRead *.tsx set filetype=tsx
 
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
