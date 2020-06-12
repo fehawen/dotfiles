@@ -10,6 +10,7 @@ export LC_ALL=en_US.UTF-8
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export FFF_CD_ON_EXIT=1
 export FFF_HIDDEN=1
+export PAL_PATH=~/github/pal
 
 # -----------------------------------------------------------------------------
 
@@ -156,12 +157,12 @@ f() {
 
 # prompt
 
-export PS1="\[\e[33m\]ø\[\e[m\] "
+export PS1="\[\e[1;33m\]×\[\e[m\] "
 
 # -----------------------------------------------------------------------------
 
-# pywal
+# pal
 
-[ -f ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
-
-# -----------------------------------------------------------------------------
+[ -f ~/.cache/pal/palette ] && (
+    cat ~/.cache/pal/palette 2>/dev/null &
+)
