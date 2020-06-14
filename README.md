@@ -12,13 +12,13 @@
 1. Clone
 
 ```bash
-$ git clone https://github.com/fehawen/dotfiles ~/dotfiles
+git clone https://github.com/fehawen/dotfiles
 ```
 
 2. Shoot
 
 ```bash
-$ cd ~/dotfiles && make
+cd dotfiles && make
 ```
 
 3. Easy now...
