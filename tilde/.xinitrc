@@ -4,4 +4,6 @@
 
 setxkbmap -layout se
 
+pal
+
 exec sowm
