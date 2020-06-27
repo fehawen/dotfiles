@@ -11,7 +11,10 @@ copy_fonts() {
         sudo mkdir -p "$dest"
     fi
 
-    pushd "$work_dir" > /dev/null || printf 'Cannot push to dir "%s"\n' "$work_dir" && exit 1
+    pushd "$work_dir" > /dev/null || {
+        printf 'Cannot push to dir "%s"\n' "$work_dir"
+        exit 1
+    }
 
     for font_dir in *; do
         if [[ -d $font_dir ]]; then
