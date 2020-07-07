@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # exports
 
 export EDITOR="vim"
@@ -61,6 +64,7 @@ alias d='printf "%s\n" ${PWD/#$HOME/"~"}'
 alias l="ls -Ap --color=always"
 alias la="ls -Ap --width=1 --color=always"
 alias las="stat -c '%A %a %n' *" # Show octal permissions
+alias ls='ls --color=auto'
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gpuom="git push -u origin master"
