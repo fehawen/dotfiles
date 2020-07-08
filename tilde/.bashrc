@@ -13,7 +13,7 @@ export LC_ALL=en_US.UTF-8
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export FFF_CD_ON_EXIT=1
 export FFF_HIDDEN=1
-export PAL_PATH=~/github/pal
+export CPR_LIB=~/github/hokusai
 
 # -----------------------------------------------------------------------------
 
@@ -165,8 +165,6 @@ export PS1="-> "
 
 # -----------------------------------------------------------------------------
 
-# pal
+# cpr
 
-[ -f ~/.cache/pal/palette ] && (
-    cat ~/.cache/pal/palette 2>/dev/null &
-)
+cpr revive
