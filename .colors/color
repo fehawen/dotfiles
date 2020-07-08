@@ -1,9 +1,9 @@
 ! Sourced by .Xresources
 
-! Font
-*font: xft:Roboto Mono:pixelsize=12
+! font
+*font: xft:JetBrains Mono:pixelsize=22
 
-! Colors
+! colors
 
 *background: #232323
 *foreground: #FCFCFC
@@ -37,6 +37,6 @@
 *color6:  #B9B9B9
 *color14: #B9B9B9
 
-! White
+! white
 *color7:  #FCFCFC
 *color15: #FCFCFC
