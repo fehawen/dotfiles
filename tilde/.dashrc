@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # exports
 
@@ -14,57 +14,35 @@ export CPR_LIB=~/github/hokusai
 
 # -----------------------------------------------------------------------------
 
-# colored man pages
-
-export LESS_TERMCAP_mb=$'\e[0;32m'
-export LESS_TERMCAP_md=$'\e[1;34m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[0;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[0;35m'
-
-# -----------------------------------------------------------------------------
-
 # set path
 
-paths=(
-    "$HOME/bin"
-    "$HOME/.npm-global/bin"
-    "$HOME/.yarn/bin"
-    "$HOME/.dotnet/tools"
-    "$HOME/.cargo/bin"
-)
-
-# export PATH=~/.cargo/bin:~/.yarn/bin:~/.npm-global/bin:~/.local/bin:$PATH:
-
-# Include desired paths in PATH and export,
-# leaving default PATH still intact and preventing duplicates,
-# because there's something modifying my path,
-# and I can't seem to figure out what...
-
-for p in "${paths[@]}"
-do
+appendpath () {
     case ":$PATH:" in
-        *":$p:"*) :;; # already there
-        *) PATH="$p:$PATH";;
+        *:"$1":*)
+        ;;
+        *)
+        PATH="${PATH:+$PATH:}$1"
     esac
-done
+}
 
-export PATH="${PATH}"
+appendpath "$HOME/bin"
+appendpath "$HOME/.yarn/bin"
+appendpath "$HOME/.npm-global/bin"
+appendpath "$HOME/.dotnet/tools"
+
+unset -f appendpath
 
 # -----------------------------------------------------------------------------
 
 # aliases
 
-alias d='printf "%s\n" ${PWD/#$HOME/"~"}'
+alias d="pwd"
 alias l="ls -Ap --color=always"
 alias la="ls -Ap --width=1 --color=always"
 alias las="stat -c '%A %a %n' *" # Show octal permissions
 alias ls='ls --color=auto'
 alias gc="git commit"
 alias gcm="git commit -m"
-alias gpuom="git push -u origin master"
 alias gp="git push"
 alias gs="git status"
 alias gss="git status -s"
@@ -80,7 +58,7 @@ alias todoedit="vim ~/github/todo/README.md"
 # -----------------------------------------------------------------------------
 
 glogc() {
-    git rev-parse --is-inside-work-tree &> /dev/null || \
+    git rev-parse --is-inside-work-tree 2> /dev/null || \
         printf '%s\n' "Not a git repository"; return
 
     total="$(git rev-list --all --count)"

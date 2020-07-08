@@ -5,4 +5,43 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-#include ".colors/color"
+! font
+*font: xft:JetBrains Mono:pixelsize=22
+
+! colors
+
+*background: #232323
+*foreground: #FCFCFC
+*cursorColor: #FCFCFC
+
+! black
+*color0:  #232323
+*color8:  #808080
+
+! red
+*color1:  #C7AA9C
+*color9:  #C7AA9C
+
+! green
+*color2:  #C7B9AC
+*color10: #C7B9AC
+
+! yellow
+*color3:  #D4BAAD
+*color11: #D4BAAD
+
+! blue
+*color4:  #C6BABA
+*color12: #C6BABA
+
+! magenta
+*color5:  #D4BCBC
+*color13: #D4BCBC
+
+! cyan
+*color6:  #B9B9B9
+*color14: #B9B9B9
+
+! white
+*color7:  #FCFCFC
+*color15: #FCFCFC

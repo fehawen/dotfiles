@@ -17,13 +17,10 @@ exit_on_fail() {
 symlink_tilde_files() {
     tildes=(
         ".asoundrc"
-        ".bash_profile"
-        ".bashrc"
+        ".dashrc"
         ".hushlogin"
-        ".inputrc"
         ".profile"
         ".vimrc"
-        ".xinitrc"
         ".Xresources"
     )
 
@@ -54,7 +51,6 @@ setup_dotfiles() {
     printf 'Setting up dotfiles...\n'
 
     folders=(
-        ".colors"
         ".config/fontconfig"
         ".config/nvim"
         ".newsboat"

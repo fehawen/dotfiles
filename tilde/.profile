@@ -1,4 +1,2 @@
-#!/bin/sh
-
-# shellcheck disable=SC1090
-[ -f ~/.bash_profile ] && . ~/.bash_profile
+export PATH=~/bin:~/.yarn/bin:~/.npm-global/bin:~/.dotnet/tools:$PATH:
+export ENV=~/.dashrc
