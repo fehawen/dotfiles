@@ -4,6 +4,6 @@
 
 setxkbmap -layout se
 
-pal
+cpr light
 
 exec sowm
