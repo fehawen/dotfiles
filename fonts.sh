@@ -4,17 +4,27 @@ f="fonts"
 d=~/.fonts
 
 [ -d "$f" ] || {
-    printf '%s\n' "Directory '$f' does not exist."
+    printf 'Directory "%s" does not exist.\nExiting ...' "$d"
     exit 1
 }
 
 mkdir -pv "$d" || {
-    printf '%s\n' "Failed to create directory '$d'."
+    printf 'Failed to create directory "%s".\nExiting ...' "$d"
     exit 1
 }
 
+printf 'Copying fonts to "%s" ...\n' "$d"
+
 for font in "$f/"*; do
-    cp -v "$font" "$d/"
+    cp "$font" "$d/"
 done
 
-printf '\nDone.\n'
+printf 'Making font dir for "%s" ...\n' "$d"
+
+mkfontdir "$d"
+
+printf 'Updating fc cache ...\n'
+
+fc-cache -f
+
+printf 'Done.\n'

@@ -6,7 +6,7 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 ! font
-*font: xft:JetBrains Mono:pixelsize=22
+*font: xft:Roboto Mono:pixelsize=22
 
 ! colors
 
