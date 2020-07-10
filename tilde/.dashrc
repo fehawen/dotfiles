@@ -37,10 +37,10 @@ unset -f appendpath
 # aliases
 
 alias d="pwd"
-alias l="ls -Ap --color=always"
-alias la="ls -Ap --width=1 --color=always"
+alias l="ls -AF --color=always"
+alias la="ls -AF1 --color=always"
 alias las="stat -c '%A %a %n' *" # Show octal permissions
-alias ls='ls --color=auto'
+alias ll="ls -lAFGh --color=always"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gp="git push"

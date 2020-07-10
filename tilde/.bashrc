@@ -58,10 +58,10 @@ export PATH="${PATH}"
 # aliases
 
 alias d='printf "%s\n" ${PWD/#$HOME/"~"}'
-alias l="ls -Ap --color=always"
-alias la="ls -Ap --width=1 --color=always"
+alias l="ls -AF --color=always"
+alias la="ls -AF1 --color=always"
 alias las="stat -c '%A %a %n' *" # Show octal permissions
-alias ls='ls --color=auto'
+alias ll="ls -lAFGh --color=always"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gpuom="git push -u origin master"
