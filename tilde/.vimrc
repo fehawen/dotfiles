@@ -181,7 +181,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Highlight 81st column if line is at column 80 or higher,
 " which allows us to avoid having the colorcolumn always
 " present with e.g. colorcolumn=80
-call matchadd('ColorColumn', '\%81v', 100)
+autocmd WinEnter,BufEnter * call matchadd('ColorColumn', '\%81v', 100)
+autocmd WinLeave,BufLeave * call clearmatches()
 
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
