@@ -28,7 +28,6 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'rust-lang/rust.vim'
-Plug 'fehawen/vim-es6-unused-imports'
 Plug 'fehawen/cs.vim'
 Plug 'fehawen/sl.vim'
 
@@ -137,8 +136,9 @@ set path+=**
 " Display all matching files when we tab complete
 set wildmenu
 
-" Exclude node_modules when using e.g. :find
+" Exclude dirs when using e.g. :find
 set wildignore+=**/node_modules/**
+set wildignore+=**/.git/**
 
 " NOW WE CAN:
 " - Hit tab to :find by partial match
@@ -165,7 +165,7 @@ set wildignore+=**/node_modules/**
 " - This doesn't help if you want a visual list of tags
 
 "############################"
-"###### AUTOCMDS, ETC ###   ###"
+"###### AUTOCMDS, ETC #######"
 "############################"
 
 " Auto resize panes
@@ -178,15 +178,10 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" Check for unused es6 imports
-autocmd BufWinEnter *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
-autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
-
-" Set js/ts filetype
-" autocmd BufNewFile,BufRead *.js set filetype=js
-" autocmd BufNewFile,BufRead *.jsx set filetype=jsx
-" autocmd BufNewFile,BufRead *.ts set filetype=ts
-" autocmd BufNewFile,BufRead *.tsx set filetype=tsx
+" Highlight 81st column if line is at column 80 or higher,
+" which allows us to avoid having the colorcolumn always
+" present with e.g. colorcolumn=80
+call matchadd('ColorColumn', '\%81v', 100)
 
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
