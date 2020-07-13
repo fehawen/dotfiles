@@ -69,6 +69,7 @@ alias gp="git push"
 alias gs="git status"
 alias gss="git status -s"
 alias glog="git log --graph"
+alias glogc="git shortlog -s -n -e --all"
 alias gh="cd ~/github/"
 alias dot="cd ~/dotfiles/"
 alias doc="cd ~/documents/"
@@ -76,18 +77,6 @@ alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
 alias todoread="cat ~/github/todo/README.md"
 alias todoedit="vim ~/github/todo/README.md"
-
-# -----------------------------------------------------------------------------
-
-glogc() {
-    git rev-parse --is-inside-work-tree &> /dev/null || \
-        printf '%s\n' "Not a git repository"; return
-
-    total="$(git rev-list --all --count)"
-    each="$(git shortlog -s -n -e --all)"
-
-    printf '%s\n%s\n' " Total  ${total}" "${each}"
-}
 
 # -----------------------------------------------------------------------------
 
