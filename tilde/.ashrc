@@ -1,0 +1,137 @@
+#!/bin/sh
+
+# exports
+
+export EDITOR="vim"
+export VISUAL="vim"
+export TERMINAL="st"
+export BROWSER="chromium"
+export LC_ALL=en_US.UTF-8
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export FFF_CD_ON_EXIT=1
+export FFF_HIDDEN=1
+export CPR_LIB=~/github/cpr
+export HISTFILESIZE=10000
+export HISTFILE=~/.ash_history
+export RPG_SAVE=~/.rpg
+
+# -----------------------------------------------------------------------------
+
+# set path
+
+appendpath () {
+    case ":$PATH:" in
+        *:"$1":*)
+        ;;
+        *)
+        PATH="${PATH:+$PATH:}$1"
+    esac
+}
+
+appendpath "$HOME/bin"
+appendpath "$HOME/.yarn/bin"
+appendpath "$HOME/.npm-global/bin"
+appendpath "$HOME/.dotnet/tools"
+
+unset -f appendpath
+
+# -----------------------------------------------------------------------------
+
+# aliases
+
+alias d="pwd"
+alias l="ls -AF --color=always"
+alias la="ls -AF1 --color=always"
+alias las="stat -c '%A %a %n' *" # Show octal permissions
+alias ll="ls -lAFGh --color=always"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gp="git push"
+alias gs="git status"
+alias gss="git status -s"
+alias glog="git log --graph"
+alias glogc="git shortlog -s -n -e --all"
+alias gh="cd ~/github/"
+alias dot="cd ~/dotfiles/"
+alias doc="cd ~/documents/"
+alias pro="cd ~/projects/"
+alias pks="cd ~/packages/"
+alias todoread="cat ~/github/todo/README.md"
+alias todoedit="vim ~/github/todo/README.md"
+
+# -----------------------------------------------------------------------------
+
+todopush() {
+    (
+        cd "$HOME/github/todo/" && \
+        git add . && \
+        git commit -m "Bump @ $(date '+%Y/%m/%d %H:%M')" && \
+        git push
+    )
+}
+
+# -----------------------------------------------------------------------------
+
+todopull() {
+    (cd "$HOME/github/todo/" && git pull)
+}
+
+# -----------------------------------------------------------------------------
+
+# Find all files in dirs/subdirs containing search query
+hunt() {
+    grep \
+        --exclude-dir=node_modules \
+        --exclude-dir=coverage \
+        --exclude-dir=.fusebox \
+        --exclude-dir=.next \
+        --exclude-dir=dist \
+        --exclude-dir=.git \
+        -wroni "${1}" . \
+        | sort -u \
+        | grep -iv "^${1}" \
+        | sed "/^$/d" \
+        | grep -i --color=always "${1}"
+}
+
+# -----------------------------------------------------------------------------
+
+# Find all subdirs/filenames in dirs/subdirs matching query
+mark() {
+    find . \
+        -not -path "*node_modules*" \
+        -not -path "*.fusebox*" \
+        -not -path "*.next*" \
+        -not -path "*dist*" \
+        -not -path "*.git*" \
+        -iname "*${1}*" \
+        | sort -u \
+        | grep -i --color=always "${1}"
+}
+
+# -----------------------------------------------------------------------------
+
+# Change directory to git top level
+gt() {
+    cd "$(git rev-parse --show-toplevel 2> /dev/null)" || return
+}
+
+# -----------------------------------------------------------------------------
+
+# fff and cd on exit
+f() {
+    fff "$@"
+    cd "$(cat "${HOME}/.cache/fff/.fff_d")" || return
+}
+
+# -----------------------------------------------------------------------------
+
+# prompt
+
+export PS1="-> "
+
+# -----------------------------------------------------------------------------
+
+# rpg
+
+rpg reload
