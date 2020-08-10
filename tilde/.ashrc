@@ -14,17 +14,16 @@ export CPR_LIB=~/github/cpr
 export HISTFILESIZE=10000
 export HISTFILE=~/.ash_history
 export RPG_SAVE=~/.rpg
+export TODO_PATH=~/github/todo
 
 # -----------------------------------------------------------------------------
 
 # set path
 
-appendpath () {
+appendpath() {
     case ":$PATH:" in
-        *:"$1":*)
-        ;;
-        *)
-        PATH="${PATH:+$PATH:}$1"
+        *:"$1":*) ;;
+        *) PATH="${PATH:+$PATH:}$1" ;;
     esac
 }
 
@@ -56,25 +55,6 @@ alias dot="cd ~/dotfiles/"
 alias doc="cd ~/documents/"
 alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
-alias todoread="cat ~/github/todo/README.md"
-alias todoedit="vim ~/github/todo/README.md"
-
-# -----------------------------------------------------------------------------
-
-todopush() {
-    (
-        cd "$HOME/github/todo/" && \
-        git add . && \
-        git commit -m "Bump @ $(date '+%Y/%m/%d %H:%M')" && \
-        git push
-    )
-}
-
-# -----------------------------------------------------------------------------
-
-todopull() {
-    (cd "$HOME/github/todo/" && git pull)
-}
 
 # -----------------------------------------------------------------------------
 

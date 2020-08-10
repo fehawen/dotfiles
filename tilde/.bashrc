@@ -11,6 +11,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export FFF_CD_ON_EXIT=1
 export FFF_HIDDEN=1
 export CPR_LIB=~/github/hokusai
+export TODO_PATH=~/github/todo
 
 # -----------------------------------------------------------------------------
 
@@ -75,25 +76,6 @@ alias dot="cd ~/dotfiles/"
 alias doc="cd ~/documents/"
 alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
-alias todoread="cat ~/github/todo/README.md"
-alias todoedit="vim ~/github/todo/README.md"
-
-# -----------------------------------------------------------------------------
-
-todopush() {
-    (
-        cd "$HOME/github/todo/" && \
-        git add . && \
-        git commit -m "Bump @ $(date '+%Y/%m/%d %H:%M')" && \
-        git push
-    )
-}
-
-# -----------------------------------------------------------------------------
-
-todopull() {
-    (cd "$HOME/github/todo/" && git pull)
-}
 
 # -----------------------------------------------------------------------------
 
