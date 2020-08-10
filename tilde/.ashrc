@@ -13,7 +13,6 @@ export FFF_HIDDEN=1
 export CPR_LIB=~/github/cpr
 export HISTFILESIZE=10000
 export HISTFILE=~/.ash_history
-export RPG_SAVE=~/.rpg
 export TODO_PATH=~/github/todo
 
 # -----------------------------------------------------------------------------
