@@ -79,25 +79,9 @@ configure_npm() {
     fi
 }
 
-configure_neovim() {
-    read -r -p "Install dependencies for NeoVim and plugins? [y/N] " answer
-    if [[ "$answer" != y ]] && [[ "$answer" != Y ]]; then
-        printf "\nSkipping NeoVim configuration...\n"
-    else
-        printf "\nEnabling Python3 with 'pip3 install --user pynvim' command..."
-        pip3 install --user pynvim
-
-        printf "\nInstalling neovim NPM package..."
-        npm install -g neovim
-
-        printf "DONE.\n"
-    fi
-}
-
 configure_touchpad
 enable_docker
 configure_docker
 configure_npm
-configure_neovim
 
 printf "Configuration completed.\n"
