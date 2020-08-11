@@ -24,7 +24,7 @@ endif
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'rust-lang/rust.vim'
