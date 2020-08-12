@@ -16,7 +16,6 @@ xterm*utf8: true
 xterm*scrollBar: false
 xterm*cursorBlink: false
 xterm*selectToClipboard: true
-xterm*metaSendsEscape: true
 xterm*trimSelection: true
 xterm*renderFont: true
 xterm*wideChars: true
@@ -25,9 +24,9 @@ xterm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD) \n\
     Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
-xterm*faceName: xft:SF Mono:pixelsize=35:antialias=true
-xterm*faceNameDoublesize: xft:SF Mono:pixelsize=35:antialias=true
-xterm*wideFont: xft:SF Mono:pixelsize=35:antialias=true
+xterm*faceName: xft:SF Mono:pixelsize=35:antialias=true:autohint=true
+xterm*faceNameDoublesize: xft:SF Mono:pixelsize=35:antialias=true:autohint=true
+xterm*wideFont: xft:SF Mono:pixelsize=35:antialias=true:autohint=true
 
 *background: #232323
 *foreground: #FCFCFC

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # shellcheck disable=SC1090
-[[ -f ~/.bashrc ]] && source ~/.bashrc
+[[ -f ~/.shrc ]] && source ~/.shrc
 
 # Start X
 if systemctl -q is-active graphical.target && \

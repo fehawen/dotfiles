@@ -1,66 +1,38 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-symlink_tilde_files() {
-    tildes=(
-        ".asoundrc"
-        ".dashrc"
-        ".hushlogin"
-        ".profile"
-        ".vimrc"
-        ".Xresources"
-    )
+#
+# dotfiles.sh
+#
 
-    cd tilde || exit 1
-
-    for file in "${tildes[@]}"; do
-        ln -sfv "$PWD/$file" "$HOME/$file"
+sym() {
+    for file in .*; do
+        case $file in
+            .) ;;
+            ..) ;;
+            .git) ;;
+            .gitignore) ;;
+            *) [ -f "$file" ] && ln -sfv "$PWD/$file" "$HOME/$file" ;;
+        esac
     done
 
-    cd "$(dirs -l -0)" && dirs -c
+    conf="fonts.conf"
+    confdir=".config/fontconfig"
+
+    mkdir -pv "$HOME/$confdir"
+
+    (cd "$confdir" || exit 1; ln -sfv "$PWD/$conf" "$HOME/$confdir/$conf")
+
+    printf '\nDone.\n'
 }
 
-symlink_files() {
-    exit_on_fail pushd "$PWD/$1"
-
-    for FILE in *; do
-        if [ -f "$FILE" ]; then
-            printf 'Symlinking %s -> %s\n' "${HOME/#$HOME/"~"}/$1/$FILE" "${PWD/#$HOME/"~"}/$FILE"
-            exit_on_fail ln -sf "$PWD/$FILE" "$HOME/$1/$FILE"
-        fi
-    done
-
-    cd "$(dirs -l -0)" && dirs -c
+ask() {
+    printf '%s\n' "Symlink dotfiles?: Press Enter to continue or Ctrl+C to abort."
+    read -r _
 }
 
-setup_dotfiles() {
-    printf 'Setting up dotfiles...\n'
-
-    folders=(
-        ".config/fontconfig"
-        ".config/nvim"
-        ".newsboat"
-        "tilde"
-    )
-
-    shopt -s dotglob
-
-    for folder in "${folders[@]}"; do
-        if [[ "$folder" == "tilde" ]]; then
-            symlink_tilde_files
-        else
-            if [[ ! -d "$HOME/$folder" ]]; then
-              printf 'Directory "%s" does not exist.' "$folder"
-              printf 'Creating dir "%s"' "$folder"
-              exit_on_fail mkdir -p "$HOME/$folder"
-            fi
-
-            symlink_files "$folder"
-        fi
-    done
-
-    shopt -u dotglob
-
-    printf 'Done.\n'
+main() {
+    ask
+    sym
 }
 
-setup_dotfiles
+main
