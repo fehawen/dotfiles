@@ -17,20 +17,6 @@ export HISTFILESIZE=10000
 export HISTFILE=~/.sh_history
 export TODO_PATH=~/github/todo
 
-appendpath() {
-    case ":$PATH:" in
-        *:"$1":*) ;;
-        *) PATH="${PATH:+$PATH:}$1" ;;
-    esac
-}
-
-appendpath "$HOME/bin"
-appendpath "$HOME/.yarn/bin"
-appendpath "$HOME/.npm-global/bin"
-appendpath "$HOME/.dotnet/tools"
-
-unset -f appendpath
-
 alias d="pwd"
 alias l="ls -AF --color=always"
 alias la="ls -AF1 --color=always"
