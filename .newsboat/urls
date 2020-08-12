@@ -1,3 +1,5 @@
+https://brndn.io/posts/index.xml "~BLOGS: brndn mtthws"
+
 https://www.archlinux.org/feeds/packages/added/ "~ARCH: Packages Added"
 https://www.archlinux.org/feeds/packages/removed/ "~ARCH: Packages Removed"
 https://aur.archlinux.org/rss/ "~ARCH: Packages Added (AUR)"
@@ -15,7 +17,6 @@ https://opensource.com/feed "~NEWSFEED: Opensource.com"
 https://betanews.com/feed/ "~NEWSFEED: Beta News"
 http://feeds.feedburner.com/fossbytes "~NEWSFEED: FossBytes"
 https://www.techrepublic.com/rssfeeds/topic/open-source/ "~NEWSFEED: Tech Republic (Open Source)"
-https://www.theinquirer.net/feeds/rss/tag/open-source "~NEWSFEED: The Inquirer (Open Source)"
 http://feeds.arstechnica.com/arstechnica/open-source "~NEWSFEED: ArsTechnica (Open Source)"
 https://www.linuxinsider.com/perl/syndication/rssfull.pl "~NEWSFEED: Linux Insider"
 https://hackaday.com/blog/feed/ "~NEWSFEED: Hackaday"

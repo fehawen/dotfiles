@@ -1,19 +1,5 @@
 #!/usr/bin/env bash
 
-PROGNAME=$(basename "$0")
-
-exit_on_fail() {
-    "$@" &> /dev/null
-    code=$?
-    if [[ $code -ne 0 ]]; then
-      printf 'Error: command [%s] failed with error code %s\nfile: %s\nline: %s\n' \
-          "$*" \
-          "$code" \
-          "$PROGNAME" \
-          "$LINENO" 1>&2
-    fi
-}
-
 symlink_tilde_files() {
     tildes=(
         ".asoundrc"
@@ -24,11 +10,10 @@ symlink_tilde_files() {
         ".Xresources"
     )
 
-    exit_on_fail pushd "$PWD/tilde"
+    cd tilde || exit 1
 
-    for FILE in "${tildes[@]}"; do
-        printf 'Symlinking %s -> %s\n' "${HOME/#$HOME/"~"}/$FILE" "${PWD/#$HOME/"~"}/$FILE"
-        exit_on_fail ln -sf "$PWD/$FILE" "$HOME/$FILE"
+    for file in "${tildes[@]}"; do
+        ln -sfv "$PWD/$file" "$HOME/$file"
     done
 
     cd "$(dirs -l -0)" && dirs -c

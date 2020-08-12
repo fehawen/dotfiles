@@ -4,9 +4,9 @@
 
 export EDITOR="vim"
 export VISUAL="vim"
-export TERMINAL="st"
+export TERMINAL="xterm"
 export BROWSER="chromium"
-export LC_ALL=en_US.UTF-8
+export LC_ALL=C
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export FFF_CD_ON_EXIT=1
 export FFF_HIDDEN=1

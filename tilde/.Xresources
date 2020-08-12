@@ -1,3 +1,5 @@
+! vim:ft=xdefaults:
+
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
@@ -5,43 +7,40 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-! font
-*font: xft:SF Mono:pixelsize=22
+XTerm.VT100.termName: xterm-256color
+XTerm.VT100.internalBorder: 140
+XTerm.VT100.geometry: 52x12
+XTerm.VT100.scaleHeight: 1.0
+XTerm.VT100.cursorBlink: false
+XTerm.VT100.scrollBar: false
+XTerm.VT100.selectToClipboard: true
+XTerm.VT100.utf8: true
+XTerm.VT100.renderFont: true
+XTerm.VT100.metaSendsEscape: true
+XTerm.VT100.faceName: xft:SF Mono:pixelsize=35:antialias=true
+XTerm.VT100.faceNameDoublesize: xft:SF Mono:pixelsize=35:antialias=true
+XTerm.VT100.wideChars: true
+XTerm.VT100.wideFont: xft:SF Mono:pixelsize=35:antialias=true
 
-! colors
+! XTerm.VT100.translations: #override\nShift Ctrl <KeyPress> v:insert-selection(CLIPBOARD)\nShift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
 *background: #232323
 *foreground: #FCFCFC
 *cursorColor: #FCFCFC
 
-! black
 *color0:  #232323
-*color8:  #808080
-
-! red
 *color1:  #C7AA9C
-*color9:  #C7AA9C
-
-! green
 *color2:  #C7B9AC
-*color10: #C7B9AC
-
-! yellow
 *color3:  #D4BAAD
-*color11: #D4BAAD
-
-! blue
 *color4:  #C6BABA
-*color12: #C6BABA
-
-! magenta
 *color5:  #D4BCBC
-*color13: #D4BCBC
-
-! cyan
 *color6:  #B9B9B9
-*color14: #B9B9B9
-
-! white
 *color7:  #FCFCFC
+*color8:  #808080
+*color9:  #C7AA9C
+*color10: #C7B9AC
+*color11: #D4BAAD
+*color12: #C6BABA
+*color13: #D4BCBC
+*color14: #B9B9B9
 *color15: #FCFCFC
