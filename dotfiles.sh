@@ -15,13 +15,6 @@ sym() {
         esac
     done
 
-    conf="fonts.conf"
-    confdir=".config/fontconfig"
-
-    mkdir -pv "$HOME/$confdir"
-
-    (cd "$confdir" || exit 1; ln -sfv "$PWD/$conf" "$HOME/$confdir/$conf")
-
     printf '\nDone.\n'
 }
 
