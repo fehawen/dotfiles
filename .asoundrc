@@ -1,3 +1,7 @@
+#
+# .asoundrc
+#
+
 pcm.pulse {
     type pulse
 }
