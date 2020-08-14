@@ -19,7 +19,7 @@ xterm*selectToClipboard: true
 xterm*trimSelection: true
 xterm*renderFont: true
 xterm*wideChars: true
-xterm*visualBell:  false
+xterm*visualBell: false
 
 xterm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD) \n\
