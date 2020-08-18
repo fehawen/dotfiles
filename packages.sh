@@ -11,6 +11,7 @@ install_packages() {
         "xorg-xbacklight"
         "xf86-video-intel"
         "xf86-input-libinput"
+        "gnu-free-fonts"
         "mesa"
         "man-db"
         "man-pages"
