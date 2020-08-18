@@ -45,6 +45,6 @@ f() {
     cd "$(cat "${HOME}/.cache/fff/.fff_d")" || return
 }
 
-export PS1="-> "
+export PS1="▶ "
 
 rpg reload
