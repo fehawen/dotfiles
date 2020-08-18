@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+#
+# .bash_profile
+#
+
 # shellcheck disable=SC1090
 [[ -f ~/.shrc ]] && source ~/.shrc
 
