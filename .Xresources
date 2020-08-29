@@ -29,23 +29,23 @@ xterm*faceName: xft:SF Mono:pixelsize=35:antialias=true
 xterm*faceNameDoublesize: xft:SF Mono:pixelsize=35:antialias=true
 xterm*wideFont: xft:SF Mono:pixelsize=35:antialias=true
 
-*background: #232323
-*foreground: #FCFCFC
-*cursorColor: #FCFCFC
+*background: #11192c
+*foreground: #eeeeee
+*cursorColor: #eeeeee
 
-*color0:  #232323
-*color1:  #C7AA9C
-*color2:  #C7B9AC
-*color3:  #D4BAAD
-*color4:  #C6BABA
-*color5:  #D4BCBC
-*color6:  #B9B9B9
-*color7:  #FCFCFC
-*color8:  #808080
-*color9:  #C7AA9C
-*color10: #C7B9AC
-*color11: #D4BAAD
-*color12: #C6BABA
-*color13: #D4BCBC
-*color14: #B9B9B9
-*color15: #FCFCFC
+*color0:  #11192c
+*color1:  #ca2231
+*color2:  #22ca7d
+*color3:  #ca7022
+*color4:  #227cca
+*color5:  #c722ca
+*color6:  #22c2ca
+*color7:  #eeeeee
+*color8:  #939393
+*color9:  #ca2231
+*color10: #22ca7d
+*color11: #ca7022
+*color12: #227cca
+*color13: #c722ca
+*color14: #22c2ca
+*color15: #eeeeee
