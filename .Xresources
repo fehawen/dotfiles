@@ -34,18 +34,25 @@ xterm*wideFont: xft:SF Mono:pixelsize=35:antialias=true
 *cursorColor: #eeeeee
 
 *color0:  #11192c
-*color1:  #ca2231
-*color2:  #22ca7d
-*color3:  #ca7022
-*color4:  #227cca
-*color5:  #c722ca
-*color6:  #22c2ca
-*color7:  #eeeeee
 *color8:  #939393
+
+*color1:  #ca2231
 *color9:  #ca2231
+
+*color2:  #22ca7d
 *color10: #22ca7d
+
+*color3:  #ca7022
 *color11: #ca7022
+
+*color4:  #227cca
 *color12: #227cca
+
+*color5:  #c722ca
 *color13: #c722ca
+
+*color6:  #22c2ca
 *color14: #22c2ca
+
+*color7:  #eeeeee
 *color15: #eeeeee
