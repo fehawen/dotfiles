@@ -11,6 +11,7 @@ xterm*termName: xterm-256color
 xterm*scaleHeight: 1.0
 xterm*geometry: 52x12
 xterm*internalBorder: 140
+xterm*borderWidth: 0
 
 xterm*utf8: true
 xterm*scrollBar: false
