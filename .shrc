@@ -47,5 +47,3 @@ f() {
 }
 
 export PS1="▶ "
-
-rpg r
