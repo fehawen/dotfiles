@@ -17,6 +17,7 @@ export CPR_LIB=~/github/cpr
 export HISTFILESIZE=10000
 export HISTFILE=~/.sh_history
 export TODO_PATH=~/github/todo
+export WPP_LIB=~/pictures/hokusai
 
 alias d="pwd"
 alias l="ls -AF --color=always"
