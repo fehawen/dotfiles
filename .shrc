@@ -37,13 +37,4 @@ alias doc="cd ~/documents/"
 alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
 
-gt() {
-    cd "$(git rev-parse --show-toplevel 2> /dev/null)" || return
-}
-
-f() {
-    fff "$@"
-    cd "$(cat "${HOME}/.cache/fff/.fff_d")" || return
-}
-
 export PS1="▶ "
