@@ -37,8 +37,8 @@ xterm*wideFont: xft:SF Mono:pixelsize=35:antialias=true
 *color0:  #022527
 *color8:  #033f40
 
-*color1:  #fb2900
-*color9:  #fb2900
+*color1:  #fb1200
+*color9:  #fb1200
 
 *color2:  #195e5f
 *color10: #195e5f
