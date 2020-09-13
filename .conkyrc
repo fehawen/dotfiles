@@ -1,0 +1,40 @@
+conky.config = {
+    alignment = 'top_middle',
+    background = true,
+    default_color = '285455',
+    color1 = 'fb1200',
+    cpu_avg_samples = 2,
+    diskio_avg_samples = 2,
+    double_buffer = true,
+    font = 'SF Mono:size=26:style=medium',
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    draw_graph_borders = false,
+    border_inner_margin = 0,
+    border_outer_margin = 0,
+    border_width = 0,
+    stippled_borders = 0,
+    pad_percents = 0,
+    gap_x = 0,
+    gap_y = 30,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = false,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    update_interval = 10,
+    use_xft = true,
+    uppercase = false,
+}
+
+conky.text = [[
+${color}${time %H:%M} \
+${color1}• \
+${color}${wireless_essid wlp2s0} \
+${color1}• \
+${color}${battery_percent}%
+]];
