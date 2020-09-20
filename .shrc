@@ -19,7 +19,6 @@ export HISTFILE=~/.sh_history
 export TODO_PATH=~/github/todo
 export WPP_LIB=~/pictures/hokusai
 
-alias d="pwd"
 alias l="ls -AF --color=always"
 alias la="ls -AF1 --color=always"
 alias las="stat -c '%A %a %n' *"
@@ -38,3 +37,5 @@ alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
 
 export PS1="▶ "
+
+rpg r
