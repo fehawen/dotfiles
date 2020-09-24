@@ -6,19 +6,3 @@
 </h1>
 
 > “Oh, beauty is a beguiling call to death and I'm addicted to the sweet pitch of its siren. That that starts sweet ends bitter, and that which starts bitter ends sweet.”
-
-## Setup
-
-1. Clone
-
-```bash
-git clone https://github.com/fehawen/dotfiles
-```
-
-2. Shoot
-
-```bash
-cd dotfiles && make
-```
-
-3. Easy now...
