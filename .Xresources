@@ -26,9 +26,9 @@ xterm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD) \n\
     Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
-xterm*faceName: xft:Roboto Mono:pixelsize=35:antialias=true
-xterm*faceNameDoublesize: xft:Roboto Mono:pixelsize=35:antialias=true
-xterm*wideFont: xft:Roboto Mono:pixelsize=35:antialias=true
+xterm*faceName: xft:Roboto Mono:pixelsize=36:antialias=true
+xterm*faceNameDoublesize: xft:Roboto Mono:pixelsize=36:antialias=true
+xterm*wideFont: xft:Roboto Mono:pixelsize=36:antialias=true
 
 *background: #022527
 *foreground: #8cbeb8
