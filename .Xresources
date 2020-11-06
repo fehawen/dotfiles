@@ -10,7 +10,7 @@ Xft.rgba: rgb
 xterm*termName: xterm-256color
 xterm*scaleHeight: 1.0
 xterm*geometry: 52x12
-xterm*internalBorder: 140
+xterm*internalBorder: 120
 xterm*borderWidth: 0
 
 xterm*utf8: true
@@ -26,34 +26,34 @@ xterm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD) \n\
     Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
-xterm*faceName: xft:Roboto Mono:pixelsize=36:antialias=true
-xterm*faceNameDoublesize: xft:Roboto Mono:pixelsize=36:antialias=true
-xterm*wideFont: xft:Roboto Mono:pixelsize=36:antialias=true
+xterm*faceName: xft:Roboto Mono:pixelsize=34:antialias=true
+xterm*faceNameDoublesize: xft:Roboto Mono:pixelsize=34:antialias=true
+xterm*wideFont: xft:Roboto Mono:pixelsize=34:antialias=true
 
-*background: #022527
-*foreground: #8cbeb8
-*cursorColor: #8cbeb8
+*background: #1c1f27
+*foreground: #e8e8e8
+*cursorColor: #e8e8e8
 
-*color0:  #022527
-*color8:  #033f40
+*color0:  #1c1f27
+*color8:  #6e717b
 
-*color1:  #ea3e20
-*color9:  #ea3e20
+*color1:  #ed858a
+*color9:  #ed858a
 
-*color2:  #195e5f
-*color10: #195e5f
+*color2:  #85edb3
+*color10: #85edb3
 
-*color3:  #145e5f
-*color11: #145e5f
+*color3:  #eda685
+*color11: #eda685
 
-*color4:  #285455
-*color12: #285455
+*color4:  #85b8ed
+*color12: #85b8ed
 
-*color5:  #257a7a
-*color13: #257a7a
+*color5:  #ca85ed
+*color13: #ca85ed
 
-*color6:  #5a918b
-*color14: #5a918b
+*color6:  #85e8ed
+*color14: #85e8ed
 
-*color7:  #8cbeb8
-*color15: #8cbeb8
+*color7:  #e8e8e8
+*color15: #e8e8e8
