@@ -30,30 +30,30 @@ xterm*faceName: xft:Roboto Mono:pixelsize=34:antialias=true
 xterm*faceNameDoublesize: xft:Roboto Mono:pixelsize=34:antialias=true
 xterm*wideFont: xft:Roboto Mono:pixelsize=34:antialias=true
 
-*background: #1c1f27
-*foreground: #e8e8e8
-*cursorColor: #e8e8e8
+*background: #1e282c
+*foreground: #b2bebf
+*cursorColor: #b2bebf
 
-*color0:  #1c1f27
-*color8:  #6e717b
+*color0:  #1e282c
+*color8:  #566166
 
-*color1:  #ed858a
-*color9:  #ed858a
+*color1:  #b56666
+*color9:  #b56666
 
-*color2:  #85edb3
-*color10: #85edb3
+*color2:  #779687
+*color10: #779687
 
-*color3:  #eda685
-*color11: #eda685
+*color3:  #b98675
+*color11: #b98675
 
-*color4:  #85b8ed
-*color12: #85b8ed
+*color4:  #5e828f
+*color12: #5e828f
 
-*color5:  #ca85ed
-*color13: #ca85ed
+*color5:  #b48291
+*color13: #b48291
 
-*color6:  #85e8ed
-*color14: #85e8ed
+*color6:  #7ab1b3
+*color14: #7ab1b3
 
-*color7:  #e8e8e8
-*color15: #e8e8e8
+*color7:  #b2bebf
+*color15: #b2bebf
