@@ -43,5 +43,3 @@ alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
 
 export PS1="-> "
-
-rpg r
