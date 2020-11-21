@@ -8,7 +8,7 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 xterm*termName: xterm-256color
-xterm*scaleHeight: 1.0
+xterm*scaleHeight: 1.1
 xterm*geometry: 52x12
 xterm*internalBorder: 120
 xterm*borderWidth: 0
@@ -26,9 +26,9 @@ xterm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD) \n\
     Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
-xterm*faceName: xft:Roboto Mono:pixelsize=34:antialias=true
-xterm*faceNameDoublesize: xft:Roboto Mono:pixelsize=34:antialias=true
-xterm*wideFont: xft:Roboto Mono:pixelsize=34:antialias=true
+xterm*faceName: xft:JetBrains Mono:pixelsize=34:antialias=true
+xterm*faceNameDoublesize: xft:JetBrains Mono:pixelsize=34:antialias=true
+xterm*wideFont: xft:JetBrains Mono:pixelsize=34:antialias=true
 
 *background: #1e282c
 *foreground: #b2bebf
