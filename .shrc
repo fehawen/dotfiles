@@ -19,9 +19,10 @@ export HISTFILESIZE=10000
 export HISTFILE=~/.sh_history
 export TODO_PATH=~/github/todo
 export WPP_LIB=~/pictures/life
+export PAP_DIR=~/github/pap/palettes
 export BKM_DIR=~/.bookmarks
 
-DRT_PATH=~/github/bin:~/github/cpr:~/github/rpg:~/github/bkm
+DRT_PATH=~/github/bin:~/github/cpr:~/github/rpg:~/github/bkm:~/github/pap
 DRT_PATH=~/dotfiles:~/.vim/plugged/cs.vim:~/.vim/plugged/sl.vim:$DRT_PATH
 export DRT_PATH
 
@@ -44,4 +45,4 @@ alias pks="cd ~/packages/"
 
 export PS1="-> "
 
-rpg r
+pap reload
