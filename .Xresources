@@ -26,34 +26,36 @@ xterm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD) \n\
     Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
-xterm*faceName:monospace:pixelsize=34:antialias=true
-xterm*faceNameDoublesize:monospace:pixelsize=34:antialias=true
-xterm*wideFont:monospace:pixelsize=34:antialias=true
+xterm*faceName:monospace:pixelsize=32:antialias=true
+xterm*faceNameDoublesize:monospace:pixelsize=32:antialias=true
+xterm*wideFont:monospace:pixelsize=32:antialias=true
 
-*background: #1e282c
-*foreground: #b2bebf
-*cursorColor: #b2bebf
+*background: #1A2026
+*foreground: #F4F5F2
+*cursorColor: #F4F5F2
 
-*color0:  #1e282c
-*color8:  #566166
+*color0: #1A2026
+*color8: #526170
+!*color0: #242D35
+!*color8: #526170
 
-*color1:  #b56666
-*color9:  #b56666
+*color1: #FB6396
+*color9: #FB6396
 
-*color2:  #779687
-*color10: #779687
+*color2: #94CF95
+*color10: #94CF95
 
-*color3:  #b98675
-*color11: #b98675
+*color3: #F692B2
+*color11: #F692B2
 
-*color4:  #5e828f
-*color12: #5e828f
+*color4: #6EC1D6
+*color12: #6EC1D6
 
-*color5:  #b48291
-*color13: #b48291
+*color5: #CD84C8
+*color13: #CD84C8
 
-*color6:  #7ab1b3
-*color14: #7ab1b3
+*color6: #7FE4D2
+*color14: #7FE4D2
 
-*color7:  #b2bebf
-*color15: #b2bebf
+*color7: #F4F5F2
+*color15: #F4F5F2
