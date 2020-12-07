@@ -36,8 +36,6 @@ xterm*wideFont:monospace:pixelsize=32:antialias=true
 
 *color0: #1A2026
 *color8: #526170
-!*color0: #242D35
-!*color8: #526170
 
 *color1: #FB6396
 *color9: #FB6396
