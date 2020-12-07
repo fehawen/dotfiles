@@ -14,7 +14,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export FFF_CD_ON_EXIT=1
 export FFF_HIDDEN=1
 export CPR_LIB=~/github/cpr
-export BUD_LIB=~/pictures/oldwalls
+export BUD_LIB=~/pictures/walls
 export HISTFILESIZE=10000
 export HISTFILE=~/.sh_history
 export TODO_PATH=~/github/todo
@@ -44,5 +44,3 @@ alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
 
 export PS1="-> "
-
-pap reload
