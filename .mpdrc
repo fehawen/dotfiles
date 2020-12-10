@@ -1,0 +1,24 @@
+db_file "~/.mpd/database"
+log_file "syslog"
+music_directory "~/media/music"
+auto_update "yes"
+playlist_directory "~/.mpd/playlists"
+pid_file "~/.mpd/pid"
+state_file "~/.mpd/state"
+state_file_interval "1"
+sticker_file "~/.mpd/sticker.sql"
+
+audio_output {
+    type "pulse"
+    name "pulse audio"
+}
+
+audio_output {
+    type "fifo"
+    name "my_fifo"
+    path "/tmp/mpd.fifo"
+    format "44100:16:2"
+}
+
+bind_to_address "127.0.0.1"
+port "6600"
