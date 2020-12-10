@@ -15,6 +15,10 @@ sym() {
         esac
     done
 
+    [ -d "$HOME/.mpd/playlists" ] || mkdir -p "$HOME/.mpd/playlists"
+
+    [ -d "$HOME/.ncmpcpp" ] || mkdir -p "$HOME/.ncmpcpp"
+
     printf '\nDone.\n'
 }
 
