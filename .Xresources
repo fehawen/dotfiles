@@ -30,30 +30,31 @@ xterm*faceName:monospace:pixelsize=32:antialias=true
 xterm*faceNameDoublesize:monospace:pixelsize=32:antialias=true
 xterm*wideFont:monospace:pixelsize=32:antialias=true
 
-*background: #1A2026
-*foreground: #F4F5F2
-*cursorColor: #F4F5F2
+*foreground: #b2bebf
+*background: #1e282c
 
-*color0: #1A2026
-*color8: #526170
+*cursor: #b2bebf
 
-*color1: #FB6396
-*color9: #FB6396
+*color0: #1e282c
+*color8: #566166
 
-*color2: #94CF95
-*color10: #94CF95
+*color1: #b56666
+*color9: #b56666
 
-*color3: #F692B2
-*color11: #F692B2
+*color2: #779687
+*color10: #779687
 
-*color4: #6EC1D6
-*color12: #6EC1D6
+*color3: #b98675
+*color11: #b98675
 
-*color5: #CD84C8
-*color13: #CD84C8
+*color4: #5e828f
+*color12: #5e828f
 
-*color6: #7FE4D2
-*color14: #7FE4D2
+*color5: #b48291
+*color13: #b48291
 
-*color7: #F4F5F2
-*color15: #F4F5F2
+*color6: #7ab1b3
+*color14: #7ab1b3
+
+*color7: #b2bebf
+*color15: #b2bebf
