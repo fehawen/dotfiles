@@ -13,14 +13,15 @@ export FONTCONFIG_FILE=~/.fonts.conf
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export FFF_CD_ON_EXIT=1
 export FFF_HIDDEN=1
-export CPR_LIB=~/github/cpr
-export BUD_LIB=~/pictures/walls
 export HISTFILESIZE=10000
 export HISTFILE=~/.sh_history
 export TODO_PATH=~/github/todo
+export BUD_LIB=~/pictures/walls
+export BKM_DIR=~/.bookmarks
 export WPP_LIB=~/pictures/life
 export PAP_DIR=~/github/pap/palettes
-export BKM_DIR=~/.bookmarks
+export CPR_LIB=~/github/cpr
+export COLOR_CACHE=~/.cache/colors
 
 DRT_PATH=~/github/bin:~/github/cpr:~/github/rpg:~/github/bkm:~/github/pap
 DRT_PATH=~/dotfiles:~/.vim/plugged/cs.vim:~/.vim/plugged/sl.vim:$DRT_PATH
@@ -45,4 +46,4 @@ alias pks="cd ~/packages/"
 
 export PS1="-> "
 
-rpg r
+[ -f "${COLOR_CACHE}/sequences" ] && cat "${COLOR_CACHE}/sequences"
