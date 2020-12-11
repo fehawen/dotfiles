@@ -5,7 +5,6 @@ auto_update "yes"
 playlist_directory "~/.mpd/playlists"
 pid_file "~/.mpd/pid"
 state_file "~/.mpd/state"
-state_file_interval "1"
 sticker_file "~/.mpd/sticker.sql"
 
 audio_output {
