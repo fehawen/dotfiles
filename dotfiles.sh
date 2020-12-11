@@ -9,8 +9,6 @@ sym() {
         case $file in
             .) ;;
             ..) ;;
-            .git) ;;
-            .gitignore) ;;
             *) [ -f "$file" ] && ln -sfv "$PWD/$file" "$HOME/$file" ;;
         esac
     done
