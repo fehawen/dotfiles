@@ -1,17 +1,43 @@
-ncmpcpp_directory = ~/.ncmpcpp
-mpd_host = 127.0.0.1
-mpd_port = 6600
-mpd_connection_timeout = 5
-mpd_music_dir = ~/media/music
-mpd_crossfade_time = 5
+ncmpcpp_directory = "~/.ncmpcpp"
 
-visualizer_fifo_path = /tmp/mpd.fifo
-visualizer_output_name = Visualizer feed
-visualizer_in_stereo = yes
-visualizer_sync_interval = 30
-visualizer_type = spectrum
-visualizer_look = +❙
-visualizer_color = white, green, blue, cyan, magenta, yellow, red
+mpd_host = "localhost"
+mpd_port = "6600"
+mpd_connection_timeout = "5"
+mpd_music_dir = "~/media/music"
+mpd_crossfade_time = "5"
 
-playlist_disable_highlight_delay = 5
-message_delay_time = 5
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "Visualizer"
+visualizer_in_stereo = "yes"
+visualizer_sync_interval = "30"
+visualizer_type = "spectrum"
+visualizer_look = "+❙"
+visualizer_color = "white, green, blue, cyan, magenta, yellow, red"
+
+header_visibility = "no"
+header_window_color = "default"
+playlist_shorten_total_times = "yes"
+volume_color = "default"
+state_line_color = "black"
+
+playlist_display_mode = "classic"
+song_list_format = "{{%a - %t}|{%f}}{$R%l}"
+now_playing_prefix = "$b$5"
+now_playing_suffix = "$/b$9"
+
+progressbar_look = "❙❙❙"
+progressbar_color = "black"
+statusbar_visibility = "no"
+statusbar_color = "default"
+song_status_format = "{{%a{ - %t}}}"
+
+song_library_format = "{{%a - %t}|{%f}}{$R%l}"
+media_library_primary_tag = album_artist
+empty_tag_color = "black"
+
+colors_enabled = "yes"
+main_window_color = "default"
+centered_cursor = "yes"
+enable_window_title = "yes"
+external_editor = "vim"
+follow_now_playing_lyrics = yes
