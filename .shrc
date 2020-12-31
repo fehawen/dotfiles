@@ -27,6 +27,10 @@ DRT_PATH=~/github/bin:~/github/cpr:~/github/rpg:~/github/bkm:~/github/pap
 DRT_PATH=~/dotfiles:~/.vim/plugged/cs.vim:~/.vim/plugged/sl.vim:$DRT_PATH
 export DRT_PATH
 
+BUP_PATH=~/github:~/documents:~/projects:~/dotfiles:~/pictures:~/Downloads
+BUP_PATH=~/media:~/fiddles:~/bin:~/packages:~/qmk_firmware:$BUP_PATH
+export BUP_PATH
+
 alias l="ls -AF --color=always"
 alias la="ls -AF1 --color=always"
 alias las="stat -c '%A %a %n' *"
@@ -45,5 +49,3 @@ alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
 
 export PS1="-> "
-
-[ -f "${COLOR_CACHE}/sequences" ] && cat "${COLOR_CACHE}/sequences"
