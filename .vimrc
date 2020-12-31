@@ -96,8 +96,8 @@ set nonumber
 " Prevent cursor to jump around too much on scroll
 set lazyredraw
 
-" Disable cursor line and cursor column
-set nocursorline
+" Enable cursor line and disable cursor column
+set cursorline
 set nocursorcolumn
 
 " Sets unix as standard filetype
