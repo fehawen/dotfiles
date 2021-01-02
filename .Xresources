@@ -30,24 +30,22 @@ xterm*faceName:monospace:pixelsize=32:antialias=true
 xterm*faceNameDoublesize:monospace:pixelsize=32:antialias=true
 xterm*wideFont:monospace:pixelsize=32:antialias=true
 
-*background:  #eeefef
-*foreground:  #77665f
-*cursorColor: #624e43
-
-*color0:      #e6e7e7
-*color1:      #8a7e78
-*color2:      #72866d
-*color3:      #c3883c
-*color4:      #6b7e85
-*color5:      #8b768e
-*color6:      #7f9592
-*color7:      #624e43
-*color8:      #abacac
-*color9:      #a78d81
-*color10:     #909f8d
-*color11:     #cd995a
-*color12:     #919ea4
-*color13:     #a899ab
-*color14:     #91a3a2
-*color15:     #77665f
-
+*background:   #192d36
+*foreground:   #a3ebf5
+*cursorColor:  #a3ebf5
+*color0:       #20343e
+*color1:       #ff9726
+*color2:       #26e4ff
+*color3:       #ff9726
+*color4:       #26e4ff
+*color5:       #ff9726
+*color6:       #26e4ff
+*color7:       #a3ebf5
+*color8:       #497284
+*color9:       #ff9726
+*color10:      #26e4ff
+*color11:      #ff9726
+*color12:      #26e4ff
+*color13:      #ff9726
+*color14:      #26e4ff
+*color15:      #a3ebf5
