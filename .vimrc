@@ -28,6 +28,7 @@ Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'rust-lang/rust.vim'
+Plug 'fehawen/vim-es6-unused-imports'
 Plug 'fehawen/cs.vim'
 Plug 'fehawen/sl.vim'
 
@@ -173,6 +174,16 @@ autocmd VimResized * wincmd =
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
+
+" Check for unused es6 imports
+autocmd BufWinEnter *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
+autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx execute "ES6ImportsHighlight"
+
+" Set es6 unused import colors
+let g:es6_imports_cterm_fg_color="grey"
+let g:es6_imports_cterm_bg_color="black"
+let g:es6_imports_gui_fg_color="grey"
+let g:es6_imports_gui_bg_color="black"
 
 " Open NERDTree if no file specified
 autocmd StdinReadPre * let s:std_in=1
