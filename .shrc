@@ -16,7 +16,7 @@ export FFF_HIDDEN=1
 export HISTFILESIZE=10000
 export HISTFILE=~/.sh_history
 export TODO_PATH=~/github/todo
-export SHW_LIB=~/pictures/wallpapers
+export SHW_LIB=~/pictures/vintage
 export BKM_DIR=~/.bookmarks
 export WPP_LIB=~/pictures/life
 export PAP_DIR=~/github/pap/palettes
@@ -30,6 +30,9 @@ export DRT_PATH
 BUP_PATH=~/github:~/documents:~/projects:~/dotfiles:~/pictures:~/Downloads
 BUP_PATH=~/media:~/fiddles:~/bin:~/packages:~/qmk_firmware:$BUP_PATH
 export BUP_PATH
+
+# shellcheck disable=1090
+[ -f ~/.aliases ] && . ~/.aliases
 
 alias l="ls -AF --color=always"
 alias la="ls -AF1 --color=always"
@@ -49,5 +52,3 @@ alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
 
 export PS1="-> "
-
-rpg reload
