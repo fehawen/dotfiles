@@ -21,7 +21,6 @@ export BKM_DIR=~/.bookmarks
 export WPP_LIB=~/pictures/life
 export PAP_DIR=~/github/pap/palettes
 export CPR_LIB=~/github/cpr
-export COLOR_CACHE=~/.cache/colors
 
 DRT_PATH=~/github/bin:~/github/cpr:~/github/rpg:~/github/bkm:~/github/pap
 DRT_PATH=~/dotfiles:~/.vim/plugged/cs.vim:~/.vim/plugged/sl.vim:$DRT_PATH
