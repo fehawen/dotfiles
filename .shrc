@@ -16,7 +16,7 @@ export FFF_HIDDEN=1
 export HISTFILESIZE=10000
 export HISTFILE=~/.sh_history
 export TODO_PATH=~/github/todo
-export SHW_LIB=~/pictures/vintage
+export SHW_LIB=~/pictures/derek
 export BKM_DIR=~/.bookmarks
 export WPP_LIB=~/pictures/life
 export PAP_DIR=~/github/pap/palettes
@@ -51,3 +51,5 @@ alias pro="cd ~/projects/"
 alias pks="cd ~/packages/"
 
 export PS1="-> "
+
+shw restore
