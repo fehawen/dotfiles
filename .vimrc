@@ -235,6 +235,7 @@ map <C-f> :find<Space>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <silent> <C-h> :ALEHover<CR>
+nmap <silent> <C-d> :ALEGoToDefinition<CR>
 
 " Map Tab in normal mode to clear search highlight
 map <Tab> :noh<CR>
