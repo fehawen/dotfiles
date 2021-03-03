@@ -30,4 +30,4 @@ xterm*faceName:monospace:pixelsize=32:antialias=true
 xterm*faceNameDoublesize:monospace:pixelsize=32:antialias=true
 xterm*wideFont:monospace:pixelsize=32:antialias=true
 
-#include ".cache/shw/colors.Xresources"
+#include ".cache/rpg/colors.Xresources"
