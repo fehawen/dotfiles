@@ -1,33 +1,33 @@
 ! vim:ft=xdefaults:
 
+Xft.dpi: 192
 Xft.autohint: 0
+Xft.hinting: true
+Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-xterm*termName: xterm-256color
-xterm*scaleHeight: 1.1
-xterm*geometry: 52x12
-xterm*internalBorder: 120
-xterm*borderWidth: 0
+XTerm*termName: xterm-256color
+XTerm*scaleHeight: 1.1
+XTerm*geometry: 52x12
+XTerm*internalBorder: 150
+XTerm*borderWidth: 0
 
-xterm*utf8: true
-xterm*scrollBar: false
-xterm*cursorBlink: false
-xterm*selectToClipboard: true
-xterm*trimSelection: true
-xterm*renderFont: true
-xterm*wideChars: true
-xterm*visualBell: false
+XTerm*utf8: true
+XTerm*scrollBar: false
+XTerm*cursorBlink: true
+XTerm*selectToClipboard: true
+XTerm*trimSelection: true
+XTerm*renderFont: true
+XTerm*wideChars: true
+XTerm*visualBell: false
 
-xterm.vt100.translations: #override \n\
+XTerm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD) \n\
     Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
-xterm*faceName:monospace:pixelsize=32:antialias=true
-xterm*faceNameDoublesize:monospace:pixelsize=32:antialias=true
-xterm*wideFont:monospace:pixelsize=32:antialias=true
+*font: xft:monospace:size=13
+XTerm.vt100.faceName: xft:monospace:size=13
 
 #include ".cache/rpg/colors.Xresources"
