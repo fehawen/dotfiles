@@ -28,10 +28,25 @@ BUP_PATH=~/github:~/documents:~/projects:~/dotfiles:~/pictures:~/Downloads
 BUP_PATH=~/media:~/fiddles:~/bin:~/packages:~/qmk_firmware:$BUP_PATH
 export BUP_PATH
 
+LESS_TERMCAP_mb=$(printf '\e[1;32m')
+LESS_TERMCAP_md=$(printf '\e[1;34m')
+LESS_TERMCAP_me=$(printf '\e[0m')
+LESS_TERMCAP_se=$(printf '\e[0m')
+LESS_TERMCAP_so=$(printf '\e[41;30m')
+LESS_TERMCAP_ue=$(printf '\e[0m')
+LESS_TERMCAP_us=$(printf '\e[1;35m')
+export LESS_TERMCAP_mb
+export LESS_TERMCAP_md
+export LESS_TERMCAP_me
+export LESS_TERMCAP_se
+export LESS_TERMCAP_so
+export LESS_TERMCAP_ue
+export LESS_TERMCAP_us
+
 # shellcheck disable=1090
 [ -f ~/.aliases ] && . ~/.aliases
 
-alias l="ls -AF --color=always"
+alias l="ls -AF1 | less"
 alias la="ls -AF1 --color=always"
 alias las="stat -c '%A %a %n' *"
 alias ll="ls -lAFGh --color=always"
