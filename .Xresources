@@ -9,8 +9,8 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 XTerm*termName: xterm-256color
-XTerm*scaleHeight: 1.1
-XTerm*geometry: 52x12
+XTerm*scaleHeight: 1.2
+XTerm*geometry: 45x9
 XTerm*internalBorder: 150
 XTerm*borderWidth: 0
 
@@ -27,7 +27,8 @@ XTerm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD) \n\
     Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
-*font: xft:monospace:size=13
-XTerm.vt100.faceName: xft:monospace:size=13
+! pixelsize is relative to screen resolution, size is relative to DPI.
+*font: xft:monospace:pixelsize=34
+XTerm.vt100.faceName: xft:monospace:pixelsize=34
 
 #include ".cache/rpg/colors.Xresources"
