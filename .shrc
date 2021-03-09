@@ -46,10 +46,10 @@ export LESS_TERMCAP_us
 # shellcheck disable=1090
 [ -f ~/.aliases ] && . ~/.aliases
 
-alias l="ls -AF1 | less"
 alias la="ls -AF1 --color=always"
+alias al="la | less -R"
+alias ll="ls -lAFGh --color=always | less -R"
 alias las="stat -c '%A %a %n' *"
-alias ll="ls -lAFGh --color=always"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gp="git push"
