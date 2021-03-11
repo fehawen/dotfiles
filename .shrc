@@ -7,7 +7,7 @@
 export EDITOR="vim"
 export VISUAL="vim"
 export TERMINAL="xterm"
-export BROWSER="chromium"
+export BROWSER="firefox"
 export LC_ALL=en_US.UTF-8
 export FONTCONFIG_FILE=~/.fonts.conf
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
