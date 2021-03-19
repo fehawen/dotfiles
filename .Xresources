@@ -31,4 +31,60 @@ XTerm.vt100.translations: #override \n\
 *font: xft:monospace:pixelsize=34
 XTerm.vt100.faceName: xft:monospace:pixelsize=34
 
-#include ".cache/rpg/colors.Xresources"
+*foreground: #d4d4d4
+*background: #282828
+
+*.foreground: #d4d4d4
+*.background: #282828
+
+*cursorColor: #d4d4d4
+
+*.cursorColor: #d4d4d4
+
+*color0: #282828
+*color1: #ff756b
+
+*.color0: #282828
+*.color1: #ff756b
+
+*color2: #72ff7b
+*color3: #ffba54
+
+*.color2: #72ff7b
+*.color3: #ffba54
+
+*color4: #50a4ff
+*color5: #d785ff
+
+*.color4: #50a4ff
+*.color5: #d785ff
+
+*color6: #5cc6de
+*color7: #d4d4d4
+
+*.color6: #5cc6de
+*.color7: #d4d4d4
+
+*color8: #4e4e4e
+*color9: #ff756b
+
+*.color8: #4e4e4e
+*.color9: #ff756b
+
+*color10: #72ff7b
+*color11: #ffba54
+
+*.color10: #72ff7b
+*.color11: #ffba54
+
+*color12: #50a4ff
+*color13: #d785ff
+
+*.color12: #50a4ff
+*.color13: #d785ff
+
+*color14: #5cc6de
+*color15: #d4d4d4
+
+*.color14: #5cc6de
+*.color15: #d4d4d4
