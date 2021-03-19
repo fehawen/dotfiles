@@ -7,14 +7,15 @@
 export EDITOR="vim"
 export VISUAL="vim"
 export TERMINAL="xterm"
-export BROWSER="firefox"
+export BROWSER="chromium"
 export LC_ALL=en_US.UTF-8
 export FONTCONFIG_FILE=~/.fonts.conf
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export HISTFILESIZE=10000
 export HISTFILE=~/.sh_history
 export TODO_PATH=~/github/todo
-export SHW_LIB=~/pictures/derek
+export SHW_LIB=~/pictures/chibi
+export GGG_LIB=~/pictures/chibi
 export BKM_DIR=~/.bookmarks
 export WPP_LIB=~/pictures/life
 export PAP_DIR=~/github/pap/palettes
