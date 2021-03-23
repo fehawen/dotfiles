@@ -183,6 +183,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd WinEnter,BufEnter * call matchadd('ColorColumn', '\%81v', 100)
 autocmd WinLeave,BufLeave * call clearmatches()
 
+" Proper intendation for C with 8-width tabs
+autocmd FileType c,cpp setlocal noexpandtab softtabstop=8 shiftwidth=8
+
 "#####################################"
 "###### THEME & PLUGIN SETTINGS ######"
 "#####################################"
@@ -193,7 +196,7 @@ colorscheme cs
 " Set list characters
 set list
 set listchars=
-set listchars+=tab:›\ ,
+set listchars+=tab:│\ ,
 set listchars+=trail:•,
 
 " Set end of buffer and vertsplit to empty
