@@ -31,31 +31,31 @@ XTerm.vt100.translations: #override \n\
 *font: xft:monospace:pixelsize=34
 XTerm.vt100.faceName: xft:monospace:pixelsize=34
 
-*foreground: #d4d4d4
-*background: #282828
+*foreground: #554f42
+*background: #fdf5e5
 
-*cursorColor: #d4d4d4
+*cursorColor: #554f42
 
-*color0: #282828
-*color8: #4e4e4e
+*color0: #fdf5e5
+*color8: #b1aa9b
 
-*color1: #ff756b
-*color9: #ff756b
+*color1: #c54c4c
+*color9: #c54c4c
 
-*color2: #72ff7b
-*color10: #72ff7b
+*color2: #30ab7e
+*color10: #30ab7e
 
-*color3: #ffba54
-*color11: #ffba54
+*color3: #f97857
+*color11: #f97857
 
-*color4: #50a4ff
-*color12: #50a4ff
+*color4: #3072ab
+*color12: #3072ab
 
-*color5: #d785ff
-*color13: #d785ff
+*color5: #c54c79
+*color13: #c54c79
 
-*color6: #5cc6de
-*color14: #5cc6de
+*color6: #5f96ab
+*color14: #5f96ab
 
-*color7: #d4d4d4
-*color15: #d4d4d4
+*color7: #554f42
+*color15: #554f42
