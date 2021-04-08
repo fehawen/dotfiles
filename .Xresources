@@ -11,7 +11,7 @@ Xft.rgba: rgb
 XTerm*termName: xterm-256color
 XTerm*scaleHeight: 1.2
 XTerm*geometry: 45x9
-XTerm*internalBorder: 150
+XTerm*internalBorder: 175
 XTerm*borderWidth: 0
 
 XTerm*utf8: true
@@ -28,34 +28,34 @@ XTerm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
 ! pixelsize is relative to screen resolution, size is relative to DPI.
-*font: xft:monospace:pixelsize=34
-XTerm.vt100.faceName: xft:monospace:pixelsize=34
+*font: xft:monospace:pixelsize=35
+XTerm.vt100.faceName: xft:monospace:pixelsize=35
 
-*foreground: #554f42
-*background: #fdf5e5
+*foreground: #dddddd
+*background: #000000
 
-*cursorColor: #554f42
+*cursorColor: #dddddd
 
-*color0: #fdf5e5
-*color8: #b1aa9b
+*color0: #000000
+*color8: #767676
 
-*color1: #c54c4c
-*color9: #c54c4c
+*color1: #cc0403
+*color9: #f2201f
 
-*color2: #30ab7e
-*color10: #30ab7e
+*color2: #19cb00
+*color10: #23fd00
 
-*color3: #f97857
-*color11: #f97857
+*color3: #cecb00
+*color11: #fffd00
 
-*color4: #3072ab
-*color12: #3072ab
+*color4: #0d73cc
+*color12: #1a8fff
 
-*color5: #c54c79
-*color13: #c54c79
+*color5: #cb1ed1
+*color13: #fd28ff
 
-*color6: #5f96ab
-*color14: #5f96ab
+*color6: #0dcdcd
+*color14: #14ffff
 
-*color7: #554f42
-*color15: #554f42
+*color7: #dddddd
+*color15: #ffffff
