@@ -23,7 +23,7 @@ export CPR_LIB=~/github/cpr
 
 DRT_PATH=~/dotfiles:~/github/bkm:~/github/pap:~/github/nfy
 DRT_PATH=~/github/bin:~/github/cpr:~/github/rpg:$DRT_PATH
-DRT_PATH=~/.vim/plugged/cs.vim:~/.vim/plugged/sl.vim:$DRT_PATH
+DRT_PATH=~/.vim/plugged/sc.vim:~/.vim/plugged/sl.vim:$DRT_PATH
 export DRT_PATH
 
 BUP_PATH=~/github:~/documents:~/projects:~/dotfiles:~/pictures:~/Downloads
