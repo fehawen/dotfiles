@@ -13,22 +13,12 @@ Plug 'fehawen/sl.vim'
 
 call plug#end()
 
-if &term =~ "xterm"
-    if has("terminfo")
-        set t_Co=8
-        set t_Sf=<Esc>[3%p1%dm
-        set t_Sb=<Esc>[4%p1%dm
-    else
-        set t_Co=8
-        set t_Sf=<Esc>[3%dm
-        set t_Sb=<Esc>[4%dm
-    endif
-endif
-
 syntax on
 filetype on
 filetype plugin on
 filetype indent on
+
+colorscheme sc
 
 scriptencoding utf-8
 set encoding=utf-8
@@ -69,14 +59,6 @@ set listchars+=tab:│\ ,
 set listchars+=trail:•,
 set fillchars+=vert:\ ,
 
-au VimResized * wincmd =
-au BufWritePre * %s/\s\+$//e
-au StdinReadPre * let s:std_in=1
-au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-au WinEnter,BufEnter * call matchadd('ColorColumn', '\%81v', 100)
-au WinLeave,BufLeave * call clearmatches()
-au FileType c,cpp setlocal noexpandtab softtabstop=8 shiftwidth=8
-
 let g:ale_sign_info = "•"
 let g:ale_sign_error = "•"
 let g:ale_sign_warning = "•"
@@ -93,6 +75,14 @@ let g:NERDTreeDirArrowExpandable = "•"
 let g:NERDTreeDirArrowCollapsible = "•"
 let g:NERDTreeWinSize = 31
 
+au VimResized * wincmd=
+au BufWritePre * %s/\s\+$//e
+au StdinReadPre * let s:std_in=1
+au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+au WinEnter,BufEnter * call matchadd('ColorColumn', '\%81v', 100)
+au WinLeave,BufLeave * call clearmatches()
+au FileType c,cpp setlocal noexpandtab softtabstop=8 shiftwidth=8
+
 inoremap <expr><S-TAB> pumvisible() ? "\<Esc>" : "\<C-n>"
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :find<Space>
@@ -102,5 +92,3 @@ nmap <silent> <C-h> :ALEHover<CR>
 nmap <silent> <C-d> :ALEGoToDefinition<CR>
 map <Tab> :noh<CR>
 tnoremap <Esc> <C-\><C-n>
-
-colorscheme sc
