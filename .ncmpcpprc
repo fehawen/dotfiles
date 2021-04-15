@@ -26,6 +26,7 @@ now_playing_suffix = "$/b$9"
 
 progressbar_look = "❙❙❙"
 progressbar_color = "black"
+progressbar_elapsed_color = "white"
 statusbar_visibility = "no"
 statusbar_color = "default"
 
