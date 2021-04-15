@@ -36,8 +36,8 @@ XTerm.vt100.faceName: xft:monospace:pixelsize=35
 
 *cursorColor: #24292e
 
-*color0: #f6f8fa
-*color8: #babbbd
+*color0: #f2f2f2
+*color8: #969696
 
 *color1: #d73a49
 *color9: #d73a49
