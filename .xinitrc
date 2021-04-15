@@ -10,7 +10,7 @@ xset +fp ~/.fonts
 xset r rate 200 50
 xrdb ~/.Xresources
 xrandr --dpi 192
-xsetroot -solid "#000000"
+xsetroot -solid "#babbbd"
 setxkbmap -layout se
 
 exec sowm
