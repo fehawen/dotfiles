@@ -8,12 +8,14 @@ Xft.lcdfilter: lcddefault
 Xft.antialias: 1
 Xft.rgba: rgb
 
+Xcursor.size: 50
+Xcursor.theme: default
+
 XTerm*termName: xterm-256color
 XTerm*scaleHeight: 1.2
 XTerm*geometry: 45x9
 XTerm*internalBorder: 175
 XTerm*borderWidth: 0
-
 XTerm*utf8: true
 XTerm*scrollBar: false
 XTerm*cursorBlink: true
