@@ -8,7 +8,7 @@ Xft.lcdfilter: lcddefault
 Xft.antialias: 1
 Xft.rgba: rgb
 
-Xcursor.size: 50
+Xcursor.size: 48
 Xcursor.theme: default
 
 XTerm*termName: xterm-256color
