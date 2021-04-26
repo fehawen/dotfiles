@@ -49,9 +49,12 @@ set nowritebackup
 set noswapfile
 set maxmempattern=20000
 set completeopt-=preview
+set omnifunc=syntaxcomplete#Complete
+
+set path+=**
+set wildmenu
 set wildignore+=**/node_modules/**
 set wildignore+=**/.git/**
-set omnifunc=syntaxcomplete#Complete
 
 set list
 set listchars=
