@@ -2,7 +2,7 @@ conky.config = {
     alignment = 'bottom_right',
     background = true,
     default_color = '#24292e',
-    font = 'SF Mono:pixelsize=35:style=regular',
+    font = 'monospace:pixelsize=35:style=regular',
     draw_shades = false,
     draw_outline = false,
     draw_borders = false,
