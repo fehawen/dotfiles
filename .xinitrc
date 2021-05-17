@@ -13,6 +13,7 @@ xrandr --dpi 192
 xsetroot -solid "#babbbd"
 setxkbmap -layout se
 
+wpp &
 conky -c ~/.conkyrc -d &
 
 exec sowm
