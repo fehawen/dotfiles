@@ -78,6 +78,9 @@ let g:NERDTreeDirArrowExpandable = "•"
 let g:NERDTreeDirArrowCollapsible = "•"
 let g:NERDTreeWinSize = 31
 
+let g:sl_hide_syntax_item = 1
+let g:sl_hide_file_type = 1
+
 au VimResized * wincmd=
 au BufWritePre * %s/\s\+$//e
 au StdinReadPre * let s:std_in=1
