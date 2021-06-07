@@ -13,7 +13,7 @@ Xcursor.theme: default
 
 XTerm*termName: xterm-256color
 XTerm*scaleHeight: 1.2
-XTerm*geometry: 45x9
+XTerm*geometry: 48x10
 XTerm*internalBorder: 175
 XTerm*borderWidth: 0
 XTerm*utf8: true
