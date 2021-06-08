@@ -6,8 +6,8 @@ conky.config = {
     draw_shades = false,
     draw_outline = false,
     draw_borders = false,
-    gap_x = 30,
-    gap_y = 20,
+    gap_x = 15,
+    gap_y = 10,
     out_to_console = false,
     out_to_ncurses = false,
     out_to_stderr = false,
@@ -22,5 +22,8 @@ conky.config = {
 }
 
 conky.text = [[
-${time %H:%M} │ ${time %A %d %B} │ ${wireless_essid wlp2s0} │ ${battery_percent}%
+${time %H:%M} \
+│ ${time %A %d %B} \
+│ ${wireless_essid wlp2s0} \
+│ ${battery_percent}%
 ]];
