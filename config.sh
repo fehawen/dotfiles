@@ -19,7 +19,7 @@ Section "InputClass"
         Option "NaturalScrolling" "true"
         Option "AccelProfile" "linear"
         Option "AccelSpeed" "0.25"
-        Option "DisableWhileTyping" "false"
+        Option "DisableWhileTyping" "true"
         Driver "libinput"
 EndSection
 
