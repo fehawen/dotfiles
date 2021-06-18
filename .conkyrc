@@ -1,8 +1,8 @@
 conky.config = {
     alignment = 'bottom_right',
     background = true,
-    default_color = '#ffffff',
-    font = 'monospace:pixelsize=35:style=regular',
+    default_color = '#24292e',
+    font = 'monospace:pixelsize=35',
     draw_shades = false,
     draw_outline = false,
     draw_borders = false,
@@ -23,7 +23,7 @@ conky.config = {
 
 conky.text = [[
 ${time %H:%M} \
-│ ${time %A %d %B} \
-│ ${wireless_essid wlp2s0} \
-│ ${battery_percent}%
+• ${time %A %d %B} \
+• ${wireless_essid wlp2s0} \
+• ${battery_percent}%
 ]];
