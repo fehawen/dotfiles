@@ -93,6 +93,7 @@ au FileType c,cpp setlocal noexpandtab softtabstop=8 shiftwidth=8
 inoremap <expr><S-TAB> pumvisible() ? "\<Esc>" : "\<C-n>"
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :find<Space>
+map <C-s> :vert ter<CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <silent> <C-h> :ALEHover<CR>
