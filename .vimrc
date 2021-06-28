@@ -18,6 +18,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
+set t_Co=16
 colorscheme sc
 
 scriptencoding utf-8
