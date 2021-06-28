@@ -10,7 +10,7 @@ xset +fp ~/.fonts
 xset r rate 200 50
 xrdb ~/.Xresources
 xrandr --dpi 192
-xsetroot -solid "#ffffff"
+xsetroot -solid "#babbbd"
 setxkbmap -layout se
 
 conky -c ~/.conkyrc -d &
