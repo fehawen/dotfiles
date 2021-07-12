@@ -10,12 +10,9 @@ xset +fp ~/.fonts
 xset r rate 200 50
 xrdb ~/.Xresources
 xrandr --dpi 192
-
-# shellcheck disable=SC1090
-[ -f ~/.cache/rpg/colors.sh ] && . ~/.cache/rpg/colors.sh
-
-xsetroot -solid "${color8:="#777777"}"
-
+xsetroot -solid "#babbbd"
 setxkbmap -layout se
+
+conky -c ~/.conkyrc -d &
 
 exec sowm
