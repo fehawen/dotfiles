@@ -1,6 +1,6 @@
 <h1 align="center">
     <a href="https://github.com/fehawen/dotfiles">
-        <img alt="scrot" src="https://user-images.githubusercontent.com/36552788/94116549-7d839880-fe4b-11ea-8301-d649a1ca6bf4.png" width="960">
+        <img alt="scrot" src="https://user-images.githubusercontent.com/36552788/125330488-22258700-e347-11eb-99b5-7ff7d1bab47d.png" width="960">
     </a>
     <br>
 </h1>
