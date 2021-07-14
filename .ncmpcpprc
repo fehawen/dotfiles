@@ -11,7 +11,7 @@ visualizer_output_name = "Visualizer"
 visualizer_in_stereo = "yes"
 visualizer_type = "ellipse"
 visualizer_look = "●●"
-visualizer_color = "magenta, blue, cyan, yellow, red"
+visualizer_color = "white, white, black, white, red"
 
 header_visibility = "no"
 header_window_color = "default"
