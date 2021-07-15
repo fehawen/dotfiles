@@ -8,11 +8,16 @@ conky.config = {
     draw_shades = false,
     draw_outline = false,
     draw_borders = false,
-    gap_x = 10,
-    gap_y = 10,
+    border_inner_margin = 0,
+    border_outer_margin = 0,
+    border_width = 0,
+    gap_x = 60,
+    gap_y = 20,
     out_to_x = true,
+    own_window = true,
+    own_window_colour = '#08090c',
     own_window_type = 'override',
-    own_window_title = 'conky',
+    own_window_title = 'conky2',
     own_window_class = 'Conky',
     update_interval = 60,
     use_xft = true,
@@ -25,8 +30,8 @@ ${color1}${time %H:%M}${color} \
 ////////// \
 ${color1}${wireless_essid wlp2s0}${color} \
 /////////////////
-${voffset 7}${alignr}//////////////// \
+${voffset 7}${alignr}/////////////// \
 ${color1}${battery_percent}%${color} \
-//////// \
+////////////    \
 
 ]];

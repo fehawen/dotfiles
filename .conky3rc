@@ -1,0 +1,26 @@
+conky.config = {
+    alignment = 'top_left',
+    background = true,
+    default_color = '#30445c',
+    double_buffer = true,
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = true,
+    border_inner_margin = 0,
+    border_outer_margin = 0,
+    border_width = 3,
+    gap_x = 10,
+    gap_y = 10,
+    minimum_width = 1580,
+    minimum_height = 880,
+    out_to_x = true,
+    own_window = false,
+    own_window_type = 'override',
+    own_window_title = 'conky3',
+    own_window_class = 'Conky',
+    update_interval = 3600,
+    use_xft = true,
+    uppercase = false,
+}
+
+conky.text = [[]];

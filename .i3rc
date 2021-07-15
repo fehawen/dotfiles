@@ -9,7 +9,7 @@ font pango:SF Mono 10
 
 gaps inner 20
 gaps outer 0
-gaps top 50
+gaps top 60
 gaps bottom 20
 gaps left 20
 gaps right 20
