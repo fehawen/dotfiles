@@ -19,6 +19,7 @@ export HISTFILE=~/.sh_history
 export TODO_PATH=~/github/todo
 export BKM_DIR=~/.bookmarks
 export WPP_LIB=~/.wallpapers
+export SHEE_IGNORE_DIRS=".git:node_modules"
 
 DRT_PATH=~/dotfiles:~/github/bkm:~/github/pap:~/github/nfy
 DRT_PATH=~/github/bin:~/github/cpr:~/github/rpg:$DRT_PATH
