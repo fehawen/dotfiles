@@ -21,8 +21,8 @@ export BKM_DIR=~/.bookmarks
 export WPP_LIB=~/.wallpapers
 export SHEE_IGNORE_DIRS=".git:node_modules"
 
-DRT_PATH=~/dotfiles:~/github/bkm:~/github/pap:~/github/nfy
-DRT_PATH=~/github/bin:~/github/cpr:~/github/rpg:$DRT_PATH
+DRT_PATH=~/dotfiles:~/github/shee:~/github/bkm:~/github/pap
+DRT_PATH=~/github/bin:~/github/nfy:~/github/cpr:~/github/rpg:$DRT_PATH
 DRT_PATH=~/.vim/plugged/sc.vim:~/.vim/plugged/sl.vim:$DRT_PATH
 export DRT_PATH
 
