@@ -88,7 +88,7 @@ au StdinReadPre * let s:std_in=1
 au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 au WinEnter,BufEnter * call matchadd('ColorColumn', '\%81v', 100)
 au WinLeave,BufLeave * call clearmatches()
-au FileType c,cpp setlocal noexpandtab softtabstop=8 shiftwidth=8
+au FileType c,cpp setlocal noexpandtab softtabstop=4 shiftwidth=4
 
 inoremap <expr><S-TAB> pumvisible() ? "\<Esc>" : "\<C-n>"
 map <C-n> :NERDTreeToggle<CR>
