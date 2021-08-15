@@ -22,7 +22,7 @@ export WPP_LIB=~/.wallpapers
 export SHEE_IGNORE_DIRS=".git:node_modules"
 
 DRT_PATH=~/dotfiles:~/github/shee:~/github/bkm
-DRT_PATH=$DRT_PATH:~/github/bin:~/github/rpg:~/github/vswm
+DRT_PATH=$DRT_PATH:~/github/bin:~/github/rpg
 DRT_PATH=$DRT_PATH:~/.vim/plugged/sc.vim:~/.vim/plugged/sl.vim
 export DRT_PATH
 
