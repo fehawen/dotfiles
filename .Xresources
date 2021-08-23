@@ -33,31 +33,5 @@ XTerm.vt100.translations: #override \n\
 *font: xft:monospace:pixelsize=35
 XTerm.vt100.faceName: xft:monospace:pixelsize=35
 
-*foreground: #24292e
-*background: #ffffff
-
-*cursorColor: #24292e
-
-*color0: #f2f2f2
-*color8: #969696
-
-*color1: #d73a49
-*color9: #d73a49
-
-*color2: #22863a
-*color10: #22863a
-
-*color3: #e36209
-*color11: #e36209
-
-*color4: #032f62
-*color12: #032f62
-
-*color5: #6f42c1
-*color13: #6f42c1
-
-*color6: #005cc5
-*color14: #005cc5
-
-*color7: #24292e
-*color15: #24292e
+! github.com/fehawen/rpg
+#include ".cache/rpg/colors.Xresources"
