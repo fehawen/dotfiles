@@ -33,5 +33,5 @@ XTerm.vt100.translations: #override \n\
 *font: xft:monospace:pixelsize=35
 XTerm.vt100.faceName: xft:monospace:pixelsize=35
 
-! github.com/fehawen/rpg
-#include ".cache/rpg/colors.Xresources"
+! github.com/fehawen/terco
+#include "github/terco/colorschemes/octocat"
