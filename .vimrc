@@ -80,7 +80,7 @@ let g:NERDTreeDirArrowCollapsible = "•"
 let g:NERDTreeWinSize = 31
 
 let g:sc_background_light = 1
-let g:sc_highlight_comments_only = 0
+let g:sc_highlight_comments_only = 1
 let g:sl_hide_syntax_item = 1
 let g:sl_hide_file_type = 1
 
