@@ -1,0 +1,27 @@
+conky.config = {
+    alignment = 'bottom_right',
+    background = true,
+    default_color = '#24292e',
+    double_buffer = true,
+    font = 'monospace:pixelsize=35:style=regular',
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    gap_x = 40,
+    gap_y = 10,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = false,
+    own_window_type = 'override',
+    own_window_transparent = true,
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    update_interval = 60,
+    use_xft = true,
+}
+
+conky.text = [[
+${time %H:%M} │ ${time %A %d %B} │ ${wireless_essid wlp2s0} │ ${battery_percent}%
+]];
