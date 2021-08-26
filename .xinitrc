@@ -11,7 +11,6 @@ xset r rate 200 50
 xrdb ~/.Xresources
 xrandr --dpi 192
 xsetroot -solid "#babbbd"
-conky -c ~/.conkyrc -d &
 setxkbmap -layout se
 
 exec vswm
