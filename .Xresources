@@ -1,4 +1,4 @@
-! vim:ft=xdefaults:
+!\  vim:ft=xdefaults:
 
 Xft.dpi: 192
 Xft.autohint: 0
@@ -12,9 +12,9 @@ Xcursor.size: 42
 Xcursor.theme: default
 
 XTerm*termName: xterm-16color
-XTerm*scaleHeight: 1.2
+XTerm*scaleHeight: 1.25
 XTerm*geometry: 48x10
-XTerm*internalBorder: 175
+XTerm*internalBorder: 170
 XTerm*borderWidth: 0
 XTerm*utf8: true
 XTerm*scrollBar: false
@@ -30,8 +30,8 @@ XTerm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
 ! pixelsize is relative to screen resolution, size is relative to DPI.
-*font: xft:monospace:pixelsize=35
-XTerm.vt100.faceName: xft:monospace:pixelsize=35
+XTerm*faceName: xft:monospace:pixelsize=34
+*font: xft:monospace:pixelsize=34
 
 ! github.com/fehawen/terco
 #include "github/terco/colorschemes/octocat"
