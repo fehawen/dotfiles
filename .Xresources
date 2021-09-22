@@ -12,7 +12,6 @@ Xcursor.size: 42
 Xcursor.theme: default
 
 XTerm*termName: xterm-16color
-XTerm*scaleHeight: 1.25
 XTerm*geometry: 48x10
 XTerm*internalBorder: 170
 XTerm*borderWidth: 0
@@ -31,7 +30,29 @@ XTerm.vt100.translations: #override \n\
 
 ! pixelsize is relative to screen resolution, size is relative to DPI.
 XTerm*faceName: xft:monospace:pixelsize=34
-*font: xft:monospace:pixelsize=34
+URxvt*font: xft:monospace:pixelsize=34
 
-! github.com/fehawen/terco
-#include "github/terco/colorschemes/octocat"
+URxvt*termName: rxvt-unicode
+
+URxvt.internalBorder: 170
+URxvt.geometry: 48x12
+URxvt*loginShell: true
+URxvt*scrollBar: false
+URxvt*scrollBar_right: false
+URxvt*cursorBlink: true
+URxvt*buffered: false
+URxvt*borderless: 1
+URxvt*saveLines: 5000
+
+URxvt.perl-ext-common: default,matcher
+
+URxvt.matcher.button: 1
+URxvt.urlLauncher: xdg-open
+URxvt.url-launcher: xdg-open
+
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+#include ".cache/rpg/colors.Xresources"
