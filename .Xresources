@@ -1,4 +1,4 @@
-!\  vim:ft=xdefaults:
+! vim:ft=xdefaults:
 
 Xft.dpi: 192
 Xft.autohint: 0
@@ -13,7 +13,7 @@ Xcursor.theme: default
 
 XTerm*termName: xterm-16color
 XTerm*geometry: 48x10
-XTerm*internalBorder: 170
+XTerm*internalBorder: 90
 XTerm*borderWidth: 0
 XTerm*utf8: true
 XTerm*scrollBar: false
@@ -29,30 +29,34 @@ XTerm.vt100.translations: #override \n\
     Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
 
 ! pixelsize is relative to screen resolution, size is relative to DPI.
-XTerm*faceName: xft:monospace:pixelsize=34
-URxvt*font: xft:monospace:pixelsize=34
+XTerm*faceName: xft:monospace:pixelsize=30
+*font: xft:monospace:pixelsize=30
 
-URxvt*termName: rxvt-unicode
+*foreground: #9cb9de
+*background: #08090c
 
-URxvt.internalBorder: 170
-URxvt.geometry: 48x12
-URxvt*loginShell: true
-URxvt*scrollBar: false
-URxvt*scrollBar_right: false
-URxvt*cursorBlink: true
-URxvt*buffered: false
-URxvt*borderless: 1
-URxvt*saveLines: 5000
+*cursorColor: #9cb9de
 
-URxvt.perl-ext-common: default,matcher
+*color0: #08090c
+*color8: #30445c
 
-URxvt.matcher.button: 1
-URxvt.urlLauncher: xdg-open
-URxvt.url-launcher: xdg-open
+*color1: #e24358
+*color9: #e24358
 
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-URxvt.iso14755: false
-URxvt.iso14755_52: false
+*color2: #9cb9de
+*color10: #9cb9de
 
-#include ".cache/rpg/colors.Xresources"
+*color3: #e24358
+*color11: #9cb9de
+
+*color4: #607ea0
+*color12: #607ea0
+
+*color5: #e24358
+*color13: #e24358
+
+*color6: #607ea0
+*color14: #607ea0
+
+*color7: #9cb9de
+*color15: #9cb9de

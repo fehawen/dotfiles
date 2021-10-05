@@ -6,7 +6,7 @@
 
 export EDITOR=vim
 export VISUAL=vim
-export TERMINAL=urxvt
+export TERMINAL=xterm
 export BROWSER=chromium
 export LC_ALL=en_US.UTF-8
 export FONTCONFIG_FILE=~/.fonts.conf

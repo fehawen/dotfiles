@@ -1,0 +1,111 @@
+#
+# i3-gaps config
+#
+
+set $mod Mod4
+floating_modifier $mod
+
+font pango:SF Mono 10
+
+gaps inner 20
+gaps top 50
+
+default_border pixel 2
+
+set $fg_focus   #08090c
+set $bg_focus   #9cb9de
+set $fg_unfocus #08090c
+set $bg_unfocus #30445c
+
+#                        Border       Background   Foreground   Indicator    Child Border
+client.focused           $bg_focus    $bg_focus    $fg_focus    $bg_focus    $bg_focus
+client.unfocused         $bg_unfocus  $bg_unfocus  $fg_unfocus  $bg_unfocus  $bg_unfocus
+client.focused_inactive  $bg_unfocus  $bg_unfocus  $fg_unfocus  $bg_unfocus  $bg_unfocus
+client.urgent            $bg_focus    $bg_focus    $fg_focus    $bg_focus    $bg_focus
+
+focus_follows_mouse no
+
+assign [class="(?i)firefox"] 4
+assign [class="(?i)chromium"] 3
+
+for_window [instance="popup"] floating enable
+for_window [instance="popup"] move scratchpad
+exec --no-startup-id xterm -name popup
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Quit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+Return exec --no-startup-id xterm
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+x exec i3lock -c "#000000"
+
+bindsym $mod+Control+c exec --no-startup-id chromium
+bindsym $mod+Control+g exec --no-startup-id gimp
+
+bindsym $mod+p exec popterm
+bindsym $mod+Shift+p exec scr
+bindsym $mod+d exec dmn
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Control+h move left
+bindsym $mod+Control+j move down
+bindsym $mod+Control+k move up
+bindsym $mod+Control+l move right
+
+bindsym $mod+b split h
+bindsym $mod+v split v
+
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+space floating toggle
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+bindsym $mod+Shift+h resize shrink width 1 px or 1 ppt
+bindsym $mod+Shift+j resize shrink height 1 px or 1 ppt
+bindsym $mod+Shift+k resize grow height 1 px or 1 ppt
+bindsym $mod+Shift+l resize grow width 1 px or 1 ppt
+
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+
+bindsym XF86AudioMute exec pamixer -t
+bindsym XF86AudioLowerVolume exec pamixer -d 5
+bindsym XF86AudioRaiseVolume exec pamixer -i 5
