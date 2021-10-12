@@ -1,7 +1,7 @@
 conky.config = {
     alignment = 'top_right',
     background = true,
-    default_color = '#1e282c',
+    default_color = '#172124',
     font = 'SF Mono:pixelsize=30:style=bold',
     draw_shades = false,
     draw_outline = false,
@@ -9,13 +9,13 @@ conky.config = {
     border_inner_margin = 6,
     border_outer_margin = 0,
     border_width = 0,
-    gap_x = 80,
+    gap_x = 100,
     gap_y = 20,
     out_to_x = true,
     own_window = true,
-    own_window_colour = '#b48291',
+    own_window_colour = '#b98675',
     own_window_type = 'override',
-    own_window_title = 'conky2',
+    own_window_title = 'conky',
     own_window_class = 'Conky',
     update_interval = 10,
     double_buffer = true,
@@ -24,6 +24,6 @@ conky.config = {
 }
 
 conky.text = [[
- ${time %H:%M} • ${wireless_essid wlp2s0} • ${battery_percent}% \
+ ${time %H:%M} • ${wireless_essid wlp2s0} • ${memeasyfree} • ${battery_percent}% \
 
 ]];

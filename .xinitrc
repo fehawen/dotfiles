@@ -14,8 +14,7 @@ xsetroot -solid "#172124"
 hsetroot -solid "#172124"
 setxkbmap -layout se
 
-conky -q -d -c ~/.conky1rc &
-conky -q -d -c ~/.conky2rc &
+conky -q -d -c ~/.conkyrc &
 picom --config="$HOME/.picomrc" -b &
 
 exec i3 -c ~/.i3rc

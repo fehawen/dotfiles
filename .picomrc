@@ -1,4 +1,4 @@
-corner-radius = 14.0;
+corner-radius = 8.0;
 rounded-corners-exclude = [ "class_g = 'dmenu'" ];
 shadow = false;
 popup_menu = { shadow = false; };
