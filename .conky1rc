@@ -1,19 +1,19 @@
 conky.config = {
     alignment = 'top_left',
     background = true,
-    default_color = '#08090c',
+    default_color = '#1e282c',
     font = 'SF Mono:pixelsize=30:style=bold',
     draw_shades = false,
     draw_outline = false,
     draw_borders = false,
-    border_inner_margin = 0,
+    border_inner_margin = 6,
     border_outer_margin = 0,
     border_width = 0,
-    gap_x = 100,
-    gap_y = 25,
+    gap_x = 180,
+    gap_y = 20,
     out_to_x = true,
     own_window = true,
-    own_window_colour = '#9cb9de',
+    own_window_colour = '#b98675',
     own_window_type = 'override',
     own_window_title = 'conky1',
     own_window_class = 'Conky',
@@ -24,6 +24,6 @@ conky.config = {
 }
 
 conky.text = [[
- ${memfree} │ ${swapfree} │ ${fs_free /} \
+ ${memfree} • ${swapfree} • ${fs_free /} \
 
 ]];

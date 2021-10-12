@@ -7,15 +7,16 @@ floating_modifier $mod
 
 font pango:SF Mono 10
 
-gaps inner 20
-gaps top 50
+gaps inner 15
+gaps top 45
 
-default_border pixel 2
+default_border pixel 0
+for_window [instance="popup"] border pixel 6
 
-set $fg_focus   #08090c
-set $bg_focus   #9cb9de
-set $fg_unfocus #08090c
-set $bg_unfocus #30445c
+set $fg_focus   #b2bebf
+set $bg_focus   #172124
+set $fg_unfocus #b2bebf
+set $bg_unfocus #172124
 
 #                        Border       Background   Foreground   Indicator    Child Border
 client.focused           $bg_focus    $bg_focus    $fg_focus    $bg_focus    $bg_focus

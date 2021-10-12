@@ -1,0 +1,9 @@
+corner-radius = 14.0;
+rounded-corners-exclude = [ "class_g = 'dmenu'" ];
+shadow = false;
+popup_menu = { shadow = false; };
+dropdown_menu = { shadow = false; };
+utility = { shadow = false; };
+blur-background = false;
+fading = false;
+vsync = true;
