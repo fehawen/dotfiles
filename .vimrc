@@ -8,6 +8,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'fehawen/sc.vim'
 Plug 'fehawen/sl.vim'
 
@@ -20,7 +22,6 @@ filetype indent on
 
 set t_md=
 set t_Co=16
-colorscheme sc
 
 scriptencoding utf-8
 set encoding=utf-8
@@ -85,6 +86,8 @@ let g:sc_highlight_comments_only = 0
 let g:sl_hide_syntax_item = 1
 let g:sl_hide_file_type = 1
 
+colorscheme sc
+
 au VimResized * wincmd=
 au BufWritePre * %s/\s\+$//e
 au StdinReadPre * let s:std_in=1
@@ -92,6 +95,12 @@ au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 au WinEnter,BufEnter * call matchadd('ColorColumn', '\%81v', 100)
 au WinLeave,BufLeave * call clearmatches()
 au FileType c,cpp setlocal noexpandtab softtabstop=4 shiftwidth=4
+au FileType python setlocal textwidth=79
+
+augroup SyntaxSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+augroup END
 
 inoremap <expr><S-TAB> pumvisible() ? "\<Esc>" : "\<C-n>"
 map <C-n> :NERDTreeToggle<CR>
@@ -103,3 +112,6 @@ nmap <silent> <C-h> :ALEHover<CR>
 nmap <silent> <C-d> :ALEGoToDefinition<CR>
 map <Tab> :noh<CR>
 tnoremap <Esc> <C-\><C-n>
+map § <Esc>
+map! § <C-c>
+nnoremap py :!python3 %<CR>
