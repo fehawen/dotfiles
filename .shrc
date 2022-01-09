@@ -24,21 +24,21 @@ export DRT_PATH
 # shellcheck disable=1090
 [ -f ~/.aliases ] && . ~/.aliases
 
-alias la="ls -AF1"
-alias al="la | less -R"
-alias ll="ls -lAFGh | less -R"
-alias las="stat -c '%A %a %n' *"
-alias gc="git commit"
-alias gcm="git commit -m"
-alias gp="git push"
-alias gs="git status"
-alias gss="git status -s"
-alias glog="git log --graph"
-alias glogc="git shortlog -s -n -e --all"
-alias gh="cd ~/github/"
-alias dot="cd ~/dotfiles/"
-alias doc="cd ~/documents/"
-alias pro="cd ~/projects/"
-alias pks="cd ~/packages/"
+alias la='ls -AF1'
+alias al='la | less -R'
+alias ll='ls -lAFGh | less -R'
+alias las='stat -c "%A %a %n" *'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gp='git push'
+alias gs='git status'
+alias gss='git status -s'
+alias glog='git log --graph'
+alias glogc='git shortlog -s -n -e --all'
+alias gh='cd ~/github/'
+alias dot='cd ~/dotfiles/'
+alias doc='cd ~/documents/'
+alias pro='cd ~/projects/'
+alias pks='cd ~/packages/'
 
-export PS1="$ "
+export PS1='$ '
